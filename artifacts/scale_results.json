@@ -6,8 +6,8 @@
   "seeds_written": 1200,
   "tasks_compiled": 1200,
   "unique_task_ids": 1200,
-  "seed_file": "data\\seeds\\health_scale_1200.jsonl",
-  "output_dir": "generated\\scale",
+  "seed_file": "data/seeds/health_scale_1200.jsonl",
+  "output_dir": "generated/scale",
   "oracle_strict_passes": 1200,
   "negative_rejections": {
     "all_records": 1200,
@@ -16,7 +16,7 @@
     "wrong_status": 1200
   },
   "structural_errors": [],
-  "elapsed_seconds": 1.749,
+  "elapsed_seconds": 1.599,
   "diversity": {
     "unique_questions": 1164,
     "unique_answers": 641,

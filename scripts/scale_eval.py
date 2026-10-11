@@ -148,8 +148,9 @@ def run(
         "seeds_written": written,
         "tasks_compiled": len(outputs),
         "unique_task_ids": len(task_ids),
-        "seed_file": str(seeds_path.relative_to(ROOT)),
-        "output_dir": str(output_dir.relative_to(ROOT)),
+        # POSIX separators keep the report identical across Windows and Linux
+        "seed_file": seeds_path.relative_to(ROOT).as_posix(),
+        "output_dir": output_dir.relative_to(ROOT).as_posix(),
         "oracle_strict_passes": positives,
         "negative_rejections": dict(sorted(negatives.items())),
         "structural_errors": structural_errors,
