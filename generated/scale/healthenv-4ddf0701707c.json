@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-4ddf0701707c",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00518",
+    "category": "longitudinal-comparison",
+    "question": "How many hours higher was the sleep duration on 2023-03-09 than on 2023-03-06?"
+  },
+  "instruction": "Review participant HENV-1019's timeline and answer this operational question: How many hours higher was the sleep duration on 2023-03-09 than on 2023-03-06? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1019",
+    "display_name": "Synthetic Participant 1019",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "sleep_duration-0306",
+      "date": "2023-03-06",
+      "type": "sleep duration",
+      "value": 3.7,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0309",
+      "date": "2023-03-09",
+      "type": "sleep duration",
+      "value": 5.6,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0311",
+      "date": "2023-03-11",
+      "type": "sleep duration",
+      "value": 9.6,
+      "unit": "hours",
+      "detail": "Outside the requested window",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "sleep_duration-0306",
+      "sleep_duration-0309"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "1.9",
+      "hours"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-388b93700414",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00438",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2023-02-08 to 2023-02-12, on which day was the step count highest?"
+  },
+  "instruction": "Review participant HENV-1189's timeline and answer this operational question: Among the recorded days from 2023-02-08 to 2023-02-12, on which day was the step count highest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1189",
+    "display_name": "Synthetic Participant 1189",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0208",
+      "date": "2023-02-08",
+      "type": "step count",
+      "value": 8984.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0209",
+      "date": "2023-02-09",
+      "type": "step count",
+      "value": 7030.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0210",
+      "date": "2023-02-10",
+      "type": "step count",
+      "value": 15557.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0211",
+      "date": "2023-02-11",
+      "type": "step count",
+      "value": 13220.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0212",
+      "date": "2023-02-12",
+      "type": "step count",
+      "value": 8886.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "resting_heart_rate-0208",
+      "date": "2023-02-08",
+      "type": "resting heart rate",
+      "value": 77.0,
+      "unit": "bpm",
+      "detail": "Different metric",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0210"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-02-10"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

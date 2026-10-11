@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-9d6c05830450",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00761",
+    "category": "trend-classification",
+    "question": "Across the 6 recorded days from 2024-10-09 to 2024-10-14, did the blood glucose trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1012's timeline and answer this operational question: Across the 6 recorded days from 2024-10-09 to 2024-10-14, did the blood glucose trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1012",
+    "display_name": "Synthetic Participant 1012",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-1009",
+      "date": "2024-10-09",
+      "type": "blood glucose",
+      "value": 184.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1010",
+      "date": "2024-10-10",
+      "type": "blood glucose",
+      "value": 169.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1011",
+      "date": "2024-10-11",
+      "type": "blood glucose",
+      "value": 160.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1012",
+      "date": "2024-10-12",
+      "type": "blood glucose",
+      "value": 149.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1013",
+      "date": "2024-10-13",
+      "type": "blood glucose",
+      "value": 141.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1014",
+      "date": "2024-10-14",
+      "type": "blood glucose",
+      "value": 126.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "body_weight-1009",
+      "date": "2024-10-09",
+      "type": "body weight",
+      "value": 66.2,
+      "unit": "kg",
+      "detail": "Different metric",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-1009",
+      "blood_glucose-1010",
+      "blood_glucose-1011",
+      "blood_glucose-1012",
+      "blood_glucose-1013",
+      "blood_glucose-1014"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

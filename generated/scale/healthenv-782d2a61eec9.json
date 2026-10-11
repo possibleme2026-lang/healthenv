@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-782d2a61eec9",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00253",
+    "category": "temporal-aggregation",
+    "question": "What was the average active minutes across the 3 days from 2023-12-01 through 2023-12-03?"
+  },
+  "instruction": "Review participant HENV-1004's timeline and answer this operational question: What was the average active minutes across the 3 days from 2023-12-01 through 2023-12-03? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1004",
+    "display_name": "Synthetic Participant 1004",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-1201",
+      "date": "2023-12-01",
+      "type": "active minutes",
+      "value": 8.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1202",
+      "date": "2023-12-02",
+      "type": "active minutes",
+      "value": 120.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1203",
+      "date": "2023-12-03",
+      "type": "active minutes",
+      "value": 19.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1130",
+      "date": "2023-11-30",
+      "type": "active minutes",
+      "value": 112.0,
+      "unit": "minutes",
+      "detail": "Outside the requested window",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1204",
+      "date": "2023-12-04",
+      "type": "active minutes",
+      "value": 58.0,
+      "unit": "minutes",
+      "detail": "Outside the requested window",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-1201",
+      "active_minutes-1202",
+      "active_minutes-1203"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "49",
+      "minutes"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

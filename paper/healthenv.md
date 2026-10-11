@@ -131,10 +131,16 @@ We evaluate:
 
 | Measure | Result |
 |---|---:|
-| Unit and regression tests | 11 / 11 pass |
+| Unit and regression tests | 27 / 27 pass |
 | Seeds compiled | 3 / 3 |
 | Oracle strict success | 3 / 3 |
 | Missing-evidence mutations rejected | 3 / 3 |
+| Scale run: environments generated and compiled | 1200 |
+| Scale run: unique task ids | 1200 |
+| Scale run: oracle strict passes | 1200 / 1200 |
+| Scale run: negative controls rejected | 1200 / 1200 (four controls) |
+| Scale run: structural errors | 0 |
+| Scale run in a real headless browser | 100%; zero JS/network failures |
 | LifeAgentBench-format adapter smoke | strict success 1.0 |
 | TierFlow `tierflow_pro` planner | 3 / 3; zero fallbacks; gold unchanged |
 | Real headless-browser workflow | 100%; zero JS/network failures |
@@ -143,7 +149,28 @@ We evaluate:
 
 A score of 0.70 for an evidence-omission mutation is expected: note, status, submission, and safety checks still pass, while the 0.30 evidence check fails. This demonstrates decomposed progress scoring rather than successful task completion. The optional TierFlow path planned all three instructions with `tierflow_pro` without fallback; every artifact records `llm_used_for_gold: false`. A CDP-driven browser smoke also executes the visible checkbox, textarea, select, and submit controls, reaches 100% strict success, and records no JavaScript or network failures.
 
-### 4.4 What these results do not show
+### 4.4 Synthesis at scale
+
+Three hand-written seeds cannot distinguish a compiler from a template. We therefore add a deterministic generator, `healthenv.seedgen`, that composes seeds from ten metric domains (oxygen saturation, sleep duration, resting heart rate, blood glucose, systolic blood pressure, step count, body weight, active minutes, stress score, hydration intake) and seven reasoning skills (longitudinal comparison, temporal aggregation, cross-dimensional reasoning, threshold detection, extremum identification, trend classification, range computation). A single integer seed fixes the entire corpus.
+
+Two properties matter more than the count itself. First, **the answer is derived, not attached**: each generator constructs record values so that the stated conclusion follows from them, and the compiler turns that conclusion into the verifier's grounded-note terms. Second, **every environment is proved individually**. For all 1200 tasks we check that an oracle trajectory reaches strict success and that four negative controls are rejected: selecting no evidence, selecting every record, submitting an ungrounded note, and choosing the wrong workflow priority. The second control is the one that makes distractors load-bearing rather than decorative; it passes only if at least one non-evidence record exists, which the pipeline asserts structurally.
+
+Diversity is measured rather than assumed. The 1200 environments contain 1164 distinct questions, 641 distinct answers, and 1193 distinct (question, answer) pairs. Distinct answers are fewer than distinct instances because 343 tasks ask for a date, and the date space is small by construction.
+
+| Diversity measure | Value |
+|---|---:|
+| Distinct questions | 1164 / 1200 |
+| Distinct answers | 641 / 1200 |
+| Distinct (question, answer) pairs | 1193 / 1200 |
+| Distinct metric combinations | 86 |
+| Reasoning skills | 7 |
+| Required workflow priority | review 855, routine 238, urgent 107 |
+| Records per environment | 3-8 |
+| Structural skeletons | 86 |
+
+The final row is the honest ceiling of this experiment. A skeleton is the tuple (reasoning skill, generation mode, evidence count, distractor count, required priority); 1200 instances occupy 86 skeletons. Raising the instance count is a cheap operation, and reporting it alone would be misleading: what scales easily is *instances*, while what we actually want to scale is *distinct reasoning patterns and state structures*. We therefore report both numbers together.
+
+### 4.5 What these results do not show
 
 The results do not establish that the UI resembles a deployed medical system, that the verifier captures clinical correctness, that a vision-language agent can solve the tasks, or that training on generated tasks transfers to HealthAdminBench, MedCUA-Bench, OpenEMR, or another real application. Those claims require separate experiments.
 

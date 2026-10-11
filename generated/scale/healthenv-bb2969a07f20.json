@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-bb2969a07f20",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00494",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2024-10-23 to 2024-10-28, on which day was the step count highest?"
+  },
+  "instruction": "Review participant HENV-1245's timeline and answer this operational question: Among the recorded days from 2024-10-23 to 2024-10-28, on which day was the step count highest? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1245",
+    "display_name": "Synthetic Participant 1245",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-1023",
+      "date": "2024-10-23",
+      "type": "step count",
+      "value": 3857.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1024",
+      "date": "2024-10-24",
+      "type": "step count",
+      "value": 2772.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1025",
+      "date": "2024-10-25",
+      "type": "step count",
+      "value": 3948.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1026",
+      "date": "2024-10-26",
+      "type": "step count",
+      "value": 3031.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1027",
+      "date": "2024-10-27",
+      "type": "step count",
+      "value": 5195.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1028",
+      "date": "2024-10-28",
+      "type": "step count",
+      "value": 2550.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-1027"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-10-27"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

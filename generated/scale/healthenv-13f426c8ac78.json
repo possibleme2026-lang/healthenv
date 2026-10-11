@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-13f426c8ac78",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00947",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2023-04-30 to 2023-05-02, on which day did the participant have both the highest oxygen saturation and the lowest hydration intake?"
+  },
+  "instruction": "Review participant HENV-1198's timeline and answer this operational question: Among the recorded days from 2023-04-30 to 2023-05-02, on which day did the participant have both the highest oxygen saturation and the lowest hydration intake? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1198",
+    "display_name": "Synthetic Participant 1198",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-0430",
+      "date": "2023-04-30",
+      "type": "oxygen saturation",
+      "value": 96.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "hydration_intake-0430",
+      "date": "2023-04-30",
+      "type": "hydration intake",
+      "value": 2665.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "oxygen_saturation-0501",
+      "date": "2023-05-01",
+      "type": "oxygen saturation",
+      "value": 89.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "hydration_intake-0501",
+      "date": "2023-05-01",
+      "type": "hydration intake",
+      "value": 1684.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "oxygen_saturation-0502",
+      "date": "2023-05-02",
+      "type": "oxygen saturation",
+      "value": 100.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "hydration_intake-0502",
+      "date": "2023-05-02",
+      "type": "hydration intake",
+      "value": 1437.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-0502",
+      "hydration_intake-0502"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-05-02"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-10be990d9f63",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00608",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the oxygen saturation across the 6 recorded days from 2024-10-11 to 2024-10-16?"
+  },
+  "instruction": "Review participant HENV-1109's timeline and answer this operational question: What was the range (highest minus lowest) of the oxygen saturation across the 6 recorded days from 2024-10-11 to 2024-10-16? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1109",
+    "display_name": "Synthetic Participant 1109",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-1011",
+      "date": "2024-10-11",
+      "type": "oxygen saturation",
+      "value": 93.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1012",
+      "date": "2024-10-12",
+      "type": "oxygen saturation",
+      "value": 89.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1013",
+      "date": "2024-10-13",
+      "type": "oxygen saturation",
+      "value": 91.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1014",
+      "date": "2024-10-14",
+      "type": "oxygen saturation",
+      "value": 92.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1015",
+      "date": "2024-10-15",
+      "type": "oxygen saturation",
+      "value": 93.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1016",
+      "date": "2024-10-16",
+      "type": "oxygen saturation",
+      "value": 88.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "hydration_intake-1011",
+      "date": "2024-10-11",
+      "type": "hydration intake",
+      "value": 2057.0,
+      "unit": "ml",
+      "detail": "Different metric",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-1011",
+      "oxygen_saturation-1016"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "5",
+      "percentage points"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

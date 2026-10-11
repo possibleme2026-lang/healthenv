@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-1a0a6aa94838",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00502",
+    "category": "trend-classification",
+    "question": "Across the 4 recorded days from 2023-06-17 to 2023-06-20, did the stress score trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1003's timeline and answer this operational question: Across the 4 recorded days from 2023-06-17 to 2023-06-20, did the stress score trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1003",
+    "display_name": "Synthetic Participant 1003",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-0617",
+      "date": "2023-06-17",
+      "type": "stress score",
+      "value": 88.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0618",
+      "date": "2023-06-18",
+      "type": "stress score",
+      "value": 70.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0619",
+      "date": "2023-06-19",
+      "type": "stress score",
+      "value": 52.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0620",
+      "date": "2023-06-20",
+      "type": "stress score",
+      "value": 51.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "resting_heart_rate-0617",
+      "date": "2023-06-17",
+      "type": "resting heart rate",
+      "value": 97.0,
+      "unit": "bpm",
+      "detail": "Different metric",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-0617",
+      "stress_score-0618",
+      "stress_score-0619",
+      "stress_score-0620"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-c6b30fb72f6f",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01029",
+    "category": "longitudinal-comparison",
+    "question": "How many ml lower was the hydration intake on 2023-05-26 than on 2023-05-25?"
+  },
+  "instruction": "Review participant HENV-1030's timeline and answer this operational question: How many ml lower was the hydration intake on 2023-05-26 than on 2023-05-25? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1030",
+    "display_name": "Synthetic Participant 1030",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-0525",
+      "date": "2023-05-25",
+      "type": "hydration intake",
+      "value": 1816.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0526",
+      "date": "2023-05-26",
+      "type": "hydration intake",
+      "value": 1808.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0529",
+      "date": "2023-05-29",
+      "type": "hydration intake",
+      "value": 1877.0,
+      "unit": "ml",
+      "detail": "Outside the requested window",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "oxygen_saturation-0526",
+      "date": "2023-05-26",
+      "type": "oxygen saturation",
+      "value": 95.0,
+      "unit": "%",
+      "detail": "Different metric on the comparison day",
+      "metric": "oxygen_saturation"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-0525",
+      "hydration_intake-0526"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "8",
+      "ml"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

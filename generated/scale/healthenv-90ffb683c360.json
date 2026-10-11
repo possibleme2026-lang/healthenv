@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-90ffb683c360",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00086",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2023-03-26 to 2023-03-29, on which day did the participant have both the highest active minutes and the lowest body weight?"
+  },
+  "instruction": "Review participant HENV-1087's timeline and answer this operational question: Among the recorded days from 2023-03-26 to 2023-03-29, on which day did the participant have both the highest active minutes and the lowest body weight? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1087",
+    "display_name": "Synthetic Participant 1087",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0326",
+      "date": "2023-03-26",
+      "type": "active minutes",
+      "value": 29.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "body_weight-0326",
+      "date": "2023-03-26",
+      "type": "body weight",
+      "value": 108.7,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "active_minutes-0327",
+      "date": "2023-03-27",
+      "type": "active minutes",
+      "value": 127.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "body_weight-0327",
+      "date": "2023-03-27",
+      "type": "body weight",
+      "value": 81.0,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "active_minutes-0328",
+      "date": "2023-03-28",
+      "type": "active minutes",
+      "value": 114.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "body_weight-0328",
+      "date": "2023-03-28",
+      "type": "body weight",
+      "value": 111.5,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "active_minutes-0329",
+      "date": "2023-03-29",
+      "type": "active minutes",
+      "value": 86.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "body_weight-0329",
+      "date": "2023-03-29",
+      "type": "body weight",
+      "value": 107.2,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0327",
+      "body_weight-0327"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-03-27"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

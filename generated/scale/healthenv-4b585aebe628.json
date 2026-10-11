@@ -1,0 +1,91 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-4b585aebe628",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01186",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the stress score exceed 46 points?"
+  },
+  "instruction": "Review participant HENV-1187's timeline and answer this operational question: On how many of the recorded days did the stress score exceed 46 points? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1187",
+    "display_name": "Synthetic Participant 1187",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-0619",
+      "date": "2024-06-19",
+      "type": "stress score",
+      "value": 15.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0620",
+      "date": "2024-06-20",
+      "type": "stress score",
+      "value": 76.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0621",
+      "date": "2024-06-21",
+      "type": "stress score",
+      "value": 86.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0622",
+      "date": "2024-06-22",
+      "type": "stress score",
+      "value": 85.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0623",
+      "date": "2024-06-23",
+      "type": "stress score",
+      "value": 76.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-0620",
+      "stress_score-0621",
+      "stress_score-0622",
+      "stress_score-0623"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "4",
+      "days"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

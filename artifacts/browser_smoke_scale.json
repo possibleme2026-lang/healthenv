@@ -1,0 +1,13 @@
+{
+  "url": "http://127.0.0.1:8766",
+  "passed": true,
+  "title": "HealthEnv Workbench",
+  "selected": "5 evidence selected",
+  "resultClass": "result pass",
+  "resultText": "100%Strict successPASS — evidence_selectionPASS — grounded_notePASS — workflow_statusPASS — submissionPASS — safety",
+  "jsErrors": [],
+  "recordCount": 7,
+  "columns": "686px 380px",
+  "viewport": 1425,
+  "networkFailures": []
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-94b041b7d43c",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00180",
+    "category": "trend-classification",
+    "question": "Across the 5 recorded days from 2024-11-15 to 2024-11-19, did the systolic blood pressure trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1181's timeline and answer this operational question: Across the 5 recorded days from 2024-11-15 to 2024-11-19, did the systolic blood pressure trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1181",
+    "display_name": "Synthetic Participant 1181",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-1115",
+      "date": "2024-11-15",
+      "type": "systolic blood pressure",
+      "value": 99.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1116",
+      "date": "2024-11-16",
+      "type": "systolic blood pressure",
+      "value": 104.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1117",
+      "date": "2024-11-17",
+      "type": "systolic blood pressure",
+      "value": 114.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1118",
+      "date": "2024-11-18",
+      "type": "systolic blood pressure",
+      "value": 124.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1119",
+      "date": "2024-11-19",
+      "type": "systolic blood pressure",
+      "value": 128.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "hydration_intake-1115",
+      "date": "2024-11-15",
+      "type": "hydration intake",
+      "value": 947.0,
+      "unit": "ml",
+      "detail": "Different metric",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-1115",
+      "systolic_bp-1116",
+      "systolic_bp-1117",
+      "systolic_bp-1118",
+      "systolic_bp-1119"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

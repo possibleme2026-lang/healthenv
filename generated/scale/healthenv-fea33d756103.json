@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-fea33d756103",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00175",
+    "category": "longitudinal-comparison",
+    "question": "How many mmHg lower was the systolic blood pressure on 2023-02-15 than on 2023-02-14?"
+  },
+  "instruction": "Review participant HENV-1176's timeline and answer this operational question: How many mmHg lower was the systolic blood pressure on 2023-02-15 than on 2023-02-14? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1176",
+    "display_name": "Synthetic Participant 1176",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-0214",
+      "date": "2023-02-14",
+      "type": "systolic blood pressure",
+      "value": 120.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0215",
+      "date": "2023-02-15",
+      "type": "systolic blood pressure",
+      "value": 110.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0216",
+      "date": "2023-02-16",
+      "type": "systolic blood pressure",
+      "value": 144.0,
+      "unit": "mmHg",
+      "detail": "Outside the requested window",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "step_count-0215",
+      "date": "2023-02-15",
+      "type": "step count",
+      "value": 11716.0,
+      "unit": "steps",
+      "detail": "Different metric on the comparison day",
+      "metric": "step_count"
+    },
+    {
+      "id": "systolic_bp-0215-ctx",
+      "date": "2023-02-15",
+      "type": "systolic blood pressure",
+      "value": 118.0,
+      "unit": "mmHg",
+      "detail": "Same-day secondary reading (context mismatch)",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-0214",
+      "systolic_bp-0215"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "10",
+      "mmHg"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

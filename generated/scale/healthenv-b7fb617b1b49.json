@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-b7fb617b1b49",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00933",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2023-06-21 to 2023-06-24, on which day did the participant have both the highest sleep duration and the lowest stress score?"
+  },
+  "instruction": "Review participant HENV-1184's timeline and answer this operational question: Among the recorded days from 2023-06-21 to 2023-06-24, on which day did the participant have both the highest sleep duration and the lowest stress score? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1184",
+    "display_name": "Synthetic Participant 1184",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "sleep_duration-0621",
+      "date": "2023-06-21",
+      "type": "sleep duration",
+      "value": 4.3,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "stress_score-0621",
+      "date": "2023-06-21",
+      "type": "stress score",
+      "value": 79.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "sleep_duration-0622",
+      "date": "2023-06-22",
+      "type": "sleep duration",
+      "value": 3.4,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "stress_score-0622",
+      "date": "2023-06-22",
+      "type": "stress score",
+      "value": 85.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "sleep_duration-0623",
+      "date": "2023-06-23",
+      "type": "sleep duration",
+      "value": 3.4,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "stress_score-0623",
+      "date": "2023-06-23",
+      "type": "stress score",
+      "value": 87.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "sleep_duration-0624",
+      "date": "2023-06-24",
+      "type": "sleep duration",
+      "value": 3.1,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "stress_score-0624",
+      "date": "2023-06-24",
+      "type": "stress score",
+      "value": 85.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "sleep_duration-0621",
+      "stress_score-0621"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-06-21"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

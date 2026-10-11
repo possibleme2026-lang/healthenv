@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-b9462f1398ee",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00908",
+    "category": "trend-classification",
+    "question": "Across the 6 recorded days from 2023-08-26 to 2023-08-31, did the blood glucose trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1159's timeline and answer this operational question: Across the 6 recorded days from 2023-08-26 to 2023-08-31, did the blood glucose trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1159",
+    "display_name": "Synthetic Participant 1159",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0826",
+      "date": "2023-08-26",
+      "type": "blood glucose",
+      "value": 184.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0827",
+      "date": "2023-08-27",
+      "type": "blood glucose",
+      "value": 177.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0828",
+      "date": "2023-08-28",
+      "type": "blood glucose",
+      "value": 173.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0829",
+      "date": "2023-08-29",
+      "type": "blood glucose",
+      "value": 166.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0830",
+      "date": "2023-08-30",
+      "type": "blood glucose",
+      "value": 160.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0831",
+      "date": "2023-08-31",
+      "type": "blood glucose",
+      "value": 154.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "stress_score-0826",
+      "date": "2023-08-26",
+      "type": "stress score",
+      "value": 64.0,
+      "unit": "score",
+      "detail": "Different metric",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0826",
+      "blood_glucose-0827",
+      "blood_glucose-0828",
+      "blood_glucose-0829",
+      "blood_glucose-0830",
+      "blood_glucose-0831"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

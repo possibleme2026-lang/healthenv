@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-2a568beba664",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00122",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the blood glucose exceed 131 mg/dL?"
+  },
+  "instruction": "Review participant HENV-1123's timeline and answer this operational question: On how many of the recorded days did the blood glucose exceed 131 mg/dL? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1123",
+    "display_name": "Synthetic Participant 1123",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0816",
+      "date": "2024-08-16",
+      "type": "blood glucose",
+      "value": 166.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0817",
+      "date": "2024-08-17",
+      "type": "blood glucose",
+      "value": 81.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0818",
+      "date": "2024-08-18",
+      "type": "blood glucose",
+      "value": 144.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0819",
+      "date": "2024-08-19",
+      "type": "blood glucose",
+      "value": 147.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0820",
+      "date": "2024-08-20",
+      "type": "blood glucose",
+      "value": 141.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "body_weight-0816",
+      "date": "2024-08-16",
+      "type": "body weight",
+      "value": 67.8,
+      "unit": "kg",
+      "detail": "Different metric",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0816",
+      "blood_glucose-0818",
+      "blood_glucose-0819",
+      "blood_glucose-0820"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "4",
+      "days"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

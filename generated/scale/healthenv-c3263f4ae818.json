@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-c3263f4ae818",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00759",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the hydration intake exceed 2263 ml?"
+  },
+  "instruction": "Review participant HENV-1010's timeline and answer this operational question: On how many of the recorded days did the hydration intake exceed 2263 ml? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1010",
+    "display_name": "Synthetic Participant 1010",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-0824",
+      "date": "2023-08-24",
+      "type": "hydration intake",
+      "value": 2358.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0825",
+      "date": "2023-08-25",
+      "type": "hydration intake",
+      "value": 3120.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0826",
+      "date": "2023-08-26",
+      "type": "hydration intake",
+      "value": 2298.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0827",
+      "date": "2023-08-27",
+      "type": "hydration intake",
+      "value": 1245.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0828",
+      "date": "2023-08-28",
+      "type": "hydration intake",
+      "value": 1513.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "active_minutes-0824",
+      "date": "2023-08-24",
+      "type": "active minutes",
+      "value": 82.0,
+      "unit": "minutes",
+      "detail": "Different metric",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-0824",
+      "hydration_intake-0825",
+      "hydration_intake-0826"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "3",
+      "days"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

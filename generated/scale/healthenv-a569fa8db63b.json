@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-a569fa8db63b",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00422",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2024-07-15 to 2024-07-17, on which day did the participant have both the highest body weight and the lowest step count?"
+  },
+  "instruction": "Review participant HENV-1173's timeline and answer this operational question: Among the recorded days from 2024-07-15 to 2024-07-17, on which day did the participant have both the highest body weight and the lowest step count? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1173",
+    "display_name": "Synthetic Participant 1173",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0715",
+      "date": "2024-07-15",
+      "type": "body weight",
+      "value": 63.5,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "step_count-0715",
+      "date": "2024-07-15",
+      "type": "step count",
+      "value": 15457.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "body_weight-0716",
+      "date": "2024-07-16",
+      "type": "body weight",
+      "value": 84.3,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "step_count-0716",
+      "date": "2024-07-16",
+      "type": "step count",
+      "value": 14452.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "body_weight-0717",
+      "date": "2024-07-17",
+      "type": "body weight",
+      "value": 65.4,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "step_count-0717",
+      "date": "2024-07-17",
+      "type": "step count",
+      "value": 17215.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0716",
+      "step_count-0716"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-07-16"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

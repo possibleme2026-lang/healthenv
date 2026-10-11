@@ -1,0 +1,111 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-6ad8f787d800",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00073",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the step count exceed 7988 steps?"
+  },
+  "instruction": "Review participant HENV-1074's timeline and answer this operational question: On how many of the recorded days did the step count exceed 7988 steps? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1074",
+    "display_name": "Synthetic Participant 1074",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0328",
+      "date": "2023-03-28",
+      "type": "step count",
+      "value": 12757.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0329",
+      "date": "2023-03-29",
+      "type": "step count",
+      "value": 16050.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0330",
+      "date": "2023-03-30",
+      "type": "step count",
+      "value": 14905.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0331",
+      "date": "2023-03-31",
+      "type": "step count",
+      "value": 2362.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0401",
+      "date": "2023-04-01",
+      "type": "step count",
+      "value": 16193.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0402",
+      "date": "2023-04-02",
+      "type": "step count",
+      "value": 11919.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0403",
+      "date": "2023-04-03",
+      "type": "step count",
+      "value": 15403.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0328",
+      "step_count-0329",
+      "step_count-0330",
+      "step_count-0401",
+      "step_count-0402",
+      "step_count-0403"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "6",
+      "days"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-fa56dd247c47",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00690",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2024-04-24 to 2024-04-28, on which day was the blood glucose lowest?"
+  },
+  "instruction": "Review participant HENV-1191's timeline and answer this operational question: Among the recorded days from 2024-04-24 to 2024-04-28, on which day was the blood glucose lowest? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1191",
+    "display_name": "Synthetic Participant 1191",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0424",
+      "date": "2024-04-24",
+      "type": "blood glucose",
+      "value": 182.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0425",
+      "date": "2024-04-25",
+      "type": "blood glucose",
+      "value": 137.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0426",
+      "date": "2024-04-26",
+      "type": "blood glucose",
+      "value": 158.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0427",
+      "date": "2024-04-27",
+      "type": "blood glucose",
+      "value": 142.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0428",
+      "date": "2024-04-28",
+      "type": "blood glucose",
+      "value": 128.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "systolic_bp-0424",
+      "date": "2024-04-24",
+      "type": "systolic blood pressure",
+      "value": 148.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0428"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-04-28"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

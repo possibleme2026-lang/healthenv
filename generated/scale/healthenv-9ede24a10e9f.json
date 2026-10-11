@@ -1,0 +1,119 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-9ede24a10e9f",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01142",
+    "category": "temporal-aggregation",
+    "question": "What was the average active minutes across the 5 days from 2024-12-07 through 2024-12-11?"
+  },
+  "instruction": "Review participant HENV-1143's timeline and answer this operational question: What was the average active minutes across the 5 days from 2024-12-07 through 2024-12-11? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1143",
+    "display_name": "Synthetic Participant 1143",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-1207",
+      "date": "2024-12-07",
+      "type": "active minutes",
+      "value": 64.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1208",
+      "date": "2024-12-08",
+      "type": "active minutes",
+      "value": 86.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1209",
+      "date": "2024-12-09",
+      "type": "active minutes",
+      "value": 85.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1210",
+      "date": "2024-12-10",
+      "type": "active minutes",
+      "value": 22.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1211",
+      "date": "2024-12-11",
+      "type": "active minutes",
+      "value": 108.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1206",
+      "date": "2024-12-06",
+      "type": "active minutes",
+      "value": 130.0,
+      "unit": "minutes",
+      "detail": "Outside the requested window",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1212",
+      "date": "2024-12-12",
+      "type": "active minutes",
+      "value": 103.0,
+      "unit": "minutes",
+      "detail": "Outside the requested window",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "hydration_intake-1207",
+      "date": "2024-12-07",
+      "type": "hydration intake",
+      "value": 940.0,
+      "unit": "ml",
+      "detail": "Different metric inside the window",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-1207",
+      "active_minutes-1208",
+      "active_minutes-1209",
+      "active_minutes-1210",
+      "active_minutes-1211"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "73",
+      "minutes"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-3b2dd402d577",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01176",
+    "category": "longitudinal-comparison",
+    "question": "How many steps higher was the step count on 2024-03-10 than on 2024-03-07?"
+  },
+  "instruction": "Review participant HENV-1177's timeline and answer this operational question: How many steps higher was the step count on 2024-03-10 than on 2024-03-07? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1177",
+    "display_name": "Synthetic Participant 1177",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0307",
+      "date": "2024-03-07",
+      "type": "step count",
+      "value": 2312.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0310",
+      "date": "2024-03-10",
+      "type": "step count",
+      "value": 2319.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0311",
+      "date": "2024-03-11",
+      "type": "step count",
+      "value": 12745.0,
+      "unit": "steps",
+      "detail": "Outside the requested window",
+      "metric": "step_count"
+    },
+    {
+      "id": "sleep_duration-0310",
+      "date": "2024-03-10",
+      "type": "sleep duration",
+      "value": 8.1,
+      "unit": "hours",
+      "detail": "Different metric on the comparison day",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0307",
+      "step_count-0310"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "7",
+      "steps"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

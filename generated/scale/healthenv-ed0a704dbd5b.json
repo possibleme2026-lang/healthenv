@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-ed0a704dbd5b",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00117",
+    "category": "trend-classification",
+    "question": "Across the 5 recorded days from 2024-03-06 to 2024-03-10, did the oxygen saturation trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1118's timeline and answer this operational question: Across the 5 recorded days from 2024-03-06 to 2024-03-10, did the oxygen saturation trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1118",
+    "display_name": "Synthetic Participant 1118",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-0306",
+      "date": "2024-03-06",
+      "type": "oxygen saturation",
+      "value": 89.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0307",
+      "date": "2024-03-07",
+      "type": "oxygen saturation",
+      "value": 90.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0308",
+      "date": "2024-03-08",
+      "type": "oxygen saturation",
+      "value": 92.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0309",
+      "date": "2024-03-09",
+      "type": "oxygen saturation",
+      "value": 93.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0310",
+      "date": "2024-03-10",
+      "type": "oxygen saturation",
+      "value": 95.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "resting_heart_rate-0306",
+      "date": "2024-03-06",
+      "type": "resting heart rate",
+      "value": 56.0,
+      "unit": "bpm",
+      "detail": "Different metric",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-0306",
+      "oxygen_saturation-0307",
+      "oxygen_saturation-0308",
+      "oxygen_saturation-0309",
+      "oxygen_saturation-0310"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

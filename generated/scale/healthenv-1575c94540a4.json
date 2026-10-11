@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-1575c94540a4",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00127",
+    "category": "temporal-aggregation",
+    "question": "What was the average stress score across the 4 days from 2023-01-14 through 2023-01-17?"
+  },
+  "instruction": "Review participant HENV-1128's timeline and answer this operational question: What was the average stress score across the 4 days from 2023-01-14 through 2023-01-17? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1128",
+    "display_name": "Synthetic Participant 1128",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-0114",
+      "date": "2023-01-14",
+      "type": "stress score",
+      "value": 63.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0115",
+      "date": "2023-01-15",
+      "type": "stress score",
+      "value": 58.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0116",
+      "date": "2023-01-16",
+      "type": "stress score",
+      "value": 50.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0117",
+      "date": "2023-01-17",
+      "type": "stress score",
+      "value": 69.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0113",
+      "date": "2023-01-13",
+      "type": "stress score",
+      "value": 47.0,
+      "unit": "score",
+      "detail": "Outside the requested window",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0118",
+      "date": "2023-01-18",
+      "type": "stress score",
+      "value": 13.0,
+      "unit": "score",
+      "detail": "Outside the requested window",
+      "metric": "stress_score"
+    },
+    {
+      "id": "blood_glucose-0114",
+      "date": "2023-01-14",
+      "type": "blood glucose",
+      "value": 150.0,
+      "unit": "mg/dL",
+      "detail": "Different metric inside the window",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-0114",
+      "stress_score-0115",
+      "stress_score-0116",
+      "stress_score-0117"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "60",
+      "score"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

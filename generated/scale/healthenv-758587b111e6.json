@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-758587b111e6",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00865",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2024-07-09 to 2024-07-13, on which day was the blood glucose highest?"
+  },
+  "instruction": "Review participant HENV-1116's timeline and answer this operational question: Among the recorded days from 2024-07-09 to 2024-07-13, on which day was the blood glucose highest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1116",
+    "display_name": "Synthetic Participant 1116",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0709",
+      "date": "2024-07-09",
+      "type": "blood glucose",
+      "value": 90.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0710",
+      "date": "2024-07-10",
+      "type": "blood glucose",
+      "value": 85.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0711",
+      "date": "2024-07-11",
+      "type": "blood glucose",
+      "value": 130.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0712",
+      "date": "2024-07-12",
+      "type": "blood glucose",
+      "value": 92.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0713",
+      "date": "2024-07-13",
+      "type": "blood glucose",
+      "value": 71.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "resting_heart_rate-0709",
+      "date": "2024-07-09",
+      "type": "resting heart rate",
+      "value": 96.0,
+      "unit": "bpm",
+      "detail": "Different metric",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0711"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-07-11"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

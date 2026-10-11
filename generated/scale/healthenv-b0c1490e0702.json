@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-b0c1490e0702",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01086",
+    "category": "temporal-aggregation",
+    "question": "What was the average resting heart rate across the 3 days from 2023-02-13 through 2023-02-15?"
+  },
+  "instruction": "Review participant HENV-1087's timeline and answer this operational question: What was the average resting heart rate across the 3 days from 2023-02-13 through 2023-02-15? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1087",
+    "display_name": "Synthetic Participant 1087",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "resting_heart_rate-0213",
+      "date": "2023-02-13",
+      "type": "resting heart rate",
+      "value": 96.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0214",
+      "date": "2023-02-14",
+      "type": "resting heart rate",
+      "value": 79.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0215",
+      "date": "2023-02-15",
+      "type": "resting heart rate",
+      "value": 80.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0212",
+      "date": "2023-02-12",
+      "type": "resting heart rate",
+      "value": 79.0,
+      "unit": "bpm",
+      "detail": "Outside the requested window",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0216",
+      "date": "2023-02-16",
+      "type": "resting heart rate",
+      "value": 49.0,
+      "unit": "bpm",
+      "detail": "Outside the requested window",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "systolic_bp-0213",
+      "date": "2023-02-13",
+      "type": "systolic blood pressure",
+      "value": 149.0,
+      "unit": "mmHg",
+      "detail": "Different metric inside the window",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "resting_heart_rate-0213",
+      "resting_heart_rate-0214",
+      "resting_heart_rate-0215"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "85",
+      "bpm"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

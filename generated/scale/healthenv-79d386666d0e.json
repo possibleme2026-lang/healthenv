@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-79d386666d0e",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00806",
+    "category": "temporal-aggregation",
+    "question": "What was the average systolic blood pressure across the 4 days from 2023-08-11 through 2023-08-14?"
+  },
+  "instruction": "Review participant HENV-1057's timeline and answer this operational question: What was the average systolic blood pressure across the 4 days from 2023-08-11 through 2023-08-14? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1057",
+    "display_name": "Synthetic Participant 1057",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-0811",
+      "date": "2023-08-11",
+      "type": "systolic blood pressure",
+      "value": 153.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0812",
+      "date": "2023-08-12",
+      "type": "systolic blood pressure",
+      "value": 164.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0813",
+      "date": "2023-08-13",
+      "type": "systolic blood pressure",
+      "value": 113.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0814",
+      "date": "2023-08-14",
+      "type": "systolic blood pressure",
+      "value": 146.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0810",
+      "date": "2023-08-10",
+      "type": "systolic blood pressure",
+      "value": 116.0,
+      "unit": "mmHg",
+      "detail": "Outside the requested window",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0815",
+      "date": "2023-08-15",
+      "type": "systolic blood pressure",
+      "value": 136.0,
+      "unit": "mmHg",
+      "detail": "Outside the requested window",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "body_weight-0811",
+      "date": "2023-08-11",
+      "type": "body weight",
+      "value": 90.7,
+      "unit": "kg",
+      "detail": "Different metric inside the window",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-0811",
+      "systolic_bp-0812",
+      "systolic_bp-0813",
+      "systolic_bp-0814"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "144",
+      "mmHg"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

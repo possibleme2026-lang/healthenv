@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-e933aa7f13d0",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00119",
+    "category": "longitudinal-comparison",
+    "question": "How many minutes higher was the active minutes on 2024-06-11 than on 2024-06-09?"
+  },
+  "instruction": "Review participant HENV-1120's timeline and answer this operational question: How many minutes higher was the active minutes on 2024-06-11 than on 2024-06-09? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1120",
+    "display_name": "Synthetic Participant 1120",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0609",
+      "date": "2024-06-09",
+      "type": "active minutes",
+      "value": 25.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0611",
+      "date": "2024-06-11",
+      "type": "active minutes",
+      "value": 36.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0613",
+      "date": "2024-06-13",
+      "type": "active minutes",
+      "value": 125.0,
+      "unit": "minutes",
+      "detail": "Outside the requested window",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "systolic_bp-0611",
+      "date": "2024-06-11",
+      "type": "systolic blood pressure",
+      "value": 125.0,
+      "unit": "mmHg",
+      "detail": "Different metric on the comparison day",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "active_minutes-0611-ctx",
+      "date": "2024-06-11",
+      "type": "active minutes",
+      "value": 7.0,
+      "unit": "minutes",
+      "detail": "Same-day secondary reading (context mismatch)",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0609",
+      "active_minutes-0611"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "11",
+      "minutes"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

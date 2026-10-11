@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-82882001deb8",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00121",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2024-04-01 to 2024-04-03, on which day did the participant have both the highest stress score and the lowest systolic blood pressure?"
+  },
+  "instruction": "Review participant HENV-1122's timeline and answer this operational question: Among the recorded days from 2024-04-01 to 2024-04-03, on which day did the participant have both the highest stress score and the lowest systolic blood pressure? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1122",
+    "display_name": "Synthetic Participant 1122",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-0401",
+      "date": "2024-04-01",
+      "type": "stress score",
+      "value": 33.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "systolic_bp-0401",
+      "date": "2024-04-01",
+      "type": "systolic blood pressure",
+      "value": 141.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "stress_score-0402",
+      "date": "2024-04-02",
+      "type": "stress score",
+      "value": 17.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "systolic_bp-0402",
+      "date": "2024-04-02",
+      "type": "systolic blood pressure",
+      "value": 161.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "stress_score-0403",
+      "date": "2024-04-03",
+      "type": "stress score",
+      "value": 10.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "systolic_bp-0403",
+      "date": "2024-04-03",
+      "type": "systolic blood pressure",
+      "value": 168.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-0401",
+      "systolic_bp-0401"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-04-01"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

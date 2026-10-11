@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-344e0bb86fe3",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00832",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the active minutes across the 5 recorded days from 2024-08-10 to 2024-08-14?"
+  },
+  "instruction": "Review participant HENV-1083's timeline and answer this operational question: What was the range (highest minus lowest) of the active minutes across the 5 recorded days from 2024-08-10 to 2024-08-14? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1083",
+    "display_name": "Synthetic Participant 1083",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0810",
+      "date": "2024-08-10",
+      "type": "active minutes",
+      "value": 96.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0811",
+      "date": "2024-08-11",
+      "type": "active minutes",
+      "value": 90.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0812",
+      "date": "2024-08-12",
+      "type": "active minutes",
+      "value": 99.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0813",
+      "date": "2024-08-13",
+      "type": "active minutes",
+      "value": 20.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0814",
+      "date": "2024-08-14",
+      "type": "active minutes",
+      "value": 59.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "hydration_intake-0810",
+      "date": "2024-08-10",
+      "type": "hydration intake",
+      "value": 1917.0,
+      "unit": "ml",
+      "detail": "Different metric",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0812",
+      "active_minutes-0813"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "79",
+      "minutes"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

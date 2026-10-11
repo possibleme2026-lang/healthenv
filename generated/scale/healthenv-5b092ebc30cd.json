@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-5b092ebc30cd",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00954",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2024-08-20 to 2024-08-23, on which day did the participant have both the highest blood glucose and the lowest step count?"
+  },
+  "instruction": "Review participant HENV-1205's timeline and answer this operational question: Among the recorded days from 2024-08-20 to 2024-08-23, on which day did the participant have both the highest blood glucose and the lowest step count? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1205",
+    "display_name": "Synthetic Participant 1205",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0820",
+      "date": "2024-08-20",
+      "type": "blood glucose",
+      "value": 92.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "step_count-0820",
+      "date": "2024-08-20",
+      "type": "step count",
+      "value": 9050.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "blood_glucose-0821",
+      "date": "2024-08-21",
+      "type": "blood glucose",
+      "value": 119.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "step_count-0821",
+      "date": "2024-08-21",
+      "type": "step count",
+      "value": 4314.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "blood_glucose-0822",
+      "date": "2024-08-22",
+      "type": "blood glucose",
+      "value": 76.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "step_count-0822",
+      "date": "2024-08-22",
+      "type": "step count",
+      "value": 7927.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "blood_glucose-0823",
+      "date": "2024-08-23",
+      "type": "blood glucose",
+      "value": 85.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "step_count-0823",
+      "date": "2024-08-23",
+      "type": "step count",
+      "value": 16356.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0821",
+      "step_count-0821"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-08-21"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

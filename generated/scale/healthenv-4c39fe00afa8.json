@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-4c39fe00afa8",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00167",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the active minutes across the 6 recorded days from 2024-11-19 to 2024-11-24?"
+  },
+  "instruction": "Review participant HENV-1168's timeline and answer this operational question: What was the range (highest minus lowest) of the active minutes across the 6 recorded days from 2024-11-19 to 2024-11-24? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1168",
+    "display_name": "Synthetic Participant 1168",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-1119",
+      "date": "2024-11-19",
+      "type": "active minutes",
+      "value": 74.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1120",
+      "date": "2024-11-20",
+      "type": "active minutes",
+      "value": 26.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1121",
+      "date": "2024-11-21",
+      "type": "active minutes",
+      "value": 70.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1122",
+      "date": "2024-11-22",
+      "type": "active minutes",
+      "value": 68.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1123",
+      "date": "2024-11-23",
+      "type": "active minutes",
+      "value": 77.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1124",
+      "date": "2024-11-24",
+      "type": "active minutes",
+      "value": 78.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "step_count-1119",
+      "date": "2024-11-19",
+      "type": "step count",
+      "value": 16253.0,
+      "unit": "steps",
+      "detail": "Different metric",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-1124",
+      "active_minutes-1120"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "52",
+      "minutes"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

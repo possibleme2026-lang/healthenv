@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-8211bedb89a6",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00877",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2024-11-06 to 2024-11-09, on which day did the participant have both the highest active minutes and the lowest oxygen saturation?"
+  },
+  "instruction": "Review participant HENV-1128's timeline and answer this operational question: Among the recorded days from 2024-11-06 to 2024-11-09, on which day did the participant have both the highest active minutes and the lowest oxygen saturation? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1128",
+    "display_name": "Synthetic Participant 1128",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-1106",
+      "date": "2024-11-06",
+      "type": "active minutes",
+      "value": 54.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "oxygen_saturation-1106",
+      "date": "2024-11-06",
+      "type": "oxygen saturation",
+      "value": 99.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "active_minutes-1107",
+      "date": "2024-11-07",
+      "type": "active minutes",
+      "value": 39.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "oxygen_saturation-1107",
+      "date": "2024-11-07",
+      "type": "oxygen saturation",
+      "value": 92.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "active_minutes-1108",
+      "date": "2024-11-08",
+      "type": "active minutes",
+      "value": 87.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "oxygen_saturation-1108",
+      "date": "2024-11-08",
+      "type": "oxygen saturation",
+      "value": 90.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "active_minutes-1109",
+      "date": "2024-11-09",
+      "type": "active minutes",
+      "value": 60.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "oxygen_saturation-1109",
+      "date": "2024-11-09",
+      "type": "oxygen saturation",
+      "value": 95.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-1108",
+      "oxygen_saturation-1108"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-11-08"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

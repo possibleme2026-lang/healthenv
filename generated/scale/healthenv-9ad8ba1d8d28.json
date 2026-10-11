@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-9ad8ba1d8d28",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00353",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the hydration intake exceed 1841 ml?"
+  },
+  "instruction": "Review participant HENV-1104's timeline and answer this operational question: On how many of the recorded days did the hydration intake exceed 1841 ml? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1104",
+    "display_name": "Synthetic Participant 1104",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-0208",
+      "date": "2024-02-08",
+      "type": "hydration intake",
+      "value": 2524.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0209",
+      "date": "2024-02-09",
+      "type": "hydration intake",
+      "value": 3447.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0210",
+      "date": "2024-02-10",
+      "type": "hydration intake",
+      "value": 2691.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0211",
+      "date": "2024-02-11",
+      "type": "hydration intake",
+      "value": 2955.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0212",
+      "date": "2024-02-12",
+      "type": "hydration intake",
+      "value": 1566.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0213",
+      "date": "2024-02-13",
+      "type": "hydration intake",
+      "value": 2981.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "resting_heart_rate-0208",
+      "date": "2024-02-08",
+      "type": "resting heart rate",
+      "value": 52.0,
+      "unit": "bpm",
+      "detail": "Different metric",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-0208",
+      "hydration_intake-0209",
+      "hydration_intake-0210",
+      "hydration_intake-0211",
+      "hydration_intake-0213"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "5",
+      "days"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-7e9a3cbbd197",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00239",
+    "category": "temporal-aggregation",
+    "question": "What was the average stress score across the 5 days from 2024-11-09 through 2024-11-13?"
+  },
+  "instruction": "Review participant HENV-1240's timeline and answer this operational question: What was the average stress score across the 5 days from 2024-11-09 through 2024-11-13? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1240",
+    "display_name": "Synthetic Participant 1240",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-1109",
+      "date": "2024-11-09",
+      "type": "stress score",
+      "value": 21.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1110",
+      "date": "2024-11-10",
+      "type": "stress score",
+      "value": 25.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1111",
+      "date": "2024-11-11",
+      "type": "stress score",
+      "value": 43.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1112",
+      "date": "2024-11-12",
+      "type": "stress score",
+      "value": 82.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1113",
+      "date": "2024-11-13",
+      "type": "stress score",
+      "value": 69.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1108",
+      "date": "2024-11-08",
+      "type": "stress score",
+      "value": 18.0,
+      "unit": "score",
+      "detail": "Outside the requested window",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1114",
+      "date": "2024-11-14",
+      "type": "stress score",
+      "value": 42.0,
+      "unit": "score",
+      "detail": "Outside the requested window",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-1109",
+      "stress_score-1110",
+      "stress_score-1111",
+      "stress_score-1112",
+      "stress_score-1113"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "48",
+      "score"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

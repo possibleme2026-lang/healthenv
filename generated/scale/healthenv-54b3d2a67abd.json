@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-54b3d2a67abd",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00977",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2023-09-15 to 2023-09-18, on which day was the step count highest?"
+  },
+  "instruction": "Review participant HENV-1228's timeline and answer this operational question: Among the recorded days from 2023-09-15 to 2023-09-18, on which day was the step count highest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1228",
+    "display_name": "Synthetic Participant 1228",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0915",
+      "date": "2023-09-15",
+      "type": "step count",
+      "value": 2518.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0916",
+      "date": "2023-09-16",
+      "type": "step count",
+      "value": 5121.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0917",
+      "date": "2023-09-17",
+      "type": "step count",
+      "value": 1753.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0918",
+      "date": "2023-09-18",
+      "type": "step count",
+      "value": 3603.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "stress_score-0915",
+      "date": "2023-09-15",
+      "type": "stress score",
+      "value": 86.0,
+      "unit": "score",
+      "detail": "Different metric",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0916"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-09-16"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

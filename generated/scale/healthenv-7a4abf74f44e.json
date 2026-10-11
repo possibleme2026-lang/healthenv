@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-7a4abf74f44e",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00657",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the blood glucose across the 4 recorded days from 2023-08-13 to 2023-08-16?"
+  },
+  "instruction": "Review participant HENV-1158's timeline and answer this operational question: What was the range (highest minus lowest) of the blood glucose across the 4 recorded days from 2023-08-13 to 2023-08-16? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1158",
+    "display_name": "Synthetic Participant 1158",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0813",
+      "date": "2023-08-13",
+      "type": "blood glucose",
+      "value": 145.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0814",
+      "date": "2023-08-14",
+      "type": "blood glucose",
+      "value": 122.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0815",
+      "date": "2023-08-15",
+      "type": "blood glucose",
+      "value": 168.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0816",
+      "date": "2023-08-16",
+      "type": "blood glucose",
+      "value": 137.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "stress_score-0813",
+      "date": "2023-08-13",
+      "type": "stress score",
+      "value": 70.0,
+      "unit": "score",
+      "detail": "Different metric",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0815",
+      "blood_glucose-0814"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "46",
+      "mg/dL"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

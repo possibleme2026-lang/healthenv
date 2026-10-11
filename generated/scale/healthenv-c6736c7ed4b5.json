@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-c6736c7ed4b5",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00404",
+    "category": "trend-classification",
+    "question": "Across the 5 recorded days from 2023-01-16 to 2023-01-20, did the hydration intake trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1155's timeline and answer this operational question: Across the 5 recorded days from 2023-01-16 to 2023-01-20, did the hydration intake trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1155",
+    "display_name": "Synthetic Participant 1155",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-0116",
+      "date": "2023-01-16",
+      "type": "hydration intake",
+      "value": 3365.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0117",
+      "date": "2023-01-17",
+      "type": "hydration intake",
+      "value": 3108.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0118",
+      "date": "2023-01-18",
+      "type": "hydration intake",
+      "value": 2697.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0119",
+      "date": "2023-01-19",
+      "type": "hydration intake",
+      "value": 2310.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0120",
+      "date": "2023-01-20",
+      "type": "hydration intake",
+      "value": 2035.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "body_weight-0116",
+      "date": "2023-01-16",
+      "type": "body weight",
+      "value": 57.5,
+      "unit": "kg",
+      "detail": "Different metric",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-0116",
+      "hydration_intake-0117",
+      "hydration_intake-0118",
+      "hydration_intake-0119",
+      "hydration_intake-0120"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

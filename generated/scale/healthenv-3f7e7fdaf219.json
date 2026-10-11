@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-3f7e7fdaf219",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00276",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the blood glucose exceed 166 mg/dL?"
+  },
+  "instruction": "Review participant HENV-1027's timeline and answer this operational question: On how many of the recorded days did the blood glucose exceed 166 mg/dL? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1027",
+    "display_name": "Synthetic Participant 1027",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0624",
+      "date": "2023-06-24",
+      "type": "blood glucose",
+      "value": 148.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0625",
+      "date": "2023-06-25",
+      "type": "blood glucose",
+      "value": 76.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0626",
+      "date": "2023-06-26",
+      "type": "blood glucose",
+      "value": 162.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0627",
+      "date": "2023-06-27",
+      "type": "blood glucose",
+      "value": 178.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0628",
+      "date": "2023-06-28",
+      "type": "blood glucose",
+      "value": 157.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0629",
+      "date": "2023-06-29",
+      "type": "blood glucose",
+      "value": 80.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0630",
+      "date": "2023-06-30",
+      "type": "blood glucose",
+      "value": 82.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "systolic_bp-0624",
+      "date": "2023-06-24",
+      "type": "systolic blood pressure",
+      "value": 160.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0627"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "1",
+      "day"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

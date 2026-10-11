@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-1bf88011814a",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01075",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2024-06-29 to 2024-07-03, on which day was the active minutes highest?"
+  },
+  "instruction": "Review participant HENV-1076's timeline and answer this operational question: Among the recorded days from 2024-06-29 to 2024-07-03, on which day was the active minutes highest? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1076",
+    "display_name": "Synthetic Participant 1076",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0629",
+      "date": "2024-06-29",
+      "type": "active minutes",
+      "value": 12.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0630",
+      "date": "2024-06-30",
+      "type": "active minutes",
+      "value": 6.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0701",
+      "date": "2024-07-01",
+      "type": "active minutes",
+      "value": 22.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0702",
+      "date": "2024-07-02",
+      "type": "active minutes",
+      "value": 10.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0703",
+      "date": "2024-07-03",
+      "type": "active minutes",
+      "value": 9.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "oxygen_saturation-0629",
+      "date": "2024-06-29",
+      "type": "oxygen saturation",
+      "value": 100.0,
+      "unit": "%",
+      "detail": "Different metric",
+      "metric": "oxygen_saturation"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0701"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-07-01"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

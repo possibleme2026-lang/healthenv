@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-42629c3c7671",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00783",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the sleep duration across the 6 recorded days from 2025-01-22 to 2025-01-27?"
+  },
+  "instruction": "Review participant HENV-1034's timeline and answer this operational question: What was the range (highest minus lowest) of the sleep duration across the 6 recorded days from 2025-01-22 to 2025-01-27? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1034",
+    "display_name": "Synthetic Participant 1034",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "sleep_duration-0122",
+      "date": "2025-01-22",
+      "type": "sleep duration",
+      "value": 8.1,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0123",
+      "date": "2025-01-23",
+      "type": "sleep duration",
+      "value": 8.0,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0124",
+      "date": "2025-01-24",
+      "type": "sleep duration",
+      "value": 9.3,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0125",
+      "date": "2025-01-25",
+      "type": "sleep duration",
+      "value": 8.5,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0126",
+      "date": "2025-01-26",
+      "type": "sleep duration",
+      "value": 9.0,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0127",
+      "date": "2025-01-27",
+      "type": "sleep duration",
+      "value": 9.2,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "sleep_duration-0124",
+      "sleep_duration-0123"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "1.3",
+      "hours"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

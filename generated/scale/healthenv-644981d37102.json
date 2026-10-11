@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-644981d37102",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00504",
+    "category": "longitudinal-comparison",
+    "question": "How many minutes lower was the active minutes on 2024-01-02 than on 2023-12-31?"
+  },
+  "instruction": "Review participant HENV-1005's timeline and answer this operational question: How many minutes lower was the active minutes on 2024-01-02 than on 2023-12-31? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1005",
+    "display_name": "Synthetic Participant 1005",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-1231",
+      "date": "2023-12-31",
+      "type": "active minutes",
+      "value": 63.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0102",
+      "date": "2024-01-02",
+      "type": "active minutes",
+      "value": 52.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0104",
+      "date": "2024-01-04",
+      "type": "active minutes",
+      "value": 50.0,
+      "unit": "minutes",
+      "detail": "Outside the requested window",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "sleep_duration-0102",
+      "date": "2024-01-02",
+      "type": "sleep duration",
+      "value": 7.0,
+      "unit": "hours",
+      "detail": "Different metric on the comparison day",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "active_minutes-0102-ctx",
+      "date": "2024-01-02",
+      "type": "active minutes",
+      "value": 22.0,
+      "unit": "minutes",
+      "detail": "Same-day secondary reading (context mismatch)",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-1231",
+      "active_minutes-0102"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "11",
+      "minutes"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

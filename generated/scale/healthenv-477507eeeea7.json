@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-477507eeeea7",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00612",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the active minutes exceed 85 minutes?"
+  },
+  "instruction": "Review participant HENV-1113's timeline and answer this operational question: On how many of the recorded days did the active minutes exceed 85 minutes? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1113",
+    "display_name": "Synthetic Participant 1113",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0422",
+      "date": "2024-04-22",
+      "type": "active minutes",
+      "value": 90.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0423",
+      "date": "2024-04-23",
+      "type": "active minutes",
+      "value": 64.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0424",
+      "date": "2024-04-24",
+      "type": "active minutes",
+      "value": 109.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0425",
+      "date": "2024-04-25",
+      "type": "active minutes",
+      "value": 118.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0426",
+      "date": "2024-04-26",
+      "type": "active minutes",
+      "value": 91.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0427",
+      "date": "2024-04-27",
+      "type": "active minutes",
+      "value": 54.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0422",
+      "active_minutes-0424",
+      "active_minutes-0425",
+      "active_minutes-0426"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "4",
+      "days"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

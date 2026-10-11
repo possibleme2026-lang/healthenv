@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-ec7d7100ca5f",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01082",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2023-08-04 to 2023-08-08, on which day was the body weight highest?"
+  },
+  "instruction": "Review participant HENV-1083's timeline and answer this operational question: Among the recorded days from 2023-08-04 to 2023-08-08, on which day was the body weight highest? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1083",
+    "display_name": "Synthetic Participant 1083",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0804",
+      "date": "2023-08-04",
+      "type": "body weight",
+      "value": 48.8,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0805",
+      "date": "2023-08-05",
+      "type": "body weight",
+      "value": 53.3,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0806",
+      "date": "2023-08-06",
+      "type": "body weight",
+      "value": 48.8,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0807",
+      "date": "2023-08-07",
+      "type": "body weight",
+      "value": 48.5,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0808",
+      "date": "2023-08-08",
+      "type": "body weight",
+      "value": 49.5,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0805"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-08-05"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

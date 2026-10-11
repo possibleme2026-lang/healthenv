@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-0bdbc57b0e33",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00268",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2023-05-10 to 2023-05-12, on which day did the participant have both the highest step count and the lowest hydration intake?"
+  },
+  "instruction": "Review participant HENV-1019's timeline and answer this operational question: Among the recorded days from 2023-05-10 to 2023-05-12, on which day did the participant have both the highest step count and the lowest hydration intake? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1019",
+    "display_name": "Synthetic Participant 1019",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0510",
+      "date": "2023-05-10",
+      "type": "step count",
+      "value": 4129.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "hydration_intake-0510",
+      "date": "2023-05-10",
+      "type": "hydration intake",
+      "value": 1763.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "step_count-0511",
+      "date": "2023-05-11",
+      "type": "step count",
+      "value": 3476.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "hydration_intake-0511",
+      "date": "2023-05-11",
+      "type": "hydration intake",
+      "value": 2663.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "step_count-0512",
+      "date": "2023-05-12",
+      "type": "step count",
+      "value": 15916.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "hydration_intake-0512",
+      "date": "2023-05-12",
+      "type": "hydration intake",
+      "value": 1059.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0512",
+      "hydration_intake-0512"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-05-12"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

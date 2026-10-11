@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-633b171e35fd",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00115",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the resting heart rate exceed 72 bpm?"
+  },
+  "instruction": "Review participant HENV-1116's timeline and answer this operational question: On how many of the recorded days did the resting heart rate exceed 72 bpm? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1116",
+    "display_name": "Synthetic Participant 1116",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "resting_heart_rate-1015",
+      "date": "2023-10-15",
+      "type": "resting heart rate",
+      "value": 85.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-1016",
+      "date": "2023-10-16",
+      "type": "resting heart rate",
+      "value": 82.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-1017",
+      "date": "2023-10-17",
+      "type": "resting heart rate",
+      "value": 48.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-1018",
+      "date": "2023-10-18",
+      "type": "resting heart rate",
+      "value": 66.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-1019",
+      "date": "2023-10-19",
+      "type": "resting heart rate",
+      "value": 95.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "resting_heart_rate-1015",
+      "resting_heart_rate-1016",
+      "resting_heart_rate-1019"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "3",
+      "days"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

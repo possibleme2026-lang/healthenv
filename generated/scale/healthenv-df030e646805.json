@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-df030e646805",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00659",
+    "category": "temporal-aggregation",
+    "question": "What was the average hydration intake across the 3 days from 2023-03-07 through 2023-03-09?"
+  },
+  "instruction": "Review participant HENV-1160's timeline and answer this operational question: What was the average hydration intake across the 3 days from 2023-03-07 through 2023-03-09? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1160",
+    "display_name": "Synthetic Participant 1160",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-0307",
+      "date": "2023-03-07",
+      "type": "hydration intake",
+      "value": 2126.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0308",
+      "date": "2023-03-08",
+      "type": "hydration intake",
+      "value": 3239.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0309",
+      "date": "2023-03-09",
+      "type": "hydration intake",
+      "value": 2147.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0306",
+      "date": "2023-03-06",
+      "type": "hydration intake",
+      "value": 2818.0,
+      "unit": "ml",
+      "detail": "Outside the requested window",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0310",
+      "date": "2023-03-10",
+      "type": "hydration intake",
+      "value": 1479.0,
+      "unit": "ml",
+      "detail": "Outside the requested window",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-0307",
+      "hydration_intake-0308",
+      "hydration_intake-0309"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2504",
+      "ml"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-8becab0fef56",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00148",
+    "category": "temporal-aggregation",
+    "question": "What was the average stress score across the 3 days from 2023-07-21 through 2023-07-23?"
+  },
+  "instruction": "Review participant HENV-1149's timeline and answer this operational question: What was the average stress score across the 3 days from 2023-07-21 through 2023-07-23? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1149",
+    "display_name": "Synthetic Participant 1149",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-0721",
+      "date": "2023-07-21",
+      "type": "stress score",
+      "value": 77.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0722",
+      "date": "2023-07-22",
+      "type": "stress score",
+      "value": 13.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0723",
+      "date": "2023-07-23",
+      "type": "stress score",
+      "value": 72.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0720",
+      "date": "2023-07-20",
+      "type": "stress score",
+      "value": 78.0,
+      "unit": "score",
+      "detail": "Outside the requested window",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0724",
+      "date": "2023-07-24",
+      "type": "stress score",
+      "value": 84.0,
+      "unit": "score",
+      "detail": "Outside the requested window",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-0721",
+      "stress_score-0722",
+      "stress_score-0723"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "54",
+      "score"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

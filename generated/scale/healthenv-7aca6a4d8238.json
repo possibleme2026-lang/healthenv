@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-7aca6a4d8238",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01151",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the body weight exceed 67.6 kg?"
+  },
+  "instruction": "Review participant HENV-1152's timeline and answer this operational question: On how many of the recorded days did the body weight exceed 67.6 kg? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1152",
+    "display_name": "Synthetic Participant 1152",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-1030",
+      "date": "2024-10-30",
+      "type": "body weight",
+      "value": 65.2,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-1031",
+      "date": "2024-10-31",
+      "type": "body weight",
+      "value": 52.8,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-1101",
+      "date": "2024-11-01",
+      "type": "body weight",
+      "value": 67.1,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-1102",
+      "date": "2024-11-02",
+      "type": "body weight",
+      "value": 95.8,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-1103",
+      "date": "2024-11-03",
+      "type": "body weight",
+      "value": 63.3,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "sleep_duration-1030",
+      "date": "2024-10-30",
+      "type": "sleep duration",
+      "value": 4.9,
+      "unit": "hours",
+      "detail": "Different metric",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-1102"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "1",
+      "day"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

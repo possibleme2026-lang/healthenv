@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-24c71fb2ec27",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00824",
+    "category": "trend-classification",
+    "question": "Across the 6 recorded days from 2023-10-23 to 2023-10-28, did the step count trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1075's timeline and answer this operational question: Across the 6 recorded days from 2023-10-23 to 2023-10-28, did the step count trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1075",
+    "display_name": "Synthetic Participant 1075",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-1023",
+      "date": "2023-10-23",
+      "type": "step count",
+      "value": 2325.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1024",
+      "date": "2023-10-24",
+      "type": "step count",
+      "value": 3922.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1025",
+      "date": "2023-10-25",
+      "type": "step count",
+      "value": 4887.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1026",
+      "date": "2023-10-26",
+      "type": "step count",
+      "value": 5036.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1027",
+      "date": "2023-10-27",
+      "type": "step count",
+      "value": 5575.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1028",
+      "date": "2023-10-28",
+      "type": "step count",
+      "value": 6838.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "systolic_bp-1023",
+      "date": "2023-10-23",
+      "type": "systolic blood pressure",
+      "value": 116.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-1023",
+      "step_count-1024",
+      "step_count-1025",
+      "step_count-1026",
+      "step_count-1027",
+      "step_count-1028"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

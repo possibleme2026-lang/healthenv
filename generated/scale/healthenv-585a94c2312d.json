@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-585a94c2312d",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00668",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the resting heart rate exceed 73 bpm?"
+  },
+  "instruction": "Review participant HENV-1169's timeline and answer this operational question: On how many of the recorded days did the resting heart rate exceed 73 bpm? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1169",
+    "display_name": "Synthetic Participant 1169",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "resting_heart_rate-0622",
+      "date": "2023-06-22",
+      "type": "resting heart rate",
+      "value": 90.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0623",
+      "date": "2023-06-23",
+      "type": "resting heart rate",
+      "value": 48.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0624",
+      "date": "2023-06-24",
+      "type": "resting heart rate",
+      "value": 54.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0625",
+      "date": "2023-06-25",
+      "type": "resting heart rate",
+      "value": 75.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0626",
+      "date": "2023-06-26",
+      "type": "resting heart rate",
+      "value": 90.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0627",
+      "date": "2023-06-27",
+      "type": "resting heart rate",
+      "value": 81.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "resting_heart_rate-0622",
+      "resting_heart_rate-0625",
+      "resting_heart_rate-0626",
+      "resting_heart_rate-0627"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "4",
+      "days"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

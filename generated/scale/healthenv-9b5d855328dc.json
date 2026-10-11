@@ -1,0 +1,108 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-9b5d855328dc",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00920",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the oxygen saturation exceed 92 percentage points?"
+  },
+  "instruction": "Review participant HENV-1171's timeline and answer this operational question: On how many of the recorded days did the oxygen saturation exceed 92 percentage points? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1171",
+    "display_name": "Synthetic Participant 1171",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-0318",
+      "date": "2024-03-18",
+      "type": "oxygen saturation",
+      "value": 90.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0319",
+      "date": "2024-03-19",
+      "type": "oxygen saturation",
+      "value": 98.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0320",
+      "date": "2024-03-20",
+      "type": "oxygen saturation",
+      "value": 90.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0321",
+      "date": "2024-03-21",
+      "type": "oxygen saturation",
+      "value": 97.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0322",
+      "date": "2024-03-22",
+      "type": "oxygen saturation",
+      "value": 90.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0323",
+      "date": "2024-03-23",
+      "type": "oxygen saturation",
+      "value": 93.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "blood_glucose-0318",
+      "date": "2024-03-18",
+      "type": "blood glucose",
+      "value": 175.0,
+      "unit": "mg/dL",
+      "detail": "Different metric",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-0319",
+      "oxygen_saturation-0321",
+      "oxygen_saturation-0323"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "3",
+      "days"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

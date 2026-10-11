@@ -1,0 +1,119 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-90cd6c774caf",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00169",
+    "category": "temporal-aggregation",
+    "question": "What was the average step count across the 5 days from 2024-07-04 through 2024-07-08?"
+  },
+  "instruction": "Review participant HENV-1170's timeline and answer this operational question: What was the average step count across the 5 days from 2024-07-04 through 2024-07-08? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1170",
+    "display_name": "Synthetic Participant 1170",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0704",
+      "date": "2024-07-04",
+      "type": "step count",
+      "value": 9153.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0705",
+      "date": "2024-07-05",
+      "type": "step count",
+      "value": 2395.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0706",
+      "date": "2024-07-06",
+      "type": "step count",
+      "value": 9875.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0707",
+      "date": "2024-07-07",
+      "type": "step count",
+      "value": 2723.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0708",
+      "date": "2024-07-08",
+      "type": "step count",
+      "value": 10604.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0703",
+      "date": "2024-07-03",
+      "type": "step count",
+      "value": 10317.0,
+      "unit": "steps",
+      "detail": "Outside the requested window",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0709",
+      "date": "2024-07-09",
+      "type": "step count",
+      "value": 14870.0,
+      "unit": "steps",
+      "detail": "Outside the requested window",
+      "metric": "step_count"
+    },
+    {
+      "id": "stress_score-0704",
+      "date": "2024-07-04",
+      "type": "stress score",
+      "value": 40.0,
+      "unit": "score",
+      "detail": "Different metric inside the window",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0704",
+      "step_count-0705",
+      "step_count-0706",
+      "step_count-0707",
+      "step_count-0708"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "6950",
+      "steps"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-22ad58878eac",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00160",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the resting heart rate across the 6 recorded days from 2024-08-21 to 2024-08-26?"
+  },
+  "instruction": "Review participant HENV-1161's timeline and answer this operational question: What was the range (highest minus lowest) of the resting heart rate across the 6 recorded days from 2024-08-21 to 2024-08-26? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1161",
+    "display_name": "Synthetic Participant 1161",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "resting_heart_rate-0821",
+      "date": "2024-08-21",
+      "type": "resting heart rate",
+      "value": 89.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0822",
+      "date": "2024-08-22",
+      "type": "resting heart rate",
+      "value": 96.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0823",
+      "date": "2024-08-23",
+      "type": "resting heart rate",
+      "value": 95.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0824",
+      "date": "2024-08-24",
+      "type": "resting heart rate",
+      "value": 90.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0825",
+      "date": "2024-08-25",
+      "type": "resting heart rate",
+      "value": 98.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0826",
+      "date": "2024-08-26",
+      "type": "resting heart rate",
+      "value": 98.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "stress_score-0821",
+      "date": "2024-08-21",
+      "type": "stress score",
+      "value": 57.0,
+      "unit": "score",
+      "detail": "Different metric",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "resting_heart_rate-0826",
+      "resting_heart_rate-0821"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "9",
+      "bpm"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

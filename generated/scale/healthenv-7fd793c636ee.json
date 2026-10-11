@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-7fd793c636ee",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00506",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2023-07-25 to 2023-07-27, on which day did the participant have both the highest stress score and the lowest blood glucose?"
+  },
+  "instruction": "Review participant HENV-1007's timeline and answer this operational question: Among the recorded days from 2023-07-25 to 2023-07-27, on which day did the participant have both the highest stress score and the lowest blood glucose? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1007",
+    "display_name": "Synthetic Participant 1007",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-0725",
+      "date": "2023-07-25",
+      "type": "stress score",
+      "value": 77.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "blood_glucose-0725",
+      "date": "2023-07-25",
+      "type": "blood glucose",
+      "value": 170.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "stress_score-0726",
+      "date": "2023-07-26",
+      "type": "stress score",
+      "value": 27.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "blood_glucose-0726",
+      "date": "2023-07-26",
+      "type": "blood glucose",
+      "value": 169.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "stress_score-0727",
+      "date": "2023-07-27",
+      "type": "stress score",
+      "value": 87.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "blood_glucose-0727",
+      "date": "2023-07-27",
+      "type": "blood glucose",
+      "value": 158.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-0727",
+      "blood_glucose-0727"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-07-27"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

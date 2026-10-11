@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-067c947c57cf",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00993",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the body weight across the 6 recorded days from 2023-05-29 to 2023-06-03?"
+  },
+  "instruction": "Review participant HENV-1244's timeline and answer this operational question: What was the range (highest minus lowest) of the body weight across the 6 recorded days from 2023-05-29 to 2023-06-03? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1244",
+    "display_name": "Synthetic Participant 1244",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0529",
+      "date": "2023-05-29",
+      "type": "body weight",
+      "value": 85.0,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0530",
+      "date": "2023-05-30",
+      "type": "body weight",
+      "value": 82.3,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0531",
+      "date": "2023-05-31",
+      "type": "body weight",
+      "value": 103.4,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0601",
+      "date": "2023-06-01",
+      "type": "body weight",
+      "value": 92.6,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0602",
+      "date": "2023-06-02",
+      "type": "body weight",
+      "value": 95.3,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0603",
+      "date": "2023-06-03",
+      "type": "body weight",
+      "value": 83.1,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0531",
+      "body_weight-0530"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "21.1",
+      "kg"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-f0dc522259dd",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01095",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the body weight exceed 66.4 kg?"
+  },
+  "instruction": "Review participant HENV-1096's timeline and answer this operational question: On how many of the recorded days did the body weight exceed 66.4 kg? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1096",
+    "display_name": "Synthetic Participant 1096",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0401",
+      "date": "2024-04-01",
+      "type": "body weight",
+      "value": 101.5,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0402",
+      "date": "2024-04-02",
+      "type": "body weight",
+      "value": 59.7,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0403",
+      "date": "2024-04-03",
+      "type": "body weight",
+      "value": 104.0,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0404",
+      "date": "2024-04-04",
+      "type": "body weight",
+      "value": 51.7,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0405",
+      "date": "2024-04-05",
+      "type": "body weight",
+      "value": 54.0,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "stress_score-0401",
+      "date": "2024-04-01",
+      "type": "stress score",
+      "value": 54.0,
+      "unit": "score",
+      "detail": "Different metric",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0401",
+      "body_weight-0403"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2",
+      "days"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

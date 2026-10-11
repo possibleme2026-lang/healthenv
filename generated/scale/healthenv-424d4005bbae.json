@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-424d4005bbae",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01191",
+    "category": "temporal-aggregation",
+    "question": "What was the average body weight across the 4 days from 2023-09-05 through 2023-09-08?"
+  },
+  "instruction": "Review participant HENV-1192's timeline and answer this operational question: What was the average body weight across the 4 days from 2023-09-05 through 2023-09-08? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1192",
+    "display_name": "Synthetic Participant 1192",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0905",
+      "date": "2023-09-05",
+      "type": "body weight",
+      "value": 91.4,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0906",
+      "date": "2023-09-06",
+      "type": "body weight",
+      "value": 69.1,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0907",
+      "date": "2023-09-07",
+      "type": "body weight",
+      "value": 95.7,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0908",
+      "date": "2023-09-08",
+      "type": "body weight",
+      "value": 97.0,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0904",
+      "date": "2023-09-04",
+      "type": "body weight",
+      "value": 55.5,
+      "unit": "kg",
+      "detail": "Outside the requested window",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0909",
+      "date": "2023-09-09",
+      "type": "body weight",
+      "value": 100.8,
+      "unit": "kg",
+      "detail": "Outside the requested window",
+      "metric": "body_weight"
+    },
+    {
+      "id": "oxygen_saturation-0905",
+      "date": "2023-09-05",
+      "type": "oxygen saturation",
+      "value": 90.0,
+      "unit": "%",
+      "detail": "Different metric inside the window",
+      "metric": "oxygen_saturation"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0905",
+      "body_weight-0906",
+      "body_weight-0907",
+      "body_weight-0908"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "88.3",
+      "kg"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

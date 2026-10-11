@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-cd76f8771193",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00707",
+    "category": "longitudinal-comparison",
+    "question": "How many minutes higher was the active minutes on 2023-11-13 than on 2023-11-10?"
+  },
+  "instruction": "Review participant HENV-1208's timeline and answer this operational question: How many minutes higher was the active minutes on 2023-11-13 than on 2023-11-10? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1208",
+    "display_name": "Synthetic Participant 1208",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-1110",
+      "date": "2023-11-10",
+      "type": "active minutes",
+      "value": 116.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1113",
+      "date": "2023-11-13",
+      "type": "active minutes",
+      "value": 127.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1115",
+      "date": "2023-11-15",
+      "type": "active minutes",
+      "value": 116.0,
+      "unit": "minutes",
+      "detail": "Outside the requested window",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1113-ctx",
+      "date": "2023-11-13",
+      "type": "active minutes",
+      "value": 126.0,
+      "unit": "minutes",
+      "detail": "Same-day secondary reading (context mismatch)",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-1110",
+      "active_minutes-1113"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "11",
+      "minutes"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

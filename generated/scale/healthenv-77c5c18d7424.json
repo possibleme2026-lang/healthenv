@@ -1,0 +1,78 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-77c5c18d7424",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00746",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2023-05-07 to 2023-05-10, on which day was the oxygen saturation highest?"
+  },
+  "instruction": "Review participant HENV-1247's timeline and answer this operational question: Among the recorded days from 2023-05-07 to 2023-05-10, on which day was the oxygen saturation highest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1247",
+    "display_name": "Synthetic Participant 1247",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-0507",
+      "date": "2023-05-07",
+      "type": "oxygen saturation",
+      "value": 96.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0508",
+      "date": "2023-05-08",
+      "type": "oxygen saturation",
+      "value": 94.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0509",
+      "date": "2023-05-09",
+      "type": "oxygen saturation",
+      "value": 94.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0510",
+      "date": "2023-05-10",
+      "type": "oxygen saturation",
+      "value": 92.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-0507"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-05-07"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

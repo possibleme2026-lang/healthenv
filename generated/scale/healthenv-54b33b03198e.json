@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-54b33b03198e",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00554",
+    "category": "temporal-aggregation",
+    "question": "What was the total step count across the 3 days from 2024-03-28 through 2024-03-30?"
+  },
+  "instruction": "Review participant HENV-1055's timeline and answer this operational question: What was the total step count across the 3 days from 2024-03-28 through 2024-03-30? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1055",
+    "display_name": "Synthetic Participant 1055",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0328",
+      "date": "2024-03-28",
+      "type": "step count",
+      "value": 8399.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0329",
+      "date": "2024-03-29",
+      "type": "step count",
+      "value": 14928.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0330",
+      "date": "2024-03-30",
+      "type": "step count",
+      "value": 14830.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0327",
+      "date": "2024-03-27",
+      "type": "step count",
+      "value": 14786.0,
+      "unit": "steps",
+      "detail": "Outside the requested window",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0331",
+      "date": "2024-03-31",
+      "type": "step count",
+      "value": 1864.0,
+      "unit": "steps",
+      "detail": "Outside the requested window",
+      "metric": "step_count"
+    },
+    {
+      "id": "sleep_duration-0328",
+      "date": "2024-03-28",
+      "type": "sleep duration",
+      "value": 5.0,
+      "unit": "hours",
+      "detail": "Different metric inside the window",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0328",
+      "step_count-0329",
+      "step_count-0330"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "38157",
+      "steps"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

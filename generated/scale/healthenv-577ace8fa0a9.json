@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-577ace8fa0a9",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00402",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the sleep duration exceed 8.3 hours?"
+  },
+  "instruction": "Review participant HENV-1153's timeline and answer this operational question: On how many of the recorded days did the sleep duration exceed 8.3 hours? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1153",
+    "display_name": "Synthetic Participant 1153",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "sleep_duration-0304",
+      "date": "2023-03-04",
+      "type": "sleep duration",
+      "value": 9.9,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0305",
+      "date": "2023-03-05",
+      "type": "sleep duration",
+      "value": 8.9,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0306",
+      "date": "2023-03-06",
+      "type": "sleep duration",
+      "value": 5.8,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0307",
+      "date": "2023-03-07",
+      "type": "sleep duration",
+      "value": 9.5,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0308",
+      "date": "2023-03-08",
+      "type": "sleep duration",
+      "value": 7.4,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0309",
+      "date": "2023-03-09",
+      "type": "sleep duration",
+      "value": 5.2,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0310",
+      "date": "2023-03-10",
+      "type": "sleep duration",
+      "value": 9.7,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "sleep_duration-0304",
+      "sleep_duration-0305",
+      "sleep_duration-0307",
+      "sleep_duration-0310"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "4",
+      "days"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

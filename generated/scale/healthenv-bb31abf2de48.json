@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-bb31abf2de48",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00644",
+    "category": "longitudinal-comparison",
+    "question": "How many points lower was the stress score on 2024-11-12 than on 2024-11-11?"
+  },
+  "instruction": "Review participant HENV-1145's timeline and answer this operational question: How many points lower was the stress score on 2024-11-12 than on 2024-11-11? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1145",
+    "display_name": "Synthetic Participant 1145",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-1111",
+      "date": "2024-11-11",
+      "type": "stress score",
+      "value": 83.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1112",
+      "date": "2024-11-12",
+      "type": "stress score",
+      "value": 73.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "step_count-1112",
+      "date": "2024-11-12",
+      "type": "step count",
+      "value": 8070.0,
+      "unit": "steps",
+      "detail": "Different metric on the comparison day",
+      "metric": "step_count"
+    },
+    {
+      "id": "stress_score-1112-ctx",
+      "date": "2024-11-12",
+      "type": "stress score",
+      "value": 74.0,
+      "unit": "score",
+      "detail": "Same-day secondary reading (context mismatch)",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-1111",
+      "stress_score-1112"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "10",
+      "points"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

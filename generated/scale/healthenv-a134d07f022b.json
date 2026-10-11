@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-a134d07f022b",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00090",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the stress score across the 4 recorded days from 2024-06-06 to 2024-06-09?"
+  },
+  "instruction": "Review participant HENV-1091's timeline and answer this operational question: What was the range (highest minus lowest) of the stress score across the 4 recorded days from 2024-06-06 to 2024-06-09? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1091",
+    "display_name": "Synthetic Participant 1091",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-0606",
+      "date": "2024-06-06",
+      "type": "stress score",
+      "value": 36.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0607",
+      "date": "2024-06-07",
+      "type": "stress score",
+      "value": 85.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0608",
+      "date": "2024-06-08",
+      "type": "stress score",
+      "value": 62.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0609",
+      "date": "2024-06-09",
+      "type": "stress score",
+      "value": 33.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-0607",
+      "stress_score-0609"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "52",
+      "points"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-9e78f3bfd0b8",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00794",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the blood glucose exceed 110 mg/dL?"
+  },
+  "instruction": "Review participant HENV-1045's timeline and answer this operational question: On how many of the recorded days did the blood glucose exceed 110 mg/dL? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1045",
+    "display_name": "Synthetic Participant 1045",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0109",
+      "date": "2025-01-09",
+      "type": "blood glucose",
+      "value": 158.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0110",
+      "date": "2025-01-10",
+      "type": "blood glucose",
+      "value": 161.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0111",
+      "date": "2025-01-11",
+      "type": "blood glucose",
+      "value": 126.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0112",
+      "date": "2025-01-12",
+      "type": "blood glucose",
+      "value": 98.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0113",
+      "date": "2025-01-13",
+      "type": "blood glucose",
+      "value": 179.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0114",
+      "date": "2025-01-14",
+      "type": "blood glucose",
+      "value": 147.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "systolic_bp-0109",
+      "date": "2025-01-09",
+      "type": "systolic blood pressure",
+      "value": 98.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0109",
+      "blood_glucose-0110",
+      "blood_glucose-0111",
+      "blood_glucose-0113",
+      "blood_glucose-0114"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "5",
+      "days"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

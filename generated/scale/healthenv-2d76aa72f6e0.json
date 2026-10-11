@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-2d76aa72f6e0",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00094",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the body weight exceed 69.5 kg?"
+  },
+  "instruction": "Review participant HENV-1095's timeline and answer this operational question: On how many of the recorded days did the body weight exceed 69.5 kg? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1095",
+    "display_name": "Synthetic Participant 1095",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-1025",
+      "date": "2023-10-25",
+      "type": "body weight",
+      "value": 61.3,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-1026",
+      "date": "2023-10-26",
+      "type": "body weight",
+      "value": 58.6,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-1027",
+      "date": "2023-10-27",
+      "type": "body weight",
+      "value": 66.8,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-1028",
+      "date": "2023-10-28",
+      "type": "body weight",
+      "value": 72.2,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-1029",
+      "date": "2023-10-29",
+      "type": "body weight",
+      "value": 105.2,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-1028",
+      "body_weight-1029"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2",
+      "days"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

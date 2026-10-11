@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-4c92e2ce3f8a",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00339",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the sleep duration exceed 5.0 hours?"
+  },
+  "instruction": "Review participant HENV-1090's timeline and answer this operational question: On how many of the recorded days did the sleep duration exceed 5.0 hours? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1090",
+    "display_name": "Synthetic Participant 1090",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "sleep_duration-0928",
+      "date": "2023-09-28",
+      "type": "sleep duration",
+      "value": 4.1,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0929",
+      "date": "2023-09-29",
+      "type": "sleep duration",
+      "value": 3.6,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0930",
+      "date": "2023-09-30",
+      "type": "sleep duration",
+      "value": 6.4,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-1001",
+      "date": "2023-10-01",
+      "type": "sleep duration",
+      "value": 4.0,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-1002",
+      "date": "2023-10-02",
+      "type": "sleep duration",
+      "value": 3.5,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-1003",
+      "date": "2023-10-03",
+      "type": "sleep duration",
+      "value": 4.4,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-1004",
+      "date": "2023-10-04",
+      "type": "sleep duration",
+      "value": 3.9,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "systolic_bp-0928",
+      "date": "2023-09-28",
+      "type": "systolic blood pressure",
+      "value": 129.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "sleep_duration-0930"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "1",
+      "day"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

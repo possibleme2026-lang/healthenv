@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-b1ca1a79c8fe",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00065",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2024-08-06 to 2024-08-09, on which day did the participant have both the highest blood glucose and the lowest systolic blood pressure?"
+  },
+  "instruction": "Review participant HENV-1066's timeline and answer this operational question: Among the recorded days from 2024-08-06 to 2024-08-09, on which day did the participant have both the highest blood glucose and the lowest systolic blood pressure? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1066",
+    "display_name": "Synthetic Participant 1066",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0806",
+      "date": "2024-08-06",
+      "type": "blood glucose",
+      "value": 114.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "systolic_bp-0806",
+      "date": "2024-08-06",
+      "type": "systolic blood pressure",
+      "value": 162.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "blood_glucose-0807",
+      "date": "2024-08-07",
+      "type": "blood glucose",
+      "value": 185.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "systolic_bp-0807",
+      "date": "2024-08-07",
+      "type": "systolic blood pressure",
+      "value": 156.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "blood_glucose-0808",
+      "date": "2024-08-08",
+      "type": "blood glucose",
+      "value": 122.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "systolic_bp-0808",
+      "date": "2024-08-08",
+      "type": "systolic blood pressure",
+      "value": 165.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "blood_glucose-0809",
+      "date": "2024-08-09",
+      "type": "blood glucose",
+      "value": 85.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "systolic_bp-0809",
+      "date": "2024-08-09",
+      "type": "systolic blood pressure",
+      "value": 167.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0807",
+      "systolic_bp-0807"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-08-07"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

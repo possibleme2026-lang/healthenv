@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-6e4bb8ecbec0",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01025",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the blood glucose exceed 158 mg/dL?"
+  },
+  "instruction": "Review participant HENV-1026's timeline and answer this operational question: On how many of the recorded days did the blood glucose exceed 158 mg/dL? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1026",
+    "display_name": "Synthetic Participant 1026",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0922",
+      "date": "2023-09-22",
+      "type": "blood glucose",
+      "value": 116.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0923",
+      "date": "2023-09-23",
+      "type": "blood glucose",
+      "value": 82.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0924",
+      "date": "2023-09-24",
+      "type": "blood glucose",
+      "value": 80.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0925",
+      "date": "2023-09-25",
+      "type": "blood glucose",
+      "value": 183.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0926",
+      "date": "2023-09-26",
+      "type": "blood glucose",
+      "value": 185.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0925",
+      "blood_glucose-0926"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2",
+      "days"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-bef7bfe20468",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00838",
+    "category": "trend-classification",
+    "question": "Across the 5 recorded days from 2023-09-27 to 2023-10-01, did the body weight trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1089's timeline and answer this operational question: Across the 5 recorded days from 2023-09-27 to 2023-10-01, did the body weight trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1089",
+    "display_name": "Synthetic Participant 1089",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0927",
+      "date": "2023-09-27",
+      "type": "body weight",
+      "value": 51.2,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0928",
+      "date": "2023-09-28",
+      "type": "body weight",
+      "value": 60.0,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0929",
+      "date": "2023-09-29",
+      "type": "body weight",
+      "value": 70.1,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0930",
+      "date": "2023-09-30",
+      "type": "body weight",
+      "value": 74.5,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-1001",
+      "date": "2023-10-01",
+      "type": "body weight",
+      "value": 80.4,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "systolic_bp-0927",
+      "date": "2023-09-27",
+      "type": "systolic blood pressure",
+      "value": 150.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0927",
+      "body_weight-0928",
+      "body_weight-0929",
+      "body_weight-0930",
+      "body_weight-1001"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -33,11 +33,19 @@ def _answer_terms(seed: QuestionSeed) -> list[str]:
     return terms
 
 
+def _required_status(seed: QuestionSeed) -> str:
+    status = seed.metadata.get("required_status", "review")
+    if status not in {"routine", "review", "urgent"}:
+        return "review"
+    return str(status)
+
+
 def _default_instruction(seed: QuestionSeed) -> str:
+    status = _required_status(seed)
     return (
         f"Review participant {seed.participant_id}'s timeline and answer this operational question: "
         f"{seed.question} Select every supporting record, document the conclusion in the care note, "
-        "set the case to Review, and submit. Do not modify source records."
+        f"set the case to {status.capitalize()}, and submit. Do not modify source records."
     )
 
 

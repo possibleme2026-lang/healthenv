@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-b21803df77bd",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00848",
+    "category": "temporal-aggregation",
+    "question": "What was the average resting heart rate across the 4 days from 2023-09-06 through 2023-09-09?"
+  },
+  "instruction": "Review participant HENV-1099's timeline and answer this operational question: What was the average resting heart rate across the 4 days from 2023-09-06 through 2023-09-09? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1099",
+    "display_name": "Synthetic Participant 1099",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "resting_heart_rate-0906",
+      "date": "2023-09-06",
+      "type": "resting heart rate",
+      "value": 47.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0907",
+      "date": "2023-09-07",
+      "type": "resting heart rate",
+      "value": 77.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0908",
+      "date": "2023-09-08",
+      "type": "resting heart rate",
+      "value": 63.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0909",
+      "date": "2023-09-09",
+      "type": "resting heart rate",
+      "value": 93.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0905",
+      "date": "2023-09-05",
+      "type": "resting heart rate",
+      "value": 91.0,
+      "unit": "bpm",
+      "detail": "Outside the requested window",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0910",
+      "date": "2023-09-10",
+      "type": "resting heart rate",
+      "value": 77.0,
+      "unit": "bpm",
+      "detail": "Outside the requested window",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "systolic_bp-0906",
+      "date": "2023-09-06",
+      "type": "systolic blood pressure",
+      "value": 133.0,
+      "unit": "mmHg",
+      "detail": "Different metric inside the window",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "resting_heart_rate-0906",
+      "resting_heart_rate-0907",
+      "resting_heart_rate-0908",
+      "resting_heart_rate-0909"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "70",
+      "bpm"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

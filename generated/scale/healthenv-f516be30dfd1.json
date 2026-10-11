@@ -1,0 +1,105 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-f516be30dfd1",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00466",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2023-02-24 to 2023-03-01, on which day was the hydration intake highest?"
+  },
+  "instruction": "Review participant HENV-1217's timeline and answer this operational question: Among the recorded days from 2023-02-24 to 2023-03-01, on which day was the hydration intake highest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1217",
+    "display_name": "Synthetic Participant 1217",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-0224",
+      "date": "2023-02-24",
+      "type": "hydration intake",
+      "value": 1842.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0225",
+      "date": "2023-02-25",
+      "type": "hydration intake",
+      "value": 1634.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0226",
+      "date": "2023-02-26",
+      "type": "hydration intake",
+      "value": 1830.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0227",
+      "date": "2023-02-27",
+      "type": "hydration intake",
+      "value": 837.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0228",
+      "date": "2023-02-28",
+      "type": "hydration intake",
+      "value": 870.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0301",
+      "date": "2023-03-01",
+      "type": "hydration intake",
+      "value": 2277.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "resting_heart_rate-0224",
+      "date": "2023-02-24",
+      "type": "resting heart rate",
+      "value": 95.0,
+      "unit": "bpm",
+      "detail": "Different metric",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-0301"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-03-01"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

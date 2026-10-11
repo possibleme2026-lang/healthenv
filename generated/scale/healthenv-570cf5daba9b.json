@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-570cf5daba9b",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00714",
+    "category": "longitudinal-comparison",
+    "question": "How many hours lower was the sleep duration on 2024-10-11 than on 2024-10-10?"
+  },
+  "instruction": "Review participant HENV-1215's timeline and answer this operational question: How many hours lower was the sleep duration on 2024-10-11 than on 2024-10-10? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1215",
+    "display_name": "Synthetic Participant 1215",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "sleep_duration-1010",
+      "date": "2024-10-10",
+      "type": "sleep duration",
+      "value": 4.8,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-1011",
+      "date": "2024-10-11",
+      "type": "sleep duration",
+      "value": 4.0,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "hydration_intake-1011",
+      "date": "2024-10-11",
+      "type": "hydration intake",
+      "value": 3431.0,
+      "unit": "ml",
+      "detail": "Different metric on the comparison day",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "sleep_duration-1010",
+      "sleep_duration-1011"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "0.8",
+      "hours"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

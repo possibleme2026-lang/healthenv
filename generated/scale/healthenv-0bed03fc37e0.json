@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-0bed03fc37e0",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00827",
+    "category": "temporal-aggregation",
+    "question": "What was the average oxygen saturation across the 4 days from 2023-11-28 through 2023-12-01?"
+  },
+  "instruction": "Review participant HENV-1078's timeline and answer this operational question: What was the average oxygen saturation across the 4 days from 2023-11-28 through 2023-12-01? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1078",
+    "display_name": "Synthetic Participant 1078",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-1128",
+      "date": "2023-11-28",
+      "type": "oxygen saturation",
+      "value": 98.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1129",
+      "date": "2023-11-29",
+      "type": "oxygen saturation",
+      "value": 98.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1130",
+      "date": "2023-11-30",
+      "type": "oxygen saturation",
+      "value": 95.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1201",
+      "date": "2023-12-01",
+      "type": "oxygen saturation",
+      "value": 89.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1127",
+      "date": "2023-11-27",
+      "type": "oxygen saturation",
+      "value": 99.0,
+      "unit": "%",
+      "detail": "Outside the requested window",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1202",
+      "date": "2023-12-02",
+      "type": "oxygen saturation",
+      "value": 89.0,
+      "unit": "%",
+      "detail": "Outside the requested window",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "body_weight-1128",
+      "date": "2023-11-28",
+      "type": "body weight",
+      "value": 89.3,
+      "unit": "kg",
+      "detail": "Different metric inside the window",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-1128",
+      "oxygen_saturation-1129",
+      "oxygen_saturation-1130",
+      "oxygen_saturation-1201"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "95",
+      "%"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

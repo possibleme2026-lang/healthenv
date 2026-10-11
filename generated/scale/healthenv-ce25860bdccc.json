@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-ce25860bdccc",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00292",
+    "category": "trend-classification",
+    "question": "Across the 5 recorded days from 2023-03-11 to 2023-03-15, did the oxygen saturation trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1043's timeline and answer this operational question: Across the 5 recorded days from 2023-03-11 to 2023-03-15, did the oxygen saturation trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1043",
+    "display_name": "Synthetic Participant 1043",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-0311",
+      "date": "2023-03-11",
+      "type": "oxygen saturation",
+      "value": 89.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0312",
+      "date": "2023-03-12",
+      "type": "oxygen saturation",
+      "value": 90.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0313",
+      "date": "2023-03-13",
+      "type": "oxygen saturation",
+      "value": 91.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0314",
+      "date": "2023-03-14",
+      "type": "oxygen saturation",
+      "value": 93.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0315",
+      "date": "2023-03-15",
+      "type": "oxygen saturation",
+      "value": 95.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "hydration_intake-0311",
+      "date": "2023-03-11",
+      "type": "hydration intake",
+      "value": 1160.0,
+      "unit": "ml",
+      "detail": "Different metric",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-0311",
+      "oxygen_saturation-0312",
+      "oxygen_saturation-0313",
+      "oxygen_saturation-0314",
+      "oxygen_saturation-0315"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

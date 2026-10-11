@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-1c0fb29c2fa2",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00876",
+    "category": "temporal-aggregation",
+    "question": "What was the total active minutes across the 5 days from 2023-07-06 through 2023-07-10?"
+  },
+  "instruction": "Review participant HENV-1127's timeline and answer this operational question: What was the total active minutes across the 5 days from 2023-07-06 through 2023-07-10? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1127",
+    "display_name": "Synthetic Participant 1127",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0706",
+      "date": "2023-07-06",
+      "type": "active minutes",
+      "value": 67.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0707",
+      "date": "2023-07-07",
+      "type": "active minutes",
+      "value": 125.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0708",
+      "date": "2023-07-08",
+      "type": "active minutes",
+      "value": 50.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0709",
+      "date": "2023-07-09",
+      "type": "active minutes",
+      "value": 13.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0710",
+      "date": "2023-07-10",
+      "type": "active minutes",
+      "value": 75.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0705",
+      "date": "2023-07-05",
+      "type": "active minutes",
+      "value": 45.0,
+      "unit": "minutes",
+      "detail": "Outside the requested window",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0711",
+      "date": "2023-07-11",
+      "type": "active minutes",
+      "value": 14.0,
+      "unit": "minutes",
+      "detail": "Outside the requested window",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0706",
+      "active_minutes-0707",
+      "active_minutes-0708",
+      "active_minutes-0709",
+      "active_minutes-0710"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "330",
+      "minutes"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

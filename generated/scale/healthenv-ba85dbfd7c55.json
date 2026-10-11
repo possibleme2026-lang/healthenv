@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-ba85dbfd7c55",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00030",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2023-03-29 to 2023-03-31, on which day did the participant have both the highest sleep duration and the lowest hydration intake?"
+  },
+  "instruction": "Review participant HENV-1031's timeline and answer this operational question: Among the recorded days from 2023-03-29 to 2023-03-31, on which day did the participant have both the highest sleep duration and the lowest hydration intake? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1031",
+    "display_name": "Synthetic Participant 1031",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "sleep_duration-0329",
+      "date": "2023-03-29",
+      "type": "sleep duration",
+      "value": 5.8,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "hydration_intake-0329",
+      "date": "2023-03-29",
+      "type": "hydration intake",
+      "value": 3394.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "sleep_duration-0330",
+      "date": "2023-03-30",
+      "type": "sleep duration",
+      "value": 7.6,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "hydration_intake-0330",
+      "date": "2023-03-30",
+      "type": "hydration intake",
+      "value": 3225.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "sleep_duration-0331",
+      "date": "2023-03-31",
+      "type": "sleep duration",
+      "value": 6.4,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "hydration_intake-0331",
+      "date": "2023-03-31",
+      "type": "hydration intake",
+      "value": 3473.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "sleep_duration-0330",
+      "hydration_intake-0330"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-03-30"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-a340c3319024",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00323",
+    "category": "temporal-aggregation",
+    "question": "What was the average systolic blood pressure across the 4 days from 2024-02-18 through 2024-02-21?"
+  },
+  "instruction": "Review participant HENV-1074's timeline and answer this operational question: What was the average systolic blood pressure across the 4 days from 2024-02-18 through 2024-02-21? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1074",
+    "display_name": "Synthetic Participant 1074",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-0218",
+      "date": "2024-02-18",
+      "type": "systolic blood pressure",
+      "value": 122.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0219",
+      "date": "2024-02-19",
+      "type": "systolic blood pressure",
+      "value": 130.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0220",
+      "date": "2024-02-20",
+      "type": "systolic blood pressure",
+      "value": 121.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0221",
+      "date": "2024-02-21",
+      "type": "systolic blood pressure",
+      "value": 147.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0217",
+      "date": "2024-02-17",
+      "type": "systolic blood pressure",
+      "value": 118.0,
+      "unit": "mmHg",
+      "detail": "Outside the requested window",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0222",
+      "date": "2024-02-22",
+      "type": "systolic blood pressure",
+      "value": 114.0,
+      "unit": "mmHg",
+      "detail": "Outside the requested window",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-0218",
+      "systolic_bp-0219",
+      "systolic_bp-0220",
+      "systolic_bp-0221"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "130",
+      "mmHg"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

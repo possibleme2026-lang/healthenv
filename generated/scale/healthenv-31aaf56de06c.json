@@ -1,0 +1,105 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-31aaf56de06c",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00851",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2023-06-12 to 2023-06-17, on which day was the active minutes lowest?"
+  },
+  "instruction": "Review participant HENV-1102's timeline and answer this operational question: Among the recorded days from 2023-06-12 to 2023-06-17, on which day was the active minutes lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1102",
+    "display_name": "Synthetic Participant 1102",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0612",
+      "date": "2023-06-12",
+      "type": "active minutes",
+      "value": 121.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0613",
+      "date": "2023-06-13",
+      "type": "active minutes",
+      "value": 119.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0614",
+      "date": "2023-06-14",
+      "type": "active minutes",
+      "value": 34.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0615",
+      "date": "2023-06-15",
+      "type": "active minutes",
+      "value": 95.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0616",
+      "date": "2023-06-16",
+      "type": "active minutes",
+      "value": 59.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0617",
+      "date": "2023-06-17",
+      "type": "active minutes",
+      "value": 85.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "sleep_duration-0612",
+      "date": "2023-06-12",
+      "type": "sleep duration",
+      "value": 5.1,
+      "unit": "hours",
+      "detail": "Different metric",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0614"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-06-14"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-8f18eda3aeb5",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00435",
+    "category": "temporal-aggregation",
+    "question": "What was the average oxygen saturation across the 4 days from 2023-07-31 through 2023-08-03?"
+  },
+  "instruction": "Review participant HENV-1186's timeline and answer this operational question: What was the average oxygen saturation across the 4 days from 2023-07-31 through 2023-08-03? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1186",
+    "display_name": "Synthetic Participant 1186",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-0731",
+      "date": "2023-07-31",
+      "type": "oxygen saturation",
+      "value": 97.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0801",
+      "date": "2023-08-01",
+      "type": "oxygen saturation",
+      "value": 97.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0802",
+      "date": "2023-08-02",
+      "type": "oxygen saturation",
+      "value": 99.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0803",
+      "date": "2023-08-03",
+      "type": "oxygen saturation",
+      "value": 99.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0730",
+      "date": "2023-07-30",
+      "type": "oxygen saturation",
+      "value": 97.0,
+      "unit": "%",
+      "detail": "Outside the requested window",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0804",
+      "date": "2023-08-04",
+      "type": "oxygen saturation",
+      "value": 95.0,
+      "unit": "%",
+      "detail": "Outside the requested window",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "active_minutes-0731",
+      "date": "2023-07-31",
+      "type": "active minutes",
+      "value": 68.0,
+      "unit": "minutes",
+      "detail": "Different metric inside the window",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-0731",
+      "oxygen_saturation-0801",
+      "oxygen_saturation-0802",
+      "oxygen_saturation-0803"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "98",
+      "%"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

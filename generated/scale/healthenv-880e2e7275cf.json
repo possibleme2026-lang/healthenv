@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-880e2e7275cf",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00161",
+    "category": "longitudinal-comparison",
+    "question": "How many mmHg higher was the systolic blood pressure on 2024-12-25 than on 2024-12-22?"
+  },
+  "instruction": "Review participant HENV-1162's timeline and answer this operational question: How many mmHg higher was the systolic blood pressure on 2024-12-25 than on 2024-12-22? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1162",
+    "display_name": "Synthetic Participant 1162",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-1222",
+      "date": "2024-12-22",
+      "type": "systolic blood pressure",
+      "value": 150.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1225",
+      "date": "2024-12-25",
+      "type": "systolic blood pressure",
+      "value": 157.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1226",
+      "date": "2024-12-26",
+      "type": "systolic blood pressure",
+      "value": 148.0,
+      "unit": "mmHg",
+      "detail": "Outside the requested window",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1225-ctx",
+      "date": "2024-12-25",
+      "type": "systolic blood pressure",
+      "value": 168.0,
+      "unit": "mmHg",
+      "detail": "Same-day secondary reading (context mismatch)",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-1222",
+      "systolic_bp-1225"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "7",
+      "mmHg"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-382fd691dbe1",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00521",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the step count exceed 7330 steps?"
+  },
+  "instruction": "Review participant HENV-1022's timeline and answer this operational question: On how many of the recorded days did the step count exceed 7330 steps? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1022",
+    "display_name": "Synthetic Participant 1022",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0106",
+      "date": "2024-01-06",
+      "type": "step count",
+      "value": 4444.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0107",
+      "date": "2024-01-07",
+      "type": "step count",
+      "value": 2382.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0108",
+      "date": "2024-01-08",
+      "type": "step count",
+      "value": 4153.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0109",
+      "date": "2024-01-09",
+      "type": "step count",
+      "value": 4558.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0110",
+      "date": "2024-01-10",
+      "type": "step count",
+      "value": 13232.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0110"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "1",
+      "day"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

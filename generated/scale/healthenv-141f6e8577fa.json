@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-141f6e8577fa",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00973",
+    "category": "longitudinal-comparison",
+    "question": "How many bpm lower was the resting heart rate on 2024-11-03 than on 2024-11-01?"
+  },
+  "instruction": "Review participant HENV-1224's timeline and answer this operational question: How many bpm lower was the resting heart rate on 2024-11-03 than on 2024-11-01? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1224",
+    "display_name": "Synthetic Participant 1224",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "resting_heart_rate-1101",
+      "date": "2024-11-01",
+      "type": "resting heart rate",
+      "value": 60.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-1103",
+      "date": "2024-11-03",
+      "type": "resting heart rate",
+      "value": 57.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "stress_score-1103",
+      "date": "2024-11-03",
+      "type": "stress score",
+      "value": 68.0,
+      "unit": "score",
+      "detail": "Different metric on the comparison day",
+      "metric": "stress_score"
+    },
+    {
+      "id": "resting_heart_rate-1103-ctx",
+      "date": "2024-11-03",
+      "type": "resting heart rate",
+      "value": 85.0,
+      "unit": "bpm",
+      "detail": "Same-day secondary reading (context mismatch)",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "resting_heart_rate-1101",
+      "resting_heart_rate-1103"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "3",
+      "bpm"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

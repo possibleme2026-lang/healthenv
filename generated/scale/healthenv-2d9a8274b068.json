@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-2d9a8274b068",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00957",
+    "category": "trend-classification",
+    "question": "Across the 6 recorded days from 2024-04-28 to 2024-05-03, did the resting heart rate trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1208's timeline and answer this operational question: Across the 6 recorded days from 2024-04-28 to 2024-05-03, did the resting heart rate trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1208",
+    "display_name": "Synthetic Participant 1208",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "resting_heart_rate-0428",
+      "date": "2024-04-28",
+      "type": "resting heart rate",
+      "value": 95.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0429",
+      "date": "2024-04-29",
+      "type": "resting heart rate",
+      "value": 92.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0430",
+      "date": "2024-04-30",
+      "type": "resting heart rate",
+      "value": 88.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0501",
+      "date": "2024-05-01",
+      "type": "resting heart rate",
+      "value": 86.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0502",
+      "date": "2024-05-02",
+      "type": "resting heart rate",
+      "value": 80.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0503",
+      "date": "2024-05-03",
+      "type": "resting heart rate",
+      "value": 77.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "hydration_intake-0428",
+      "date": "2024-04-28",
+      "type": "hydration intake",
+      "value": 3301.0,
+      "unit": "ml",
+      "detail": "Different metric",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "resting_heart_rate-0428",
+      "resting_heart_rate-0429",
+      "resting_heart_rate-0430",
+      "resting_heart_rate-0501",
+      "resting_heart_rate-0502",
+      "resting_heart_rate-0503"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

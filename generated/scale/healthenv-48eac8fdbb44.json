@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-48eac8fdbb44",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00758",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2024-06-23 to 2024-06-25, on which day did the participant have both the highest body weight and the lowest sleep duration?"
+  },
+  "instruction": "Review participant HENV-1009's timeline and answer this operational question: Among the recorded days from 2024-06-23 to 2024-06-25, on which day did the participant have both the highest body weight and the lowest sleep duration? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1009",
+    "display_name": "Synthetic Participant 1009",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0623",
+      "date": "2024-06-23",
+      "type": "body weight",
+      "value": 59.3,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "sleep_duration-0623",
+      "date": "2024-06-23",
+      "type": "sleep duration",
+      "value": 9.5,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "body_weight-0624",
+      "date": "2024-06-24",
+      "type": "body weight",
+      "value": 63.2,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "sleep_duration-0624",
+      "date": "2024-06-24",
+      "type": "sleep duration",
+      "value": 10.0,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "body_weight-0625",
+      "date": "2024-06-25",
+      "type": "body weight",
+      "value": 68.9,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "sleep_duration-0625",
+      "date": "2024-06-25",
+      "type": "sleep duration",
+      "value": 6.5,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0625",
+      "sleep_duration-0625"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-06-25"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

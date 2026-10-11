@@ -1,0 +1,78 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-08b62f647268",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00816",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2024-12-27 to 2024-12-30, on which day was the stress score lowest?"
+  },
+  "instruction": "Review participant HENV-1067's timeline and answer this operational question: Among the recorded days from 2024-12-27 to 2024-12-30, on which day was the stress score lowest? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1067",
+    "display_name": "Synthetic Participant 1067",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-1227",
+      "date": "2024-12-27",
+      "type": "stress score",
+      "value": 87.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1228",
+      "date": "2024-12-28",
+      "type": "stress score",
+      "value": 81.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1229",
+      "date": "2024-12-29",
+      "type": "stress score",
+      "value": 92.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1230",
+      "date": "2024-12-30",
+      "type": "stress score",
+      "value": 88.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-1228"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-12-28"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-7840da42c1f3",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00613",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2023-08-02 to 2023-08-06, on which day was the sleep duration highest?"
+  },
+  "instruction": "Review participant HENV-1114's timeline and answer this operational question: Among the recorded days from 2023-08-02 to 2023-08-06, on which day was the sleep duration highest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1114",
+    "display_name": "Synthetic Participant 1114",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "sleep_duration-0802",
+      "date": "2023-08-02",
+      "type": "sleep duration",
+      "value": 7.6,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0803",
+      "date": "2023-08-03",
+      "type": "sleep duration",
+      "value": 8.5,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0804",
+      "date": "2023-08-04",
+      "type": "sleep duration",
+      "value": 5.3,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0805",
+      "date": "2023-08-05",
+      "type": "sleep duration",
+      "value": 4.9,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0806",
+      "date": "2023-08-06",
+      "type": "sleep duration",
+      "value": 3.5,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "systolic_bp-0802",
+      "date": "2023-08-02",
+      "type": "systolic blood pressure",
+      "value": 127.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "sleep_duration-0803"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-08-03"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

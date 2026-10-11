@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-9fe3b67f747c",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00005",
+    "category": "trend-classification",
+    "question": "Across the 4 recorded days from 2023-06-26 to 2023-06-29, did the oxygen saturation trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1006's timeline and answer this operational question: Across the 4 recorded days from 2023-06-26 to 2023-06-29, did the oxygen saturation trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1006",
+    "display_name": "Synthetic Participant 1006",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-0626",
+      "date": "2023-06-26",
+      "type": "oxygen saturation",
+      "value": 99.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0627",
+      "date": "2023-06-27",
+      "type": "oxygen saturation",
+      "value": 97.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0628",
+      "date": "2023-06-28",
+      "type": "oxygen saturation",
+      "value": 94.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0629",
+      "date": "2023-06-29",
+      "type": "oxygen saturation",
+      "value": 93.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "hydration_intake-0626",
+      "date": "2023-06-26",
+      "type": "hydration intake",
+      "value": 2400.0,
+      "unit": "ml",
+      "detail": "Different metric",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-0626",
+      "oxygen_saturation-0627",
+      "oxygen_saturation-0628",
+      "oxygen_saturation-0629"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-f2dca5dd7148",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00111",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the blood glucose across the 6 recorded days from 2023-09-23 to 2023-09-28?"
+  },
+  "instruction": "Review participant HENV-1112's timeline and answer this operational question: What was the range (highest minus lowest) of the blood glucose across the 6 recorded days from 2023-09-23 to 2023-09-28? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1112",
+    "display_name": "Synthetic Participant 1112",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0923",
+      "date": "2023-09-23",
+      "type": "blood glucose",
+      "value": 117.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0924",
+      "date": "2023-09-24",
+      "type": "blood glucose",
+      "value": 159.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0925",
+      "date": "2023-09-25",
+      "type": "blood glucose",
+      "value": 153.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0926",
+      "date": "2023-09-26",
+      "type": "blood glucose",
+      "value": 116.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0927",
+      "date": "2023-09-27",
+      "type": "blood glucose",
+      "value": 106.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0928",
+      "date": "2023-09-28",
+      "type": "blood glucose",
+      "value": 107.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0924",
+      "blood_glucose-0927"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "53",
+      "mg/dL"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

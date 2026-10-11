@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-5cb4ebd116d3",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00049",
+    "category": "longitudinal-comparison",
+    "question": "How many steps higher was the step count on 2024-01-31 than on 2024-01-29?"
+  },
+  "instruction": "Review participant HENV-1050's timeline and answer this operational question: How many steps higher was the step count on 2024-01-31 than on 2024-01-29? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1050",
+    "display_name": "Synthetic Participant 1050",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0129",
+      "date": "2024-01-29",
+      "type": "step count",
+      "value": 15505.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0131",
+      "date": "2024-01-31",
+      "type": "step count",
+      "value": 15514.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "systolic_bp-0131",
+      "date": "2024-01-31",
+      "type": "systolic blood pressure",
+      "value": 152.0,
+      "unit": "mmHg",
+      "detail": "Different metric on the comparison day",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0129",
+      "step_count-0131"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "9",
+      "steps"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

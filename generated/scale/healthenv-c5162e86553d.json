@@ -1,0 +1,108 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-c5162e86553d",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01032",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the stress score exceed 32 points?"
+  },
+  "instruction": "Review participant HENV-1033's timeline and answer this operational question: On how many of the recorded days did the stress score exceed 32 points? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1033",
+    "display_name": "Synthetic Participant 1033",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-0618",
+      "date": "2023-06-18",
+      "type": "stress score",
+      "value": 20.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0619",
+      "date": "2023-06-19",
+      "type": "stress score",
+      "value": 84.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0620",
+      "date": "2023-06-20",
+      "type": "stress score",
+      "value": 78.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0621",
+      "date": "2023-06-21",
+      "type": "stress score",
+      "value": 31.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0622",
+      "date": "2023-06-22",
+      "type": "stress score",
+      "value": 14.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0623",
+      "date": "2023-06-23",
+      "type": "stress score",
+      "value": 44.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "sleep_duration-0618",
+      "date": "2023-06-18",
+      "type": "sleep duration",
+      "value": 6.4,
+      "unit": "hours",
+      "detail": "Different metric",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-0619",
+      "stress_score-0620",
+      "stress_score-0623"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "3",
+      "days"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

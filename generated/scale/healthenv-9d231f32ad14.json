@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-9d231f32ad14",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00477",
+    "category": "temporal-aggregation",
+    "question": "What was the average blood glucose across the 3 days from 2023-01-12 through 2023-01-14?"
+  },
+  "instruction": "Review participant HENV-1228's timeline and answer this operational question: What was the average blood glucose across the 3 days from 2023-01-12 through 2023-01-14? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1228",
+    "display_name": "Synthetic Participant 1228",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0112",
+      "date": "2023-01-12",
+      "type": "blood glucose",
+      "value": 108.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0113",
+      "date": "2023-01-13",
+      "type": "blood glucose",
+      "value": 91.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0114",
+      "date": "2023-01-14",
+      "type": "blood glucose",
+      "value": 152.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0111",
+      "date": "2023-01-11",
+      "type": "blood glucose",
+      "value": 180.0,
+      "unit": "mg/dL",
+      "detail": "Outside the requested window",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0115",
+      "date": "2023-01-15",
+      "type": "blood glucose",
+      "value": 184.0,
+      "unit": "mg/dL",
+      "detail": "Outside the requested window",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "resting_heart_rate-0112",
+      "date": "2023-01-12",
+      "type": "resting heart rate",
+      "value": 71.0,
+      "unit": "bpm",
+      "detail": "Different metric inside the window",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0112",
+      "blood_glucose-0113",
+      "blood_glucose-0114"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "117",
+      "mg/dL"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

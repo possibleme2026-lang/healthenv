@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-ed24b7666045",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00855",
+    "category": "temporal-aggregation",
+    "question": "What was the average systolic blood pressure across the 3 days from 2024-08-05 through 2024-08-07?"
+  },
+  "instruction": "Review participant HENV-1106's timeline and answer this operational question: What was the average systolic blood pressure across the 3 days from 2024-08-05 through 2024-08-07? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1106",
+    "display_name": "Synthetic Participant 1106",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-0805",
+      "date": "2024-08-05",
+      "type": "systolic blood pressure",
+      "value": 135.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0806",
+      "date": "2024-08-06",
+      "type": "systolic blood pressure",
+      "value": 121.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0807",
+      "date": "2024-08-07",
+      "type": "systolic blood pressure",
+      "value": 116.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0804",
+      "date": "2024-08-04",
+      "type": "systolic blood pressure",
+      "value": 107.0,
+      "unit": "mmHg",
+      "detail": "Outside the requested window",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0808",
+      "date": "2024-08-08",
+      "type": "systolic blood pressure",
+      "value": 137.0,
+      "unit": "mmHg",
+      "detail": "Outside the requested window",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "active_minutes-0805",
+      "date": "2024-08-05",
+      "type": "active minutes",
+      "value": 41.0,
+      "unit": "minutes",
+      "detail": "Different metric inside the window",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-0805",
+      "systolic_bp-0806",
+      "systolic_bp-0807"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "124",
+      "mmHg"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-a772e7587e6f",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00191",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2024-12-28 to 2024-12-30, on which day did the participant have both the highest systolic blood pressure and the lowest active minutes?"
+  },
+  "instruction": "Review participant HENV-1192's timeline and answer this operational question: Among the recorded days from 2024-12-28 to 2024-12-30, on which day did the participant have both the highest systolic blood pressure and the lowest active minutes? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1192",
+    "display_name": "Synthetic Participant 1192",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-1228",
+      "date": "2024-12-28",
+      "type": "systolic blood pressure",
+      "value": 124.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "active_minutes-1228",
+      "date": "2024-12-28",
+      "type": "active minutes",
+      "value": 122.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "systolic_bp-1229",
+      "date": "2024-12-29",
+      "type": "systolic blood pressure",
+      "value": 159.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "active_minutes-1229",
+      "date": "2024-12-29",
+      "type": "active minutes",
+      "value": 69.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "systolic_bp-1230",
+      "date": "2024-12-30",
+      "type": "systolic blood pressure",
+      "value": 150.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "active_minutes-1230",
+      "date": "2024-12-30",
+      "type": "active minutes",
+      "value": 107.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-1229",
+      "active_minutes-1229"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-12-29"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

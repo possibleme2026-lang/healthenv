@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-8ea276d557d7",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01148",
+    "category": "longitudinal-comparison",
+    "question": "How many mmHg higher was the systolic blood pressure on 2024-07-30 than on 2024-07-29?"
+  },
+  "instruction": "Review participant HENV-1149's timeline and answer this operational question: How many mmHg higher was the systolic blood pressure on 2024-07-30 than on 2024-07-29? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1149",
+    "display_name": "Synthetic Participant 1149",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-0729",
+      "date": "2024-07-29",
+      "type": "systolic blood pressure",
+      "value": 120.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0730",
+      "date": "2024-07-30",
+      "type": "systolic blood pressure",
+      "value": 125.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0731",
+      "date": "2024-07-31",
+      "type": "systolic blood pressure",
+      "value": 165.0,
+      "unit": "mmHg",
+      "detail": "Outside the requested window",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "stress_score-0730",
+      "date": "2024-07-30",
+      "type": "stress score",
+      "value": 26.0,
+      "unit": "score",
+      "detail": "Different metric on the comparison day",
+      "metric": "stress_score"
+    },
+    {
+      "id": "systolic_bp-0730-ctx",
+      "date": "2024-07-30",
+      "type": "systolic blood pressure",
+      "value": 136.0,
+      "unit": "mmHg",
+      "detail": "Same-day secondary reading (context mismatch)",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-0729",
+      "systolic_bp-0730"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "5",
+      "mmHg"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

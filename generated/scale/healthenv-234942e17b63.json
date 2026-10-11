@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-234942e17b63",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00538",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the oxygen saturation across the 6 recorded days from 2023-12-11 to 2023-12-16?"
+  },
+  "instruction": "Review participant HENV-1039's timeline and answer this operational question: What was the range (highest minus lowest) of the oxygen saturation across the 6 recorded days from 2023-12-11 to 2023-12-16? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1039",
+    "display_name": "Synthetic Participant 1039",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-1211",
+      "date": "2023-12-11",
+      "type": "oxygen saturation",
+      "value": 91.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1212",
+      "date": "2023-12-12",
+      "type": "oxygen saturation",
+      "value": 97.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1213",
+      "date": "2023-12-13",
+      "type": "oxygen saturation",
+      "value": 93.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1214",
+      "date": "2023-12-14",
+      "type": "oxygen saturation",
+      "value": 98.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1215",
+      "date": "2023-12-15",
+      "type": "oxygen saturation",
+      "value": 98.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1216",
+      "date": "2023-12-16",
+      "type": "oxygen saturation",
+      "value": 96.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-1215",
+      "oxygen_saturation-1211"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "7",
+      "percentage points"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-0cbca494db65",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00968",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2023-03-10 to 2023-03-13, on which day did the participant have both the highest resting heart rate and the lowest body weight?"
+  },
+  "instruction": "Review participant HENV-1219's timeline and answer this operational question: Among the recorded days from 2023-03-10 to 2023-03-13, on which day did the participant have both the highest resting heart rate and the lowest body weight? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1219",
+    "display_name": "Synthetic Participant 1219",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "resting_heart_rate-0310",
+      "date": "2023-03-10",
+      "type": "resting heart rate",
+      "value": 82.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "body_weight-0310",
+      "date": "2023-03-10",
+      "type": "body weight",
+      "value": 111.0,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "resting_heart_rate-0311",
+      "date": "2023-03-11",
+      "type": "resting heart rate",
+      "value": 76.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "body_weight-0311",
+      "date": "2023-03-11",
+      "type": "body weight",
+      "value": 101.1,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "resting_heart_rate-0312",
+      "date": "2023-03-12",
+      "type": "resting heart rate",
+      "value": 95.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "body_weight-0312",
+      "date": "2023-03-12",
+      "type": "body weight",
+      "value": 94.1,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "resting_heart_rate-0313",
+      "date": "2023-03-13",
+      "type": "resting heart rate",
+      "value": 73.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "body_weight-0313",
+      "date": "2023-03-13",
+      "type": "body weight",
+      "value": 99.5,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "resting_heart_rate-0312",
+      "body_weight-0312"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-03-12"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

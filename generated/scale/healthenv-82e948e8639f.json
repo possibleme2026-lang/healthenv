@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-82e948e8639f",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01013",
+    "category": "trend-classification",
+    "question": "Across the 4 recorded days from 2024-01-31 to 2024-02-03, did the body weight trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1014's timeline and answer this operational question: Across the 4 recorded days from 2024-01-31 to 2024-02-03, did the body weight trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1014",
+    "display_name": "Synthetic Participant 1014",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0131",
+      "date": "2024-01-31",
+      "type": "body weight",
+      "value": 108.8,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0201",
+      "date": "2024-02-01",
+      "type": "body weight",
+      "value": 98.3,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0202",
+      "date": "2024-02-02",
+      "type": "body weight",
+      "value": 95.4,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0203",
+      "date": "2024-02-03",
+      "type": "body weight",
+      "value": 84.1,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "step_count-0131",
+      "date": "2024-01-31",
+      "type": "step count",
+      "value": 15528.0,
+      "unit": "steps",
+      "detail": "Different metric",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0131",
+      "body_weight-0201",
+      "body_weight-0202",
+      "body_weight-0203"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

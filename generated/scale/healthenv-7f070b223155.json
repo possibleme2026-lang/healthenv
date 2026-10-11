@@ -1,0 +1,119 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-7f070b223155",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00162",
+    "category": "temporal-aggregation",
+    "question": "What was the total step count across the 5 days from 2024-08-11 through 2024-08-15?"
+  },
+  "instruction": "Review participant HENV-1163's timeline and answer this operational question: What was the total step count across the 5 days from 2024-08-11 through 2024-08-15? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1163",
+    "display_name": "Synthetic Participant 1163",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0811",
+      "date": "2024-08-11",
+      "type": "step count",
+      "value": 1602.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0812",
+      "date": "2024-08-12",
+      "type": "step count",
+      "value": 8483.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0813",
+      "date": "2024-08-13",
+      "type": "step count",
+      "value": 9786.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0814",
+      "date": "2024-08-14",
+      "type": "step count",
+      "value": 9337.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0815",
+      "date": "2024-08-15",
+      "type": "step count",
+      "value": 4677.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0810",
+      "date": "2024-08-10",
+      "type": "step count",
+      "value": 3480.0,
+      "unit": "steps",
+      "detail": "Outside the requested window",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0816",
+      "date": "2024-08-16",
+      "type": "step count",
+      "value": 9153.0,
+      "unit": "steps",
+      "detail": "Outside the requested window",
+      "metric": "step_count"
+    },
+    {
+      "id": "resting_heart_rate-0811",
+      "date": "2024-08-11",
+      "type": "resting heart rate",
+      "value": 65.0,
+      "unit": "bpm",
+      "detail": "Different metric inside the window",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0811",
+      "step_count-0812",
+      "step_count-0813",
+      "step_count-0814",
+      "step_count-0815"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "33885",
+      "steps"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

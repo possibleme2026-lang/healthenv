@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-26271e7c70d3",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00522",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2023-06-04 to 2023-06-08, on which day was the hydration intake highest?"
+  },
+  "instruction": "Review participant HENV-1023's timeline and answer this operational question: Among the recorded days from 2023-06-04 to 2023-06-08, on which day was the hydration intake highest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1023",
+    "display_name": "Synthetic Participant 1023",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-0604",
+      "date": "2023-06-04",
+      "type": "hydration intake",
+      "value": 2839.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0605",
+      "date": "2023-06-05",
+      "type": "hydration intake",
+      "value": 1569.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0606",
+      "date": "2023-06-06",
+      "type": "hydration intake",
+      "value": 1535.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0607",
+      "date": "2023-06-07",
+      "type": "hydration intake",
+      "value": 2451.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0608",
+      "date": "2023-06-08",
+      "type": "hydration intake",
+      "value": 1624.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "stress_score-0604",
+      "date": "2023-06-04",
+      "type": "stress score",
+      "value": 25.0,
+      "unit": "score",
+      "detail": "Different metric",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-0604"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-06-04"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

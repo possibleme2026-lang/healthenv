@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-cd3c79a5f5d2",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01123",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the stress score exceed 72 points?"
+  },
+  "instruction": "Review participant HENV-1124's timeline and answer this operational question: On how many of the recorded days did the stress score exceed 72 points? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1124",
+    "display_name": "Synthetic Participant 1124",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-0720",
+      "date": "2023-07-20",
+      "type": "stress score",
+      "value": 73.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0721",
+      "date": "2023-07-21",
+      "type": "stress score",
+      "value": 52.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0722",
+      "date": "2023-07-22",
+      "type": "stress score",
+      "value": 17.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0723",
+      "date": "2023-07-23",
+      "type": "stress score",
+      "value": 86.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0724",
+      "date": "2023-07-24",
+      "type": "stress score",
+      "value": 74.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0725",
+      "date": "2023-07-25",
+      "type": "stress score",
+      "value": 88.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0726",
+      "date": "2023-07-26",
+      "type": "stress score",
+      "value": 52.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-0720",
+      "stress_score-0723",
+      "stress_score-0724",
+      "stress_score-0725"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "4",
+      "days"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

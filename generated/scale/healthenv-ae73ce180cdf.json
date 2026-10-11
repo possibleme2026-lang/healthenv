@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-ae73ce180cdf",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00840",
+    "category": "longitudinal-comparison",
+    "question": "How many hours higher was the sleep duration on 2023-11-23 than on 2023-11-22?"
+  },
+  "instruction": "Review participant HENV-1091's timeline and answer this operational question: How many hours higher was the sleep duration on 2023-11-23 than on 2023-11-22? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1091",
+    "display_name": "Synthetic Participant 1091",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "sleep_duration-1122",
+      "date": "2023-11-22",
+      "type": "sleep duration",
+      "value": 5.7,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-1123",
+      "date": "2023-11-23",
+      "type": "sleep duration",
+      "value": 7.7,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "body_weight-1123",
+      "date": "2023-11-23",
+      "type": "body weight",
+      "value": 59.9,
+      "unit": "kg",
+      "detail": "Different metric on the comparison day",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "sleep_duration-1122",
+      "sleep_duration-1123"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2.0",
+      "hours"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

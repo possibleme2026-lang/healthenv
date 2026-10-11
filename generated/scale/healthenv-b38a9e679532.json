@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-b38a9e679532",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00679",
+    "category": "longitudinal-comparison",
+    "question": "How many hours lower was the sleep duration on 2024-03-12 than on 2024-03-10?"
+  },
+  "instruction": "Review participant HENV-1180's timeline and answer this operational question: How many hours lower was the sleep duration on 2024-03-12 than on 2024-03-10? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1180",
+    "display_name": "Synthetic Participant 1180",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "sleep_duration-0310",
+      "date": "2024-03-10",
+      "type": "sleep duration",
+      "value": 7.6,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0312",
+      "date": "2024-03-12",
+      "type": "sleep duration",
+      "value": 4.4,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0313",
+      "date": "2024-03-13",
+      "type": "sleep duration",
+      "value": 8.9,
+      "unit": "hours",
+      "detail": "Outside the requested window",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "body_weight-0312",
+      "date": "2024-03-12",
+      "type": "body weight",
+      "value": 80.2,
+      "unit": "kg",
+      "detail": "Different metric on the comparison day",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "sleep_duration-0310",
+      "sleep_duration-0312"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "3.2",
+      "hours"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

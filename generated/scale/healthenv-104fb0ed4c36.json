@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-104fb0ed4c36",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00493",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the step count exceed 7939 steps?"
+  },
+  "instruction": "Review participant HENV-1244's timeline and answer this operational question: On how many of the recorded days did the step count exceed 7939 steps? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1244",
+    "display_name": "Synthetic Participant 1244",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0222",
+      "date": "2023-02-22",
+      "type": "step count",
+      "value": 16012.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0223",
+      "date": "2023-02-23",
+      "type": "step count",
+      "value": 13293.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0224",
+      "date": "2023-02-24",
+      "type": "step count",
+      "value": 6910.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0225",
+      "date": "2023-02-25",
+      "type": "step count",
+      "value": 11026.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0226",
+      "date": "2023-02-26",
+      "type": "step count",
+      "value": 11784.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "stress_score-0222",
+      "date": "2023-02-22",
+      "type": "stress score",
+      "value": 16.0,
+      "unit": "score",
+      "detail": "Different metric",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0222",
+      "step_count-0223",
+      "step_count-0225",
+      "step_count-0226"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "4",
+      "days"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-4293fccd50b2",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01072",
+    "category": "temporal-aggregation",
+    "question": "What was the average hydration intake across the 5 days from 2024-12-16 through 2024-12-20?"
+  },
+  "instruction": "Review participant HENV-1073's timeline and answer this operational question: What was the average hydration intake across the 5 days from 2024-12-16 through 2024-12-20? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1073",
+    "display_name": "Synthetic Participant 1073",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-1216",
+      "date": "2024-12-16",
+      "type": "hydration intake",
+      "value": 834.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1217",
+      "date": "2024-12-17",
+      "type": "hydration intake",
+      "value": 2963.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1218",
+      "date": "2024-12-18",
+      "type": "hydration intake",
+      "value": 2223.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1219",
+      "date": "2024-12-19",
+      "type": "hydration intake",
+      "value": 1858.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1220",
+      "date": "2024-12-20",
+      "type": "hydration intake",
+      "value": 1402.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1215",
+      "date": "2024-12-15",
+      "type": "hydration intake",
+      "value": 873.0,
+      "unit": "ml",
+      "detail": "Outside the requested window",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1221",
+      "date": "2024-12-21",
+      "type": "hydration intake",
+      "value": 3198.0,
+      "unit": "ml",
+      "detail": "Outside the requested window",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-1216",
+      "hydration_intake-1217",
+      "hydration_intake-1218",
+      "hydration_intake-1219",
+      "hydration_intake-1220"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "1856",
+      "ml"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

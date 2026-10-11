@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-f7a4e15bc4b9",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00779",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2023-12-24 to 2023-12-26, on which day did the participant have both the highest stress score and the lowest oxygen saturation?"
+  },
+  "instruction": "Review participant HENV-1030's timeline and answer this operational question: Among the recorded days from 2023-12-24 to 2023-12-26, on which day did the participant have both the highest stress score and the lowest oxygen saturation? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1030",
+    "display_name": "Synthetic Participant 1030",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-1224",
+      "date": "2023-12-24",
+      "type": "stress score",
+      "value": 8.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "oxygen_saturation-1224",
+      "date": "2023-12-24",
+      "type": "oxygen saturation",
+      "value": 97.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "stress_score-1225",
+      "date": "2023-12-25",
+      "type": "stress score",
+      "value": 22.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "oxygen_saturation-1225",
+      "date": "2023-12-25",
+      "type": "oxygen saturation",
+      "value": 95.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "stress_score-1226",
+      "date": "2023-12-26",
+      "type": "stress score",
+      "value": 14.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "oxygen_saturation-1226",
+      "date": "2023-12-26",
+      "type": "oxygen saturation",
+      "value": 100.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-1225",
+      "oxygen_saturation-1225"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-12-25"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

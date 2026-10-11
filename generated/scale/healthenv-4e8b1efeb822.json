@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-4e8b1efeb822",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00279",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the body weight across the 5 recorded days from 2023-04-15 to 2023-04-19?"
+  },
+  "instruction": "Review participant HENV-1030's timeline and answer this operational question: What was the range (highest minus lowest) of the body weight across the 5 recorded days from 2023-04-15 to 2023-04-19? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1030",
+    "display_name": "Synthetic Participant 1030",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0415",
+      "date": "2023-04-15",
+      "type": "body weight",
+      "value": 98.9,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0416",
+      "date": "2023-04-16",
+      "type": "body weight",
+      "value": 104.6,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0417",
+      "date": "2023-04-17",
+      "type": "body weight",
+      "value": 89.3,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0418",
+      "date": "2023-04-18",
+      "type": "body weight",
+      "value": 101.5,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0419",
+      "date": "2023-04-19",
+      "type": "body weight",
+      "value": 108.4,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0419",
+      "body_weight-0417"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "19.1",
+      "kg"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

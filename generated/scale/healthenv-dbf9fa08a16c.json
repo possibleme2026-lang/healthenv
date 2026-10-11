@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-dbf9fa08a16c",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01036",
+    "category": "longitudinal-comparison",
+    "question": "How many ml higher was the hydration intake on 2024-03-12 than on 2024-03-10?"
+  },
+  "instruction": "Review participant HENV-1037's timeline and answer this operational question: How many ml higher was the hydration intake on 2024-03-12 than on 2024-03-10? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1037",
+    "display_name": "Synthetic Participant 1037",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-0310",
+      "date": "2024-03-10",
+      "type": "hydration intake",
+      "value": 2141.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0312",
+      "date": "2024-03-12",
+      "type": "hydration intake",
+      "value": 2150.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0314",
+      "date": "2024-03-14",
+      "type": "hydration intake",
+      "value": 1876.0,
+      "unit": "ml",
+      "detail": "Outside the requested window",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "stress_score-0312",
+      "date": "2024-03-12",
+      "type": "stress score",
+      "value": 53.0,
+      "unit": "score",
+      "detail": "Different metric on the comparison day",
+      "metric": "stress_score"
+    },
+    {
+      "id": "hydration_intake-0312-ctx",
+      "date": "2024-03-12",
+      "type": "hydration intake",
+      "value": 1558.0,
+      "unit": "ml",
+      "detail": "Same-day secondary reading (context mismatch)",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-0310",
+      "hydration_intake-0312"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "9",
+      "ml"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-e1a9e417d693",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00691",
+    "category": "trend-classification",
+    "question": "Across the 6 recorded days from 2023-07-08 to 2023-07-13, did the body weight trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1192's timeline and answer this operational question: Across the 6 recorded days from 2023-07-08 to 2023-07-13, did the body weight trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1192",
+    "display_name": "Synthetic Participant 1192",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0708",
+      "date": "2023-07-08",
+      "type": "body weight",
+      "value": 108.8,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0709",
+      "date": "2023-07-09",
+      "type": "body weight",
+      "value": 101.4,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0710",
+      "date": "2023-07-10",
+      "type": "body weight",
+      "value": 99.6,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0711",
+      "date": "2023-07-11",
+      "type": "body weight",
+      "value": 91.9,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0712",
+      "date": "2023-07-12",
+      "type": "body weight",
+      "value": 90.7,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0713",
+      "date": "2023-07-13",
+      "type": "body weight",
+      "value": 90.2,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "active_minutes-0708",
+      "date": "2023-07-08",
+      "type": "active minutes",
+      "value": 105.0,
+      "unit": "minutes",
+      "detail": "Different metric",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0708",
+      "body_weight-0709",
+      "body_weight-0710",
+      "body_weight-0711",
+      "body_weight-0712",
+      "body_weight-0713"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

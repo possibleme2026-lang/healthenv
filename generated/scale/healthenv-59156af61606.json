@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-59156af61606",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00418",
+    "category": "trend-classification",
+    "question": "Across the 6 recorded days from 2023-02-13 to 2023-02-18, did the body weight trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1169's timeline and answer this operational question: Across the 6 recorded days from 2023-02-13 to 2023-02-18, did the body weight trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1169",
+    "display_name": "Synthetic Participant 1169",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0213",
+      "date": "2023-02-13",
+      "type": "body weight",
+      "value": 108.8,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0214",
+      "date": "2023-02-14",
+      "type": "body weight",
+      "value": 104.1,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0215",
+      "date": "2023-02-15",
+      "type": "body weight",
+      "value": 97.7,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0216",
+      "date": "2023-02-16",
+      "type": "body weight",
+      "value": 97.3,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0217",
+      "date": "2023-02-17",
+      "type": "body weight",
+      "value": 90.7,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0218",
+      "date": "2023-02-18",
+      "type": "body weight",
+      "value": 87.0,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "systolic_bp-0213",
+      "date": "2023-02-13",
+      "type": "systolic blood pressure",
+      "value": 154.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0213",
+      "body_weight-0214",
+      "body_weight-0215",
+      "body_weight-0216",
+      "body_weight-0217",
+      "body_weight-0218"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

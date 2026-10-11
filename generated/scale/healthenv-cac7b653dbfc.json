@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-cac7b653dbfc",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01027",
+    "category": "trend-classification",
+    "question": "Across the 4 recorded days from 2023-08-25 to 2023-08-28, did the active minutes trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1028's timeline and answer this operational question: Across the 4 recorded days from 2023-08-25 to 2023-08-28, did the active minutes trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1028",
+    "display_name": "Synthetic Participant 1028",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0825",
+      "date": "2023-08-25",
+      "type": "active minutes",
+      "value": 124.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0826",
+      "date": "2023-08-26",
+      "type": "active minutes",
+      "value": 101.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0827",
+      "date": "2023-08-27",
+      "type": "active minutes",
+      "value": 87.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0828",
+      "date": "2023-08-28",
+      "type": "active minutes",
+      "value": 58.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "sleep_duration-0825",
+      "date": "2023-08-25",
+      "type": "sleep duration",
+      "value": 5.7,
+      "unit": "hours",
+      "detail": "Different metric",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0825",
+      "active_minutes-0826",
+      "active_minutes-0827",
+      "active_minutes-0828"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

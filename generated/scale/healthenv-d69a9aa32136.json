@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-d69a9aa32136",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00694",
+    "category": "temporal-aggregation",
+    "question": "What was the average hydration intake across the 4 days from 2023-03-08 through 2023-03-11?"
+  },
+  "instruction": "Review participant HENV-1195's timeline and answer this operational question: What was the average hydration intake across the 4 days from 2023-03-08 through 2023-03-11? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1195",
+    "display_name": "Synthetic Participant 1195",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-0308",
+      "date": "2023-03-08",
+      "type": "hydration intake",
+      "value": 897.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0309",
+      "date": "2023-03-09",
+      "type": "hydration intake",
+      "value": 3060.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0310",
+      "date": "2023-03-10",
+      "type": "hydration intake",
+      "value": 1345.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0311",
+      "date": "2023-03-11",
+      "type": "hydration intake",
+      "value": 2646.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0307",
+      "date": "2023-03-07",
+      "type": "hydration intake",
+      "value": 3207.0,
+      "unit": "ml",
+      "detail": "Outside the requested window",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0312",
+      "date": "2023-03-12",
+      "type": "hydration intake",
+      "value": 1646.0,
+      "unit": "ml",
+      "detail": "Outside the requested window",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "sleep_duration-0308",
+      "date": "2023-03-08",
+      "type": "sleep duration",
+      "value": 3.7,
+      "unit": "hours",
+      "detail": "Different metric inside the window",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-0308",
+      "hydration_intake-0309",
+      "hydration_intake-0310",
+      "hydration_intake-0311"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "1987",
+      "ml"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

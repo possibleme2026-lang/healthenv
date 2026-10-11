@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-d724e6313fae",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00307",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the step count across the 5 recorded days from 2023-02-16 to 2023-02-20?"
+  },
+  "instruction": "Review participant HENV-1058's timeline and answer this operational question: What was the range (highest minus lowest) of the step count across the 5 recorded days from 2023-02-16 to 2023-02-20? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1058",
+    "display_name": "Synthetic Participant 1058",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0216",
+      "date": "2023-02-16",
+      "type": "step count",
+      "value": 16118.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0217",
+      "date": "2023-02-17",
+      "type": "step count",
+      "value": 15176.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0218",
+      "date": "2023-02-18",
+      "type": "step count",
+      "value": 16778.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0219",
+      "date": "2023-02-19",
+      "type": "step count",
+      "value": 17904.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0220",
+      "date": "2023-02-20",
+      "type": "step count",
+      "value": 17454.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0219",
+      "step_count-0217"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2728",
+      "steps"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

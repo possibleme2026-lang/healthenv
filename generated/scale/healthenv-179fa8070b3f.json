@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-179fa8070b3f",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00103",
+    "category": "trend-classification",
+    "question": "Across the 5 recorded days from 2024-02-14 to 2024-02-18, did the blood glucose trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1104's timeline and answer this operational question: Across the 5 recorded days from 2024-02-14 to 2024-02-18, did the blood glucose trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1104",
+    "display_name": "Synthetic Participant 1104",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0214",
+      "date": "2024-02-14",
+      "type": "blood glucose",
+      "value": 76.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0215",
+      "date": "2024-02-15",
+      "type": "blood glucose",
+      "value": 85.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0216",
+      "date": "2024-02-16",
+      "type": "blood glucose",
+      "value": 103.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0217",
+      "date": "2024-02-17",
+      "type": "blood glucose",
+      "value": 107.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0218",
+      "date": "2024-02-18",
+      "type": "blood glucose",
+      "value": 126.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "sleep_duration-0214",
+      "date": "2024-02-14",
+      "type": "sleep duration",
+      "value": 8.4,
+      "unit": "hours",
+      "detail": "Different metric",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0214",
+      "blood_glucose-0215",
+      "blood_glucose-0216",
+      "blood_glucose-0217",
+      "blood_glucose-0218"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

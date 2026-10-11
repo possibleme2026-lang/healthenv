@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-d519a740b492",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00218",
+    "category": "temporal-aggregation",
+    "question": "What was the average resting heart rate across the 5 days from 2024-07-14 through 2024-07-18?"
+  },
+  "instruction": "Review participant HENV-1219's timeline and answer this operational question: What was the average resting heart rate across the 5 days from 2024-07-14 through 2024-07-18? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1219",
+    "display_name": "Synthetic Participant 1219",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "resting_heart_rate-0714",
+      "date": "2024-07-14",
+      "type": "resting heart rate",
+      "value": 68.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0715",
+      "date": "2024-07-15",
+      "type": "resting heart rate",
+      "value": 54.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0716",
+      "date": "2024-07-16",
+      "type": "resting heart rate",
+      "value": 86.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0717",
+      "date": "2024-07-17",
+      "type": "resting heart rate",
+      "value": 51.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0718",
+      "date": "2024-07-18",
+      "type": "resting heart rate",
+      "value": 76.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0713",
+      "date": "2024-07-13",
+      "type": "resting heart rate",
+      "value": 98.0,
+      "unit": "bpm",
+      "detail": "Outside the requested window",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0719",
+      "date": "2024-07-19",
+      "type": "resting heart rate",
+      "value": 76.0,
+      "unit": "bpm",
+      "detail": "Outside the requested window",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "resting_heart_rate-0714",
+      "resting_heart_rate-0715",
+      "resting_heart_rate-0716",
+      "resting_heart_rate-0717",
+      "resting_heart_rate-0718"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "67",
+      "bpm"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

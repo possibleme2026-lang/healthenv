@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-3ad214ee68b7",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00621",
+    "category": "trend-classification",
+    "question": "Across the 6 recorded days from 2024-07-03 to 2024-07-08, did the active minutes trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1122's timeline and answer this operational question: Across the 6 recorded days from 2024-07-03 to 2024-07-08, did the active minutes trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1122",
+    "display_name": "Synthetic Participant 1122",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0703",
+      "date": "2024-07-03",
+      "type": "active minutes",
+      "value": 11.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0704",
+      "date": "2024-07-04",
+      "type": "active minutes",
+      "value": 27.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0705",
+      "date": "2024-07-05",
+      "type": "active minutes",
+      "value": 41.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0706",
+      "date": "2024-07-06",
+      "type": "active minutes",
+      "value": 44.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0707",
+      "date": "2024-07-07",
+      "type": "active minutes",
+      "value": 60.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0708",
+      "date": "2024-07-08",
+      "type": "active minutes",
+      "value": 68.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "hydration_intake-0703",
+      "date": "2024-07-03",
+      "type": "hydration intake",
+      "value": 2300.0,
+      "unit": "ml",
+      "detail": "Different metric",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0703",
+      "active_minutes-0704",
+      "active_minutes-0705",
+      "active_minutes-0706",
+      "active_minutes-0707",
+      "active_minutes-0708"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

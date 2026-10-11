@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-e951ca3d4b9b",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00529",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2024-08-22 to 2024-08-27, on which day was the active minutes lowest?"
+  },
+  "instruction": "Review participant HENV-1030's timeline and answer this operational question: Among the recorded days from 2024-08-22 to 2024-08-27, on which day was the active minutes lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1030",
+    "display_name": "Synthetic Participant 1030",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0822",
+      "date": "2024-08-22",
+      "type": "active minutes",
+      "value": 127.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0823",
+      "date": "2024-08-23",
+      "type": "active minutes",
+      "value": 116.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0824",
+      "date": "2024-08-24",
+      "type": "active minutes",
+      "value": 104.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0825",
+      "date": "2024-08-25",
+      "type": "active minutes",
+      "value": 120.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0826",
+      "date": "2024-08-26",
+      "type": "active minutes",
+      "value": 126.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0827",
+      "date": "2024-08-27",
+      "type": "active minutes",
+      "value": 124.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0824"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-08-24"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

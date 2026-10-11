@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-3bc1ec3a1deb",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01078",
+    "category": "longitudinal-comparison",
+    "question": "How many percentage points higher was the oxygen saturation on 2024-10-07 than on 2024-10-04?"
+  },
+  "instruction": "Review participant HENV-1079's timeline and answer this operational question: How many percentage points higher was the oxygen saturation on 2024-10-07 than on 2024-10-04? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1079",
+    "display_name": "Synthetic Participant 1079",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-1004",
+      "date": "2024-10-04",
+      "type": "oxygen saturation",
+      "value": 88.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1007",
+      "date": "2024-10-07",
+      "type": "oxygen saturation",
+      "value": 98.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "blood_glucose-1007",
+      "date": "2024-10-07",
+      "type": "blood glucose",
+      "value": 155.0,
+      "unit": "mg/dL",
+      "detail": "Different metric on the comparison day",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "oxygen_saturation-1007-ctx",
+      "date": "2024-10-07",
+      "type": "oxygen saturation",
+      "value": 94.0,
+      "unit": "%",
+      "detail": "Same-day secondary reading (context mismatch)",
+      "metric": "oxygen_saturation"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-1004",
+      "oxygen_saturation-1007"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "10",
+      "percentage points"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

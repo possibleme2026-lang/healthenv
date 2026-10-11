@@ -33,7 +33,30 @@ The LLM may rewrite the workflow instruction, but it never defines the gold answ
 - a local adapter for the public LifeAgentBench JSONL format;
 - optional OpenAI-compatible synthesis through TierFlow;
 - three synthetic, privacy-safe benchmark seeds covering longitudinal comparison, temporal aggregation, and cross-dimensional reasoning;
+- a deterministic seed generator that scales the same contract to 1200 environments;
 - positive and adversarial regression tests.
+
+## Scale synthesis
+
+`healthenv.seedgen` deterministically synthesizes QA seeds across 10 metric domains and 7 reasoning skills, then compiles each seed into an environment. Answers are always derived from the generated records, never attached to them afterwards.
+
+```bash
+python scripts/scale_eval.py --count 1200
+```
+
+Each environment is proved individually: an oracle trajectory reaches strict success, and four negative controls are all rejected (no evidence, every record selected, ungrounded note, wrong workflow priority). The full report is [`artifacts/scale_results.json`](artifacts/scale_results.json).
+
+| Scale metric | Value |
+|---|---:|
+| Environments compiled | 1200 |
+| Unique task ids | 1200 |
+| Oracle strict passes | 1200 |
+| Negative controls rejected | 1200 (4 controls each) |
+| Unique (question, answer) pairs | 1193 |
+| Unique questions / answers | 1164 / 641 |
+| Structural skeletons | 86 |
+
+The last row is the honest ceiling: 1200 instances sit on 86 structural skeletons (category x evidence count x distractor count x priority). Multiplying instances is cheap; inventing genuinely new reasoning patterns is the open problem.
 
 ## Quickstart
 
@@ -110,10 +133,14 @@ See [`docs/TASK_IR.md`](docs/TASK_IR.md) for the JSON schema and trust boundarie
 
 | Check | Result |
 |---|---:|
-| Unit/regression tests | 11 passed |
+| Unit/regression tests | 27 passed |
 | Synthetic tasks compiled | 3/3 |
 | Oracle strict success | 3/3 |
 | Evidence-omission mutants rejected | 3/3 |
+| Scale run: environments | 1200 |
+| Scale run: oracle passes / negative rejections | 1200 / 1200 |
+| Scale run: structural errors | 0 |
+| Scale run in a real headless browser | 100%, 0 JS/network errors |
 | LifeAgentBench-format adapter smoke | strict success 1.0 |
 | TierFlow `tierflow_pro` planner | 3/3, 0 fallbacks, gold unchanged |
 | Real headless-browser workflow | 100%, 0 JS/network errors |

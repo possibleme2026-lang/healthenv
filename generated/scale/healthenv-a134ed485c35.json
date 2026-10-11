@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-a134ed485c35",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01168",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the systolic blood pressure across the 4 recorded days from 2023-03-28 to 2023-03-31?"
+  },
+  "instruction": "Review participant HENV-1169's timeline and answer this operational question: What was the range (highest minus lowest) of the systolic blood pressure across the 4 recorded days from 2023-03-28 to 2023-03-31? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1169",
+    "display_name": "Synthetic Participant 1169",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-0328",
+      "date": "2023-03-28",
+      "type": "systolic blood pressure",
+      "value": 129.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0329",
+      "date": "2023-03-29",
+      "type": "systolic blood pressure",
+      "value": 131.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0330",
+      "date": "2023-03-30",
+      "type": "systolic blood pressure",
+      "value": 146.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0331",
+      "date": "2023-03-31",
+      "type": "systolic blood pressure",
+      "value": 155.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "resting_heart_rate-0328",
+      "date": "2023-03-28",
+      "type": "resting heart rate",
+      "value": 98.0,
+      "unit": "bpm",
+      "detail": "Different metric",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-0331",
+      "systolic_bp-0328"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "26",
+      "mmHg"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

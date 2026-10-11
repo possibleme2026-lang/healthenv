@@ -10,6 +10,7 @@ from pathlib import Path
 from .compiler import compile_seed, compile_seed_file
 from .lifeagent import import_lifeagent_item
 from .llm import OpenAICompatibleClient
+from .seedgen import generate_seeds, write_seed_file
 from .server import load_task, serve
 from .verifier import verify_state
 
@@ -17,6 +18,11 @@ from .verifier import verify_state
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="healthenv")
     subparsers = parser.add_subparsers(dest="command", required=True)
+
+    generate_parser = subparsers.add_parser("generate-seeds", help="synthesize QA seeds at scale")
+    generate_parser.add_argument("--count", type=int, default=1200)
+    generate_parser.add_argument("--seed", type=int, default=20261012)
+    generate_parser.add_argument("--output", "-o", required=True)
 
     compile_parser = subparsers.add_parser("compile", help="compile QA JSONL into task specs")
     compile_parser.add_argument("input")
@@ -49,6 +55,10 @@ def _parser() -> argparse.ArgumentParser:
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = _parser().parse_args(argv)
+    if args.command == "generate-seeds":
+        written = write_seed_file(generate_seeds(args.count, master_seed=args.seed), args.output)
+        print(f"wrote {written} seeds to {args.output}")
+        return 0
     if args.command == "compile":
         client = OpenAICompatibleClient.from_env() if args.llm else None
         outputs = compile_seed_file(

@@ -3,6 +3,10 @@ import { writeFileSync } from "node:fs";
 const port = Number(process.env.CDP_PORT || 9222);
 const targetUrl = process.env.HEALTHENV_URL || "http://127.0.0.1:8765";
 const artifact = process.env.HEALTHENV_BROWSER_ARTIFACT || "artifacts/browser_smoke.json";
+const evidence = (process.env.HEALTHENV_EVIDENCE || "o2-0607-sleep,o2-0608-sleep").split(",");
+const note = process.env.HEALTHENV_NOTE || "The sleeping upper bound was 2 percentage points higher.";
+const status = process.env.HEALTHENV_STATUS || "review";
+const expectedSelected = Number(process.env.HEALTHENV_EXPECTED_SELECTED || evidence.length);
 
 async function waitForTarget() {
   let lastError;
@@ -88,18 +92,21 @@ try {
   await send("Page.reload", { ignoreCache: true });
   await evaluate("new Promise(r=>{if(document.readyState==='complete')r();else window.addEventListener('load',r,{once:true})})");
   await evaluate("new Promise(r=>setTimeout(r,800))");
-  const result = await evaluate(`(async()=>{
+  const workflow = `(async()=>{
+    const evidenceIds = ${JSON.stringify(evidence)};
+    const noteText = ${JSON.stringify(note)};
+    const statusValue = ${JSON.stringify(status)};
     const click=selector=>{const el=document.querySelector(selector);if(!el)throw new Error('missing '+selector);el.click()};
     const waitFor=async predicate=>{const deadline=Date.now()+5000;while(Date.now()<deadline){if(predicate())return;await new Promise(r=>setTimeout(r,50))}throw new Error('UI condition timed out')};
-    click('[data-testid="record-o2-0607-sleep"]');
-    await waitFor(()=>document.querySelector('#selectedCount')?.textContent.startsWith('1 '));
-    click('[data-testid="record-o2-0608-sleep"]');
-    await waitFor(()=>document.querySelector('#selectedCount')?.textContent.startsWith('2 '));
+    for (let index = 0; index < evidenceIds.length; index += 1) {
+      click('[data-testid="record-' + evidenceIds[index] + '"]');
+      await waitFor(()=>document.querySelector('#selectedCount')?.textContent.startsWith((index + 1) + ' '));
+    }
     const note=document.querySelector('[data-testid="care-note"]');
-    note.value='The sleeping upper bound was 2 percentage points higher.';
+    note.value=noteText;
     note.dispatchEvent(new Event('change',{bubbles:true}));
     const status=document.querySelector('[data-testid="workflow-status"]');
-    status.value='review';
+    status.value=statusValue;
     status.dispatchEvent(new Event('change',{bubbles:true}));
     await new Promise(r=>setTimeout(r,300));
     click('[data-testid="submit-task"]');
@@ -115,12 +122,13 @@ try {
       columns:getComputedStyle(document.querySelector('.grid')).gridTemplateColumns,
       viewport:document.documentElement.clientWidth
     };
-  })()`);
+  })()`;
+  const result = await evaluate(workflow);
   const passed =
     result.resultClass.includes("pass") &&
     result.resultText.includes("100%") &&
     result.resultText.includes("Strict success") &&
-    result.selected.startsWith("2 ") &&
+    result.selected.startsWith(expectedSelected + " ") &&
     result.jsErrors.length === 0 &&
     failures.length === 0;
   const report = {

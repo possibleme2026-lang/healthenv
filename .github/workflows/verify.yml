@@ -24,6 +24,19 @@ jobs:
       - name: Check reproducibility summary
         run: python -c "import json; d=json.load(open('artifacts/demo_results.json')); assert d['positive_passes']==3 and d['negative_rejections']==3"
 
+  scale:
+    name: scale synthesis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Generate and stress-test 1200 environments
+        run: python scripts/scale_eval.py --count 1200 --min-count 1000 --check
+
   quality:
     name: lint and types
     runs-on: ubuntu-latest

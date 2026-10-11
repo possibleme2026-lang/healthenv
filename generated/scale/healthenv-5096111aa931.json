@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-5096111aa931",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00649",
+    "category": "trend-classification",
+    "question": "Across the 6 recorded days from 2024-03-24 to 2024-03-29, did the step count trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1150's timeline and answer this operational question: Across the 6 recorded days from 2024-03-24 to 2024-03-29, did the step count trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1150",
+    "display_name": "Synthetic Participant 1150",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0324",
+      "date": "2024-03-24",
+      "type": "step count",
+      "value": 2325.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0325",
+      "date": "2024-03-25",
+      "type": "step count",
+      "value": 3083.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0326",
+      "date": "2024-03-26",
+      "type": "step count",
+      "value": 3100.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0327",
+      "date": "2024-03-27",
+      "type": "step count",
+      "value": 5282.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0328",
+      "date": "2024-03-28",
+      "type": "step count",
+      "value": 5417.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0329",
+      "date": "2024-03-29",
+      "type": "step count",
+      "value": 6972.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "systolic_bp-0324",
+      "date": "2024-03-24",
+      "type": "systolic blood pressure",
+      "value": 128.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0324",
+      "step_count-0325",
+      "step_count-0326",
+      "step_count-0327",
+      "step_count-0328",
+      "step_count-0329"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

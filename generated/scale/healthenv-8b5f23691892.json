@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-8b5f23691892",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00467",
+    "category": "trend-classification",
+    "question": "Across the 5 recorded days from 2024-11-21 to 2024-11-25, did the blood glucose trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1218's timeline and answer this operational question: Across the 5 recorded days from 2024-11-21 to 2024-11-25, did the blood glucose trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1218",
+    "display_name": "Synthetic Participant 1218",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-1121",
+      "date": "2024-11-21",
+      "type": "blood glucose",
+      "value": 76.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1122",
+      "date": "2024-11-22",
+      "type": "blood glucose",
+      "value": 77.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1123",
+      "date": "2024-11-23",
+      "type": "blood glucose",
+      "value": 85.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1124",
+      "date": "2024-11-24",
+      "type": "blood glucose",
+      "value": 91.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1125",
+      "date": "2024-11-25",
+      "type": "blood glucose",
+      "value": 106.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "systolic_bp-1121",
+      "date": "2024-11-21",
+      "type": "systolic blood pressure",
+      "value": 168.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-1121",
+      "blood_glucose-1122",
+      "blood_glucose-1123",
+      "blood_glucose-1124",
+      "blood_glucose-1125"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

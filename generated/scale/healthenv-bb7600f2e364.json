@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-bb7600f2e364",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00786",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2023-02-15 to 2023-02-18, on which day did the participant have both the highest oxygen saturation and the lowest resting heart rate?"
+  },
+  "instruction": "Review participant HENV-1037's timeline and answer this operational question: Among the recorded days from 2023-02-15 to 2023-02-18, on which day did the participant have both the highest oxygen saturation and the lowest resting heart rate? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1037",
+    "display_name": "Synthetic Participant 1037",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-0215",
+      "date": "2023-02-15",
+      "type": "oxygen saturation",
+      "value": 91.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "resting_heart_rate-0215",
+      "date": "2023-02-15",
+      "type": "resting heart rate",
+      "value": 95.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "oxygen_saturation-0216",
+      "date": "2023-02-16",
+      "type": "oxygen saturation",
+      "value": 92.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "resting_heart_rate-0216",
+      "date": "2023-02-16",
+      "type": "resting heart rate",
+      "value": 83.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "oxygen_saturation-0217",
+      "date": "2023-02-17",
+      "type": "oxygen saturation",
+      "value": 96.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "resting_heart_rate-0217",
+      "date": "2023-02-17",
+      "type": "resting heart rate",
+      "value": 78.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "oxygen_saturation-0218",
+      "date": "2023-02-18",
+      "type": "oxygen saturation",
+      "value": 93.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "resting_heart_rate-0218",
+      "date": "2023-02-18",
+      "type": "resting heart rate",
+      "value": 85.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-0217",
+      "resting_heart_rate-0217"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-02-17"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

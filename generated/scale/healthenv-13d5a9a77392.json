@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-13d5a9a77392",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01002",
+    "category": "temporal-aggregation",
+    "question": "What was the average stress score across the 4 days from 2023-09-07 through 2023-09-10?"
+  },
+  "instruction": "Review participant HENV-1003's timeline and answer this operational question: What was the average stress score across the 4 days from 2023-09-07 through 2023-09-10? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1003",
+    "display_name": "Synthetic Participant 1003",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-0907",
+      "date": "2023-09-07",
+      "type": "stress score",
+      "value": 66.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0908",
+      "date": "2023-09-08",
+      "type": "stress score",
+      "value": 31.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0909",
+      "date": "2023-09-09",
+      "type": "stress score",
+      "value": 77.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0910",
+      "date": "2023-09-10",
+      "type": "stress score",
+      "value": 30.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0906",
+      "date": "2023-09-06",
+      "type": "stress score",
+      "value": 48.0,
+      "unit": "score",
+      "detail": "Outside the requested window",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0911",
+      "date": "2023-09-11",
+      "type": "stress score",
+      "value": 64.0,
+      "unit": "score",
+      "detail": "Outside the requested window",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-0907",
+      "stress_score-0908",
+      "stress_score-0909",
+      "stress_score-0910"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "51",
+      "score"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

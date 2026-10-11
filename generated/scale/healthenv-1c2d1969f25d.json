@@ -1,0 +1,105 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-1c2d1969f25d",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00501",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2023-03-04 to 2023-03-09, on which day was the step count highest?"
+  },
+  "instruction": "Review participant HENV-1002's timeline and answer this operational question: Among the recorded days from 2023-03-04 to 2023-03-09, on which day was the step count highest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1002",
+    "display_name": "Synthetic Participant 1002",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0304",
+      "date": "2023-03-04",
+      "type": "step count",
+      "value": 2032.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0305",
+      "date": "2023-03-05",
+      "type": "step count",
+      "value": 3883.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0306",
+      "date": "2023-03-06",
+      "type": "step count",
+      "value": 2226.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0307",
+      "date": "2023-03-07",
+      "type": "step count",
+      "value": 1573.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0308",
+      "date": "2023-03-08",
+      "type": "step count",
+      "value": 2198.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0309",
+      "date": "2023-03-09",
+      "type": "step count",
+      "value": 2135.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "active_minutes-0304",
+      "date": "2023-03-04",
+      "type": "active minutes",
+      "value": 101.0,
+      "unit": "minutes",
+      "detail": "Different metric",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0305"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-03-05"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

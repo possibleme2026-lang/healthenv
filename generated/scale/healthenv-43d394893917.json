@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-43d394893917",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00764",
+    "category": "temporal-aggregation",
+    "question": "What was the average systolic blood pressure across the 4 days from 2023-12-25 through 2023-12-28?"
+  },
+  "instruction": "Review participant HENV-1015's timeline and answer this operational question: What was the average systolic blood pressure across the 4 days from 2023-12-25 through 2023-12-28? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1015",
+    "display_name": "Synthetic Participant 1015",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-1225",
+      "date": "2023-12-25",
+      "type": "systolic blood pressure",
+      "value": 133.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1226",
+      "date": "2023-12-26",
+      "type": "systolic blood pressure",
+      "value": 137.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1227",
+      "date": "2023-12-27",
+      "type": "systolic blood pressure",
+      "value": 112.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1228",
+      "date": "2023-12-28",
+      "type": "systolic blood pressure",
+      "value": 138.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1224",
+      "date": "2023-12-24",
+      "type": "systolic blood pressure",
+      "value": 126.0,
+      "unit": "mmHg",
+      "detail": "Outside the requested window",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1229",
+      "date": "2023-12-29",
+      "type": "systolic blood pressure",
+      "value": 123.0,
+      "unit": "mmHg",
+      "detail": "Outside the requested window",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-1225",
+      "systolic_bp-1226",
+      "systolic_bp-1227",
+      "systolic_bp-1228"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "130",
+      "mmHg"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

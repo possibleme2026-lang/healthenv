@@ -1,0 +1,119 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-9a0677e3cfde",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00449",
+    "category": "temporal-aggregation",
+    "question": "What was the average oxygen saturation across the 5 days from 2023-03-30 through 2023-04-03?"
+  },
+  "instruction": "Review participant HENV-1200's timeline and answer this operational question: What was the average oxygen saturation across the 5 days from 2023-03-30 through 2023-04-03? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1200",
+    "display_name": "Synthetic Participant 1200",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-0330",
+      "date": "2023-03-30",
+      "type": "oxygen saturation",
+      "value": 96.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0331",
+      "date": "2023-03-31",
+      "type": "oxygen saturation",
+      "value": 90.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0401",
+      "date": "2023-04-01",
+      "type": "oxygen saturation",
+      "value": 100.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0402",
+      "date": "2023-04-02",
+      "type": "oxygen saturation",
+      "value": 93.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0403",
+      "date": "2023-04-03",
+      "type": "oxygen saturation",
+      "value": 96.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0329",
+      "date": "2023-03-29",
+      "type": "oxygen saturation",
+      "value": 95.0,
+      "unit": "%",
+      "detail": "Outside the requested window",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0404",
+      "date": "2023-04-04",
+      "type": "oxygen saturation",
+      "value": 99.0,
+      "unit": "%",
+      "detail": "Outside the requested window",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "resting_heart_rate-0330",
+      "date": "2023-03-30",
+      "type": "resting heart rate",
+      "value": 61.0,
+      "unit": "bpm",
+      "detail": "Different metric inside the window",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-0330",
+      "oxygen_saturation-0331",
+      "oxygen_saturation-0401",
+      "oxygen_saturation-0402",
+      "oxygen_saturation-0403"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "95",
+      "%"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-726440e66db4",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00696",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the systolic blood pressure exceed 114 mmHg?"
+  },
+  "instruction": "Review participant HENV-1197's timeline and answer this operational question: On how many of the recorded days did the systolic blood pressure exceed 114 mmHg? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1197",
+    "display_name": "Synthetic Participant 1197",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-0504",
+      "date": "2024-05-04",
+      "type": "systolic blood pressure",
+      "value": 163.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0505",
+      "date": "2024-05-05",
+      "type": "systolic blood pressure",
+      "value": 137.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0506",
+      "date": "2024-05-06",
+      "type": "systolic blood pressure",
+      "value": 150.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0507",
+      "date": "2024-05-07",
+      "type": "systolic blood pressure",
+      "value": 150.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0508",
+      "date": "2024-05-08",
+      "type": "systolic blood pressure",
+      "value": 166.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0509",
+      "date": "2024-05-09",
+      "type": "systolic blood pressure",
+      "value": 156.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0510",
+      "date": "2024-05-10",
+      "type": "systolic blood pressure",
+      "value": 111.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-0504",
+      "systolic_bp-0505",
+      "systolic_bp-0506",
+      "systolic_bp-0507",
+      "systolic_bp-0508",
+      "systolic_bp-0509"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "6",
+      "days"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

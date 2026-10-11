@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-4e756be6da89",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00059",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the systolic blood pressure exceed 116 mmHg?"
+  },
+  "instruction": "Review participant HENV-1060's timeline and answer this operational question: On how many of the recorded days did the systolic blood pressure exceed 116 mmHg? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1060",
+    "display_name": "Synthetic Participant 1060",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-0503",
+      "date": "2023-05-03",
+      "type": "systolic blood pressure",
+      "value": 131.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0504",
+      "date": "2023-05-04",
+      "type": "systolic blood pressure",
+      "value": 156.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0505",
+      "date": "2023-05-05",
+      "type": "systolic blood pressure",
+      "value": 155.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0506",
+      "date": "2023-05-06",
+      "type": "systolic blood pressure",
+      "value": 145.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0507",
+      "date": "2023-05-07",
+      "type": "systolic blood pressure",
+      "value": 96.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "blood_glucose-0503",
+      "date": "2023-05-03",
+      "type": "blood glucose",
+      "value": 183.0,
+      "unit": "mg/dL",
+      "detail": "Different metric",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-0503",
+      "systolic_bp-0504",
+      "systolic_bp-0505",
+      "systolic_bp-0506"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "4",
+      "days"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

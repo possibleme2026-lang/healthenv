@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-92af5062ba03",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00432",
+    "category": "trend-classification",
+    "question": "Across the 4 recorded days from 2024-03-03 to 2024-03-06, did the blood glucose trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1183's timeline and answer this operational question: Across the 4 recorded days from 2024-03-03 to 2024-03-06, did the blood glucose trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1183",
+    "display_name": "Synthetic Participant 1183",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0303",
+      "date": "2024-03-03",
+      "type": "blood glucose",
+      "value": 76.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0304",
+      "date": "2024-03-04",
+      "type": "blood glucose",
+      "value": 90.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0305",
+      "date": "2024-03-05",
+      "type": "blood glucose",
+      "value": 110.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0306",
+      "date": "2024-03-06",
+      "type": "blood glucose",
+      "value": 124.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "resting_heart_rate-0303",
+      "date": "2024-03-03",
+      "type": "resting heart rate",
+      "value": 98.0,
+      "unit": "bpm",
+      "detail": "Different metric",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0303",
+      "blood_glucose-0304",
+      "blood_glucose-0305",
+      "blood_glucose-0306"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

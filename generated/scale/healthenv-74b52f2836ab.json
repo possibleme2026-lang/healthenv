@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-74b52f2836ab",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01051",
+    "category": "temporal-aggregation",
+    "question": "What was the average blood glucose across the 5 days from 2023-03-29 through 2023-04-02?"
+  },
+  "instruction": "Review participant HENV-1052's timeline and answer this operational question: What was the average blood glucose across the 5 days from 2023-03-29 through 2023-04-02? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1052",
+    "display_name": "Synthetic Participant 1052",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0329",
+      "date": "2023-03-29",
+      "type": "blood glucose",
+      "value": 89.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0330",
+      "date": "2023-03-30",
+      "type": "blood glucose",
+      "value": 115.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0331",
+      "date": "2023-03-31",
+      "type": "blood glucose",
+      "value": 156.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0401",
+      "date": "2023-04-01",
+      "type": "blood glucose",
+      "value": 135.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0402",
+      "date": "2023-04-02",
+      "type": "blood glucose",
+      "value": 90.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0328",
+      "date": "2023-03-28",
+      "type": "blood glucose",
+      "value": 173.0,
+      "unit": "mg/dL",
+      "detail": "Outside the requested window",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0403",
+      "date": "2023-04-03",
+      "type": "blood glucose",
+      "value": 83.0,
+      "unit": "mg/dL",
+      "detail": "Outside the requested window",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0329",
+      "blood_glucose-0330",
+      "blood_glucose-0331",
+      "blood_glucose-0401",
+      "blood_glucose-0402"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "117",
+      "mg/dL"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

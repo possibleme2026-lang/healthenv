@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-624e9486eb5a",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00421",
+    "category": "temporal-aggregation",
+    "question": "What was the average sleep duration across the 5 days from 2024-12-09 through 2024-12-13?"
+  },
+  "instruction": "Review participant HENV-1172's timeline and answer this operational question: What was the average sleep duration across the 5 days from 2024-12-09 through 2024-12-13? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1172",
+    "display_name": "Synthetic Participant 1172",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "sleep_duration-1209",
+      "date": "2024-12-09",
+      "type": "sleep duration",
+      "value": 6.8,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-1210",
+      "date": "2024-12-10",
+      "type": "sleep duration",
+      "value": 3.2,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-1211",
+      "date": "2024-12-11",
+      "type": "sleep duration",
+      "value": 6.4,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-1212",
+      "date": "2024-12-12",
+      "type": "sleep duration",
+      "value": 6.5,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-1213",
+      "date": "2024-12-13",
+      "type": "sleep duration",
+      "value": 6.1,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-1208",
+      "date": "2024-12-08",
+      "type": "sleep duration",
+      "value": 7.3,
+      "unit": "hours",
+      "detail": "Outside the requested window",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-1214",
+      "date": "2024-12-14",
+      "type": "sleep duration",
+      "value": 9.1,
+      "unit": "hours",
+      "detail": "Outside the requested window",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "sleep_duration-1209",
+      "sleep_duration-1210",
+      "sleep_duration-1211",
+      "sleep_duration-1212",
+      "sleep_duration-1213"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "5.8",
+      "hours"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

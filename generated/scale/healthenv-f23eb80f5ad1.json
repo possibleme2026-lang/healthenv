@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-f23eb80f5ad1",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01033",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2024-12-11 to 2024-12-14, on which day was the step count lowest?"
+  },
+  "instruction": "Review participant HENV-1034's timeline and answer this operational question: Among the recorded days from 2024-12-11 to 2024-12-14, on which day was the step count lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1034",
+    "display_name": "Synthetic Participant 1034",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "step_count-1211",
+      "date": "2024-12-11",
+      "type": "step count",
+      "value": 15410.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1212",
+      "date": "2024-12-12",
+      "type": "step count",
+      "value": 17503.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1213",
+      "date": "2024-12-13",
+      "type": "step count",
+      "value": 17142.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1214",
+      "date": "2024-12-14",
+      "type": "step count",
+      "value": 13171.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "hydration_intake-1211",
+      "date": "2024-12-11",
+      "type": "hydration intake",
+      "value": 2020.0,
+      "unit": "ml",
+      "detail": "Different metric",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-1214"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-12-14"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

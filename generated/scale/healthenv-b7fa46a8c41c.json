@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-b7fa46a8c41c",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00594",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the step count across the 6 recorded days from 2024-10-17 to 2024-10-22?"
+  },
+  "instruction": "Review participant HENV-1095's timeline and answer this operational question: What was the range (highest minus lowest) of the step count across the 6 recorded days from 2024-10-17 to 2024-10-22? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1095",
+    "display_name": "Synthetic Participant 1095",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-1017",
+      "date": "2024-10-17",
+      "type": "step count",
+      "value": 8647.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1018",
+      "date": "2024-10-18",
+      "type": "step count",
+      "value": 6971.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1019",
+      "date": "2024-10-19",
+      "type": "step count",
+      "value": 10287.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1020",
+      "date": "2024-10-20",
+      "type": "step count",
+      "value": 9186.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1021",
+      "date": "2024-10-21",
+      "type": "step count",
+      "value": 10417.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1022",
+      "date": "2024-10-22",
+      "type": "step count",
+      "value": 7074.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "body_weight-1017",
+      "date": "2024-10-17",
+      "type": "body weight",
+      "value": 104.5,
+      "unit": "kg",
+      "detail": "Different metric",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-1021",
+      "step_count-1018"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "3446",
+      "steps"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

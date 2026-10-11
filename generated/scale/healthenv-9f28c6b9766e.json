@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-9f28c6b9766e",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00320",
+    "category": "trend-classification",
+    "question": "Across the 6 recorded days from 2024-10-09 to 2024-10-14, did the active minutes trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1071's timeline and answer this operational question: Across the 6 recorded days from 2024-10-09 to 2024-10-14, did the active minutes trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1071",
+    "display_name": "Synthetic Participant 1071",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-1009",
+      "date": "2024-10-09",
+      "type": "active minutes",
+      "value": 124.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1010",
+      "date": "2024-10-10",
+      "type": "active minutes",
+      "value": 114.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1011",
+      "date": "2024-10-11",
+      "type": "active minutes",
+      "value": 98.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1012",
+      "date": "2024-10-12",
+      "type": "active minutes",
+      "value": 84.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1013",
+      "date": "2024-10-13",
+      "type": "active minutes",
+      "value": 79.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1014",
+      "date": "2024-10-14",
+      "type": "active minutes",
+      "value": 73.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "body_weight-1009",
+      "date": "2024-10-09",
+      "type": "body weight",
+      "value": 54.0,
+      "unit": "kg",
+      "detail": "Different metric",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-1009",
+      "active_minutes-1010",
+      "active_minutes-1011",
+      "active_minutes-1012",
+      "active_minutes-1013",
+      "active_minutes-1014"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

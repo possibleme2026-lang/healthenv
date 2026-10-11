@@ -1,0 +1,116 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-fdc2ac5feff8",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00738",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the step count exceed 6189 steps?"
+  },
+  "instruction": "Review participant HENV-1239's timeline and answer this operational question: On how many of the recorded days did the step count exceed 6189 steps? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1239",
+    "display_name": "Synthetic Participant 1239",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0115",
+      "date": "2025-01-15",
+      "type": "step count",
+      "value": 3929.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0116",
+      "date": "2025-01-16",
+      "type": "step count",
+      "value": 2307.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0117",
+      "date": "2025-01-17",
+      "type": "step count",
+      "value": 3887.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0118",
+      "date": "2025-01-18",
+      "type": "step count",
+      "value": 4789.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0119",
+      "date": "2025-01-19",
+      "type": "step count",
+      "value": 15846.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0120",
+      "date": "2025-01-20",
+      "type": "step count",
+      "value": 2778.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0121",
+      "date": "2025-01-21",
+      "type": "step count",
+      "value": 9168.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "resting_heart_rate-0115",
+      "date": "2025-01-15",
+      "type": "resting heart rate",
+      "value": 76.0,
+      "unit": "bpm",
+      "detail": "Different metric",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0119",
+      "step_count-0121"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2",
+      "days"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

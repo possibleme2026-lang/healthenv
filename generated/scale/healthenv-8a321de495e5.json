@@ -1,0 +1,119 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-8a321de495e5",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00078",
+    "category": "temporal-aggregation",
+    "question": "What was the average stress score across the 5 days from 2023-10-08 through 2023-10-12?"
+  },
+  "instruction": "Review participant HENV-1079's timeline and answer this operational question: What was the average stress score across the 5 days from 2023-10-08 through 2023-10-12? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1079",
+    "display_name": "Synthetic Participant 1079",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-1008",
+      "date": "2023-10-08",
+      "type": "stress score",
+      "value": 45.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1009",
+      "date": "2023-10-09",
+      "type": "stress score",
+      "value": 27.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1010",
+      "date": "2023-10-10",
+      "type": "stress score",
+      "value": 25.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1011",
+      "date": "2023-10-11",
+      "type": "stress score",
+      "value": 30.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1012",
+      "date": "2023-10-12",
+      "type": "stress score",
+      "value": 43.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1007",
+      "date": "2023-10-07",
+      "type": "stress score",
+      "value": 74.0,
+      "unit": "score",
+      "detail": "Outside the requested window",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1013",
+      "date": "2023-10-13",
+      "type": "stress score",
+      "value": 19.0,
+      "unit": "score",
+      "detail": "Outside the requested window",
+      "metric": "stress_score"
+    },
+    {
+      "id": "systolic_bp-1008",
+      "date": "2023-10-08",
+      "type": "systolic blood pressure",
+      "value": 144.0,
+      "unit": "mmHg",
+      "detail": "Different metric inside the window",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-1008",
+      "stress_score-1009",
+      "stress_score-1010",
+      "stress_score-1011",
+      "stress_score-1012"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "34",
+      "score"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

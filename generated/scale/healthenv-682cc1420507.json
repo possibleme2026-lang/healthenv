@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-682cc1420507",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00901",
+    "category": "trend-classification",
+    "question": "Across the 4 recorded days from 2024-09-01 to 2024-09-04, did the systolic blood pressure trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1152's timeline and answer this operational question: Across the 4 recorded days from 2024-09-01 to 2024-09-04, did the systolic blood pressure trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1152",
+    "display_name": "Synthetic Participant 1152",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-0901",
+      "date": "2024-09-01",
+      "type": "systolic blood pressure",
+      "value": 99.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0902",
+      "date": "2024-09-02",
+      "type": "systolic blood pressure",
+      "value": 113.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0903",
+      "date": "2024-09-03",
+      "type": "systolic blood pressure",
+      "value": 121.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0904",
+      "date": "2024-09-04",
+      "type": "systolic blood pressure",
+      "value": 123.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "stress_score-0901",
+      "date": "2024-09-01",
+      "type": "stress score",
+      "value": 62.0,
+      "unit": "score",
+      "detail": "Different metric",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-0901",
+      "systolic_bp-0902",
+      "systolic_bp-0903",
+      "systolic_bp-0904"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

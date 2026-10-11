@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-a6524c6608d2",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00537",
+    "category": "trend-classification",
+    "question": "Across the 6 recorded days from 2023-05-28 to 2023-06-02, did the stress score trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1038's timeline and answer this operational question: Across the 6 recorded days from 2023-05-28 to 2023-06-02, did the stress score trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1038",
+    "display_name": "Synthetic Participant 1038",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-0528",
+      "date": "2023-05-28",
+      "type": "stress score",
+      "value": 88.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0529",
+      "date": "2023-05-29",
+      "type": "stress score",
+      "value": 77.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0530",
+      "date": "2023-05-30",
+      "type": "stress score",
+      "value": 67.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0531",
+      "date": "2023-05-31",
+      "type": "stress score",
+      "value": 60.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0601",
+      "date": "2023-06-01",
+      "type": "stress score",
+      "value": 53.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0602",
+      "date": "2023-06-02",
+      "type": "stress score",
+      "value": 44.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "step_count-0528",
+      "date": "2023-05-28",
+      "type": "step count",
+      "value": 6020.0,
+      "unit": "steps",
+      "detail": "Different metric",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-0528",
+      "stress_score-0529",
+      "stress_score-0530",
+      "stress_score-0531",
+      "stress_score-0601",
+      "stress_score-0602"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

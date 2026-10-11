@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-e74c3823ceec",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00566",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the stress score across the 5 recorded days from 2023-06-10 to 2023-06-14?"
+  },
+  "instruction": "Review participant HENV-1067's timeline and answer this operational question: What was the range (highest minus lowest) of the stress score across the 5 recorded days from 2023-06-10 to 2023-06-14? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1067",
+    "display_name": "Synthetic Participant 1067",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-0610",
+      "date": "2023-06-10",
+      "type": "stress score",
+      "value": 10.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0611",
+      "date": "2023-06-11",
+      "type": "stress score",
+      "value": 16.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0612",
+      "date": "2023-06-12",
+      "type": "stress score",
+      "value": 20.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0613",
+      "date": "2023-06-13",
+      "type": "stress score",
+      "value": 16.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0614",
+      "date": "2023-06-14",
+      "type": "stress score",
+      "value": 24.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "hydration_intake-0610",
+      "date": "2023-06-10",
+      "type": "hydration intake",
+      "value": 2439.0,
+      "unit": "ml",
+      "detail": "Different metric",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-0614",
+      "stress_score-0610"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "14",
+      "points"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

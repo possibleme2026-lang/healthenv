@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-4e1f45790f26",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00240",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2025-01-19 to 2025-01-22, on which day did the participant have both the highest body weight and the lowest resting heart rate?"
+  },
+  "instruction": "Review participant HENV-1241's timeline and answer this operational question: Among the recorded days from 2025-01-19 to 2025-01-22, on which day did the participant have both the highest body weight and the lowest resting heart rate? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1241",
+    "display_name": "Synthetic Participant 1241",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0119",
+      "date": "2025-01-19",
+      "type": "body weight",
+      "value": 49.5,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "resting_heart_rate-0119",
+      "date": "2025-01-19",
+      "type": "resting heart rate",
+      "value": 97.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "body_weight-0120",
+      "date": "2025-01-20",
+      "type": "body weight",
+      "value": 53.3,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "resting_heart_rate-0120",
+      "date": "2025-01-20",
+      "type": "resting heart rate",
+      "value": 93.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "body_weight-0121",
+      "date": "2025-01-21",
+      "type": "body weight",
+      "value": 57.7,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "resting_heart_rate-0121",
+      "date": "2025-01-21",
+      "type": "resting heart rate",
+      "value": 95.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "body_weight-0122",
+      "date": "2025-01-22",
+      "type": "body weight",
+      "value": 62.4,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "resting_heart_rate-0122",
+      "date": "2025-01-22",
+      "type": "resting heart rate",
+      "value": 88.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0122",
+      "resting_heart_rate-0122"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2025-01-22"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

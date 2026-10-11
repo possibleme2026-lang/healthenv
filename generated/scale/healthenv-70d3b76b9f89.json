@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-70d3b76b9f89",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00019",
+    "category": "trend-classification",
+    "question": "Across the 6 recorded days from 2023-12-21 to 2023-12-26, did the blood glucose trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1020's timeline and answer this operational question: Across the 6 recorded days from 2023-12-21 to 2023-12-26, did the blood glucose trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1020",
+    "display_name": "Synthetic Participant 1020",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-1221",
+      "date": "2023-12-21",
+      "type": "blood glucose",
+      "value": 76.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1222",
+      "date": "2023-12-22",
+      "type": "blood glucose",
+      "value": 92.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1223",
+      "date": "2023-12-23",
+      "type": "blood glucose",
+      "value": 104.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1224",
+      "date": "2023-12-24",
+      "type": "blood glucose",
+      "value": 112.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1225",
+      "date": "2023-12-25",
+      "type": "blood glucose",
+      "value": 123.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1226",
+      "date": "2023-12-26",
+      "type": "blood glucose",
+      "value": 128.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "systolic_bp-1221",
+      "date": "2023-12-21",
+      "type": "systolic blood pressure",
+      "value": 147.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-1221",
+      "blood_glucose-1222",
+      "blood_glucose-1223",
+      "blood_glucose-1224",
+      "blood_glucose-1225",
+      "blood_glucose-1226"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

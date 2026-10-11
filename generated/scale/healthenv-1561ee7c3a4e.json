@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-1561ee7c3a4e",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00124",
+    "category": "trend-classification",
+    "question": "Across the 4 recorded days from 2023-06-08 to 2023-06-11, did the blood glucose trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1125's timeline and answer this operational question: Across the 4 recorded days from 2023-06-08 to 2023-06-11, did the blood glucose trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1125",
+    "display_name": "Synthetic Participant 1125",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0608",
+      "date": "2023-06-08",
+      "type": "blood glucose",
+      "value": 76.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0609",
+      "date": "2023-06-09",
+      "type": "blood glucose",
+      "value": 87.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0610",
+      "date": "2023-06-10",
+      "type": "blood glucose",
+      "value": 89.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0611",
+      "date": "2023-06-11",
+      "type": "blood glucose",
+      "value": 109.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "step_count-0608",
+      "date": "2023-06-08",
+      "type": "step count",
+      "value": 16874.0,
+      "unit": "steps",
+      "detail": "Different metric",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0608",
+      "blood_glucose-0609",
+      "blood_glucose-0610",
+      "blood_glucose-0611"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

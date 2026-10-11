@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-580a4bc64a52",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00958",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the step count across the 6 recorded days from 2023-08-26 to 2023-08-31?"
+  },
+  "instruction": "Review participant HENV-1209's timeline and answer this operational question: What was the range (highest minus lowest) of the step count across the 6 recorded days from 2023-08-26 to 2023-08-31? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1209",
+    "display_name": "Synthetic Participant 1209",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0826",
+      "date": "2023-08-26",
+      "type": "step count",
+      "value": 7669.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0827",
+      "date": "2023-08-27",
+      "type": "step count",
+      "value": 9684.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0828",
+      "date": "2023-08-28",
+      "type": "step count",
+      "value": 10123.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0829",
+      "date": "2023-08-29",
+      "type": "step count",
+      "value": 7970.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0830",
+      "date": "2023-08-30",
+      "type": "step count",
+      "value": 13580.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0831",
+      "date": "2023-08-31",
+      "type": "step count",
+      "value": 12578.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0830",
+      "step_count-0826"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "5911",
+      "steps"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

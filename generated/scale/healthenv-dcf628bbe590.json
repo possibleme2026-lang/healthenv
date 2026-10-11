@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-dcf628bbe590",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00289",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2023-01-28 to 2023-01-31, on which day did the participant have both the highest oxygen saturation and the lowest blood glucose?"
+  },
+  "instruction": "Review participant HENV-1040's timeline and answer this operational question: Among the recorded days from 2023-01-28 to 2023-01-31, on which day did the participant have both the highest oxygen saturation and the lowest blood glucose? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1040",
+    "display_name": "Synthetic Participant 1040",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-0128",
+      "date": "2023-01-28",
+      "type": "oxygen saturation",
+      "value": 89.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "blood_glucose-0128",
+      "date": "2023-01-28",
+      "type": "blood glucose",
+      "value": 167.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "oxygen_saturation-0129",
+      "date": "2023-01-29",
+      "type": "oxygen saturation",
+      "value": 91.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "blood_glucose-0129",
+      "date": "2023-01-29",
+      "type": "blood glucose",
+      "value": 168.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "oxygen_saturation-0130",
+      "date": "2023-01-30",
+      "type": "oxygen saturation",
+      "value": 95.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "blood_glucose-0130",
+      "date": "2023-01-30",
+      "type": "blood glucose",
+      "value": 153.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "oxygen_saturation-0131",
+      "date": "2023-01-31",
+      "type": "oxygen saturation",
+      "value": 92.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "blood_glucose-0131",
+      "date": "2023-01-31",
+      "type": "blood glucose",
+      "value": 164.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-0130",
+      "blood_glucose-0130"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-01-30"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

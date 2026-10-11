@@ -1,0 +1,101 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-720f24dffa3a",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00983",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the hydration intake exceed 2889 ml?"
+  },
+  "instruction": "Review participant HENV-1234's timeline and answer this operational question: On how many of the recorded days did the hydration intake exceed 2889 ml? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1234",
+    "display_name": "Synthetic Participant 1234",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-1021",
+      "date": "2024-10-21",
+      "type": "hydration intake",
+      "value": 3021.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1022",
+      "date": "2024-10-22",
+      "type": "hydration intake",
+      "value": 3235.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1023",
+      "date": "2024-10-23",
+      "type": "hydration intake",
+      "value": 1111.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1024",
+      "date": "2024-10-24",
+      "type": "hydration intake",
+      "value": 3395.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1025",
+      "date": "2024-10-25",
+      "type": "hydration intake",
+      "value": 3454.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1026",
+      "date": "2024-10-26",
+      "type": "hydration intake",
+      "value": 2959.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-1021",
+      "hydration_intake-1022",
+      "hydration_intake-1024",
+      "hydration_intake-1025",
+      "hydration_intake-1026"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "5",
+      "days"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

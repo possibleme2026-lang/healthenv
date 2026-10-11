@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-eef73c1f1871",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00918",
+    "category": "temporal-aggregation",
+    "question": "What was the total step count across the 5 days from 2023-01-23 through 2023-01-27?"
+  },
+  "instruction": "Review participant HENV-1169's timeline and answer this operational question: What was the total step count across the 5 days from 2023-01-23 through 2023-01-27? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1169",
+    "display_name": "Synthetic Participant 1169",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0123",
+      "date": "2023-01-23",
+      "type": "step count",
+      "value": 11518.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0124",
+      "date": "2023-01-24",
+      "type": "step count",
+      "value": 4362.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0125",
+      "date": "2023-01-25",
+      "type": "step count",
+      "value": 16875.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0126",
+      "date": "2023-01-26",
+      "type": "step count",
+      "value": 10528.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0127",
+      "date": "2023-01-27",
+      "type": "step count",
+      "value": 7372.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0122",
+      "date": "2023-01-22",
+      "type": "step count",
+      "value": 2657.0,
+      "unit": "steps",
+      "detail": "Outside the requested window",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0128",
+      "date": "2023-01-28",
+      "type": "step count",
+      "value": 15335.0,
+      "unit": "steps",
+      "detail": "Outside the requested window",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0123",
+      "step_count-0124",
+      "step_count-0125",
+      "step_count-0126",
+      "step_count-0127"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "50655",
+      "steps"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

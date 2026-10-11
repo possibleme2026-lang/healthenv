@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-b13d24ada058",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00298",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2024-08-29 to 2024-09-02, on which day was the systolic blood pressure lowest?"
+  },
+  "instruction": "Review participant HENV-1049's timeline and answer this operational question: Among the recorded days from 2024-08-29 to 2024-09-02, on which day was the systolic blood pressure lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1049",
+    "display_name": "Synthetic Participant 1049",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-0829",
+      "date": "2024-08-29",
+      "type": "systolic blood pressure",
+      "value": 146.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0830",
+      "date": "2024-08-30",
+      "type": "systolic blood pressure",
+      "value": 165.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0831",
+      "date": "2024-08-31",
+      "type": "systolic blood pressure",
+      "value": 163.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0901",
+      "date": "2024-09-01",
+      "type": "systolic blood pressure",
+      "value": 152.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0902",
+      "date": "2024-09-02",
+      "type": "systolic blood pressure",
+      "value": 151.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "hydration_intake-0829",
+      "date": "2024-08-29",
+      "type": "hydration intake",
+      "value": 2874.0,
+      "unit": "ml",
+      "detail": "Different metric",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-0829"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-08-29"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

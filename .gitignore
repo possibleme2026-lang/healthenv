@@ -11,6 +11,7 @@ build/
 .coverage
 .pytest_cache/
 .browser-profile/
+.browser-profile-*/
 .DS_Store
 paper/*.aux
 paper/*.log

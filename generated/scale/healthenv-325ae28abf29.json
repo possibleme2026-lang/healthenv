@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-325ae28abf29",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00405",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the stress score across the 5 recorded days from 2023-04-13 to 2023-04-17?"
+  },
+  "instruction": "Review participant HENV-1156's timeline and answer this operational question: What was the range (highest minus lowest) of the stress score across the 5 recorded days from 2023-04-13 to 2023-04-17? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1156",
+    "display_name": "Synthetic Participant 1156",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-0413",
+      "date": "2023-04-13",
+      "type": "stress score",
+      "value": 75.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0414",
+      "date": "2023-04-14",
+      "type": "stress score",
+      "value": 72.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0415",
+      "date": "2023-04-15",
+      "type": "stress score",
+      "value": 49.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0416",
+      "date": "2023-04-16",
+      "type": "stress score",
+      "value": 82.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0417",
+      "date": "2023-04-17",
+      "type": "stress score",
+      "value": 61.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-0416",
+      "stress_score-0415"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "33",
+      "points"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-3841ea4eeeaf",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00697",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2025-01-09 to 2025-01-14, on which day was the blood glucose lowest?"
+  },
+  "instruction": "Review participant HENV-1198's timeline and answer this operational question: Among the recorded days from 2025-01-09 to 2025-01-14, on which day was the blood glucose lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1198",
+    "display_name": "Synthetic Participant 1198",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0109",
+      "date": "2025-01-09",
+      "type": "blood glucose",
+      "value": 172.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0110",
+      "date": "2025-01-10",
+      "type": "blood glucose",
+      "value": 179.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0111",
+      "date": "2025-01-11",
+      "type": "blood glucose",
+      "value": 188.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0112",
+      "date": "2025-01-12",
+      "type": "blood glucose",
+      "value": 148.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0113",
+      "date": "2025-01-13",
+      "type": "blood glucose",
+      "value": 156.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0114",
+      "date": "2025-01-14",
+      "type": "blood glucose",
+      "value": 160.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "step_count-0109",
+      "date": "2025-01-09",
+      "type": "step count",
+      "value": 7179.0,
+      "unit": "steps",
+      "detail": "Different metric",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0112"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2025-01-12"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

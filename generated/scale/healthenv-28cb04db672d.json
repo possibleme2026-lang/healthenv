@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-28cb04db672d",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00766",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the body weight exceed 61.5 kg?"
+  },
+  "instruction": "Review participant HENV-1017's timeline and answer this operational question: On how many of the recorded days did the body weight exceed 61.5 kg? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1017",
+    "display_name": "Synthetic Participant 1017",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0307",
+      "date": "2024-03-07",
+      "type": "body weight",
+      "value": 59.3,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0308",
+      "date": "2024-03-08",
+      "type": "body weight",
+      "value": 94.4,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0309",
+      "date": "2024-03-09",
+      "type": "body weight",
+      "value": 110.1,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0310",
+      "date": "2024-03-10",
+      "type": "body weight",
+      "value": 106.1,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0311",
+      "date": "2024-03-11",
+      "type": "body weight",
+      "value": 76.7,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0312",
+      "date": "2024-03-12",
+      "type": "body weight",
+      "value": 79.8,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "blood_glucose-0307",
+      "date": "2024-03-07",
+      "type": "blood glucose",
+      "value": 87.0,
+      "unit": "mg/dL",
+      "detail": "Different metric",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0308",
+      "body_weight-0309",
+      "body_weight-0310",
+      "body_weight-0311",
+      "body_weight-0312"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "5",
+      "days"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

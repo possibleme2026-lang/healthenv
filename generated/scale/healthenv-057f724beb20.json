@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-057f724beb20",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01165",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the resting heart rate exceed 76 bpm?"
+  },
+  "instruction": "Review participant HENV-1166's timeline and answer this operational question: On how many of the recorded days did the resting heart rate exceed 76 bpm? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1166",
+    "display_name": "Synthetic Participant 1166",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "resting_heart_rate-0409",
+      "date": "2023-04-09",
+      "type": "resting heart rate",
+      "value": 83.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0410",
+      "date": "2023-04-10",
+      "type": "resting heart rate",
+      "value": 86.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0411",
+      "date": "2023-04-11",
+      "type": "resting heart rate",
+      "value": 97.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0412",
+      "date": "2023-04-12",
+      "type": "resting heart rate",
+      "value": 69.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0413",
+      "date": "2023-04-13",
+      "type": "resting heart rate",
+      "value": 71.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "systolic_bp-0409",
+      "date": "2023-04-09",
+      "type": "systolic blood pressure",
+      "value": 123.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "resting_heart_rate-0409",
+      "resting_heart_rate-0410",
+      "resting_heart_rate-0411"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "3",
+      "days"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

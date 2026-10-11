@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-6d703b5effbc",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00731",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the blood glucose exceed 100 mg/dL?"
+  },
+  "instruction": "Review participant HENV-1232's timeline and answer this operational question: On how many of the recorded days did the blood glucose exceed 100 mg/dL? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1232",
+    "display_name": "Synthetic Participant 1232",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0107",
+      "date": "2024-01-07",
+      "type": "blood glucose",
+      "value": 90.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0108",
+      "date": "2024-01-08",
+      "type": "blood glucose",
+      "value": 71.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0109",
+      "date": "2024-01-09",
+      "type": "blood glucose",
+      "value": 71.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0110",
+      "date": "2024-01-10",
+      "type": "blood glucose",
+      "value": 90.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0111",
+      "date": "2024-01-11",
+      "type": "blood glucose",
+      "value": 89.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0112",
+      "date": "2024-01-12",
+      "type": "blood glucose",
+      "value": 150.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0113",
+      "date": "2024-01-13",
+      "type": "blood glucose",
+      "value": 81.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0112"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "1",
+      "day"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

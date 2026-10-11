@@ -1,0 +1,119 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-8a0e32ed36fe",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00267",
+    "category": "temporal-aggregation",
+    "question": "What was the total hydration intake across the 5 days from 2023-09-13 through 2023-09-17?"
+  },
+  "instruction": "Review participant HENV-1018's timeline and answer this operational question: What was the total hydration intake across the 5 days from 2023-09-13 through 2023-09-17? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1018",
+    "display_name": "Synthetic Participant 1018",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-0913",
+      "date": "2023-09-13",
+      "type": "hydration intake",
+      "value": 2078.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0914",
+      "date": "2023-09-14",
+      "type": "hydration intake",
+      "value": 2465.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0915",
+      "date": "2023-09-15",
+      "type": "hydration intake",
+      "value": 3256.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0916",
+      "date": "2023-09-16",
+      "type": "hydration intake",
+      "value": 2118.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0917",
+      "date": "2023-09-17",
+      "type": "hydration intake",
+      "value": 1378.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0912",
+      "date": "2023-09-12",
+      "type": "hydration intake",
+      "value": 2875.0,
+      "unit": "ml",
+      "detail": "Outside the requested window",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0918",
+      "date": "2023-09-18",
+      "type": "hydration intake",
+      "value": 2703.0,
+      "unit": "ml",
+      "detail": "Outside the requested window",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "oxygen_saturation-0913",
+      "date": "2023-09-13",
+      "type": "oxygen saturation",
+      "value": 100.0,
+      "unit": "%",
+      "detail": "Different metric inside the window",
+      "metric": "oxygen_saturation"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-0913",
+      "hydration_intake-0914",
+      "hydration_intake-0915",
+      "hydration_intake-0916",
+      "hydration_intake-0917"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "11295",
+      "ml"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

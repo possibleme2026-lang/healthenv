@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-0e35179c3f75",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00270",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2023-05-17 to 2023-05-22, on which day was the step count lowest?"
+  },
+  "instruction": "Review participant HENV-1021's timeline and answer this operational question: Among the recorded days from 2023-05-17 to 2023-05-22, on which day was the step count lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1021",
+    "display_name": "Synthetic Participant 1021",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0517",
+      "date": "2023-05-17",
+      "type": "step count",
+      "value": 14112.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0518",
+      "date": "2023-05-18",
+      "type": "step count",
+      "value": 15271.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0519",
+      "date": "2023-05-19",
+      "type": "step count",
+      "value": 17283.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0520",
+      "date": "2023-05-20",
+      "type": "step count",
+      "value": 16025.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0521",
+      "date": "2023-05-21",
+      "type": "step count",
+      "value": 14954.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0522",
+      "date": "2023-05-22",
+      "type": "step count",
+      "value": 11253.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0522"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-05-22"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-754ada65431c",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00460",
+    "category": "trend-classification",
+    "question": "Across the 5 recorded days from 2023-05-16 to 2023-05-20, did the stress score trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1211's timeline and answer this operational question: Across the 5 recorded days from 2023-05-16 to 2023-05-20, did the stress score trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1211",
+    "display_name": "Synthetic Participant 1211",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-0516",
+      "date": "2023-05-16",
+      "type": "stress score",
+      "value": 88.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0517",
+      "date": "2023-05-17",
+      "type": "stress score",
+      "value": 87.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0518",
+      "date": "2023-05-18",
+      "type": "stress score",
+      "value": 82.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0519",
+      "date": "2023-05-19",
+      "type": "stress score",
+      "value": 74.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0520",
+      "date": "2023-05-20",
+      "type": "stress score",
+      "value": 70.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "hydration_intake-0516",
+      "date": "2023-05-16",
+      "type": "hydration intake",
+      "value": 3266.0,
+      "unit": "ml",
+      "detail": "Different metric",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-0516",
+      "stress_score-0517",
+      "stress_score-0518",
+      "stress_score-0519",
+      "stress_score-0520"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

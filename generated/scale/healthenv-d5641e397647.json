@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-d5641e397647",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00453",
+    "category": "trend-classification",
+    "question": "Across the 4 recorded days from 2023-06-28 to 2023-07-01, did the sleep duration trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1204's timeline and answer this operational question: Across the 4 recorded days from 2023-06-28 to 2023-07-01, did the sleep duration trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1204",
+    "display_name": "Synthetic Participant 1204",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "sleep_duration-0628",
+      "date": "2023-06-28",
+      "type": "sleep duration",
+      "value": 3.4,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0629",
+      "date": "2023-06-29",
+      "type": "sleep duration",
+      "value": 3.7,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0630",
+      "date": "2023-06-30",
+      "type": "sleep duration",
+      "value": 5.1,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0701",
+      "date": "2023-07-01",
+      "type": "sleep duration",
+      "value": 5.4,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "stress_score-0628",
+      "date": "2023-06-28",
+      "type": "stress score",
+      "value": 20.0,
+      "unit": "score",
+      "detail": "Different metric",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "sleep_duration-0628",
+      "sleep_duration-0629",
+      "sleep_duration-0630",
+      "sleep_duration-0701"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

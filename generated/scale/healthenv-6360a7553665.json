@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-6360a7553665",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00488",
+    "category": "trend-classification",
+    "question": "Across the 5 recorded days from 2025-01-15 to 2025-01-19, did the step count trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1239's timeline and answer this operational question: Across the 5 recorded days from 2025-01-15 to 2025-01-19, did the step count trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1239",
+    "display_name": "Synthetic Participant 1239",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0115",
+      "date": "2025-01-15",
+      "type": "step count",
+      "value": 2325.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0116",
+      "date": "2025-01-16",
+      "type": "step count",
+      "value": 2697.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0117",
+      "date": "2025-01-17",
+      "type": "step count",
+      "value": 4471.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0118",
+      "date": "2025-01-18",
+      "type": "step count",
+      "value": 5110.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0119",
+      "date": "2025-01-19",
+      "type": "step count",
+      "value": 5796.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "blood_glucose-0115",
+      "date": "2025-01-15",
+      "type": "blood glucose",
+      "value": 82.0,
+      "unit": "mg/dL",
+      "detail": "Different metric",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0115",
+      "step_count-0116",
+      "step_count-0117",
+      "step_count-0118",
+      "step_count-0119"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

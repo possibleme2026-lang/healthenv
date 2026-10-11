@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-3128e7e31e19",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00660",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2023-06-07 to 2023-06-09, on which day did the participant have both the highest systolic blood pressure and the lowest oxygen saturation?"
+  },
+  "instruction": "Review participant HENV-1161's timeline and answer this operational question: Among the recorded days from 2023-06-07 to 2023-06-09, on which day did the participant have both the highest systolic blood pressure and the lowest oxygen saturation? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1161",
+    "display_name": "Synthetic Participant 1161",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-0607",
+      "date": "2023-06-07",
+      "type": "systolic blood pressure",
+      "value": 104.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "oxygen_saturation-0607",
+      "date": "2023-06-07",
+      "type": "oxygen saturation",
+      "value": 98.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "systolic_bp-0608",
+      "date": "2023-06-08",
+      "type": "systolic blood pressure",
+      "value": 132.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "oxygen_saturation-0608",
+      "date": "2023-06-08",
+      "type": "oxygen saturation",
+      "value": 91.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "systolic_bp-0609",
+      "date": "2023-06-09",
+      "type": "systolic blood pressure",
+      "value": 100.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "oxygen_saturation-0609",
+      "date": "2023-06-09",
+      "type": "oxygen saturation",
+      "value": 96.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-0608",
+      "oxygen_saturation-0608"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-06-08"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

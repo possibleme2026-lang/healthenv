@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-b82090e2f1a4",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01184",
+    "category": "temporal-aggregation",
+    "question": "What was the average body weight across the 5 days from 2023-01-30 through 2023-02-03?"
+  },
+  "instruction": "Review participant HENV-1185's timeline and answer this operational question: What was the average body weight across the 5 days from 2023-01-30 through 2023-02-03? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1185",
+    "display_name": "Synthetic Participant 1185",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0130",
+      "date": "2023-01-30",
+      "type": "body weight",
+      "value": 93.9,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0131",
+      "date": "2023-01-31",
+      "type": "body weight",
+      "value": 107.4,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0201",
+      "date": "2023-02-01",
+      "type": "body weight",
+      "value": 53.5,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0202",
+      "date": "2023-02-02",
+      "type": "body weight",
+      "value": 50.2,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0203",
+      "date": "2023-02-03",
+      "type": "body weight",
+      "value": 56.5,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0129",
+      "date": "2023-01-29",
+      "type": "body weight",
+      "value": 67.6,
+      "unit": "kg",
+      "detail": "Outside the requested window",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0204",
+      "date": "2023-02-04",
+      "type": "body weight",
+      "value": 91.8,
+      "unit": "kg",
+      "detail": "Outside the requested window",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0130",
+      "body_weight-0131",
+      "body_weight-0201",
+      "body_weight-0202",
+      "body_weight-0203"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "72.3",
+      "kg"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

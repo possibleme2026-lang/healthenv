@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-7223a29ec16c",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00682",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the systolic blood pressure exceed 117 mmHg?"
+  },
+  "instruction": "Review participant HENV-1183's timeline and answer this operational question: On how many of the recorded days did the systolic blood pressure exceed 117 mmHg? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1183",
+    "display_name": "Synthetic Participant 1183",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-0619",
+      "date": "2023-06-19",
+      "type": "systolic blood pressure",
+      "value": 121.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0620",
+      "date": "2023-06-20",
+      "type": "systolic blood pressure",
+      "value": 107.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0621",
+      "date": "2023-06-21",
+      "type": "systolic blood pressure",
+      "value": 107.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0622",
+      "date": "2023-06-22",
+      "type": "systolic blood pressure",
+      "value": 108.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0623",
+      "date": "2023-06-23",
+      "type": "systolic blood pressure",
+      "value": 119.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-0619",
+      "systolic_bp-0623"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2",
+      "days"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

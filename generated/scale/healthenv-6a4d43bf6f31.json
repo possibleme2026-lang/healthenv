@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-6a4d43bf6f31",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00894",
+    "category": "trend-classification",
+    "question": "Across the 4 recorded days from 2025-01-14 to 2025-01-17, did the stress score trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1145's timeline and answer this operational question: Across the 4 recorded days from 2025-01-14 to 2025-01-17, did the stress score trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1145",
+    "display_name": "Synthetic Participant 1145",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-0114",
+      "date": "2025-01-14",
+      "type": "stress score",
+      "value": 88.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0115",
+      "date": "2025-01-15",
+      "type": "stress score",
+      "value": 84.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0116",
+      "date": "2025-01-16",
+      "type": "stress score",
+      "value": 77.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0117",
+      "date": "2025-01-17",
+      "type": "stress score",
+      "value": 67.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "oxygen_saturation-0114",
+      "date": "2025-01-14",
+      "type": "oxygen saturation",
+      "value": 98.0,
+      "unit": "%",
+      "detail": "Different metric",
+      "metric": "oxygen_saturation"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-0114",
+      "stress_score-0115",
+      "stress_score-0116",
+      "stress_score-0117"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

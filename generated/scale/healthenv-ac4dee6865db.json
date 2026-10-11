@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-ac4dee6865db",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00151",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2024-05-28 to 2024-06-01, on which day was the sleep duration lowest?"
+  },
+  "instruction": "Review participant HENV-1152's timeline and answer this operational question: Among the recorded days from 2024-05-28 to 2024-06-01, on which day was the sleep duration lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1152",
+    "display_name": "Synthetic Participant 1152",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "sleep_duration-0528",
+      "date": "2024-05-28",
+      "type": "sleep duration",
+      "value": 8.8,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0529",
+      "date": "2024-05-29",
+      "type": "sleep duration",
+      "value": 4.0,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0530",
+      "date": "2024-05-30",
+      "type": "sleep duration",
+      "value": 8.6,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0531",
+      "date": "2024-05-31",
+      "type": "sleep duration",
+      "value": 7.6,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0601",
+      "date": "2024-06-01",
+      "type": "sleep duration",
+      "value": 4.9,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "hydration_intake-0528",
+      "date": "2024-05-28",
+      "type": "hydration intake",
+      "value": 1704.0,
+      "unit": "ml",
+      "detail": "Different metric",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "sleep_duration-0529"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-05-29"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

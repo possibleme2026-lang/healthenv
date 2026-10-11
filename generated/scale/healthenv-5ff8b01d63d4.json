@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-5ff8b01d63d4",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00228",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2023-11-12 to 2023-11-17, on which day was the systolic blood pressure highest?"
+  },
+  "instruction": "Review participant HENV-1229's timeline and answer this operational question: Among the recorded days from 2023-11-12 to 2023-11-17, on which day was the systolic blood pressure highest? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1229",
+    "display_name": "Synthetic Participant 1229",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-1112",
+      "date": "2023-11-12",
+      "type": "systolic blood pressure",
+      "value": 125.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1113",
+      "date": "2023-11-13",
+      "type": "systolic blood pressure",
+      "value": 112.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1114",
+      "date": "2023-11-14",
+      "type": "systolic blood pressure",
+      "value": 135.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1115",
+      "date": "2023-11-15",
+      "type": "systolic blood pressure",
+      "value": 121.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1116",
+      "date": "2023-11-16",
+      "type": "systolic blood pressure",
+      "value": 117.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1117",
+      "date": "2023-11-17",
+      "type": "systolic blood pressure",
+      "value": 118.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-1114"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-11-14"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

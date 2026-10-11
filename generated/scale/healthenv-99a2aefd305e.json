@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-99a2aefd305e",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00873",
+    "category": "trend-classification",
+    "question": "Across the 5 recorded days from 2024-07-11 to 2024-07-15, did the stress score trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1124's timeline and answer this operational question: Across the 5 recorded days from 2024-07-11 to 2024-07-15, did the stress score trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1124",
+    "display_name": "Synthetic Participant 1124",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-0711",
+      "date": "2024-07-11",
+      "type": "stress score",
+      "value": 12.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0712",
+      "date": "2024-07-12",
+      "type": "stress score",
+      "value": 14.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0713",
+      "date": "2024-07-13",
+      "type": "stress score",
+      "value": 24.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0714",
+      "date": "2024-07-14",
+      "type": "stress score",
+      "value": 32.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0715",
+      "date": "2024-07-15",
+      "type": "stress score",
+      "value": 40.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "step_count-0711",
+      "date": "2024-07-11",
+      "type": "step count",
+      "value": 7245.0,
+      "unit": "steps",
+      "detail": "Different metric",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-0711",
+      "stress_score-0712",
+      "stress_score-0713",
+      "stress_score-0714",
+      "stress_score-0715"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-28b06a73a1da",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00584",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the systolic blood pressure exceed 118 mmHg?"
+  },
+  "instruction": "Review participant HENV-1085's timeline and answer this operational question: On how many of the recorded days did the systolic blood pressure exceed 118 mmHg? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1085",
+    "display_name": "Synthetic Participant 1085",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-0823",
+      "date": "2024-08-23",
+      "type": "systolic blood pressure",
+      "value": 113.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0824",
+      "date": "2024-08-24",
+      "type": "systolic blood pressure",
+      "value": 111.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0825",
+      "date": "2024-08-25",
+      "type": "systolic blood pressure",
+      "value": 108.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0826",
+      "date": "2024-08-26",
+      "type": "systolic blood pressure",
+      "value": 156.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0827",
+      "date": "2024-08-27",
+      "type": "systolic blood pressure",
+      "value": 144.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0828",
+      "date": "2024-08-28",
+      "type": "systolic blood pressure",
+      "value": 150.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0829",
+      "date": "2024-08-29",
+      "type": "systolic blood pressure",
+      "value": 154.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "step_count-0823",
+      "date": "2024-08-23",
+      "type": "step count",
+      "value": 15448.0,
+      "unit": "steps",
+      "detail": "Different metric",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-0826",
+      "systolic_bp-0827",
+      "systolic_bp-0828",
+      "systolic_bp-0829"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "4",
+      "days"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

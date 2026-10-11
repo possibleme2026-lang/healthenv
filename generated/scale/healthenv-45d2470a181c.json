@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-45d2470a181c",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00397",
+    "category": "trend-classification",
+    "question": "Across the 5 recorded days from 2023-03-10 to 2023-03-14, did the oxygen saturation trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1148's timeline and answer this operational question: Across the 5 recorded days from 2023-03-10 to 2023-03-14, did the oxygen saturation trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1148",
+    "display_name": "Synthetic Participant 1148",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-0310",
+      "date": "2023-03-10",
+      "type": "oxygen saturation",
+      "value": 99.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0311",
+      "date": "2023-03-11",
+      "type": "oxygen saturation",
+      "value": 98.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0312",
+      "date": "2023-03-12",
+      "type": "oxygen saturation",
+      "value": 97.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0313",
+      "date": "2023-03-13",
+      "type": "oxygen saturation",
+      "value": 95.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0314",
+      "date": "2023-03-14",
+      "type": "oxygen saturation",
+      "value": 94.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "stress_score-0310",
+      "date": "2023-03-10",
+      "type": "stress score",
+      "value": 62.0,
+      "unit": "score",
+      "detail": "Different metric",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-0310",
+      "oxygen_saturation-0311",
+      "oxygen_saturation-0312",
+      "oxygen_saturation-0313",
+      "oxygen_saturation-0314"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

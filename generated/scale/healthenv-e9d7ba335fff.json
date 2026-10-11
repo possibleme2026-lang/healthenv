@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-e9d7ba335fff",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00089",
+    "category": "trend-classification",
+    "question": "Across the 5 recorded days from 2023-05-26 to 2023-05-30, did the body weight trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1090's timeline and answer this operational question: Across the 5 recorded days from 2023-05-26 to 2023-05-30, did the body weight trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1090",
+    "display_name": "Synthetic Participant 1090",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0526",
+      "date": "2023-05-26",
+      "type": "body weight",
+      "value": 51.2,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0527",
+      "date": "2023-05-27",
+      "type": "body weight",
+      "value": 61.9,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0528",
+      "date": "2023-05-28",
+      "type": "body weight",
+      "value": 64.5,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0529",
+      "date": "2023-05-29",
+      "type": "body weight",
+      "value": 72.4,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0530",
+      "date": "2023-05-30",
+      "type": "body weight",
+      "value": 73.8,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "sleep_duration-0526",
+      "date": "2023-05-26",
+      "type": "sleep duration",
+      "value": 8.0,
+      "unit": "hours",
+      "detail": "Different metric",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0526",
+      "body_weight-0527",
+      "body_weight-0528",
+      "body_weight-0529",
+      "body_weight-0530"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

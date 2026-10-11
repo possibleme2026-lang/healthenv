@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-74a77d7b6eb2",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00945",
+    "category": "longitudinal-comparison",
+    "question": "How many percentage points higher was the oxygen saturation on 2024-04-12 than on 2024-04-09?"
+  },
+  "instruction": "Review participant HENV-1196's timeline and answer this operational question: How many percentage points higher was the oxygen saturation on 2024-04-12 than on 2024-04-09? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1196",
+    "display_name": "Synthetic Participant 1196",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-0409",
+      "date": "2024-04-09",
+      "type": "oxygen saturation",
+      "value": 94.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0412",
+      "date": "2024-04-12",
+      "type": "oxygen saturation",
+      "value": 99.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0414",
+      "date": "2024-04-14",
+      "type": "oxygen saturation",
+      "value": 90.0,
+      "unit": "%",
+      "detail": "Outside the requested window",
+      "metric": "oxygen_saturation"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-0409",
+      "oxygen_saturation-0412"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "5",
+      "percentage points"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

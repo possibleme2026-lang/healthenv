@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-0b8391959d3e",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00511",
+    "category": "longitudinal-comparison",
+    "question": "How many steps lower was the step count on 2024-11-19 than on 2024-11-18?"
+  },
+  "instruction": "Review participant HENV-1012's timeline and answer this operational question: How many steps lower was the step count on 2024-11-19 than on 2024-11-18? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1012",
+    "display_name": "Synthetic Participant 1012",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "step_count-1118",
+      "date": "2024-11-18",
+      "type": "step count",
+      "value": 14269.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1119",
+      "date": "2024-11-19",
+      "type": "step count",
+      "value": 14258.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1121",
+      "date": "2024-11-21",
+      "type": "step count",
+      "value": 8318.0,
+      "unit": "steps",
+      "detail": "Outside the requested window",
+      "metric": "step_count"
+    },
+    {
+      "id": "hydration_intake-1119",
+      "date": "2024-11-19",
+      "type": "hydration intake",
+      "value": 927.0,
+      "unit": "ml",
+      "detail": "Different metric on the comparison day",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "step_count-1119-ctx",
+      "date": "2024-11-19",
+      "type": "step count",
+      "value": 11259.0,
+      "unit": "steps",
+      "detail": "Same-day secondary reading (context mismatch)",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-1118",
+      "step_count-1119"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "11",
+      "steps"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

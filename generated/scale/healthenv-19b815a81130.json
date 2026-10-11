@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-19b815a81130",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01039",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the active minutes exceed 64 minutes?"
+  },
+  "instruction": "Review participant HENV-1040's timeline and answer this operational question: On how many of the recorded days did the active minutes exceed 64 minutes? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1040",
+    "display_name": "Synthetic Participant 1040",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0112",
+      "date": "2024-01-12",
+      "type": "active minutes",
+      "value": 68.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0113",
+      "date": "2024-01-13",
+      "type": "active minutes",
+      "value": 79.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0114",
+      "date": "2024-01-14",
+      "type": "active minutes",
+      "value": 99.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0115",
+      "date": "2024-01-15",
+      "type": "active minutes",
+      "value": 118.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0116",
+      "date": "2024-01-16",
+      "type": "active minutes",
+      "value": 43.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0117",
+      "date": "2024-01-17",
+      "type": "active minutes",
+      "value": 69.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "systolic_bp-0112",
+      "date": "2024-01-12",
+      "type": "systolic blood pressure",
+      "value": 108.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0112",
+      "active_minutes-0113",
+      "active_minutes-0114",
+      "active_minutes-0115",
+      "active_minutes-0117"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "5",
+      "days"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

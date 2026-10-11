@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-b31f54721b4e",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00201",
+    "category": "trend-classification",
+    "question": "Across the 4 recorded days from 2024-09-28 to 2024-10-01, did the step count trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1202's timeline and answer this operational question: Across the 4 recorded days from 2024-09-28 to 2024-10-01, did the step count trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1202",
+    "display_name": "Synthetic Participant 1202",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0928",
+      "date": "2024-09-28",
+      "type": "step count",
+      "value": 17175.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0929",
+      "date": "2024-09-29",
+      "type": "step count",
+      "value": 16435.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0930",
+      "date": "2024-09-30",
+      "type": "step count",
+      "value": 12922.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1001",
+      "date": "2024-10-01",
+      "type": "step count",
+      "value": 10501.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "oxygen_saturation-0928",
+      "date": "2024-09-28",
+      "type": "oxygen saturation",
+      "value": 94.0,
+      "unit": "%",
+      "detail": "Different metric",
+      "metric": "oxygen_saturation"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0928",
+      "step_count-0929",
+      "step_count-0930",
+      "step_count-1001"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-b45c736e9e52",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00244",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the hydration intake across the 5 recorded days from 2024-02-20 to 2024-02-24?"
+  },
+  "instruction": "Review participant HENV-1245's timeline and answer this operational question: What was the range (highest minus lowest) of the hydration intake across the 5 recorded days from 2024-02-20 to 2024-02-24? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1245",
+    "display_name": "Synthetic Participant 1245",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-0220",
+      "date": "2024-02-20",
+      "type": "hydration intake",
+      "value": 3237.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0221",
+      "date": "2024-02-21",
+      "type": "hydration intake",
+      "value": 2798.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0222",
+      "date": "2024-02-22",
+      "type": "hydration intake",
+      "value": 3151.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0223",
+      "date": "2024-02-23",
+      "type": "hydration intake",
+      "value": 2935.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0224",
+      "date": "2024-02-24",
+      "type": "hydration intake",
+      "value": 3135.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "sleep_duration-0220",
+      "date": "2024-02-20",
+      "type": "sleep duration",
+      "value": 4.0,
+      "unit": "hours",
+      "detail": "Different metric",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-0220",
+      "hydration_intake-0221"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "439",
+      "ml"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

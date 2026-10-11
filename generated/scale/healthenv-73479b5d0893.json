@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-73479b5d0893",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00033",
+    "category": "trend-classification",
+    "question": "Across the 6 recorded days from 2024-04-21 to 2024-04-26, did the sleep duration trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1034's timeline and answer this operational question: Across the 6 recorded days from 2024-04-21 to 2024-04-26, did the sleep duration trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1034",
+    "display_name": "Synthetic Participant 1034",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "sleep_duration-0421",
+      "date": "2024-04-21",
+      "type": "sleep duration",
+      "value": 3.4,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0422",
+      "date": "2024-04-22",
+      "type": "sleep duration",
+      "value": 3.8,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0423",
+      "date": "2024-04-23",
+      "type": "sleep duration",
+      "value": 4.2,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0424",
+      "date": "2024-04-24",
+      "type": "sleep duration",
+      "value": 4.5,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0425",
+      "date": "2024-04-25",
+      "type": "sleep duration",
+      "value": 5.3,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0426",
+      "date": "2024-04-26",
+      "type": "sleep duration",
+      "value": 6.1,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "step_count-0421",
+      "date": "2024-04-21",
+      "type": "step count",
+      "value": 8951.0,
+      "unit": "steps",
+      "detail": "Different metric",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "sleep_duration-0421",
+      "sleep_duration-0422",
+      "sleep_duration-0423",
+      "sleep_duration-0424",
+      "sleep_duration-0425",
+      "sleep_duration-0426"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

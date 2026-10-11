@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-bd5782bff784",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00387",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2023-08-02 to 2023-08-05, on which day did the participant have both the highest hydration intake and the lowest active minutes?"
+  },
+  "instruction": "Review participant HENV-1138's timeline and answer this operational question: Among the recorded days from 2023-08-02 to 2023-08-05, on which day did the participant have both the highest hydration intake and the lowest active minutes? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1138",
+    "display_name": "Synthetic Participant 1138",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-0802",
+      "date": "2023-08-02",
+      "type": "hydration intake",
+      "value": 2978.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "active_minutes-0802",
+      "date": "2023-08-02",
+      "type": "active minutes",
+      "value": 125.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "hydration_intake-0803",
+      "date": "2023-08-03",
+      "type": "hydration intake",
+      "value": 2061.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "active_minutes-0803",
+      "date": "2023-08-03",
+      "type": "active minutes",
+      "value": 119.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "hydration_intake-0804",
+      "date": "2023-08-04",
+      "type": "hydration intake",
+      "value": 3345.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "active_minutes-0804",
+      "date": "2023-08-04",
+      "type": "active minutes",
+      "value": 104.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "hydration_intake-0805",
+      "date": "2023-08-05",
+      "type": "hydration intake",
+      "value": 1222.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "active_minutes-0805",
+      "date": "2023-08-05",
+      "type": "active minutes",
+      "value": 124.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-0804",
+      "active_minutes-0804"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-08-04"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

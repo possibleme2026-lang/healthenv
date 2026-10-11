@@ -64,8 +64,10 @@ Prototype evaluation</a>
 <li><a href="#tasks" id="toc-tasks">4.1 Tasks</a></li>
 <li><a href="#tests" id="toc-tests">4.2 Tests</a></li>
 <li><a href="#results" id="toc-results">4.3 Results</a></li>
+<li><a href="#synthesis-at-scale" id="toc-synthesis-at-scale">4.4
+Synthesis at scale</a></li>
 <li><a href="#what-these-results-do-not-show"
-id="toc-what-these-results-do-not-show">4.4 What these results do not
+id="toc-what-these-results-do-not-show">4.5 What these results do not
 show</a></li>
 </ul></li>
 <li><a href="#relation-to-prior-work" id="toc-relation-to-prior-work">5.
@@ -327,7 +329,7 @@ edits;</li>
 <tbody>
 <tr>
 <td>Unit and regression tests</td>
-<td style="text-align: right;">11 / 11 pass</td>
+<td style="text-align: right;">27 / 27 pass</td>
 </tr>
 <tr>
 <td>Seeds compiled</td>
@@ -340,6 +342,30 @@ edits;</li>
 <tr>
 <td>Missing-evidence mutations rejected</td>
 <td style="text-align: right;">3 / 3</td>
+</tr>
+<tr>
+<td>Scale run: environments generated and compiled</td>
+<td style="text-align: right;">1200</td>
+</tr>
+<tr>
+<td>Scale run: unique task ids</td>
+<td style="text-align: right;">1200</td>
+</tr>
+<tr>
+<td>Scale run: oracle strict passes</td>
+<td style="text-align: right;">1200 / 1200</td>
+</tr>
+<tr>
+<td>Scale run: negative controls rejected</td>
+<td style="text-align: right;">1200 / 1200 (four controls)</td>
+</tr>
+<tr>
+<td>Scale run: structural errors</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Scale run in a real headless browser</td>
+<td style="text-align: right;">100%; zero JS/network failures</td>
 </tr>
 <tr>
 <td>LifeAgentBench-format adapter smoke</td>
@@ -373,7 +399,84 @@ fallback; every artifact records <code>llm_used_for_gold: false</code>.
 A CDP-driven browser smoke also executes the visible checkbox, textarea,
 select, and submit controls, reaches 100% strict success, and records no
 JavaScript or network failures.</p>
-<h3 id="what-these-results-do-not-show">4.4 What these results do not
+<h3 id="synthesis-at-scale">4.4 Synthesis at scale</h3>
+<p>Three hand-written seeds cannot distinguish a compiler from a
+template. We therefore add a deterministic generator,
+<code>healthenv.seedgen</code>, that composes seeds from ten metric
+domains (oxygen saturation, sleep duration, resting heart rate, blood
+glucose, systolic blood pressure, step count, body weight, active
+minutes, stress score, hydration intake) and seven reasoning skills
+(longitudinal comparison, temporal aggregation, cross-dimensional
+reasoning, threshold detection, extremum identification, trend
+classification, range computation). A single integer seed fixes the
+entire corpus.</p>
+<p>Two properties matter more than the count itself. First, <strong>the
+answer is derived, not attached</strong>: each generator constructs
+record values so that the stated conclusion follows from them, and the
+compiler turns that conclusion into the verifier’s grounded-note terms.
+Second, <strong>every environment is proved individually</strong>. For
+all 1200 tasks we check that an oracle trajectory reaches strict success
+and that four negative controls are rejected: selecting no evidence,
+selecting every record, submitting an ungrounded note, and choosing the
+wrong workflow priority. The second control is the one that makes
+distractors load-bearing rather than decorative; it passes only if at
+least one non-evidence record exists, which the pipeline asserts
+structurally.</p>
+<p>Diversity is measured rather than assumed. The 1200 environments
+contain 1164 distinct questions, 641 distinct answers, and 1193 distinct
+(question, answer) pairs. Distinct answers are fewer than distinct
+instances because 343 tasks ask for a date, and the date space is small
+by construction.</p>
+<table>
+<thead>
+<tr>
+<th>Diversity measure</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Distinct questions</td>
+<td style="text-align: right;">1164 / 1200</td>
+</tr>
+<tr>
+<td>Distinct answers</td>
+<td style="text-align: right;">641 / 1200</td>
+</tr>
+<tr>
+<td>Distinct (question, answer) pairs</td>
+<td style="text-align: right;">1193 / 1200</td>
+</tr>
+<tr>
+<td>Distinct metric combinations</td>
+<td style="text-align: right;">86</td>
+</tr>
+<tr>
+<td>Reasoning skills</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td>Required workflow priority</td>
+<td style="text-align: right;">review 855, routine 238, urgent 107</td>
+</tr>
+<tr>
+<td>Records per environment</td>
+<td style="text-align: right;">3-8</td>
+</tr>
+<tr>
+<td>Structural skeletons</td>
+<td style="text-align: right;">86</td>
+</tr>
+</tbody>
+</table>
+<p>The final row is the honest ceiling of this experiment. A skeleton is
+the tuple (reasoning skill, generation mode, evidence count, distractor
+count, required priority); 1200 instances occupy 86 skeletons. Raising
+the instance count is a cheap operation, and reporting it alone would be
+misleading: what scales easily is <em>instances</em>, while what we
+actually want to scale is <em>distinct reasoning patterns and state
+structures</em>. We therefore report both numbers together.</p>
+<h3 id="what-these-results-do-not-show">4.5 What these results do not
 show</h3>
 <p>The results do not establish that the UI resembles a deployed medical
 system, that the verifier captures clinical correctness, that a

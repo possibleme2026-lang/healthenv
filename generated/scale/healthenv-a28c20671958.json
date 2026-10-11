@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-a28c20671958",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00557",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2023-12-29 to 2024-01-02, on which day was the active minutes lowest?"
+  },
+  "instruction": "Review participant HENV-1058's timeline and answer this operational question: Among the recorded days from 2023-12-29 to 2024-01-02, on which day was the active minutes lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1058",
+    "display_name": "Synthetic Participant 1058",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-1229",
+      "date": "2023-12-29",
+      "type": "active minutes",
+      "value": 89.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1230",
+      "date": "2023-12-30",
+      "type": "active minutes",
+      "value": 104.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1231",
+      "date": "2023-12-31",
+      "type": "active minutes",
+      "value": 83.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0101",
+      "date": "2024-01-01",
+      "type": "active minutes",
+      "value": 111.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0102",
+      "date": "2024-01-02",
+      "type": "active minutes",
+      "value": 69.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "blood_glucose-1229",
+      "date": "2023-12-29",
+      "type": "blood glucose",
+      "value": 124.0,
+      "unit": "mg/dL",
+      "detail": "Different metric",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0102"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-01-02"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

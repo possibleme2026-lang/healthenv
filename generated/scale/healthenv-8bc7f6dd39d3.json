@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-8bc7f6dd39d3",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00789",
+    "category": "trend-classification",
+    "question": "Across the 4 recorded days from 2023-04-30 to 2023-05-03, did the resting heart rate trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1040's timeline and answer this operational question: Across the 4 recorded days from 2023-04-30 to 2023-05-03, did the resting heart rate trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1040",
+    "display_name": "Synthetic Participant 1040",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "resting_heart_rate-0430",
+      "date": "2023-04-30",
+      "type": "resting heart rate",
+      "value": 95.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0501",
+      "date": "2023-05-01",
+      "type": "resting heart rate",
+      "value": 84.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0502",
+      "date": "2023-05-02",
+      "type": "resting heart rate",
+      "value": 78.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0503",
+      "date": "2023-05-03",
+      "type": "resting heart rate",
+      "value": 72.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "step_count-0430",
+      "date": "2023-04-30",
+      "type": "step count",
+      "value": 8180.0,
+      "unit": "steps",
+      "detail": "Different metric",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "resting_heart_rate-0430",
+      "resting_heart_rate-0501",
+      "resting_heart_rate-0502",
+      "resting_heart_rate-0503"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-635422591c55",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00139",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the active minutes across the 6 recorded days from 2024-03-16 to 2024-03-21?"
+  },
+  "instruction": "Review participant HENV-1140's timeline and answer this operational question: What was the range (highest minus lowest) of the active minutes across the 6 recorded days from 2024-03-16 to 2024-03-21? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1140",
+    "display_name": "Synthetic Participant 1140",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0316",
+      "date": "2024-03-16",
+      "type": "active minutes",
+      "value": 87.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0317",
+      "date": "2024-03-17",
+      "type": "active minutes",
+      "value": 78.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0318",
+      "date": "2024-03-18",
+      "type": "active minutes",
+      "value": 85.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0319",
+      "date": "2024-03-19",
+      "type": "active minutes",
+      "value": 66.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0320",
+      "date": "2024-03-20",
+      "type": "active minutes",
+      "value": 56.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0321",
+      "date": "2024-03-21",
+      "type": "active minutes",
+      "value": 79.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "resting_heart_rate-0316",
+      "date": "2024-03-16",
+      "type": "resting heart rate",
+      "value": 73.0,
+      "unit": "bpm",
+      "detail": "Different metric",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0316",
+      "active_minutes-0320"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "31",
+      "minutes"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

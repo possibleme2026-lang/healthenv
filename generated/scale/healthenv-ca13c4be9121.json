@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-ca13c4be9121",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00533",
+    "category": "temporal-aggregation",
+    "question": "What was the average step count across the 4 days from 2023-08-30 through 2023-09-02?"
+  },
+  "instruction": "Review participant HENV-1034's timeline and answer this operational question: What was the average step count across the 4 days from 2023-08-30 through 2023-09-02? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1034",
+    "display_name": "Synthetic Participant 1034",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0830",
+      "date": "2023-08-30",
+      "type": "step count",
+      "value": 5493.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0831",
+      "date": "2023-08-31",
+      "type": "step count",
+      "value": 13822.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0901",
+      "date": "2023-09-01",
+      "type": "step count",
+      "value": 14194.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0902",
+      "date": "2023-09-02",
+      "type": "step count",
+      "value": 15699.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0829",
+      "date": "2023-08-29",
+      "type": "step count",
+      "value": 17771.0,
+      "unit": "steps",
+      "detail": "Outside the requested window",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0903",
+      "date": "2023-09-03",
+      "type": "step count",
+      "value": 5367.0,
+      "unit": "steps",
+      "detail": "Outside the requested window",
+      "metric": "step_count"
+    },
+    {
+      "id": "systolic_bp-0830",
+      "date": "2023-08-30",
+      "type": "systolic blood pressure",
+      "value": 117.0,
+      "unit": "mmHg",
+      "detail": "Different metric inside the window",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0830",
+      "step_count-0831",
+      "step_count-0901",
+      "step_count-0902"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "12302",
+      "steps"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

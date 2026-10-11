@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-f1cbfc01807d",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01196",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the blood glucose across the 6 recorded days from 2024-07-09 to 2024-07-14?"
+  },
+  "instruction": "Review participant HENV-1197's timeline and answer this operational question: What was the range (highest minus lowest) of the blood glucose across the 6 recorded days from 2024-07-09 to 2024-07-14? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1197",
+    "display_name": "Synthetic Participant 1197",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0709",
+      "date": "2024-07-09",
+      "type": "blood glucose",
+      "value": 189.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0710",
+      "date": "2024-07-10",
+      "type": "blood glucose",
+      "value": 178.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0711",
+      "date": "2024-07-11",
+      "type": "blood glucose",
+      "value": 180.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0712",
+      "date": "2024-07-12",
+      "type": "blood glucose",
+      "value": 145.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0713",
+      "date": "2024-07-13",
+      "type": "blood glucose",
+      "value": 164.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0714",
+      "date": "2024-07-14",
+      "type": "blood glucose",
+      "value": 161.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "stress_score-0709",
+      "date": "2024-07-09",
+      "type": "stress score",
+      "value": 59.0,
+      "unit": "score",
+      "detail": "Different metric",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0709",
+      "blood_glucose-0712"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "44",
+      "mg/dL"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

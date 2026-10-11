@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-798c8a4220a5",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00083",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the stress score across the 6 recorded days from 2023-12-29 to 2024-01-03?"
+  },
+  "instruction": "Review participant HENV-1084's timeline and answer this operational question: What was the range (highest minus lowest) of the stress score across the 6 recorded days from 2023-12-29 to 2024-01-03? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1084",
+    "display_name": "Synthetic Participant 1084",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-1229",
+      "date": "2023-12-29",
+      "type": "stress score",
+      "value": 68.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1230",
+      "date": "2023-12-30",
+      "type": "stress score",
+      "value": 82.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1231",
+      "date": "2023-12-31",
+      "type": "stress score",
+      "value": 77.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0101",
+      "date": "2024-01-01",
+      "type": "stress score",
+      "value": 75.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0102",
+      "date": "2024-01-02",
+      "type": "stress score",
+      "value": 73.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-0103",
+      "date": "2024-01-03",
+      "type": "stress score",
+      "value": 72.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "systolic_bp-1229",
+      "date": "2023-12-29",
+      "type": "systolic blood pressure",
+      "value": 148.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-1230",
+      "stress_score-1229"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "14",
+      "points"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

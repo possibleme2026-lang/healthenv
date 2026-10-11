@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-ae16701ffafb",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00757",
+    "category": "temporal-aggregation",
+    "question": "What was the average resting heart rate across the 4 days from 2023-11-19 through 2023-11-22?"
+  },
+  "instruction": "Review participant HENV-1008's timeline and answer this operational question: What was the average resting heart rate across the 4 days from 2023-11-19 through 2023-11-22? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1008",
+    "display_name": "Synthetic Participant 1008",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "resting_heart_rate-1119",
+      "date": "2023-11-19",
+      "type": "resting heart rate",
+      "value": 54.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-1120",
+      "date": "2023-11-20",
+      "type": "resting heart rate",
+      "value": 90.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-1121",
+      "date": "2023-11-21",
+      "type": "resting heart rate",
+      "value": 82.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-1122",
+      "date": "2023-11-22",
+      "type": "resting heart rate",
+      "value": 82.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-1118",
+      "date": "2023-11-18",
+      "type": "resting heart rate",
+      "value": 78.0,
+      "unit": "bpm",
+      "detail": "Outside the requested window",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-1123",
+      "date": "2023-11-23",
+      "type": "resting heart rate",
+      "value": 83.0,
+      "unit": "bpm",
+      "detail": "Outside the requested window",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "resting_heart_rate-1119",
+      "resting_heart_rate-1120",
+      "resting_heart_rate-1121",
+      "resting_heart_rate-1122"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "77",
+      "bpm"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

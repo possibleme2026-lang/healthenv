@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-d76e7b6b81eb",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00208",
+    "category": "trend-classification",
+    "question": "Across the 4 recorded days from 2023-11-28 to 2023-12-01, did the oxygen saturation trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1209's timeline and answer this operational question: Across the 4 recorded days from 2023-11-28 to 2023-12-01, did the oxygen saturation trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1209",
+    "display_name": "Synthetic Participant 1209",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-1128",
+      "date": "2023-11-28",
+      "type": "oxygen saturation",
+      "value": 89.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1129",
+      "date": "2023-11-29",
+      "type": "oxygen saturation",
+      "value": 90.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1130",
+      "date": "2023-11-30",
+      "type": "oxygen saturation",
+      "value": 92.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1201",
+      "date": "2023-12-01",
+      "type": "oxygen saturation",
+      "value": 94.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "sleep_duration-1128",
+      "date": "2023-11-28",
+      "type": "sleep duration",
+      "value": 3.9,
+      "unit": "hours",
+      "detail": "Different metric",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-1128",
+      "oxygen_saturation-1129",
+      "oxygen_saturation-1130",
+      "oxygen_saturation-1201"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

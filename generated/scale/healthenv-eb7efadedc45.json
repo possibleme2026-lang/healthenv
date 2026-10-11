@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-eb7efadedc45",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00583",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2024-06-13 to 2024-06-16, on which day did the participant have both the highest blood glucose and the lowest resting heart rate?"
+  },
+  "instruction": "Review participant HENV-1084's timeline and answer this operational question: Among the recorded days from 2024-06-13 to 2024-06-16, on which day did the participant have both the highest blood glucose and the lowest resting heart rate? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1084",
+    "display_name": "Synthetic Participant 1084",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0613",
+      "date": "2024-06-13",
+      "type": "blood glucose",
+      "value": 88.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "resting_heart_rate-0613",
+      "date": "2024-06-13",
+      "type": "resting heart rate",
+      "value": 91.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "blood_glucose-0614",
+      "date": "2024-06-14",
+      "type": "blood glucose",
+      "value": 84.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "resting_heart_rate-0614",
+      "date": "2024-06-14",
+      "type": "resting heart rate",
+      "value": 94.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "blood_glucose-0615",
+      "date": "2024-06-15",
+      "type": "blood glucose",
+      "value": 96.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "resting_heart_rate-0615",
+      "date": "2024-06-15",
+      "type": "resting heart rate",
+      "value": 86.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "blood_glucose-0616",
+      "date": "2024-06-16",
+      "type": "blood glucose",
+      "value": 79.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "resting_heart_rate-0616",
+      "date": "2024-06-16",
+      "type": "resting heart rate",
+      "value": 94.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0615",
+      "resting_heart_rate-0615"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-06-15"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

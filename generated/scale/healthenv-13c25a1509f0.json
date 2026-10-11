@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-13c25a1509f0",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00132",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the active minutes across the 5 recorded days from 2023-09-21 to 2023-09-25?"
+  },
+  "instruction": "Review participant HENV-1133's timeline and answer this operational question: What was the range (highest minus lowest) of the active minutes across the 5 recorded days from 2023-09-21 to 2023-09-25? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1133",
+    "display_name": "Synthetic Participant 1133",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0921",
+      "date": "2023-09-21",
+      "type": "active minutes",
+      "value": 129.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0922",
+      "date": "2023-09-22",
+      "type": "active minutes",
+      "value": 101.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0923",
+      "date": "2023-09-23",
+      "type": "active minutes",
+      "value": 112.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0924",
+      "date": "2023-09-24",
+      "type": "active minutes",
+      "value": 119.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0925",
+      "date": "2023-09-25",
+      "type": "active minutes",
+      "value": 107.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "systolic_bp-0921",
+      "date": "2023-09-21",
+      "type": "systolic blood pressure",
+      "value": 149.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0921",
+      "active_minutes-0922"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "28",
+      "minutes"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-238e4be645f0",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00630",
+    "category": "longitudinal-comparison",
+    "question": "How many mg/dL lower was the blood glucose on 2024-02-06 than on 2024-02-05?"
+  },
+  "instruction": "Review participant HENV-1131's timeline and answer this operational question: How many mg/dL lower was the blood glucose on 2024-02-06 than on 2024-02-05? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1131",
+    "display_name": "Synthetic Participant 1131",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0205",
+      "date": "2024-02-05",
+      "type": "blood glucose",
+      "value": 109.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0206",
+      "date": "2024-02-06",
+      "type": "blood glucose",
+      "value": 108.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0208",
+      "date": "2024-02-08",
+      "type": "blood glucose",
+      "value": 73.0,
+      "unit": "mg/dL",
+      "detail": "Outside the requested window",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "step_count-0206",
+      "date": "2024-02-06",
+      "type": "step count",
+      "value": 5962.0,
+      "unit": "steps",
+      "detail": "Different metric on the comparison day",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0205",
+      "blood_glucose-0206"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "1",
+      "mg/dL"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

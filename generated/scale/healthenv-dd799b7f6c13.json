@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-dd799b7f6c13",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00366",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2025-01-01 to 2025-01-04, on which day did the participant have both the highest systolic blood pressure and the lowest step count?"
+  },
+  "instruction": "Review participant HENV-1117's timeline and answer this operational question: Among the recorded days from 2025-01-01 to 2025-01-04, on which day did the participant have both the highest systolic blood pressure and the lowest step count? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1117",
+    "display_name": "Synthetic Participant 1117",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-0101",
+      "date": "2025-01-01",
+      "type": "systolic blood pressure",
+      "value": 130.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "step_count-0101",
+      "date": "2025-01-01",
+      "type": "step count",
+      "value": 6754.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "systolic_bp-0102",
+      "date": "2025-01-02",
+      "type": "systolic blood pressure",
+      "value": 125.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "step_count-0102",
+      "date": "2025-01-02",
+      "type": "step count",
+      "value": 11046.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "systolic_bp-0103",
+      "date": "2025-01-03",
+      "type": "systolic blood pressure",
+      "value": 114.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "step_count-0103",
+      "date": "2025-01-03",
+      "type": "step count",
+      "value": 8042.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "systolic_bp-0104",
+      "date": "2025-01-04",
+      "type": "systolic blood pressure",
+      "value": 119.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "step_count-0104",
+      "date": "2025-01-04",
+      "type": "step count",
+      "value": 16637.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-0101",
+      "step_count-0101"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2025-01-01"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

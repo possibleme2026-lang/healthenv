@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-5cacac970140",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00823",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2024-08-28 to 2024-09-01, on which day was the blood glucose highest?"
+  },
+  "instruction": "Review participant HENV-1074's timeline and answer this operational question: Among the recorded days from 2024-08-28 to 2024-09-01, on which day was the blood glucose highest? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1074",
+    "display_name": "Synthetic Participant 1074",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0828",
+      "date": "2024-08-28",
+      "type": "blood glucose",
+      "value": 130.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0829",
+      "date": "2024-08-29",
+      "type": "blood glucose",
+      "value": 79.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0830",
+      "date": "2024-08-30",
+      "type": "blood glucose",
+      "value": 109.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0831",
+      "date": "2024-08-31",
+      "type": "blood glucose",
+      "value": 96.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0901",
+      "date": "2024-09-01",
+      "type": "blood glucose",
+      "value": 117.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "systolic_bp-0828",
+      "date": "2024-08-28",
+      "type": "systolic blood pressure",
+      "value": 127.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0828"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-08-28"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

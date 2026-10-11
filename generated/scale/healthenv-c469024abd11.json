@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-c469024abd11",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00447",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the blood glucose across the 5 recorded days from 2023-03-17 to 2023-03-21?"
+  },
+  "instruction": "Review participant HENV-1198's timeline and answer this operational question: What was the range (highest minus lowest) of the blood glucose across the 5 recorded days from 2023-03-17 to 2023-03-21? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1198",
+    "display_name": "Synthetic Participant 1198",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0317",
+      "date": "2023-03-17",
+      "type": "blood glucose",
+      "value": 175.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0318",
+      "date": "2023-03-18",
+      "type": "blood glucose",
+      "value": 144.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0319",
+      "date": "2023-03-19",
+      "type": "blood glucose",
+      "value": 160.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0320",
+      "date": "2023-03-20",
+      "type": "blood glucose",
+      "value": 172.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0321",
+      "date": "2023-03-21",
+      "type": "blood glucose",
+      "value": 164.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0317",
+      "blood_glucose-0318"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "31",
+      "mg/dL"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

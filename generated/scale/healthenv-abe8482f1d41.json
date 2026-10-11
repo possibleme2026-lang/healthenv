@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-abe8482f1d41",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00022",
+    "category": "temporal-aggregation",
+    "question": "What was the average blood glucose across the 3 days from 2023-03-08 through 2023-03-10?"
+  },
+  "instruction": "Review participant HENV-1023's timeline and answer this operational question: What was the average blood glucose across the 3 days from 2023-03-08 through 2023-03-10? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1023",
+    "display_name": "Synthetic Participant 1023",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0308",
+      "date": "2023-03-08",
+      "type": "blood glucose",
+      "value": 136.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0309",
+      "date": "2023-03-09",
+      "type": "blood glucose",
+      "value": 110.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0310",
+      "date": "2023-03-10",
+      "type": "blood glucose",
+      "value": 177.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0307",
+      "date": "2023-03-07",
+      "type": "blood glucose",
+      "value": 174.0,
+      "unit": "mg/dL",
+      "detail": "Outside the requested window",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0311",
+      "date": "2023-03-11",
+      "type": "blood glucose",
+      "value": 172.0,
+      "unit": "mg/dL",
+      "detail": "Outside the requested window",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "systolic_bp-0308",
+      "date": "2023-03-08",
+      "type": "systolic blood pressure",
+      "value": 156.0,
+      "unit": "mmHg",
+      "detail": "Different metric inside the window",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0308",
+      "blood_glucose-0309",
+      "blood_glucose-0310"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "141",
+      "mg/dL"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

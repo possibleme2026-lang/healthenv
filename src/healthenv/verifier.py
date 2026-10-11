@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from dataclasses import asdict, dataclass
 from typing import Any
 
@@ -36,6 +37,14 @@ def _normalize(text: Any) -> str:
     return " ".join(str(text).casefold().split())
 
 
+def _contains_term(note: str, term: str) -> bool:
+    """Whole-term match so that "2" does not satisfy a note that only says "2024"."""
+    if not term:
+        return True
+    pattern = rf"(?<!\w){re.escape(term)}(?!\w)"
+    return re.search(pattern, note) is not None
+
+
 def verify_state(task: TaskSpec, state: dict[str, Any]) -> VerificationReport:
     rules = task.verifier
     selected = set(state.get("selected_record_ids", []))
@@ -48,7 +57,7 @@ def verify_state(task: TaskSpec, state: dict[str, Any]) -> VerificationReport:
         evidence_ok = required_evidence.issubset(selected)
     else:
         evidence_ok = required_evidence == selected
-    terms_ok = all(term in note for term in required_terms)
+    terms_ok = all(_contains_term(note, term) for term in required_terms)
     status_ok = state.get("status") == rules.get("required_status")
     submitted_ok = state.get("submitted") is True
     safety_ok = not forbidden_edits

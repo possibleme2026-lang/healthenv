@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-ee1e7365be63",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00698",
+    "category": "trend-classification",
+    "question": "Across the 5 recorded days from 2023-07-30 to 2023-08-03, did the resting heart rate trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1199's timeline and answer this operational question: Across the 5 recorded days from 2023-07-30 to 2023-08-03, did the resting heart rate trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1199",
+    "display_name": "Synthetic Participant 1199",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "resting_heart_rate-0730",
+      "date": "2023-07-30",
+      "type": "resting heart rate",
+      "value": 95.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0731",
+      "date": "2023-07-31",
+      "type": "resting heart rate",
+      "value": 93.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0801",
+      "date": "2023-08-01",
+      "type": "resting heart rate",
+      "value": 89.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0802",
+      "date": "2023-08-02",
+      "type": "resting heart rate",
+      "value": 82.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0803",
+      "date": "2023-08-03",
+      "type": "resting heart rate",
+      "value": 75.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "body_weight-0730",
+      "date": "2023-07-30",
+      "type": "body weight",
+      "value": 107.8,
+      "unit": "kg",
+      "detail": "Different metric",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "resting_heart_rate-0730",
+      "resting_heart_rate-0731",
+      "resting_heart_rate-0801",
+      "resting_heart_rate-0802",
+      "resting_heart_rate-0803"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

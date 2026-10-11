@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-4db12ec7498c",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00362",
+    "category": "trend-classification",
+    "question": "Across the 4 recorded days from 2024-10-14 to 2024-10-17, did the hydration intake trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1113's timeline and answer this operational question: Across the 4 recorded days from 2024-10-14 to 2024-10-17, did the hydration intake trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1113",
+    "display_name": "Synthetic Participant 1113",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-1014",
+      "date": "2024-10-14",
+      "type": "hydration intake",
+      "value": 935.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1015",
+      "date": "2024-10-15",
+      "type": "hydration intake",
+      "value": 949.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1016",
+      "date": "2024-10-16",
+      "type": "hydration intake",
+      "value": 1348.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1017",
+      "date": "2024-10-17",
+      "type": "hydration intake",
+      "value": 1580.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "blood_glucose-1014",
+      "date": "2024-10-14",
+      "type": "blood glucose",
+      "value": 151.0,
+      "unit": "mg/dL",
+      "detail": "Different metric",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-1014",
+      "hydration_intake-1015",
+      "hydration_intake-1016",
+      "hydration_intake-1017"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

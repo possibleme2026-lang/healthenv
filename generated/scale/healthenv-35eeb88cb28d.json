@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-35eeb88cb28d",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00069",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the blood glucose across the 5 recorded days from 2023-10-18 to 2023-10-22?"
+  },
+  "instruction": "Review participant HENV-1070's timeline and answer this operational question: What was the range (highest minus lowest) of the blood glucose across the 5 recorded days from 2023-10-18 to 2023-10-22? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1070",
+    "display_name": "Synthetic Participant 1070",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-1018",
+      "date": "2023-10-18",
+      "type": "blood glucose",
+      "value": 106.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1019",
+      "date": "2023-10-19",
+      "type": "blood glucose",
+      "value": 151.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1020",
+      "date": "2023-10-20",
+      "type": "blood glucose",
+      "value": 168.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1021",
+      "date": "2023-10-21",
+      "type": "blood glucose",
+      "value": 132.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1022",
+      "date": "2023-10-22",
+      "type": "blood glucose",
+      "value": 172.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "resting_heart_rate-1018",
+      "date": "2023-10-18",
+      "type": "resting heart rate",
+      "value": 66.0,
+      "unit": "bpm",
+      "detail": "Different metric",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-1022",
+      "blood_glucose-1018"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "66",
+      "mg/dL"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-8f13b772f413",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00899",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the body weight exceed 72.3 kg?"
+  },
+  "instruction": "Review participant HENV-1150's timeline and answer this operational question: On how many of the recorded days did the body weight exceed 72.3 kg? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1150",
+    "display_name": "Synthetic Participant 1150",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0502",
+      "date": "2023-05-02",
+      "type": "body weight",
+      "value": 57.2,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0503",
+      "date": "2023-05-03",
+      "type": "body weight",
+      "value": 111.9,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0504",
+      "date": "2023-05-04",
+      "type": "body weight",
+      "value": 67.4,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0505",
+      "date": "2023-05-05",
+      "type": "body weight",
+      "value": 54.4,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0506",
+      "date": "2023-05-06",
+      "type": "body weight",
+      "value": 61.1,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0507",
+      "date": "2023-05-07",
+      "type": "body weight",
+      "value": 88.4,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0508",
+      "date": "2023-05-08",
+      "type": "body weight",
+      "value": 61.7,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0503",
+      "body_weight-0507"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2",
+      "days"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

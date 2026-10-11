@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-91b5683dab60",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00496",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the hydration intake across the 5 recorded days from 2023-12-02 to 2023-12-06?"
+  },
+  "instruction": "Review participant HENV-1247's timeline and answer this operational question: What was the range (highest minus lowest) of the hydration intake across the 5 recorded days from 2023-12-02 to 2023-12-06? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1247",
+    "display_name": "Synthetic Participant 1247",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-1202",
+      "date": "2023-12-02",
+      "type": "hydration intake",
+      "value": 1785.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1203",
+      "date": "2023-12-03",
+      "type": "hydration intake",
+      "value": 1154.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1204",
+      "date": "2023-12-04",
+      "type": "hydration intake",
+      "value": 1260.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1205",
+      "date": "2023-12-05",
+      "type": "hydration intake",
+      "value": 1171.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1206",
+      "date": "2023-12-06",
+      "type": "hydration intake",
+      "value": 1351.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "resting_heart_rate-1202",
+      "date": "2023-12-02",
+      "type": "resting heart rate",
+      "value": 85.0,
+      "unit": "bpm",
+      "detail": "Different metric",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-1202",
+      "hydration_intake-1203"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "631",
+      "ml"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

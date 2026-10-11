@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-3f5382cacca6",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00009",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2023-02-22 to 2023-02-24, on which day did the participant have both the highest stress score and the lowest step count?"
+  },
+  "instruction": "Review participant HENV-1010's timeline and answer this operational question: Among the recorded days from 2023-02-22 to 2023-02-24, on which day did the participant have both the highest stress score and the lowest step count? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1010",
+    "display_name": "Synthetic Participant 1010",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-0222",
+      "date": "2023-02-22",
+      "type": "stress score",
+      "value": 8.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "step_count-0222",
+      "date": "2023-02-22",
+      "type": "step count",
+      "value": 9845.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "stress_score-0223",
+      "date": "2023-02-23",
+      "type": "stress score",
+      "value": 8.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "step_count-0223",
+      "date": "2023-02-23",
+      "type": "step count",
+      "value": 17818.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "stress_score-0224",
+      "date": "2023-02-24",
+      "type": "stress score",
+      "value": 14.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "step_count-0224",
+      "date": "2023-02-24",
+      "type": "step count",
+      "value": 8373.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-0224",
+      "step_count-0224"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-02-24"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-b412d758f325",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00629",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the oxygen saturation across the 4 recorded days from 2023-09-07 to 2023-09-10?"
+  },
+  "instruction": "Review participant HENV-1130's timeline and answer this operational question: What was the range (highest minus lowest) of the oxygen saturation across the 4 recorded days from 2023-09-07 to 2023-09-10? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1130",
+    "display_name": "Synthetic Participant 1130",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-0907",
+      "date": "2023-09-07",
+      "type": "oxygen saturation",
+      "value": 95.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0908",
+      "date": "2023-09-08",
+      "type": "oxygen saturation",
+      "value": 91.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0909",
+      "date": "2023-09-09",
+      "type": "oxygen saturation",
+      "value": 91.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0910",
+      "date": "2023-09-10",
+      "type": "oxygen saturation",
+      "value": 90.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "systolic_bp-0907",
+      "date": "2023-09-07",
+      "type": "systolic blood pressure",
+      "value": 127.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-0907",
+      "oxygen_saturation-0910"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "5",
+      "percentage points"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

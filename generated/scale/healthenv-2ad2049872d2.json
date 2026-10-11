@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-2ad2049872d2",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00490",
+    "category": "longitudinal-comparison",
+    "question": "How many percentage points lower was the oxygen saturation on 2025-01-18 than on 2025-01-16?"
+  },
+  "instruction": "Review participant HENV-1241's timeline and answer this operational question: How many percentage points lower was the oxygen saturation on 2025-01-18 than on 2025-01-16? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1241",
+    "display_name": "Synthetic Participant 1241",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-0116",
+      "date": "2025-01-16",
+      "type": "oxygen saturation",
+      "value": 94.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0118",
+      "date": "2025-01-18",
+      "type": "oxygen saturation",
+      "value": 89.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0121",
+      "date": "2025-01-21",
+      "type": "oxygen saturation",
+      "value": 97.0,
+      "unit": "%",
+      "detail": "Outside the requested window",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "active_minutes-0118",
+      "date": "2025-01-18",
+      "type": "active minutes",
+      "value": 72.0,
+      "unit": "minutes",
+      "detail": "Different metric on the comparison day",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-0116",
+      "oxygen_saturation-0118"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "5",
+      "percentage points"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

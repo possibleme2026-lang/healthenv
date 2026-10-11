@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-9bbcb48b5c7e",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00198",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2024-08-26 to 2024-08-28, on which day did the participant have both the highest hydration intake and the lowest step count?"
+  },
+  "instruction": "Review participant HENV-1199's timeline and answer this operational question: Among the recorded days from 2024-08-26 to 2024-08-28, on which day did the participant have both the highest hydration intake and the lowest step count? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1199",
+    "display_name": "Synthetic Participant 1199",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-0826",
+      "date": "2024-08-26",
+      "type": "hydration intake",
+      "value": 985.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "step_count-0826",
+      "date": "2024-08-26",
+      "type": "step count",
+      "value": 12139.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "hydration_intake-0827",
+      "date": "2024-08-27",
+      "type": "hydration intake",
+      "value": 2495.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "step_count-0827",
+      "date": "2024-08-27",
+      "type": "step count",
+      "value": 9294.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "hydration_intake-0828",
+      "date": "2024-08-28",
+      "type": "hydration intake",
+      "value": 3159.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "step_count-0828",
+      "date": "2024-08-28",
+      "type": "step count",
+      "value": 8248.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-0828",
+      "step_count-0828"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-08-28"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

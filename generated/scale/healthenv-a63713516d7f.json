@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-a63713516d7f",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01170",
+    "category": "temporal-aggregation",
+    "question": "What was the average body weight across the 4 days from 2023-04-25 through 2023-04-28?"
+  },
+  "instruction": "Review participant HENV-1171's timeline and answer this operational question: What was the average body weight across the 4 days from 2023-04-25 through 2023-04-28? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1171",
+    "display_name": "Synthetic Participant 1171",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0425",
+      "date": "2023-04-25",
+      "type": "body weight",
+      "value": 50.5,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0426",
+      "date": "2023-04-26",
+      "type": "body weight",
+      "value": 92.1,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0427",
+      "date": "2023-04-27",
+      "type": "body weight",
+      "value": 84.0,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0428",
+      "date": "2023-04-28",
+      "type": "body weight",
+      "value": 77.4,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0424",
+      "date": "2023-04-24",
+      "type": "body weight",
+      "value": 100.8,
+      "unit": "kg",
+      "detail": "Outside the requested window",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0429",
+      "date": "2023-04-29",
+      "type": "body weight",
+      "value": 97.7,
+      "unit": "kg",
+      "detail": "Outside the requested window",
+      "metric": "body_weight"
+    },
+    {
+      "id": "stress_score-0425",
+      "date": "2023-04-25",
+      "type": "stress score",
+      "value": 65.0,
+      "unit": "score",
+      "detail": "Different metric inside the window",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0425",
+      "body_weight-0426",
+      "body_weight-0427",
+      "body_weight-0428"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "76.0",
+      "kg"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

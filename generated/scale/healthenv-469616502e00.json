@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-469616502e00",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00011",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2023-11-13 to 2023-11-17, on which day was the step count lowest?"
+  },
+  "instruction": "Review participant HENV-1012's timeline and answer this operational question: Among the recorded days from 2023-11-13 to 2023-11-17, on which day was the step count lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1012",
+    "display_name": "Synthetic Participant 1012",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-1113",
+      "date": "2023-11-13",
+      "type": "step count",
+      "value": 7705.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1114",
+      "date": "2023-11-14",
+      "type": "step count",
+      "value": 8391.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1115",
+      "date": "2023-11-15",
+      "type": "step count",
+      "value": 15339.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1116",
+      "date": "2023-11-16",
+      "type": "step count",
+      "value": 7825.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1117",
+      "date": "2023-11-17",
+      "type": "step count",
+      "value": 5412.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "hydration_intake-1113",
+      "date": "2023-11-13",
+      "type": "hydration intake",
+      "value": 2646.0,
+      "unit": "ml",
+      "detail": "Different metric",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-1117"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-11-17"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

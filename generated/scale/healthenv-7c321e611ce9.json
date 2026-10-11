@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-7c321e611ce9",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00074",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2024-10-03 to 2024-10-06, on which day was the step count highest?"
+  },
+  "instruction": "Review participant HENV-1075's timeline and answer this operational question: Among the recorded days from 2024-10-03 to 2024-10-06, on which day was the step count highest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1075",
+    "display_name": "Synthetic Participant 1075",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-1003",
+      "date": "2024-10-03",
+      "type": "step count",
+      "value": 5646.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1004",
+      "date": "2024-10-04",
+      "type": "step count",
+      "value": 15219.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1005",
+      "date": "2024-10-05",
+      "type": "step count",
+      "value": 1896.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1006",
+      "date": "2024-10-06",
+      "type": "step count",
+      "value": 4975.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "sleep_duration-1003",
+      "date": "2024-10-03",
+      "type": "sleep duration",
+      "value": 4.7,
+      "unit": "hours",
+      "detail": "Different metric",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-1004"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-10-04"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

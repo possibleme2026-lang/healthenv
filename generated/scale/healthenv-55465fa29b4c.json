@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-55465fa29b4c",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00995",
+    "category": "temporal-aggregation",
+    "question": "What was the average stress score across the 4 days from 2023-10-15 through 2023-10-18?"
+  },
+  "instruction": "Review participant HENV-1246's timeline and answer this operational question: What was the average stress score across the 4 days from 2023-10-15 through 2023-10-18? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1246",
+    "display_name": "Synthetic Participant 1246",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "stress_score-1015",
+      "date": "2023-10-15",
+      "type": "stress score",
+      "value": 76.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1016",
+      "date": "2023-10-16",
+      "type": "stress score",
+      "value": 92.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1017",
+      "date": "2023-10-17",
+      "type": "stress score",
+      "value": 18.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1018",
+      "date": "2023-10-18",
+      "type": "stress score",
+      "value": 90.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1014",
+      "date": "2023-10-14",
+      "type": "stress score",
+      "value": 38.0,
+      "unit": "score",
+      "detail": "Outside the requested window",
+      "metric": "stress_score"
+    },
+    {
+      "id": "stress_score-1019",
+      "date": "2023-10-19",
+      "type": "stress score",
+      "value": 75.0,
+      "unit": "score",
+      "detail": "Outside the requested window",
+      "metric": "stress_score"
+    },
+    {
+      "id": "oxygen_saturation-1015",
+      "date": "2023-10-15",
+      "type": "oxygen saturation",
+      "value": 89.0,
+      "unit": "%",
+      "detail": "Different metric inside the window",
+      "metric": "oxygen_saturation"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "stress_score-1015",
+      "stress_score-1016",
+      "stress_score-1017",
+      "stress_score-1018"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "69",
+      "score"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-0ad06c657ea7",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01140",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the active minutes across the 4 recorded days from 2023-11-15 to 2023-11-18?"
+  },
+  "instruction": "Review participant HENV-1141's timeline and answer this operational question: What was the range (highest minus lowest) of the active minutes across the 4 recorded days from 2023-11-15 to 2023-11-18? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1141",
+    "display_name": "Synthetic Participant 1141",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-1115",
+      "date": "2023-11-15",
+      "type": "active minutes",
+      "value": 94.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1116",
+      "date": "2023-11-16",
+      "type": "active minutes",
+      "value": 67.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1117",
+      "date": "2023-11-17",
+      "type": "active minutes",
+      "value": 93.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-1118",
+      "date": "2023-11-18",
+      "type": "active minutes",
+      "value": 45.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "resting_heart_rate-1115",
+      "date": "2023-11-15",
+      "type": "resting heart rate",
+      "value": 95.0,
+      "unit": "bpm",
+      "detail": "Different metric",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-1115",
+      "active_minutes-1118"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "49",
+      "minutes"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

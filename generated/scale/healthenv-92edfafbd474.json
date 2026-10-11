@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-92edfafbd474",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00796",
+    "category": "trend-classification",
+    "question": "Across the 4 recorded days from 2024-05-16 to 2024-05-19, did the active minutes trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1047's timeline and answer this operational question: Across the 4 recorded days from 2024-05-16 to 2024-05-19, did the active minutes trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1047",
+    "display_name": "Synthetic Participant 1047",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0516",
+      "date": "2024-05-16",
+      "type": "active minutes",
+      "value": 11.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0517",
+      "date": "2024-05-17",
+      "type": "active minutes",
+      "value": 25.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0518",
+      "date": "2024-05-18",
+      "type": "active minutes",
+      "value": 45.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0519",
+      "date": "2024-05-19",
+      "type": "active minutes",
+      "value": 63.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "resting_heart_rate-0516",
+      "date": "2024-05-16",
+      "type": "resting heart rate",
+      "value": 78.0,
+      "unit": "bpm",
+      "detail": "Different metric",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0516",
+      "active_minutes-0517",
+      "active_minutes-0518",
+      "active_minutes-0519"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "increasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

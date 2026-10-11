@@ -1,0 +1,119 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-78167f370ed7",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00248",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the step count exceed 13386 steps?"
+  },
+  "instruction": "Review participant HENV-1249's timeline and answer this operational question: On how many of the recorded days did the step count exceed 13386 steps? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1249",
+    "display_name": "Synthetic Participant 1249",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0809",
+      "date": "2023-08-09",
+      "type": "step count",
+      "value": 16830.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0810",
+      "date": "2023-08-10",
+      "type": "step count",
+      "value": 8967.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0811",
+      "date": "2023-08-11",
+      "type": "step count",
+      "value": 15725.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0812",
+      "date": "2023-08-12",
+      "type": "step count",
+      "value": 14469.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0813",
+      "date": "2023-08-13",
+      "type": "step count",
+      "value": 4341.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0814",
+      "date": "2023-08-14",
+      "type": "step count",
+      "value": 15185.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0815",
+      "date": "2023-08-15",
+      "type": "step count",
+      "value": 14009.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "blood_glucose-0809",
+      "date": "2023-08-09",
+      "type": "blood glucose",
+      "value": 123.0,
+      "unit": "mg/dL",
+      "detail": "Different metric",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0809",
+      "step_count-0811",
+      "step_count-0812",
+      "step_count-0814",
+      "step_count-0815"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "5",
+      "days"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

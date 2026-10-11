@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-d1d92897ae14",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00845",
+    "category": "trend-classification",
+    "question": "Across the 4 recorded days from 2024-11-18 to 2024-11-21, did the step count trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1096's timeline and answer this operational question: Across the 4 recorded days from 2024-11-18 to 2024-11-21, did the step count trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1096",
+    "display_name": "Synthetic Participant 1096",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-1118",
+      "date": "2024-11-18",
+      "type": "step count",
+      "value": 17175.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1119",
+      "date": "2024-11-19",
+      "type": "step count",
+      "value": 14000.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1120",
+      "date": "2024-11-20",
+      "type": "step count",
+      "value": 12207.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1121",
+      "date": "2024-11-21",
+      "type": "step count",
+      "value": 10032.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "sleep_duration-1118",
+      "date": "2024-11-18",
+      "type": "sleep duration",
+      "value": 3.4,
+      "unit": "hours",
+      "detail": "Different metric",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-1118",
+      "step_count-1119",
+      "step_count-1120",
+      "step_count-1121"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

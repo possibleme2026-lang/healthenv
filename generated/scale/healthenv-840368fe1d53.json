@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-840368fe1d53",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00185",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the active minutes exceed 62 minutes?"
+  },
+  "instruction": "Review participant HENV-1186's timeline and answer this operational question: On how many of the recorded days did the active minutes exceed 62 minutes? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1186",
+    "display_name": "Synthetic Participant 1186",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0130",
+      "date": "2023-01-30",
+      "type": "active minutes",
+      "value": 54.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0131",
+      "date": "2023-01-31",
+      "type": "active minutes",
+      "value": 118.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0201",
+      "date": "2023-02-01",
+      "type": "active minutes",
+      "value": 103.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0202",
+      "date": "2023-02-02",
+      "type": "active minutes",
+      "value": 103.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0203",
+      "date": "2023-02-03",
+      "type": "active minutes",
+      "value": 98.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0204",
+      "date": "2023-02-04",
+      "type": "active minutes",
+      "value": 47.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0205",
+      "date": "2023-02-05",
+      "type": "active minutes",
+      "value": 17.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "blood_glucose-0130",
+      "date": "2023-01-30",
+      "type": "blood glucose",
+      "value": 91.0,
+      "unit": "mg/dL",
+      "detail": "Different metric",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0131",
+      "active_minutes-0201",
+      "active_minutes-0202",
+      "active_minutes-0203"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "4",
+      "days"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

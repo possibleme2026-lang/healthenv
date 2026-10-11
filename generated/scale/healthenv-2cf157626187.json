@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-2cf157626187",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00271",
+    "category": "trend-classification",
+    "question": "Across the 5 recorded days from 2024-05-26 to 2024-05-30, did the systolic blood pressure trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1022's timeline and answer this operational question: Across the 5 recorded days from 2024-05-26 to 2024-05-30, did the systolic blood pressure trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1022",
+    "display_name": "Synthetic Participant 1022",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-0526",
+      "date": "2024-05-26",
+      "type": "systolic blood pressure",
+      "value": 164.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0527",
+      "date": "2024-05-27",
+      "type": "systolic blood pressure",
+      "value": 152.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0528",
+      "date": "2024-05-28",
+      "type": "systolic blood pressure",
+      "value": 140.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0529",
+      "date": "2024-05-29",
+      "type": "systolic blood pressure",
+      "value": 134.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0530",
+      "date": "2024-05-30",
+      "type": "systolic blood pressure",
+      "value": 122.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "resting_heart_rate-0526",
+      "date": "2024-05-26",
+      "type": "resting heart rate",
+      "value": 76.0,
+      "unit": "bpm",
+      "detail": "Different metric",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-0526",
+      "systolic_bp-0527",
+      "systolic_bp-0528",
+      "systolic_bp-0529",
+      "systolic_bp-0530"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

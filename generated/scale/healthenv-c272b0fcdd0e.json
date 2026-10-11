@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-c272b0fcdd0e",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00419",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the sleep duration across the 4 recorded days from 2023-01-29 to 2023-02-01?"
+  },
+  "instruction": "Review participant HENV-1170's timeline and answer this operational question: What was the range (highest minus lowest) of the sleep duration across the 4 recorded days from 2023-01-29 to 2023-02-01? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1170",
+    "display_name": "Synthetic Participant 1170",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "sleep_duration-0129",
+      "date": "2023-01-29",
+      "type": "sleep duration",
+      "value": 7.2,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0130",
+      "date": "2023-01-30",
+      "type": "sleep duration",
+      "value": 8.4,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0131",
+      "date": "2023-01-31",
+      "type": "sleep duration",
+      "value": 9.2,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "sleep_duration-0201",
+      "date": "2023-02-01",
+      "type": "sleep duration",
+      "value": 7.1,
+      "unit": "hours",
+      "detail": "Daily measurement",
+      "metric": "sleep_duration"
+    },
+    {
+      "id": "blood_glucose-0129",
+      "date": "2023-01-29",
+      "type": "blood glucose",
+      "value": 158.0,
+      "unit": "mg/dL",
+      "detail": "Different metric",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "sleep_duration-0131",
+      "sleep_duration-0201"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2.1",
+      "hours"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

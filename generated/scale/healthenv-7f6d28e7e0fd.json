@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-7f6d28e7e0fd",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00484",
+    "category": "temporal-aggregation",
+    "question": "What was the average oxygen saturation across the 3 days from 2023-10-07 through 2023-10-09?"
+  },
+  "instruction": "Review participant HENV-1235's timeline and answer this operational question: What was the average oxygen saturation across the 3 days from 2023-10-07 through 2023-10-09? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1235",
+    "display_name": "Synthetic Participant 1235",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-1007",
+      "date": "2023-10-07",
+      "type": "oxygen saturation",
+      "value": 89.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1008",
+      "date": "2023-10-08",
+      "type": "oxygen saturation",
+      "value": 90.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1009",
+      "date": "2023-10-09",
+      "type": "oxygen saturation",
+      "value": 88.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1006",
+      "date": "2023-10-06",
+      "type": "oxygen saturation",
+      "value": 93.0,
+      "unit": "%",
+      "detail": "Outside the requested window",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-1010",
+      "date": "2023-10-10",
+      "type": "oxygen saturation",
+      "value": 96.0,
+      "unit": "%",
+      "detail": "Outside the requested window",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "step_count-1007",
+      "date": "2023-10-07",
+      "type": "step count",
+      "value": 3094.0,
+      "unit": "steps",
+      "detail": "Different metric inside the window",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-1007",
+      "oxygen_saturation-1008",
+      "oxygen_saturation-1009"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "89",
+      "%"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

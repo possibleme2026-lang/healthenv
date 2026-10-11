@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-1cdc538ba8db",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00928",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2024-05-28 to 2024-06-01, on which day was the blood glucose highest?"
+  },
+  "instruction": "Review participant HENV-1179's timeline and answer this operational question: Among the recorded days from 2024-05-28 to 2024-06-01, on which day was the blood glucose highest? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1179",
+    "display_name": "Synthetic Participant 1179",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0528",
+      "date": "2024-05-28",
+      "type": "blood glucose",
+      "value": 98.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0529",
+      "date": "2024-05-29",
+      "type": "blood glucose",
+      "value": 108.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0530",
+      "date": "2024-05-30",
+      "type": "blood glucose",
+      "value": 76.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0531",
+      "date": "2024-05-31",
+      "type": "blood glucose",
+      "value": 76.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0601",
+      "date": "2024-06-01",
+      "type": "blood glucose",
+      "value": 79.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "systolic_bp-0528",
+      "date": "2024-05-28",
+      "type": "systolic blood pressure",
+      "value": 103.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0529"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-05-29"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

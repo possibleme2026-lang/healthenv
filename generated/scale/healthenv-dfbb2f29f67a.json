@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-dfbb2f29f67a",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00356",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the active minutes across the 5 recorded days from 2023-07-28 to 2023-08-01?"
+  },
+  "instruction": "Review participant HENV-1107's timeline and answer this operational question: What was the range (highest minus lowest) of the active minutes across the 5 recorded days from 2023-07-28 to 2023-08-01? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1107",
+    "display_name": "Synthetic Participant 1107",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0728",
+      "date": "2023-07-28",
+      "type": "active minutes",
+      "value": 37.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0729",
+      "date": "2023-07-29",
+      "type": "active minutes",
+      "value": 110.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0730",
+      "date": "2023-07-30",
+      "type": "active minutes",
+      "value": 74.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0731",
+      "date": "2023-07-31",
+      "type": "active minutes",
+      "value": 117.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0801",
+      "date": "2023-08-01",
+      "type": "active minutes",
+      "value": 61.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0731",
+      "active_minutes-0728"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "80",
+      "minutes"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

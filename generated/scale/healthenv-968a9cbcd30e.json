@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-968a9cbcd30e",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00721",
+    "category": "longitudinal-comparison",
+    "question": "How many percentage points lower was the oxygen saturation on 2023-03-09 than on 2023-03-08?"
+  },
+  "instruction": "Review participant HENV-1222's timeline and answer this operational question: How many percentage points lower was the oxygen saturation on 2023-03-09 than on 2023-03-08? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1222",
+    "display_name": "Synthetic Participant 1222",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-0308",
+      "date": "2023-03-08",
+      "type": "oxygen saturation",
+      "value": 99.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0309",
+      "date": "2023-03-09",
+      "type": "oxygen saturation",
+      "value": 90.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0309-ctx",
+      "date": "2023-03-09",
+      "type": "oxygen saturation",
+      "value": 89.0,
+      "unit": "%",
+      "detail": "Same-day secondary reading (context mismatch)",
+      "metric": "oxygen_saturation"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-0308",
+      "oxygen_saturation-0309"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "9",
+      "percentage points"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

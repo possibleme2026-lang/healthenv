@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-eb51dcdc9f61",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00216",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the step count across the 6 recorded days from 2023-03-20 to 2023-03-25?"
+  },
+  "instruction": "Review participant HENV-1217's timeline and answer this operational question: What was the range (highest minus lowest) of the step count across the 6 recorded days from 2023-03-20 to 2023-03-25? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1217",
+    "display_name": "Synthetic Participant 1217",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0320",
+      "date": "2023-03-20",
+      "type": "step count",
+      "value": 13808.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0321",
+      "date": "2023-03-21",
+      "type": "step count",
+      "value": 12668.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0322",
+      "date": "2023-03-22",
+      "type": "step count",
+      "value": 14092.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0323",
+      "date": "2023-03-23",
+      "type": "step count",
+      "value": 10752.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0324",
+      "date": "2023-03-24",
+      "type": "step count",
+      "value": 15033.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0325",
+      "date": "2023-03-25",
+      "type": "step count",
+      "value": 10494.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "blood_glucose-0320",
+      "date": "2023-03-20",
+      "type": "blood glucose",
+      "value": 157.0,
+      "unit": "mg/dL",
+      "detail": "Different metric",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0324",
+      "step_count-0325"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "4539",
+      "steps"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

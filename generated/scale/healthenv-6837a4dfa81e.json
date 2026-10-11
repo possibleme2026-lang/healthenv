@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-6837a4dfa81e",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00316",
+    "category": "temporal-aggregation",
+    "question": "What was the average resting heart rate across the 5 days from 2023-04-24 through 2023-04-28?"
+  },
+  "instruction": "Review participant HENV-1067's timeline and answer this operational question: What was the average resting heart rate across the 5 days from 2023-04-24 through 2023-04-28? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1067",
+    "display_name": "Synthetic Participant 1067",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "resting_heart_rate-0424",
+      "date": "2023-04-24",
+      "type": "resting heart rate",
+      "value": 57.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0425",
+      "date": "2023-04-25",
+      "type": "resting heart rate",
+      "value": 56.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0426",
+      "date": "2023-04-26",
+      "type": "resting heart rate",
+      "value": 64.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0427",
+      "date": "2023-04-27",
+      "type": "resting heart rate",
+      "value": 92.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0428",
+      "date": "2023-04-28",
+      "type": "resting heart rate",
+      "value": 66.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0423",
+      "date": "2023-04-23",
+      "type": "resting heart rate",
+      "value": 57.0,
+      "unit": "bpm",
+      "detail": "Outside the requested window",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0429",
+      "date": "2023-04-29",
+      "type": "resting heart rate",
+      "value": 82.0,
+      "unit": "bpm",
+      "detail": "Outside the requested window",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "resting_heart_rate-0424",
+      "resting_heart_rate-0425",
+      "resting_heart_rate-0426",
+      "resting_heart_rate-0427",
+      "resting_heart_rate-0428"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "67",
+      "bpm"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-28ad1fedf2c2",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01094",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2024-05-12 to 2024-05-15, on which day did the participant have both the highest step count and the lowest body weight?"
+  },
+  "instruction": "Review participant HENV-1095's timeline and answer this operational question: Among the recorded days from 2024-05-12 to 2024-05-15, on which day did the participant have both the highest step count and the lowest body weight? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1095",
+    "display_name": "Synthetic Participant 1095",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0512",
+      "date": "2024-05-12",
+      "type": "step count",
+      "value": 8266.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "body_weight-0512",
+      "date": "2024-05-12",
+      "type": "body weight",
+      "value": 104.7,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "step_count-0513",
+      "date": "2024-05-13",
+      "type": "step count",
+      "value": 8044.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "body_weight-0513",
+      "date": "2024-05-13",
+      "type": "body weight",
+      "value": 98.7,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "step_count-0514",
+      "date": "2024-05-14",
+      "type": "step count",
+      "value": 8911.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "body_weight-0514",
+      "date": "2024-05-14",
+      "type": "body weight",
+      "value": 81.9,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "step_count-0515",
+      "date": "2024-05-15",
+      "type": "step count",
+      "value": 11541.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "body_weight-0515",
+      "date": "2024-05-15",
+      "type": "body weight",
+      "value": 76.8,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0515",
+      "body_weight-0515"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-05-15"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

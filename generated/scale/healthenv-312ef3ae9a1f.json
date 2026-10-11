@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-312ef3ae9a1f",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00802",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2023-10-31 to 2023-11-04, on which day was the blood glucose highest?"
+  },
+  "instruction": "Review participant HENV-1053's timeline and answer this operational question: Among the recorded days from 2023-10-31 to 2023-11-04, on which day was the blood glucose highest? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1053",
+    "display_name": "Synthetic Participant 1053",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-1031",
+      "date": "2023-10-31",
+      "type": "blood glucose",
+      "value": 81.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1101",
+      "date": "2023-11-01",
+      "type": "blood glucose",
+      "value": 71.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1102",
+      "date": "2023-11-02",
+      "type": "blood glucose",
+      "value": 71.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1103",
+      "date": "2023-11-03",
+      "type": "blood glucose",
+      "value": 72.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-1104",
+      "date": "2023-11-04",
+      "type": "blood glucose",
+      "value": 73.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "hydration_intake-1031",
+      "date": "2023-10-31",
+      "type": "hydration intake",
+      "value": 1911.0,
+      "unit": "ml",
+      "detail": "Different metric",
+      "metric": "hydration_intake"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-1031"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-10-31"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

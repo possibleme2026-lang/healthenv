@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-f5f83fc229f3",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00934",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the blood glucose exceed 130 mg/dL?"
+  },
+  "instruction": "Review participant HENV-1185's timeline and answer this operational question: On how many of the recorded days did the blood glucose exceed 130 mg/dL? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1185",
+    "display_name": "Synthetic Participant 1185",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0311",
+      "date": "2024-03-11",
+      "type": "blood glucose",
+      "value": 112.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0312",
+      "date": "2024-03-12",
+      "type": "blood glucose",
+      "value": 103.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0313",
+      "date": "2024-03-13",
+      "type": "blood glucose",
+      "value": 99.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0314",
+      "date": "2024-03-14",
+      "type": "blood glucose",
+      "value": 116.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0315",
+      "date": "2024-03-15",
+      "type": "blood glucose",
+      "value": 118.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0316",
+      "date": "2024-03-16",
+      "type": "blood glucose",
+      "value": 167.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0317",
+      "date": "2024-03-17",
+      "type": "blood glucose",
+      "value": 118.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "oxygen_saturation-0311",
+      "date": "2024-03-11",
+      "type": "oxygen saturation",
+      "value": 94.0,
+      "unit": "%",
+      "detail": "Different metric",
+      "metric": "oxygen_saturation"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0316"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "1",
+      "day"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

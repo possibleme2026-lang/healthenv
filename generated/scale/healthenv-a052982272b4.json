@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-a052982272b4",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00618",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2024-06-19 to 2024-06-21, on which day did the participant have both the highest hydration intake and the lowest active minutes?"
+  },
+  "instruction": "Review participant HENV-1119's timeline and answer this operational question: Among the recorded days from 2024-06-19 to 2024-06-21, on which day did the participant have both the highest hydration intake and the lowest active minutes? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1119",
+    "display_name": "Synthetic Participant 1119",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-0619",
+      "date": "2024-06-19",
+      "type": "hydration intake",
+      "value": 3011.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "active_minutes-0619",
+      "date": "2024-06-19",
+      "type": "active minutes",
+      "value": 19.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "hydration_intake-0620",
+      "date": "2024-06-20",
+      "type": "hydration intake",
+      "value": 2554.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "active_minutes-0620",
+      "date": "2024-06-20",
+      "type": "active minutes",
+      "value": 41.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "hydration_intake-0621",
+      "date": "2024-06-21",
+      "type": "hydration intake",
+      "value": 989.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "active_minutes-0621",
+      "date": "2024-06-21",
+      "type": "active minutes",
+      "value": 41.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-0619",
+      "active_minutes-0619"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-06-19"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

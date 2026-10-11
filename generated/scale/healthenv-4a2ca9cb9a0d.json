@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-4a2ca9cb9a0d",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00935",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2024-03-30 to 2024-04-02, on which day was the blood glucose lowest?"
+  },
+  "instruction": "Review participant HENV-1186's timeline and answer this operational question: Among the recorded days from 2024-03-30 to 2024-04-02, on which day was the blood glucose lowest? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1186",
+    "display_name": "Synthetic Participant 1186",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "blood_glucose-0330",
+      "date": "2024-03-30",
+      "type": "blood glucose",
+      "value": 166.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0331",
+      "date": "2024-03-31",
+      "type": "blood glucose",
+      "value": 181.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0401",
+      "date": "2024-04-01",
+      "type": "blood glucose",
+      "value": 184.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "blood_glucose-0402",
+      "date": "2024-04-02",
+      "type": "blood glucose",
+      "value": 181.0,
+      "unit": "mg/dL",
+      "detail": "Daily measurement",
+      "metric": "blood_glucose"
+    },
+    {
+      "id": "resting_heart_rate-0330",
+      "date": "2024-03-30",
+      "type": "resting heart rate",
+      "value": 48.0,
+      "unit": "bpm",
+      "detail": "Different metric",
+      "metric": "resting_heart_rate"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "blood_glucose-0330"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-03-30"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

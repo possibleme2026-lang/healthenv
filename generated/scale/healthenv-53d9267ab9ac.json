@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-53d9267ab9ac",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00804",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the systolic blood pressure across the 5 recorded days from 2023-09-20 to 2023-09-24?"
+  },
+  "instruction": "Review participant HENV-1055's timeline and answer this operational question: What was the range (highest minus lowest) of the systolic blood pressure across the 5 recorded days from 2023-09-20 to 2023-09-24? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1055",
+    "display_name": "Synthetic Participant 1055",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-0920",
+      "date": "2023-09-20",
+      "type": "systolic blood pressure",
+      "value": 142.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0921",
+      "date": "2023-09-21",
+      "type": "systolic blood pressure",
+      "value": 135.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0922",
+      "date": "2023-09-22",
+      "type": "systolic blood pressure",
+      "value": 161.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0923",
+      "date": "2023-09-23",
+      "type": "systolic blood pressure",
+      "value": 113.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0924",
+      "date": "2023-09-24",
+      "type": "systolic blood pressure",
+      "value": 103.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "step_count-0920",
+      "date": "2023-09-20",
+      "type": "step count",
+      "value": 5920.0,
+      "unit": "steps",
+      "detail": "Different metric",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-0922",
+      "systolic_bp-0924"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "58",
+      "mmHg"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

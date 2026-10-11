@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-433a273ee8f6",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01154",
+    "category": "range-computation",
+    "question": "What was the range (highest minus lowest) of the step count across the 6 recorded days from 2024-09-28 to 2024-10-03?"
+  },
+  "instruction": "Review participant HENV-1155's timeline and answer this operational question: What was the range (highest minus lowest) of the step count across the 6 recorded days from 2024-09-28 to 2024-10-03? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1155",
+    "display_name": "Synthetic Participant 1155",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0928",
+      "date": "2024-09-28",
+      "type": "step count",
+      "value": 14440.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0929",
+      "date": "2024-09-29",
+      "type": "step count",
+      "value": 16207.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0930",
+      "date": "2024-09-30",
+      "type": "step count",
+      "value": 13424.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1001",
+      "date": "2024-10-01",
+      "type": "step count",
+      "value": 8589.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1002",
+      "date": "2024-10-02",
+      "type": "step count",
+      "value": 12872.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-1003",
+      "date": "2024-10-03",
+      "type": "step count",
+      "value": 7179.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "systolic_bp-0928",
+      "date": "2024-09-28",
+      "type": "systolic blood pressure",
+      "value": 111.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0929",
+      "step_count-1003"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "9028",
+      "steps"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-384a978330b1",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00614",
+    "category": "trend-classification",
+    "question": "Across the 6 recorded days from 2024-09-29 to 2024-10-04, did the hydration intake trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1115's timeline and answer this operational question: Across the 6 recorded days from 2024-09-29 to 2024-10-04, did the hydration intake trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1115",
+    "display_name": "Synthetic Participant 1115",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "hydration_intake-0929",
+      "date": "2024-09-29",
+      "type": "hydration intake",
+      "value": 3365.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-0930",
+      "date": "2024-09-30",
+      "type": "hydration intake",
+      "value": 3330.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1001",
+      "date": "2024-10-01",
+      "type": "hydration intake",
+      "value": 2971.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1002",
+      "date": "2024-10-02",
+      "type": "hydration intake",
+      "value": 2875.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1003",
+      "date": "2024-10-03",
+      "type": "hydration intake",
+      "value": 2662.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "hydration_intake-1004",
+      "date": "2024-10-04",
+      "type": "hydration intake",
+      "value": 2528.0,
+      "unit": "ml",
+      "detail": "Daily measurement",
+      "metric": "hydration_intake"
+    },
+    {
+      "id": "sleep_duration-0929",
+      "date": "2024-09-29",
+      "type": "sleep duration",
+      "value": 10.0,
+      "unit": "hours",
+      "detail": "Different metric",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "hydration_intake-0929",
+      "hydration_intake-0930",
+      "hydration_intake-1001",
+      "hydration_intake-1002",
+      "hydration_intake-1003",
+      "hydration_intake-1004"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

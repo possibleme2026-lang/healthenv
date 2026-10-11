@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-49c5df63479d",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00277",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2023-07-01 to 2023-07-05, on which day was the step count highest?"
+  },
+  "instruction": "Review participant HENV-1028's timeline and answer this operational question: Among the recorded days from 2023-07-01 to 2023-07-05, on which day was the step count highest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1028",
+    "display_name": "Synthetic Participant 1028",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "step_count-0701",
+      "date": "2023-07-01",
+      "type": "step count",
+      "value": 1951.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0702",
+      "date": "2023-07-02",
+      "type": "step count",
+      "value": 7340.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0703",
+      "date": "2023-07-03",
+      "type": "step count",
+      "value": 1757.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0704",
+      "date": "2023-07-04",
+      "type": "step count",
+      "value": 3369.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "step_count-0705",
+      "date": "2023-07-05",
+      "type": "step count",
+      "value": 3877.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "systolic_bp-0701",
+      "date": "2023-07-01",
+      "type": "systolic blood pressure",
+      "value": 127.0,
+      "unit": "mmHg",
+      "detail": "Different metric",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "step_count-0702"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-07-02"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

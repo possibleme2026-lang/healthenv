@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-571c5c396d2c",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01135",
+    "category": "temporal-aggregation",
+    "question": "What was the average active minutes across the 3 days from 2024-07-17 through 2024-07-19?"
+  },
+  "instruction": "Review participant HENV-1136's timeline and answer this operational question: What was the average active minutes across the 3 days from 2024-07-17 through 2024-07-19? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1136",
+    "display_name": "Synthetic Participant 1136",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0717",
+      "date": "2024-07-17",
+      "type": "active minutes",
+      "value": 109.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0718",
+      "date": "2024-07-18",
+      "type": "active minutes",
+      "value": 26.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0719",
+      "date": "2024-07-19",
+      "type": "active minutes",
+      "value": 51.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0716",
+      "date": "2024-07-16",
+      "type": "active minutes",
+      "value": 35.0,
+      "unit": "minutes",
+      "detail": "Outside the requested window",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0720",
+      "date": "2024-07-20",
+      "type": "active minutes",
+      "value": 41.0,
+      "unit": "minutes",
+      "detail": "Outside the requested window",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "blood_glucose-0717",
+      "date": "2024-07-17",
+      "type": "blood glucose",
+      "value": 169.0,
+      "unit": "mg/dL",
+      "detail": "Different metric inside the window",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0717",
+      "active_minutes-0718",
+      "active_minutes-0719"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "62",
+      "minutes"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

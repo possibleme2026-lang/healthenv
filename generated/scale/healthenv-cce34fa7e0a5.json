@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-cce34fa7e0a5",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00095",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2023-06-12 to 2023-06-16, on which day was the systolic blood pressure highest?"
+  },
+  "instruction": "Review participant HENV-1096's timeline and answer this operational question: Among the recorded days from 2023-06-12 to 2023-06-16, on which day was the systolic blood pressure highest? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1096",
+    "display_name": "Synthetic Participant 1096",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-0612",
+      "date": "2023-06-12",
+      "type": "systolic blood pressure",
+      "value": 107.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0613",
+      "date": "2023-06-13",
+      "type": "systolic blood pressure",
+      "value": 151.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0614",
+      "date": "2023-06-14",
+      "type": "systolic blood pressure",
+      "value": 108.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0615",
+      "date": "2023-06-15",
+      "type": "systolic blood pressure",
+      "value": 140.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-0616",
+      "date": "2023-06-16",
+      "type": "systolic blood pressure",
+      "value": 134.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-0613"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-06-13"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

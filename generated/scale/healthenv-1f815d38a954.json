@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-1f815d38a954",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00910",
+    "category": "longitudinal-comparison",
+    "question": "How many kg lower was the body weight on 2024-03-05 than on 2024-03-02?"
+  },
+  "instruction": "Review participant HENV-1161's timeline and answer this operational question: How many kg lower was the body weight on 2024-03-05 than on 2024-03-02? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1161",
+    "display_name": "Synthetic Participant 1161",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-0302",
+      "date": "2024-03-02",
+      "type": "body weight",
+      "value": 74.9,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0305",
+      "date": "2024-03-05",
+      "type": "body weight",
+      "value": 72.9,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "body_weight-0306",
+      "date": "2024-03-06",
+      "type": "body weight",
+      "value": 56.7,
+      "unit": "kg",
+      "detail": "Outside the requested window",
+      "metric": "body_weight"
+    },
+    {
+      "id": "oxygen_saturation-0305",
+      "date": "2024-03-05",
+      "type": "oxygen saturation",
+      "value": 96.0,
+      "unit": "%",
+      "detail": "Different metric on the comparison day",
+      "metric": "oxygen_saturation"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-0302",
+      "body_weight-0305"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2.0",
+      "kg"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

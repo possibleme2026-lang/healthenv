@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-89a502e32d7f",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00817",
+    "category": "trend-classification",
+    "question": "Across the 5 recorded days from 2023-02-10 to 2023-02-14, did the resting heart rate trend upward or downward?"
+  },
+  "instruction": "Review participant HENV-1068's timeline and answer this operational question: Across the 5 recorded days from 2023-02-10 to 2023-02-14, did the resting heart rate trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1068",
+    "display_name": "Synthetic Participant 1068",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "resting_heart_rate-0210",
+      "date": "2023-02-10",
+      "type": "resting heart rate",
+      "value": 95.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0211",
+      "date": "2023-02-11",
+      "type": "resting heart rate",
+      "value": 90.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0212",
+      "date": "2023-02-12",
+      "type": "resting heart rate",
+      "value": 82.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0213",
+      "date": "2023-02-13",
+      "type": "resting heart rate",
+      "value": 76.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-0214",
+      "date": "2023-02-14",
+      "type": "resting heart rate",
+      "value": 73.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "blood_glucose-0210",
+      "date": "2023-02-10",
+      "type": "blood glucose",
+      "value": 188.0,
+      "unit": "mg/dL",
+      "detail": "Different metric",
+      "metric": "blood_glucose"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "resting_heart_rate-0210",
+      "resting_heart_rate-0211",
+      "resting_heart_rate-0212",
+      "resting_heart_rate-0213",
+      "resting_heart_rate-0214"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "decreasing"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-c21a34711d77",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-01011",
+    "category": "threshold-detection",
+    "question": "On how many of the recorded days did the resting heart rate exceed 82 bpm?"
+  },
+  "instruction": "Review participant HENV-1012's timeline and answer this operational question: On how many of the recorded days did the resting heart rate exceed 82 bpm? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1012",
+    "display_name": "Synthetic Participant 1012",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "resting_heart_rate-1210",
+      "date": "2023-12-10",
+      "type": "resting heart rate",
+      "value": 98.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-1211",
+      "date": "2023-12-11",
+      "type": "resting heart rate",
+      "value": 97.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-1212",
+      "date": "2023-12-12",
+      "type": "resting heart rate",
+      "value": 72.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-1213",
+      "date": "2023-12-13",
+      "type": "resting heart rate",
+      "value": 90.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-1214",
+      "date": "2023-12-14",
+      "type": "resting heart rate",
+      "value": 78.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-1215",
+      "date": "2023-12-15",
+      "type": "resting heart rate",
+      "value": 91.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "resting_heart_rate-1216",
+      "date": "2023-12-16",
+      "type": "resting heart rate",
+      "value": 73.0,
+      "unit": "bpm",
+      "detail": "Daily measurement",
+      "metric": "resting_heart_rate"
+    },
+    {
+      "id": "step_count-1210",
+      "date": "2023-12-10",
+      "type": "step count",
+      "value": 3127.0,
+      "unit": "steps",
+      "detail": "Different metric",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "resting_heart_rate-1210",
+      "resting_heart_rate-1211",
+      "resting_heart_rate-1213",
+      "resting_heart_rate-1215"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "4",
+      "days"
+    ],
+    "required_status": "urgent",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

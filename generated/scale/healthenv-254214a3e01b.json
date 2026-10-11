@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-254214a3e01b",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00333",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2024-12-16 to 2024-12-19, on which day was the systolic blood pressure highest?"
+  },
+  "instruction": "Review participant HENV-1084's timeline and answer this operational question: Among the recorded days from 2024-12-16 to 2024-12-19, on which day was the systolic blood pressure highest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1084",
+    "display_name": "Synthetic Participant 1084",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "systolic_bp-1216",
+      "date": "2024-12-16",
+      "type": "systolic blood pressure",
+      "value": 142.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1217",
+      "date": "2024-12-17",
+      "type": "systolic blood pressure",
+      "value": 143.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1218",
+      "date": "2024-12-18",
+      "type": "systolic blood pressure",
+      "value": 165.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "systolic_bp-1219",
+      "date": "2024-12-19",
+      "type": "systolic blood pressure",
+      "value": 115.0,
+      "unit": "mmHg",
+      "detail": "Daily measurement",
+      "metric": "systolic_bp"
+    },
+    {
+      "id": "active_minutes-1216",
+      "date": "2024-12-16",
+      "type": "active minutes",
+      "value": 93.0,
+      "unit": "minutes",
+      "detail": "Different metric",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "systolic_bp-1218"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2024-12-18"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

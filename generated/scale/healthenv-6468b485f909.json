@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-6468b485f909",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00555",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2023-12-08 to 2023-12-10, on which day did the participant have both the highest body weight and the lowest step count?"
+  },
+  "instruction": "Review participant HENV-1056's timeline and answer this operational question: Among the recorded days from 2023-12-08 to 2023-12-10, on which day did the participant have both the highest body weight and the lowest step count? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1056",
+    "display_name": "Synthetic Participant 1056",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-1208",
+      "date": "2023-12-08",
+      "type": "body weight",
+      "value": 83.8,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "step_count-1208",
+      "date": "2023-12-08",
+      "type": "step count",
+      "value": 14053.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "body_weight-1209",
+      "date": "2023-12-09",
+      "type": "body weight",
+      "value": 74.4,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "step_count-1209",
+      "date": "2023-12-09",
+      "type": "step count",
+      "value": 17228.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    },
+    {
+      "id": "body_weight-1210",
+      "date": "2023-12-10",
+      "type": "body weight",
+      "value": 96.9,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "step_count-1210",
+      "date": "2023-12-10",
+      "type": "step count",
+      "value": 10632.0,
+      "unit": "steps",
+      "detail": "Daily measurement",
+      "metric": "step_count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-1210",
+      "step_count-1210"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-12-10"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

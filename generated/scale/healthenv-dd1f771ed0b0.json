@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-dd1f771ed0b0",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00602",
+    "category": "longitudinal-comparison",
+    "question": "How many minutes lower was the active minutes on 2023-09-24 than on 2023-09-22?"
+  },
+  "instruction": "Review participant HENV-1103's timeline and answer this operational question: How many minutes lower was the active minutes on 2023-09-24 than on 2023-09-22? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1103",
+    "display_name": "Synthetic Participant 1103",
+    "age_band": "older-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0922",
+      "date": "2023-09-22",
+      "type": "active minutes",
+      "value": 105.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0924",
+      "date": "2023-09-24",
+      "type": "active minutes",
+      "value": 99.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0927",
+      "date": "2023-09-27",
+      "type": "active minutes",
+      "value": 95.0,
+      "unit": "minutes",
+      "detail": "Outside the requested window",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "stress_score-0924",
+      "date": "2023-09-24",
+      "type": "stress score",
+      "value": 86.0,
+      "unit": "score",
+      "detail": "Different metric on the comparison day",
+      "metric": "stress_score"
+    },
+    {
+      "id": "active_minutes-0924-ctx",
+      "date": "2023-09-24",
+      "type": "active minutes",
+      "value": 91.0,
+      "unit": "minutes",
+      "detail": "Same-day secondary reading (context mismatch)",
+      "metric": "active_minutes"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0922",
+      "active_minutes-0924"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "6",
+      "minutes"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

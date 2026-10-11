@@ -1,0 +1,115 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-49d1ec143e21",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00541",
+    "category": "cross-dimensional-reasoning",
+    "question": "Among the recorded days from 2023-10-10 to 2023-10-13, on which day did the participant have both the highest body weight and the lowest stress score?"
+  },
+  "instruction": "Review participant HENV-1042's timeline and answer this operational question: Among the recorded days from 2023-10-10 to 2023-10-13, on which day did the participant have both the highest body weight and the lowest stress score? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1042",
+    "display_name": "Synthetic Participant 1042",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "body_weight-1010",
+      "date": "2023-10-10",
+      "type": "body weight",
+      "value": 62.7,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "stress_score-1010",
+      "date": "2023-10-10",
+      "type": "stress score",
+      "value": 41.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "body_weight-1011",
+      "date": "2023-10-11",
+      "type": "body weight",
+      "value": 57.4,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "stress_score-1011",
+      "date": "2023-10-11",
+      "type": "stress score",
+      "value": 54.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "body_weight-1012",
+      "date": "2023-10-12",
+      "type": "body weight",
+      "value": 68.3,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "stress_score-1012",
+      "date": "2023-10-12",
+      "type": "stress score",
+      "value": 21.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    },
+    {
+      "id": "body_weight-1013",
+      "date": "2023-10-13",
+      "type": "body weight",
+      "value": 50.6,
+      "unit": "kg",
+      "detail": "Daily measurement",
+      "metric": "body_weight"
+    },
+    {
+      "id": "stress_score-1013",
+      "date": "2023-10-13",
+      "type": "stress score",
+      "value": 48.0,
+      "unit": "score",
+      "detail": "Daily measurement",
+      "metric": "stress_score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "body_weight-1012",
+      "stress_score-1012"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-10-12"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

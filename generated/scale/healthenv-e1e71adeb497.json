@@ -1,0 +1,105 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-e1e71adeb497",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00571",
+    "category": "extremum-identification",
+    "question": "Among the recorded days from 2023-06-02 to 2023-06-07, on which day was the oxygen saturation lowest?"
+  },
+  "instruction": "Review participant HENV-1072's timeline and answer this operational question: Among the recorded days from 2023-06-02 to 2023-06-07, on which day was the oxygen saturation lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1072",
+    "display_name": "Synthetic Participant 1072",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "oxygen_saturation-0602",
+      "date": "2023-06-02",
+      "type": "oxygen saturation",
+      "value": 97.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0603",
+      "date": "2023-06-03",
+      "type": "oxygen saturation",
+      "value": 93.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0604",
+      "date": "2023-06-04",
+      "type": "oxygen saturation",
+      "value": 100.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0605",
+      "date": "2023-06-05",
+      "type": "oxygen saturation",
+      "value": 91.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0606",
+      "date": "2023-06-06",
+      "type": "oxygen saturation",
+      "value": 97.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "oxygen_saturation-0607",
+      "date": "2023-06-07",
+      "type": "oxygen saturation",
+      "value": 98.0,
+      "unit": "%",
+      "detail": "Daily measurement",
+      "metric": "oxygen_saturation"
+    },
+    {
+      "id": "sleep_duration-0602",
+      "date": "2023-06-02",
+      "type": "sleep duration",
+      "value": 4.6,
+      "unit": "hours",
+      "detail": "Different metric",
+      "metric": "sleep_duration"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "oxygen_saturation-0605"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "2023-06-05"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}

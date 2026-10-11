@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-d4df7057e220",
+  "source": {
+    "benchmark": "HealthEnv-Scale",
+    "seed_id": "synth-00063",
+    "category": "longitudinal-comparison",
+    "question": "How many minutes lower was the active minutes on 2024-09-10 than on 2024-09-07?"
+  },
+  "instruction": "Review participant HENV-1064's timeline and answer this operational question: How many minutes lower was the active minutes on 2024-09-10 than on 2024-09-07? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
+  "patient": {
+    "id": "HENV-1064",
+    "display_name": "Synthetic Participant 1064",
+    "age_band": "young-adult"
+  },
+  "records": [
+    {
+      "id": "active_minutes-0907",
+      "date": "2024-09-07",
+      "type": "active minutes",
+      "value": 45.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "active_minutes-0910",
+      "date": "2024-09-10",
+      "type": "active minutes",
+      "value": 35.0,
+      "unit": "minutes",
+      "detail": "Daily measurement",
+      "metric": "active_minutes"
+    },
+    {
+      "id": "systolic_bp-0910",
+      "date": "2024-09-10",
+      "type": "systolic blood pressure",
+      "value": 126.0,
+      "unit": "mmHg",
+      "detail": "Different metric on the comparison day",
+      "metric": "systolic_bp"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "active_minutes-0907",
+      "active_minutes-0910"
+    ],
+    "allow_extra_evidence": false,
+    "note_must_include": [
+      "10",
+      "minutes"
+    ],
+    "required_status": "routine",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "deterministic",
+    "llm_used_for_gold": false
+  }
+}
