@@ -1,0 +1,92 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-21ce86e9e424",
+  "source": {
+    "benchmark": "LifeAgentBench-style",
+    "seed_id": "synthetic-cross-003",
+    "category": "cross-dimensional-reasoning",
+    "question": "On which recorded day did the participant have both the highest active minutes and the lowest stress score?"
+  },
+  "instruction": "Open the longitudinal record dashboard and load participant HENV-003. Set the record-type filter so both Activity and Stress entries are shown, giving you the full set of six records. Scan the records by recorded date and, for each date, compare the active-minutes value on the activity entry with the stress score on the stress entry. Determine the single recorded day where active minutes are at their maximum and the stress score is at its minimum at the same time. Select the activity entry and the stress entry for that day as your evidence. Then open the care-note field and write a brief grounded note that names the date and restates the two observed values exactly as recorded, describing only what the dashboard shows. Choose a workflow priority from the available options that matches the strength of the cross-dimensional match, and submit the note together with the selected evidence.",
+  "patient": {
+    "id": "HENV-003",
+    "display_name": "Synthetic Participant 003",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "activity-0501",
+      "date": "2024-05-01",
+      "type": "activity",
+      "value": 38,
+      "unit": "minutes",
+      "detail": "Active minutes"
+    },
+    {
+      "id": "stress-0501",
+      "date": "2024-05-01",
+      "type": "stress",
+      "value": 61,
+      "unit": "score",
+      "detail": "Daily stress score"
+    },
+    {
+      "id": "activity-0503",
+      "date": "2024-05-03",
+      "type": "activity",
+      "value": 72,
+      "unit": "minutes",
+      "detail": "Active minutes"
+    },
+    {
+      "id": "stress-0503",
+      "date": "2024-05-03",
+      "type": "stress",
+      "value": 29,
+      "unit": "score",
+      "detail": "Daily stress score"
+    },
+    {
+      "id": "activity-0504",
+      "date": "2024-05-04",
+      "type": "activity",
+      "value": 45,
+      "unit": "minutes",
+      "detail": "Active minutes"
+    },
+    {
+      "id": "stress-0504",
+      "date": "2024-05-04",
+      "type": "stress",
+      "value": 54,
+      "unit": "score",
+      "detail": "Daily stress score"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "activity-0503",
+      "stress-0503"
+    ],
+    "note_must_include": [
+      "2024-05-03"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "llm-planned-deterministic-gold",
+    "llm_used_for_gold": false,
+    "model": "tierflow_pro",
+    "rationale": "The task forces alignment of two separately recorded dimensions on a shared timeline rather than reading one series in isolation, which is what makes it a cross-dimensional reasoning exercise. Requiring evidence selection, a note limited to observed values, a priority choice, and a final submission keeps the agent inside the record and prevents guessing, diagnosing, or inventing data, while leaving an auditable trail for review."
+  }
+}

@@ -1,0 +1,55 @@
+name: verify
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    name: tests and reproducibility
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install package
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+      - name: Unit and regression tests
+        run: python -m unittest discover -s tests -v
+      - name: Run demo pipeline
+        run: python scripts/demo_pipeline.py
+      - name: Check reproducibility summary
+        run: python -c "import json; d=json.load(open('artifacts/demo_results.json')); assert d['positive_passes']==3 and d['negative_rejections']==3"
+
+  quality:
+    name: lint and types
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install quality tools
+        run: python -m pip install ruff mypy
+      - name: Ruff
+        run: ruff check .
+      - name: Mypy
+        run: mypy src/healthenv
+
+  docs:
+    name: docs and secret guards
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: README parity control
+        run: python tools/check_readme_i18n.py
+      - name: README guard mutation tests
+        run: python -m unittest discover -s tools -p "test_*.py" -v
+      - name: Secret scan
+        run: python tools/check_secrets.py

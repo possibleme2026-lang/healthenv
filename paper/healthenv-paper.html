@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>HealthEnv: Compiling Static Health QA Benchmarks into Executable Computer-Use Environments</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="paper.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">HealthEnv: Compiling Static Health QA Benchmarks into
+Executable Computer-Use Environments</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a
+href="#healthenv-compiling-longitudinal-health-qa-into-verifiable-computer-use-environments"
+id="toc-healthenv-compiling-longitudinal-health-qa-into-verifiable-computer-use-environments">HealthEnv:
+Compiling Longitudinal Health QA into Verifiable Computer-Use
+Environments</a>
+<ul>
+<li><a href="#abstract" id="toc-abstract">Abstract</a></li>
+<li><a href="#introduction" id="toc-introduction">1. Introduction</a>
+<ul>
+<li><a href="#contributions"
+id="toc-contributions">Contributions</a></li>
+</ul></li>
+<li><a href="#problem-formulation" id="toc-problem-formulation">2.
+Problem formulation</a></li>
+<li><a href="#system-design" id="toc-system-design">3. System design</a>
+<ul>
+<li><a href="#seed-schema" id="toc-seed-schema">3.1 Seed schema</a></li>
+<li><a href="#compiler" id="toc-compiler">3.2 Compiler</a></li>
+<li><a href="#browser-environment" id="toc-browser-environment">3.3
+Browser environment</a></li>
+<li><a href="#verifier" id="toc-verifier">3.4 Verifier</a></li>
+<li><a href="#trust-boundaries" id="toc-trust-boundaries">3.5 Trust
+boundaries</a></li>
+</ul></li>
+<li><a href="#prototype-evaluation" id="toc-prototype-evaluation">4.
+Prototype evaluation</a>
+<ul>
+<li><a href="#tasks" id="toc-tasks">4.1 Tasks</a></li>
+<li><a href="#tests" id="toc-tests">4.2 Tests</a></li>
+<li><a href="#results" id="toc-results">4.3 Results</a></li>
+<li><a href="#what-these-results-do-not-show"
+id="toc-what-these-results-do-not-show">4.4 What these results do not
+show</a></li>
+</ul></li>
+<li><a href="#relation-to-prior-work" id="toc-relation-to-prior-work">5.
+Relation to prior work</a>
+<ul>
+<li><a href="#health-reasoning-benchmarks"
+id="toc-health-reasoning-benchmarks">Health reasoning
+benchmarks</a></li>
+<li><a href="#medical-computer-use-benchmarks"
+id="toc-medical-computer-use-benchmarks">Medical computer-use
+benchmarks</a></li>
+<li><a href="#environment-synthesis"
+id="toc-environment-synthesis">Environment synthesis</a></li>
+</ul></li>
+<li><a href="#research-agenda" id="toc-research-agenda">6. Research
+agenda</a></li>
+<li><a href="#safety-ethics-and-governance"
+id="toc-safety-ethics-and-governance">7. Safety, ethics, and
+governance</a></li>
+<li><a href="#limitations" id="toc-limitations">8. Limitations</a></li>
+<li><a href="#conclusion" id="toc-conclusion">9. Conclusion</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1
+id="healthenv-compiling-longitudinal-health-qa-into-verifiable-computer-use-environments">HealthEnv:
+Compiling Longitudinal Health QA into Verifiable Computer-Use
+Environments</h1>
+<p><strong>Technical report · Draft v0.1 · 11 October 2026</strong></p>
+<p>HealthEnv Contributors</p>
+<h2 id="abstract">Abstract</h2>
+<p>Health question-answering benchmarks compress a domain problem into a
+prompt and a textual answer. Computer-use agents, by contrast, must
+recover evidence from an interface, maintain state across actions,
+produce an artifact, and satisfy workflow constraints. We introduce
+<strong>HealthEnv</strong>, a compiler and runtime that expands
+longitudinal health QA seeds into browser-based, stateful, and
+automatically verifiable computer-use tasks. A seed is compiled into (i)
+a synthetic longitudinal record state, (ii) an operational instruction,
+(iii) a constrained GUI action surface, and (iv) a hidden state-based
+verifier. The key design choice is a trust boundary: language models may
+plan or rewrite task instructions, but gold answers and reward
+predicates remain executable and deterministic. A dependency-free
+reference implementation includes a LifeAgentBench-format adapter, an
+OpenAI-compatible planner integration, three privacy-safe task families,
+and a browser workbench. In the current prototype, all 11 unit and
+regression tests pass; deterministic oracle states solve 3/3 compiled
+tasks, while evidence-omission mutations are rejected on 3/3 tasks.
+These experiments establish implementation correctness, not clinical
+validity or training benefit. We conclude with the experiments required
+to test whether QA-driven environment synthesis improves computer-use
+agents while preserving reward fidelity and medical safety.</p>
+<h2 id="introduction">1. Introduction</h2>
+<p>Longitudinal health QA and computer-use evaluation ask different
+questions. A QA benchmark asks whether a model can derive an answer from
+a record. A computer-use benchmark asks whether an agent can navigate a
+system, locate the right evidence, update the right state, produce the
+right artifact, and avoid unsafe side effects. The underlying domain
+relation may be shared, but the observable behavior and failure modes
+are not.</p>
+<p>LifeAgentBench formalizes long-horizon and cross-dimensional
+reasoning over lifestyle signals and derives verifiable answers through
+executable queries and programs [1]. HealthAdminBench and MedCUA-Bench
+show that medical computer use adds another layer: cross-system
+coordination, document handling, interface grounding, workflow state,
+and safety constraints [2, 3]. Meanwhile, environment-synthesis systems
+such as InfiniteWeb, AutoWebWorld, GUI-GENESIS, CUA-Gym, and
+Gym-Anything suggest that environments—not only trajectories—are
+becoming a primary scaling axis [4–8].</p>
+<p>This motivates a compiler view:</p>
+<blockquote>
+<p>A static QA item is a compressed specification of a world relation.
+Expanding it into an executable environment should make the relation
+observable through actions and verifiable through state.</p>
+</blockquote>
+<p>HealthEnv is a first vertical slice of this idea. It accepts a
+question, answer, evidence relation, and record set; emits a task
+specification; serves a browser interface; and scores the resulting
+terminal state. The present release is intentionally narrow. It
+demonstrates longitudinal record review and care-note workflows, not a
+complete EHR, payer portal, or clinical decision-support system.</p>
+<h3 id="contributions">Contributions</h3>
+<ol type="1">
+<li><strong>QA-to-CUA compilation.</strong> We define a concrete mapping
+from health QA seeds to stateful browser tasks with explicit actions and
+terminal conditions.</li>
+<li><strong>Gold/planner separation.</strong> Optional LLM planning can
+alter instruction wording but cannot create or modify the answer,
+evidence set, or verifier.</li>
+<li><strong>A verifiable task IR.</strong> The released schema separates
+public observations, mutable workflow state, hidden reward predicates,
+and generation provenance.</li>
+<li><strong>An executable reference system.</strong> The repository
+includes a dependency-free Python runtime, a longitudinal-health GUI, a
+LifeAgentBench-format adapter, and deterministic tests.</li>
+<li><strong>An honest experimental boundary.</strong> We report compiler
+and verifier validity checks while leaving agent-training gains,
+real-software transfer, and clinical validity as open empirical
+questions.</li>
+</ol>
+<h2 id="problem-formulation">2. Problem formulation</h2>
+<p>Let a QA seed be</p>
+<p>[ x = (q, y, D, E, m), ]</p>
+<p>where (q) is a question, (y) is the answer, (D) is a set of
+longitudinal records, (E D) is the evidence set, and (m) is task
+metadata. A compiler maps the seed to an interactive environment</p>
+<p>[ C(x) = (S, A, T, O, R), ]</p>
+<p>where (S) is workflow state, (A) is the action space, (T) is a
+deterministic transition function, (O) is the browser observation, and
+(R) is a state-based verifier.</p>
+<p>The compilation is useful only if it satisfies four properties:</p>
+<ul>
+<li><strong>Semantic preservation:</strong> success in the environment
+entails recovering the relation encoded by the QA item.</li>
+<li><strong>Action necessity:</strong> the answer cannot be obtained by
+copying a visible gold label; the agent must interact with evidence and
+workflow state.</li>
+<li><strong>Verifier fidelity:</strong> reward depends on the intended
+state, not on surface text alone.</li>
+<li><strong>Isolation:</strong> generated tasks contain no real patient
+data and do not expose hidden gold state to the agent.</li>
+</ul>
+<h2 id="system-design">3. System design</h2>
+<h3 id="seed-schema">3.1 Seed schema</h3>
+<p>A HealthEnv seed contains a stable id, synthetic participant id,
+question, answer, category, typed records, expected evidence ids, and
+metadata. The current compiler supports numeric comparisons, temporal
+aggregation, and cross-dimensional selection. Records are deliberately
+simple JSON objects so adapters can be written without importing a
+healthcare data model.</p>
+<p>The public demo uses only synthetic records. The LifeAgentBench
+adapter reads a local upstream checkout and synthesizes a new record
+state that preserves the QA relation. This choice avoids redistributing
+upstream payloads from a repository for which a license was not detected
+during development.</p>
+<h3 id="compiler">3.2 Compiler</h3>
+<p>The deterministic compiler performs five steps:</p>
+<ol type="1">
+<li>validate identifiers, record uniqueness, evidence membership, and
+status values;</li>
+<li>construct a stable task id from the benchmark and seed id;</li>
+<li>create a workflow instruction that requires evidence selection, note
+writing, status assignment, and submission;</li>
+<li>derive verifier terms from explicitly configured metadata or the
+answer type;</li>
+<li>serialize source provenance and generation mode.</li>
+</ol>
+<p>The optional planner receives only the participant id, question,
+category, record types, and record count. It never receives the answer
+or evidence ids. Its output must contain the selection, note, and
+submission operations; it is rejected if it includes the gold answer.
+Any API or validation failure falls back to the deterministic
+instruction.</p>
+<h3 id="browser-environment">3.3 Browser environment</h3>
+<p>The environment exposes a two-panel workbench. The left panel
+contains searchable, filterable longitudinal records. The right panel
+contains evidence count, care-note editor, workflow priority, and
+submission control. Source records are read-only. After submission, the
+runtime rejects all mutations until reset. Accepted actions append an
+audit event.</p>
+<p>The interface is intentionally application-like rather than
+question-like. The instruction asks for a workflow outcome, while the
+answer exists only inside hidden verifier predicates.</p>
+<h3 id="verifier">3.4 Verifier</h3>
+<p>The terminal verifier contains five checks:</p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th style="text-align: right;">Weight</th>
+<th>Current predicate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Evidence selection</td>
+<td style="text-align: right;">0.30</td>
+<td>Exact equality with required record ids</td>
+</tr>
+<tr>
+<td>Grounded note</td>
+<td style="text-align: right;">0.30</td>
+<td>All normalized gold terms occur in the note</td>
+</tr>
+<tr>
+<td>Workflow status</td>
+<td style="text-align: right;">0.15</td>
+<td>Status equals the required value</td>
+</tr>
+<tr>
+<td>Submission</td>
+<td style="text-align: right;">0.15</td>
+<td>Explicit submit action occurred</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td style="text-align: right;">0.10</td>
+<td>No forbidden source-state edit was recorded</td>
+</tr>
+</tbody>
+</table>
+<p>The weighted score provides process-level signal. Strict success
+requires every check. Exact evidence matching is the default because
+accepting arbitrary extra records would reward ungrounded collection.
+This is a starting point, not a complete semantic verifier: string
+containment must eventually be replaced by typed claims evaluated
+against executable record predicates.</p>
+<h3 id="trust-boundaries">3.5 Trust boundaries</h3>
+<p>HealthEnv separates three roles that environment-synthesis pipelines
+often blur:</p>
+<ul>
+<li>the <strong>seed</strong> defines domain truth;</li>
+<li>the <strong>planner</strong> defines how the task is
+communicated;</li>
+<li>the <strong>verifier</strong> defines success over state.</li>
+</ul>
+<p>The planner cannot modify the verifier. The browser cannot read the
+verifier. The agent cannot mutate source records. The compiler logs
+whether an LLM was used and whether gold state remained
+deterministic.</p>
+<h2 id="prototype-evaluation">4. Prototype evaluation</h2>
+<p>The current evaluation asks whether the released artifact is
+internally correct. It does not ask whether a trained CUA generalizes
+better.</p>
+<h3 id="tasks">4.1 Tasks</h3>
+<p>We construct three privacy-safe QA seeds:</p>
+<ol type="1">
+<li>a two-day oxygen-saturation comparison;</li>
+<li>a three-night sleep-duration aggregation;</li>
+<li>a joint activity-and-stress selection across dates.</li>
+</ol>
+<p>Each seed includes distractors. Compilation produces one executable
+JSON task per seed.</p>
+<h3 id="tests">4.2 Tests</h3>
+<p>We evaluate:</p>
+<ul>
+<li>schema rejection for unknown evidence;</li>
+<li>deterministic compilation and round-trip parsing;</li>
+<li>gold-answer non-leakage in default instructions;</li>
+<li>positive oracle execution;</li>
+<li>rejection of missing evidence, extra distractors, and forbidden
+edits;</li>
+<li>transactional runtime behavior after submission;</li>
+<li>end-to-end compilation of all three seeds.</li>
+</ul>
+<h3 id="results">4.3 Results</h3>
+<table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr>
+<th>Measure</th>
+<th style="text-align: right;">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unit and regression tests</td>
+<td style="text-align: right;">11 / 11 pass</td>
+</tr>
+<tr>
+<td>Seeds compiled</td>
+<td style="text-align: right;">3 / 3</td>
+</tr>
+<tr>
+<td>Oracle strict success</td>
+<td style="text-align: right;">3 / 3</td>
+</tr>
+<tr>
+<td>Missing-evidence mutations rejected</td>
+<td style="text-align: right;">3 / 3</td>
+</tr>
+<tr>
+<td>LifeAgentBench-format adapter smoke</td>
+<td style="text-align: right;">strict success 1.0</td>
+</tr>
+<tr>
+<td>TierFlow <code>tierflow_pro</code> planner</td>
+<td style="text-align: right;">3 / 3; zero fallbacks; gold
+unchanged</td>
+</tr>
+<tr>
+<td>Real headless-browser workflow</td>
+<td style="text-align: right;">100%; zero JS/network failures</td>
+</tr>
+<tr>
+<td>Missing-evidence score</td>
+<td style="text-align: right;">0.70</td>
+</tr>
+<tr>
+<td>Runtime dependencies</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p>A score of 0.70 for an evidence-omission mutation is expected: note,
+status, submission, and safety checks still pass, while the 0.30
+evidence check fails. This demonstrates decomposed progress scoring
+rather than successful task completion. The optional TierFlow path
+planned all three instructions with <code>tierflow_pro</code> without
+fallback; every artifact records <code>llm_used_for_gold: false</code>.
+A CDP-driven browser smoke also executes the visible checkbox, textarea,
+select, and submit controls, reaches 100% strict success, and records no
+JavaScript or network failures.</p>
+<h3 id="what-these-results-do-not-show">4.4 What these results do not
+show</h3>
+<p>The results do not establish that the UI resembles a deployed medical
+system, that the verifier captures clinical correctness, that a
+vision-language agent can solve the tasks, or that training on generated
+tasks transfers to HealthAdminBench, MedCUA-Bench, OpenEMR, or another
+real application. Those claims require separate experiments.</p>
+<h2 id="relation-to-prior-work">5. Relation to prior work</h2>
+<h3 id="health-reasoning-benchmarks">Health reasoning benchmarks</h3>
+<p>LifeAgentBench contains 22,573 questions targeting long-horizon,
+cross-dimensional, and multi-user lifestyle reasoning, with answers
+derived through executable queries and programs [1]. HealthEnv uses the
+resulting QA relation as a seed for interaction rather than as the final
+evaluation surface.</p>
+<h3 id="medical-computer-use-benchmarks">Medical computer-use
+benchmarks</h3>
+<p>HealthAdminBench provides four deterministic web environments and 135
+expert-designed healthcare administration tasks, decomposed into 1,698
+evaluation points [2]. MedCUA-Bench covers 18 clinical scenarios across
+10 medical domains and evaluates task completion plus five clinical
+safety dimensions [3]. These works define the target standard for
+realistic workflows and safety-aware scoring. HealthEnv differs in
+source and purpose: it starts from existing QA relations and studies
+automatic expansion.</p>
+<h3 id="environment-synthesis">Environment synthesis</h3>
+<p>InfiniteWeb combines unified specification and task-centric
+test-driven development to generate functional websites and evaluators
+[4]. AutoWebWorld represents websites as finite-state machines, making
+transitions and goal states programmatically verifiable [5]. GUI-GENESIS
+reconstructs efficient GUI environments with verifiable rewards [6].
+CUA-Gym co-generates instructions, environment states, and reward
+functions, while separating generator and discriminator roles [7].
+Gym-Anything treats software-environment creation as a multi-agent
+build-and-audit problem [8]. FaraGen1.5 organizes generation around
+environments, solvers, and complementary verifiers [9].</p>
+<p>HealthEnv adopts their shared principle—environment generation must
+be coupled to verification—but introduces a domain-specific seed:
+executable health QA.</p>
+<h2 id="research-agenda">6. Research agenda</h2>
+<p>A full paper should test four hypotheses.</p>
+<p><strong>H1: Expansion fidelity.</strong> Independent domain experts
+should judge whether a generated workflow preserves the original QA
+relation and avoids introducing unsupported clinical implications.</p>
+<p><strong>H2: Verifier validity.</strong> Counterexample policies
+should fail. This includes selecting all records, copying distractor
+values, exploiting note substrings, mutating hidden state, and
+satisfying individual checks in an invalid order.</p>
+<p><strong>H3: Environment diversity.</strong> Holding trajectory count
+constant, training across more independently generated interfaces and
+state layouts should improve held-out GUI robustness more than replaying
+more trajectories in fewer environments.</p>
+<p><strong>H4: Transfer.</strong> Training on QA-expanded synthetic
+environments should improve performance on held-out medical CUA tasks
+without increasing clinically consequential errors.</p>
+<p>A credible evaluation would use train/test separation by participant,
+question template, metric family, interface skin, and workflow; compare
+deterministic-only and LLM-assisted compilation; and report both strict
+success and safety violations.</p>
+<h2 id="safety-ethics-and-governance">7. Safety, ethics, and
+governance</h2>
+<p>HealthEnv can create high-stakes-looking interfaces. That makes scope
+control essential.</p>
+<ul>
+<li>The public artifact contains synthetic data only.</li>
+<li>The action space excludes diagnosis, treatment, prescription, and
+communication with real patients.</li>
+<li>Demonstrations should be labeled as simulations.</li>
+<li>Dataset licenses and data-use agreements must be checked before
+conversion.</li>
+<li>PHI must not be sent to external model APIs.</li>
+<li>Realistic environments need red-team evaluation for reward hacking,
+unsafe documentation, and automation bias.</li>
+<li>Human review remains necessary before any deployment-adjacent
+use.</li>
+</ul>
+<p>The project should be evaluated as research infrastructure for agent
+learning, not as a healthcare automation product.</p>
+<h2 id="limitations">8. Limitations</h2>
+<p>The prototype has one browser application, a narrow record schema,
+handcrafted action primitives, and term-based note checking. It does not
+model authentication, role permissions, cross-application document
+transfer, asynchronous workflows, or clinical ontologies. Its
+LifeAgentBench adapter currently handles dated numeric comparison items
+and synthesizes evidence states rather than reconstructing the original
+database. The demo sample is too small for performance conclusions. No
+CUA model has yet been benchmarked in the released report.</p>
+<p>These limitations are not cosmetic. They define the next
+implementation milestones and the difference between a working compiler
+prototype and a publishable empirical result.</p>
+<h2 id="conclusion">9. Conclusion</h2>
+<p>HealthEnv demonstrates a concrete route from static health QA to
+executable computer-use environments. The central mechanism is not the
+UI generator alone; it is the separation of seed truth, planner
+language, runtime state, and verifier logic. The released vertical slice
+establishes that this separation can be implemented, tested, and audited
+with minimal infrastructure. The next question is empirical: whether
+scaling this compilation process yields environments that are diverse
+enough to train agents and faithful enough to trust.</p>
+<h2 id="references">References</h2>
+<ol type="1">
+<li>Ye Tian, Zihao Wang, Onat Gungor, Xiaoran Fan, and Tajana Rosing.
+“LifeAgentBench: Benchmarking LLMs for Long-Horizon, Cross-Dimensional
+Lifestyle Health Reasoning.” arXiv:2601.13880, 2026. <a
+href="https://arxiv.org/abs/2601.13880"
+class="uri">https://arxiv.org/abs/2601.13880</a></li>
+<li>Suhana Bedi et al. “HealthAdminBench: Evaluating Computer-Use Agents
+on Healthcare Administration Tasks.” arXiv:2604.09937, 2026. <a
+href="https://arxiv.org/abs/2604.09937"
+class="uri">https://arxiv.org/abs/2604.09937</a></li>
+<li>Jia Yu, Zilong Wang, Xinyang Jiang, Dongsheng Li, and Shuo Wang.
+“MedCUA-Bench: A Screenshot-Only Benchmark for Clinical Computer-Use
+Agents.” arXiv:2606.03203, 2026. <a
+href="https://arxiv.org/abs/2606.03203"
+class="uri">https://arxiv.org/abs/2606.03203</a></li>
+<li>Ziyun Zhang et al. “InfiniteWeb: Scalable Web Environment Synthesis
+for GUI Agent Training.” arXiv:2601.04126, 2026. <a
+href="https://arxiv.org/abs/2601.04126"
+class="uri">https://arxiv.org/abs/2601.04126</a></li>
+<li>Yifan Wu et al. “AutoWebWorld: Synthesizing Infinite Verifiable Web
+Environments via Finite State Machines.” arXiv:2602.14296, 2026. <a
+href="https://arxiv.org/abs/2602.14296"
+class="uri">https://arxiv.org/abs/2602.14296</a></li>
+<li>Yuan Cao et al. “GUI-GENESIS: Automated Synthesis of Efficient
+Environments with Verifiable Rewards for GUI Agent Post-Training.”
+arXiv:2602.14093, 2026. <a href="https://arxiv.org/abs/2602.14093"
+class="uri">https://arxiv.org/abs/2602.14093</a></li>
+<li>Bowen Wang et al. “CUA-Gym: Scaling Verifiable Training Environments
+and Tasks for Computer-Use Agents.” arXiv:2605.25624, 2026. <a
+href="https://arxiv.org/abs/2605.25624"
+class="uri">https://arxiv.org/abs/2605.25624</a></li>
+<li>Pranjal Aggarwal, Graham Neubig, and Sean Welleck. “Gym-Anything:
+Turn any Software into an Agent Environment.” arXiv:2604.06126, 2026. <a
+href="https://arxiv.org/abs/2604.06126"
+class="uri">https://arxiv.org/abs/2604.06126</a></li>
+<li>Ahmed Awadallah et al. “Fara-1.5: Scalable Learning Environments for
+Computer Use Agents.” arXiv:2606.20785, 2026. <a
+href="https://arxiv.org/abs/2606.20785"
+class="uri">https://arxiv.org/abs/2606.20785</a></li>
+</ol>
+</body>
+</html>

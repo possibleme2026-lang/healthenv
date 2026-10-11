@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use HealthEnv, cite this repository and the associated technical report."
+title: "HealthEnv: Compiling Longitudinal Health QA into Verifiable Computer-Use Environments"
+type: software
+authors:
+  - name: "HealthEnv contributors"
+version: 0.1.0
+date-released: 2026-10-11
+repository-code: "https://github.com/possibleme2026-lang/healthenv"
+license: Apache-2.0
+keywords:
+  - computer-use agents
+  - healthcare AI
+  - environment synthesis
+  - verifiable rewards

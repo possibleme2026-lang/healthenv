@@ -1,0 +1,11 @@
+{
+  "source": "LifeAgentBench local JSONL adapter smoke",
+  "source_repository": "https://github.com/gdfwj/LifeAgentBench",
+  "source_seed_hash": "be5141bbe783",
+  "task_id": "healthenv-091977091f3a",
+  "synthetic_record_state": true,
+  "upstream_payload_redistributed": false,
+  "strict_success": true,
+  "score": 1.0,
+  "note": "The upstream QA payload is intentionally omitted because no repository license was detected during the audit."
+}

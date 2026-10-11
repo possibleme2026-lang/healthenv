@@ -1,0 +1,32 @@
+{
+  "schema_version": "0.1",
+  "task_count": 3,
+  "positive_passes": 3,
+  "negative_rejections": 3,
+  "runs": [
+    {
+      "task_id": "healthenv-83c7e7283dac",
+      "category": "longitudinal-comparison",
+      "positive_strict_success": true,
+      "positive_score": 1.0,
+      "negative_strict_success": false,
+      "negative_score": 0.7
+    },
+    {
+      "task_id": "healthenv-52b260c0062f",
+      "category": "temporal-aggregation",
+      "positive_strict_success": true,
+      "positive_score": 1.0,
+      "negative_strict_success": false,
+      "negative_score": 0.7
+    },
+    {
+      "task_id": "healthenv-21ce86e9e424",
+      "category": "cross-dimensional-reasoning",
+      "positive_strict_success": true,
+      "positive_score": 1.0,
+      "negative_strict_success": false,
+      "negative_score": 0.7
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-52b260c0062f",
+  "source": {
+    "benchmark": "LifeAgentBench-style",
+    "seed_id": "synthetic-sleep-002",
+    "category": "temporal-aggregation",
+    "question": "What was the average sleep duration across the three nights from 2024-02-10 through 2024-02-12?"
+  },
+  "instruction": "Open the longitudinal record dashboard. Filter or locate all sleep records with dates from 2024-02-10 through 2024-02-12. Select these sleep duration entries as evidence. Calculate the average sleep duration from the selected entries. Write a care note in the designated field: 'Average sleep duration from 2024-02-10 to 2024-02-12 was [computed average] hours, based on the selected records.' Do not add any interpretation or advice. Set the workflow priority to High if the average sleep duration is less than 6 hours; otherwise, set it to Routine. Submit the care note and priority.",
+  "patient": {
+    "id": "HENV-002",
+    "display_name": "Synthetic Participant 002",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "sleep-0210",
+      "date": "2024-02-10",
+      "type": "sleep",
+      "value": 6.1,
+      "unit": "hours",
+      "detail": "Nightly sleep duration"
+    },
+    {
+      "id": "sleep-0211",
+      "date": "2024-02-11",
+      "type": "sleep",
+      "value": 6.5,
+      "unit": "hours",
+      "detail": "Nightly sleep duration"
+    },
+    {
+      "id": "sleep-0212",
+      "date": "2024-02-12",
+      "type": "sleep",
+      "value": 6.9,
+      "unit": "hours",
+      "detail": "Nightly sleep duration"
+    },
+    {
+      "id": "sleep-0209",
+      "date": "2024-02-09",
+      "type": "sleep",
+      "value": 8.0,
+      "unit": "hours",
+      "detail": "Outside requested range"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "sleep-0210",
+      "sleep-0211",
+      "sleep-0212"
+    ],
+    "note_must_include": [
+      "6.5",
+      "hours"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "llm-planned-deterministic-gold",
+    "llm_used_for_gold": false,
+    "model": "tierflow_pro",
+    "rationale": "This workflow tests the agent's ability to inspect a longitudinal dashboard, select relevant temporal evidence, compute an aggregate, ground a note strictly in selected data, and apply a simple priority rule without introducing clinical judgment."
+  }
+}

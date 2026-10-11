@@ -1,0 +1,77 @@
+{
+  "schema_version": "0.1",
+  "task_id": "healthenv-83c7e7283dac",
+  "source": {
+    "benchmark": "LifeAgentBench-style",
+    "seed_id": "synthetic-oxygen-001",
+    "category": "longitudinal-comparison",
+    "question": "How many percentage points higher was the sleeping oxygen-saturation upper bound on 2022-06-08 than on the previous day?"
+  },
+  "instruction": "On the longitudinal record dashboard, open participant HENV-001's record and review the activity and oxygen-saturation entries for 2022-06-08 and the immediately preceding day. Identify the sleeping oxygen-saturation measurements, extract the upper-bound values from both dates, and compute how many percentage points higher the 2022-06-08 upper bound is than the previous day's upper bound. Select the two source records as evidence. Write a concise, grounded care note reporting only the observed date-to-date comparison and the records used; do not diagnose, prescribe, or introduce facts not present in the dashboard. Set the workflow priority using the dashboard's standard rules for this type of longitudinal change, then submit the completed note.",
+  "patient": {
+    "id": "HENV-001",
+    "display_name": "Synthetic Participant 001",
+    "age_band": "adult"
+  },
+  "records": [
+    {
+      "id": "o2-0607-sleep",
+      "date": "2022-06-07",
+      "type": "oxygen saturation",
+      "value": 96,
+      "unit": "%",
+      "detail": "Sleeping upper bound"
+    },
+    {
+      "id": "o2-0608-sleep",
+      "date": "2022-06-08",
+      "type": "oxygen saturation",
+      "value": 98,
+      "unit": "%",
+      "detail": "Sleeping upper bound"
+    },
+    {
+      "id": "o2-0608-awake",
+      "date": "2022-06-08",
+      "type": "oxygen saturation",
+      "value": 95,
+      "unit": "%",
+      "detail": "Awake daily average"
+    },
+    {
+      "id": "steps-0608",
+      "date": "2022-06-08",
+      "type": "activity",
+      "value": 8420,
+      "unit": "steps",
+      "detail": "Daily step count"
+    }
+  ],
+  "initial_state": {
+    "selected_record_ids": [],
+    "note": "",
+    "status": "routine",
+    "submitted": false,
+    "forbidden_edits": [],
+    "audit_log": []
+  },
+  "verifier": {
+    "required_evidence_ids": [
+      "o2-0607-sleep",
+      "o2-0608-sleep"
+    ],
+    "note_must_include": [
+      "2",
+      "percentage points"
+    ],
+    "required_status": "review",
+    "gold_source": "seed_answer_and_executable_evidence"
+  },
+  "generation": {
+    "compiler": "healthenv",
+    "mode": "llm-planned-deterministic-gold",
+    "llm_used_for_gold": false,
+    "model": "tierflow_pro",
+    "rationale": "This workflow tests longitudinal record navigation, correct identification of sleep-context oxygen-saturation upper bounds on consecutive dates, percentage-point comparison, evidence-grounded documentation, and appropriate workflow prioritization without unsupported clinical interpretation."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "provider": "OpenAI-compatible",
+  "base_url": "https://tierflow.cn/v1",
+  "model": "tierflow_pro",
+  "tasks_requested": 3,
+  "tasks_planned": 3,
+  "deterministic_fallbacks": 0,
+  "llm_used_for_gold": false,
+  "api_key_serialized": false,
+  "result": "PASS"
+}

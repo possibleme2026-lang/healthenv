@@ -1,0 +1,80 @@
+{
+  "checked_at": "2026-10-11",
+  "clone_mode": "shallow partial clones; LifeAgentBench and Gym-Anything use sparse checkout to avoid large data/assets",
+  "repositories": [
+    {
+      "name": "LifeAgentBench",
+      "url": "https://github.com/gdfwj/LifeAgentBench",
+      "local_path": "D:/codebase/agentharness/_refs/healthenv/LifeAgentBench",
+      "commit": "cfc227736965f4cd42261ee780f41050ae44cc67",
+      "license": "UNDETECTED",
+      "used_for": "QA schema, executable-query pipeline, and evaluation layout"
+    },
+    {
+      "name": "HealthAdminBench",
+      "url": "https://github.com/som-shahlab/health-admin-bench",
+      "local_path": "D:/codebase/agentharness/_refs/healthenv/health-admin-bench",
+      "commit": "ec6633684e525e0ca4e4a032dda595aef3a89b5b",
+      "license": "Apache-2.0",
+      "used_for": "medical workflow environment and subtask verifier reference"
+    },
+    {
+      "name": "MedCUA-Bench",
+      "url": "https://github.com/Jia7878/MedCUA-BenchMark",
+      "local_path": "D:/codebase/agentharness/_refs/healthenv/MedCUA-BenchMark",
+      "commit": "159c7681cbc84d446ceafa8046bd498036809b70",
+      "license": "Apache-2.0",
+      "used_for": "clinical GUI and safety-dimension reference"
+    },
+    {
+      "name": "AutoWebWorld",
+      "url": "https://github.com/Evanwu1125/AutoWebWorld",
+      "local_path": "D:/codebase/agentharness/_refs/healthenv/AutoWebWorld",
+      "commit": "c59c67231dc8868b2e292365e070e695144a625c",
+      "license": "MIT",
+      "used_for": "FSM and programmatic goal-state verification reference"
+    },
+    {
+      "name": "InfiniteWeb / FIVE-UI-Evol",
+      "url": "https://github.com/microsoft/FIVE-UI-Evol",
+      "local_path": "D:/codebase/agentharness/_refs/healthenv/FIVE-UI-Evol",
+      "commit": "a07e8ecfad9203c202ba04557f8c5ad9f58d61f1",
+      "license": "MIT",
+      "used_for": "unified specification and task-centric TDD reference"
+    },
+    {
+      "name": "CUA-Gym",
+      "url": "https://github.com/xlang-ai/CUA-Gym",
+      "local_path": "D:/codebase/agentharness/_refs/healthenv/CUA-Gym",
+      "commit": "1e50b797200f8afd6f11ca8e3ee04412de97b0f2",
+      "license": "Apache-2.0",
+      "used_for": "instruction/state/reward co-generation reference"
+    },
+    {
+      "name": "CUA-Gym-Hub",
+      "url": "https://github.com/xlang-ai/CUA-Gym-Hub",
+      "local_path": "D:/codebase/agentharness/_refs/healthenv/CUA-Gym-Hub",
+      "commit": "53205689c3d88078c1375f76466d5bd799478828",
+      "license": "Apache-2.0",
+      "used_for": "mock web application environment corpus reference"
+    },
+    {
+      "name": "Gym-Anything",
+      "url": "https://github.com/cmu-l3/gym-anything",
+      "local_path": "D:/codebase/agentharness/_refs/healthenv/gym-anything-ref",
+      "commit": "4a8d9672d92d8ff2daef232c4bf9c49d3ac4f2ca",
+      "license": "MIT",
+      "used_for": "environment build and independent audit reference"
+    },
+    {
+      "name": "Fara-1.5",
+      "url": "https://github.com/microsoft/fara",
+      "local_path": "D:/codebase/agentharness/_refs/healthenv/fara",
+      "commit": "a675d6d61c41c47ae87bacefeab22caad18e3e84",
+      "license": "MIT",
+      "used_for": "environment/solver/verifier modular pipeline reference"
+    }
+  ],
+  "code_reuse": false,
+  "note": "Reference repositories were inspected as architecture sources. HealthEnv is an independent implementation and vendors none of their code."
+}

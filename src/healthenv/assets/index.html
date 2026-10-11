@@ -1,0 +1,74 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HealthEnv Workbench</title>
+<style>
+  :root{--ink:#111;--muted:#6b6b6b;--line:#ddd;--soft:#f7f7f5;--paper:#fff;--accent:#10a37f;--accent-dark:#087f63;--danger:#c43b3b;--shadow:0 12px 34px rgba(0,0,0,.07)}
+  *{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+  button,input,textarea,select{font:inherit} button{cursor:pointer}
+  .shell{min-height:100vh;display:grid;grid-template-columns:245px 1fr}
+  aside{border-right:1px solid var(--line);padding:26px 20px;position:sticky;top:0;height:100vh;background:#fbfbfa}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:750;font-size:18px;letter-spacing:-.02em}.mark{width:28px;height:28px;border-radius:9px;background:var(--ink);display:grid;place-items:center;color:#fff;font-weight:800}
+  .eyebrow{margin-top:34px;color:var(--muted);font-size:11px;font-weight:750;text-transform:uppercase;letter-spacing:.12em}
+  nav button{width:100%;margin-top:8px;padding:10px 12px;text-align:left;border:0;border-radius:8px;background:transparent;color:#333}nav button.active{background:#ececea;font-weight:650}
+  .side-meta{position:absolute;left:20px;right:20px;bottom:24px;color:var(--muted);font-size:12px}.side-meta b{color:var(--ink)}
+  main{padding:38px 44px 64px;max-width:1500px;width:100%;margin:auto}
+  header{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:28px}
+  h1{font-size:34px;line-height:1.1;letter-spacing:-.04em;margin:5px 0 10px}.subtitle{color:var(--muted);max-width:780px;margin:0}
+  .patient{min-width:230px;border:1px solid var(--line);padding:14px 16px;border-radius:12px;background:var(--soft)}.patient strong{display:block;font-size:16px}.patient span{color:var(--muted);font-size:13px}
+  .task{margin:26px 0;padding:20px 22px;border-radius:14px;background:#f2faf7;border:1px solid #c8e9df}.task h2{font-size:12px;text-transform:uppercase;letter-spacing:.11em;margin:0 0 7px;color:var(--accent-dark)}.task p{margin:0;font-size:16px}
+  .grid{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:26px;align-items:start}
+  .panel{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--shadow)}.panel-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:center;justify-content:space-between}.panel-head h2{font-size:18px;letter-spacing:-.02em;margin:0}
+  .tools{display:flex;gap:10px}.tools input,.tools select{border:1px solid #cfcfcb;border-radius:8px;padding:9px 10px;background:#fff}.tools input{width:210px}
+  .records{padding:6px 0;max-height:700px;overflow:auto}.record{display:grid;grid-template-columns:34px 112px 110px 1fr;gap:12px;align-items:center;padding:14px 20px;border-bottom:1px solid #eee}.record:last-child{border-bottom:0}.record:hover{background:#fafaf8}.record.selected{background:#f0faf7}.record input{width:17px;height:17px;accent-color:var(--accent)}
+  .date{font-variant-numeric:tabular-nums;color:#555}.type{font-weight:700;text-transform:capitalize}.value{display:flex;justify-content:space-between;gap:12px}.value strong{font-size:16px}.value small{color:var(--muted);max-width:55%;text-align:right}
+  .workspace{position:sticky;top:24px}.form{padding:20px}.field{margin-bottom:18px}.field label{display:block;font-weight:700;margin-bottom:7px}.field small{color:var(--muted);display:block;margin-top:6px}.field textarea,.field select{width:100%;border:1px solid #c9c9c5;border-radius:9px;padding:11px;background:#fff}.field textarea{min-height:155px;resize:vertical}
+  .actions{display:flex;gap:9px}.primary,.secondary{border-radius:9px;padding:10px 15px;font-weight:700}.primary{border:1px solid var(--ink);background:var(--ink);color:#fff;flex:1}.primary:hover{background:#333}.secondary{border:1px solid #c9c9c5;background:#fff}.secondary:hover{background:var(--soft)}
+  .result{display:none;margin:0 20px 20px;border-radius:10px;padding:14px}.result.pass{display:block;background:#e9f8f2;color:#08634e;border:1px solid #b8e4d6}.result.fail{display:block;background:#fff3f1;color:#8b2e2e;border:1px solid #f0c7c1}.score{font-size:24px;font-weight:800}.checks{margin:8px 0 0;padding-left:18px;font-size:13px}
+  .empty{padding:38px;text-align:center;color:var(--muted)}
+  @media(max-width:1050px){.shell{grid-template-columns:1fr}aside{display:none}main{padding:24px}.grid{grid-template-columns:1fr}.workspace{position:static}.record{grid-template-columns:32px 100px 90px 1fr}}
+</style>
+<div class="shell">
+  <aside>
+    <div class="brand"><span class="mark">H</span>HealthEnv</div>
+    <div class="eyebrow">Workspace</div>
+    <nav><button class="active">Timeline review</button><button disabled>Patient summary</button><button disabled>Audit trail</button></nav>
+    <div class="side-meta">Environment<br><b id="sideTask">Loading...</b><br><br><span id="auditCount">0 recorded actions</span></div>
+  </aside>
+  <main>
+    <header>
+      <div><div class="eyebrow" style="margin-top:0">Longitudinal health workbench</div><h1>Evidence review</h1><p class="subtitle">Inspect source records, select evidence, and complete the care-workflow task. Source observations are read-only.</p></div>
+      <div class="patient"><strong id="patientName">Loading participant...</strong><span id="patientMeta"></span></div>
+    </header>
+    <section class="task" aria-labelledby="taskLabel"><h2 id="taskLabel">Task instruction</h2><p id="instruction">Loading...</p></section>
+    <div class="grid">
+      <section class="panel">
+        <div class="panel-head"><h2>Longitudinal records</h2><div class="tools"><input id="search" data-testid="search-records" type="search" placeholder="Search records"><select id="filter" data-testid="filter-type"><option value="all">All types</option></select></div></div>
+        <div class="records" id="records" data-testid="record-list"><div class="empty">Loading records...</div></div>
+      </section>
+      <section class="panel workspace" aria-label="Care workflow">
+        <div class="panel-head"><h2>Care note</h2><span id="selectedCount">0 evidence selected</span></div>
+        <div class="form">
+          <div class="field"><label for="note">Grounded conclusion</label><textarea id="note" data-testid="care-note" placeholder="Document the answer and why the selected records support it."></textarea><small>Do not add a diagnosis or treatment recommendation.</small></div>
+          <div class="field"><label for="status">Workflow priority</label><select id="status" data-testid="workflow-status"><option value="routine">Routine</option><option value="review">Review</option><option value="urgent">Urgent</option></select></div>
+          <div class="actions"><button class="secondary" id="reset" data-testid="reset-task">Reset</button><button class="primary" id="submit" data-testid="submit-task">Submit for verification</button></div>
+        </div>
+        <div id="result" class="result" role="status"></div>
+      </section>
+    </div>
+  </main>
+</div>
+<script>
+const app={task:null,state:null,query:"",type:"all"};
+const $=s=>document.querySelector(s);
+async function api(path,options){const response=await fetch(path,options);const payload=await response.json();if(!response.ok)throw new Error(payload.error||"Request failed");return payload}
+function valueText(record){const unit=record.unit?` ${record.unit}`:"";return `${record.value}${unit}`}
+function renderRecords(){const records=app.task.records.filter(r=>{const hay=`${r.date} ${r.type} ${r.value} ${r.unit||""} ${r.detail||""}`.toLowerCase();return(app.type==="all"||r.type===app.type)&&hay.includes(app.query)});const selected=new Set(app.state.selected_record_ids||[]);$("#records").innerHTML=records.length?records.map(r=>`<label class="record ${selected.has(r.id)?"selected":""}" data-record-id="${r.id}"><input type="checkbox" data-testid="record-${r.id}" ${selected.has(r.id)?"checked":""}><span class="date">${r.date}</span><span class="type">${r.type}</span><span class="value"><strong>${valueText(r)}</strong><small>${r.detail||""}</small></span></label>`).join(""):'<div class="empty">No matching records</div>';document.querySelectorAll(".record input").forEach(input=>input.addEventListener("change",event=>{const id=event.target.closest(".record").dataset.recordId;act({type:"select_record",record_id:id,selected:event.target.checked})}));updateCounts()}
+function updateCounts(){const count=(app.state.selected_record_ids||[]).length;$("#selectedCount").textContent=`${count} evidence selected`;$("#auditCount").textContent=`${(app.state.audit_log||[]).length} recorded actions`}
+function syncForm(){$("#note").value=app.state.note||"";$("#status").value=app.state.status||"routine";updateCounts()}
+async function act(action){try{const payload=await api("/api/action",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(action)});app.state=payload.state;renderRecords();syncForm();if(payload.verification)showResult(payload.verification)}catch(error){showError(error.message)}}
+function showResult(report){const result=$("#result");result.className=`result ${report.strict_success?"pass":"fail"}`;result.innerHTML=`<div class="score">${Math.round(report.score*100)}%</div><strong>${report.strict_success?"Strict success":"Not yet complete"}</strong><ul class="checks">${report.checks.map(c=>`<li>${c.passed?"PASS":"FAIL"} — ${c.name}</li>`).join("")}</ul>`}
+function showError(message){const result=$("#result");result.className="result fail";result.textContent=message}
+async function boot(){app.task=await api("/api/task");app.state=await api("/api/state");$("#sideTask").textContent=app.task.task_id;$("#instruction").textContent=app.task.instruction;$("#patientName").textContent=app.task.patient.display_name;$("#patientMeta").textContent=`ID ${app.task.patient.id} · ${app.task.patient.age_band}`;const types=[...new Set(app.task.records.map(r=>r.type))].sort();$("#filter").innerHTML+=""+types.map(t=>`<option value="${t}">${t[0].toUpperCase()+t.slice(1)}</option>`).join("");renderRecords();syncForm()}
+$("#search").addEventListener("input",event=>{app.query=event.target.value.toLowerCase();renderRecords()});$("#filter").addEventListener("change",event=>{app.type=event.target.value;renderRecords()});$("#note").addEventListener("change",event=>act({type:"set_note",note:event.target.value}));$("#status").addEventListener("change",event=>act({type:"set_status",status:event.target.value}));$("#submit").addEventListener("click",async()=>{await act({type:"set_note",note:$("#note").value});await act({type:"set_status",status:$("#status").value});await act({type:"submit"})});$("#reset").addEventListener("click",()=>{if(confirm("Reset all task progress?")){act({type:"reset"});$("#result").className="result"}});boot().catch(error=>showError(error.message));
+</script>
