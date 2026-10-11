@@ -56,6 +56,17 @@ python scripts/demo_pipeline.py
 
 已提交的结果在 [`artifacts/demo_results.json`](artifacts/demo_results.json)。
 
+## 命令行评测路径
+
+不启动浏览器也能复现同样的数字：先导出 oracle 状态，再用同一套验证器打分：
+
+```bash
+healthenv oracle generated/demo/healthenv-83c7e7283dac.json --output artifacts/local-oracle-state.json
+healthenv verify generated/demo/healthenv-83c7e7283dac.json artifacts/local-oracle-state.json
+```
+
+`oracle` 输出确定性 gold 状态；`verify` 用与浏览器工作台完全相同的五项检查为任意状态文件打分。
+
 ## TierFlow / OpenAI-compatible planner
 
 HealthEnv 支持可选 planner：它只改写任务说明，不改变确定性 gold state。

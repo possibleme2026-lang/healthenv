@@ -56,6 +56,17 @@ python scripts/demo_pipeline.py
 
 The checked-in demo report is at [`artifacts/demo_results.json`](artifacts/demo_results.json).
 
+## CLI evaluation path
+
+The same numbers can be reproduced without a browser by emitting the oracle state and scoring it:
+
+```bash
+healthenv oracle generated/demo/healthenv-83c7e7283dac.json --output artifacts/local-oracle-state.json
+healthenv verify generated/demo/healthenv-83c7e7283dac.json artifacts/local-oracle-state.json
+```
+
+`oracle` writes the deterministic gold state; `verify` scores any state file with the same five checks the browser workbench uses.
+
 ## TierFlow / OpenAI-compatible planner
 
 HealthEnv supports an optional planner that rewrites task instructions while preserving deterministic gold state.

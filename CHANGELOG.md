@@ -8,3 +8,4 @@ All notable changes are documented here.
 - Added synthetic longitudinal health tasks and a local LifeAgentBench-format adapter.
 - Added optional TierFlow/OpenAI-compatible instruction planning with deterministic gold isolation.
 - Added bilingual documentation, technical report draft, and reproducibility artifacts.
+- Added a browser-free CLI evaluation path (`healthenv oracle` + `healthenv verify`).
