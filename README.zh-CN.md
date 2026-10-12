@@ -2,7 +2,7 @@
 
 **把纵向健康 QA 编译成可执行、有状态、可验证的计算机使用环境。**
 
-[English](README.md) · [论文草稿](paper/healthenv.md) · [任务 IR](docs/TASK_IR.md) · [相关工作](research/RELATED_WORK.md)
+[English](README.md) · [论文草稿](paper/healthenv.md) · [PDF](paper/healthenv-paper.pdf) · [任务 IR](docs/TASK_IR.md) · [相关工作](research/RELATED_WORK.md)
 
 健康 QA 基准通常止于文本答案。HealthEnv 把同一个种子展开为浏览器任务：智能体必须检查时间线、选择精确证据、写有依据的 care note、设置流程优先级并提交；确定性验证器再检查环境末态和安全约束。
 

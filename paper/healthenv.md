@@ -2,7 +2,7 @@
 
 **Technical report · Draft v0.1 · 11 October 2026**
 
-HealthEnv Contributors
+<p class="affiliation"><img class="aff-logo" src="figures/rsiingsi-logo.png" alt="RsiingSI"><span class="aff-text">RsiingSI · HealthEnv Contributors</span></p>
 
 ## Abstract
 

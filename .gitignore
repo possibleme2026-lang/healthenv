@@ -17,7 +17,9 @@ paper/*.aux
 paper/*.log
 paper/*.out
 paper/*.toc
-paper/*.pdf
+paper/*.bbl
+paper/*.blg
+paper/main.pdf
 artifacts/local-*.json
 generated/harness_runs/
 generated/pi_home_test/

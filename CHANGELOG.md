@@ -2,6 +2,25 @@
 
 All notable changes are documented here.
 
+## Unreleased
+
+- Added `paper/healthenv-paper.pdf`: the report is now also delivered as a PDF.
+  It is rendered from the HTML by headless Chrome (`make pdf` inside `paper/`),
+  so no TeX distribution is needed and `paper.css` — including the `@page`
+  rules that fix A4 and the margins — is honoured. `paper/main.pdf` (the LaTeX
+  route) stays ignored; the `.gitignore` rule was narrowed from `paper/*.pdf`
+  so the deliverable itself is tracked.
+- The affiliation block now carries the **RsiingSI** logo
+  (`paper/figures/rsiingsi-logo.png`). The supplied 1536x1536 mark was cropped
+  to a tight 1403x322 lockup and its near-white background gradient flattened,
+  so it sits flush on the page without a visible box. It is raw HTML on
+  purpose: pandoc passes it through to the HTML/PDF output verbatim, and strips
+  the tags for `main.tex`, which keeps `\author{RsiingSI · HealthEnv
+  Contributors}` as plain text.
+- `paper/Makefile` documents both PDF routes and records why Chrome's
+  `--print-to-pdf` needs an absolute path (a relative one is resolved against
+  the browser's own working directory and the file silently never appears).
+
 ## 0.1.0 - 2026-10-11
 
 - Added the QA-to-CUA compiler, task IR, browser runtime, and deterministic verifier.

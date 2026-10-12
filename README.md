@@ -2,7 +2,7 @@
 
 **Compile longitudinal health QA into executable, stateful, and verifiable computer-use environments.**
 
-[中文说明](README.zh-CN.md) · [Paper draft](paper/healthenv.md) · [Task IR](docs/TASK_IR.md) · [Related work](research/RELATED_WORK.md)
+[中文说明](README.zh-CN.md) · [Paper draft](paper/healthenv.md) · [PDF](paper/healthenv-paper.pdf) · [Task IR](docs/TASK_IR.md) · [Related work](research/RELATED_WORK.md)
 
 Health QA benchmarks usually stop at a text answer. HealthEnv turns the same seed into a browser task: an agent must inspect a timeline, select the exact supporting records, write a grounded care note, set workflow priority, and submit. A deterministic verifier checks the final state and safety constraints.
 
