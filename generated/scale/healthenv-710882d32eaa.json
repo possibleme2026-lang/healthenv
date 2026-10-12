@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00099",
     "category": "temporal-aggregation",
-    "question": "What was the average oxygen saturation across the 5 days from 2024-03-26 through 2024-03-30?"
+    "question": "What was the average oxygen saturation across the 5 days from 2024-03-26 through 2024-03-30?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1100's timeline and answer this operational question: What was the average oxygen saturation across the 5 days from 2024-03-26 through 2024-03-30? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

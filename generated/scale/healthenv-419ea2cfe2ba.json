@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00064",
     "category": "temporal-aggregation",
-    "question": "What was the total step count across the 5 days from 2024-01-21 through 2024-01-25?"
+    "question": "What was the total step count across the 5 days from 2024-01-21 through 2024-01-25?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1065's timeline and answer this operational question: What was the total step count across the 5 days from 2024-01-21 through 2024-01-25? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

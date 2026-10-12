@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-01177",
     "category": "temporal-aggregation",
-    "question": "What was the average oxygen saturation across the 4 days from 2023-09-09 through 2023-09-12?"
+    "question": "What was the average oxygen saturation across the 4 days from 2023-09-09 through 2023-09-12?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1178's timeline and answer this operational question: What was the average oxygen saturation across the 4 days from 2023-09-09 through 2023-09-12? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

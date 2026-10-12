@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00312",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2024-03-03 to 2024-03-08, on which day was the hydration intake highest?"
+    "question": "Among the recorded days from 2024-03-03 to 2024-03-08, on which day was the hydration intake highest?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1063's timeline and answer this operational question: Among the recorded days from 2024-03-03 to 2024-03-08, on which day was the hydration intake highest? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

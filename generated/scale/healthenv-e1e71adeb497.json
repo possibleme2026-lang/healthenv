@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00571",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2023-06-02 to 2023-06-07, on which day was the oxygen saturation lowest?"
+    "question": "Among the recorded days from 2023-06-02 to 2023-06-07, on which day was the oxygen saturation lowest?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1072's timeline and answer this operational question: Among the recorded days from 2023-06-02 to 2023-06-07, on which day was the oxygen saturation lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

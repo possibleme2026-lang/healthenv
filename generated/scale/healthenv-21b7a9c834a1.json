@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00016",
     "category": "cross-dimensional-reasoning",
-    "question": "Among the recorded days from 2024-09-11 to 2024-09-13, on which day did the participant have both the highest stress score and the lowest hydration intake?"
+    "question": "Among the recorded days from 2024-09-11 to 2024-09-13, on which day did the participant have both the highest stress score and the lowest hydration intake?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1017's timeline and answer this operational question: Among the recorded days from 2024-09-11 to 2024-09-13, on which day did the participant have both the highest stress score and the lowest hydration intake? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

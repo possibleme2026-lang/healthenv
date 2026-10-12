@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00530",
     "category": "trend-classification",
-    "question": "Across the 5 recorded days from 2023-09-04 to 2023-09-08, did the blood glucose trend upward or downward?"
+    "question": "Across the 5 recorded days from 2023-09-04 to 2023-09-08, did the blood glucose trend upward or downward?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1031's timeline and answer this operational question: Across the 5 recorded days from 2023-09-04 to 2023-09-08, did the blood glucose trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

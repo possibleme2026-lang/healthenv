@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00227",
     "category": "threshold-detection",
-    "question": "On how many of the recorded days did the sleep duration exceed 4.6 hours?"
+    "question": "On how many of the recorded days did the sleep duration exceed 4.6 hours?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1228's timeline and answer this operational question: On how many of the recorded days did the sleep duration exceed 4.6 hours? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

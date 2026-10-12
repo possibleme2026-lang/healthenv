@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00823",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2024-08-28 to 2024-09-01, on which day was the blood glucose highest?"
+    "question": "Among the recorded days from 2024-08-28 to 2024-09-01, on which day was the blood glucose highest?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1074's timeline and answer this operational question: Among the recorded days from 2024-08-28 to 2024-09-01, on which day was the blood glucose highest? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
   "patient": {

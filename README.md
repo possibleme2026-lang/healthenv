@@ -28,8 +28,11 @@ The LLM may rewrite the workflow instruction, but it never defines the gold answ
 ## Included vertical slice
 
 - dependency-free Python compiler and HTTP runtime;
-- a health timeline GUI with search, filtering, evidence selection, note entry, workflow state, and submission;
+- a health workbench with **three presentation surfaces** — timeline, vitals dashboard, clinical ledger — assigned 400/400/400 and orthogonal to the reasoning skill;
 - exact state-based verification with five weighted checks;
+- a **sealed agent channel**: the evaluated harness never reaches `/api/verify`, and `submit` returns no correctness signal;
+- a **harness-agnostic tool API** (GET with query parameters, plus a POST alias) that survives both bash and PowerShell;
+- adapter-driven cross-harness evaluation for `pi`, Codex CLI, and DeepSeek `dsh`;
 - a local adapter for the public LifeAgentBench JSONL format;
 - optional OpenAI-compatible synthesis through TierFlow;
 - three synthetic, privacy-safe benchmark seeds covering longitudinal comparison, temporal aggregation, and cross-dimensional reasoning;
@@ -133,20 +136,41 @@ See [`docs/TASK_IR.md`](docs/TASK_IR.md) for the JSON schema and trust boundarie
 
 | Check | Result |
 |---|---:|
-| Unit/regression tests | 27 passed |
+| Unit/regression tests | 55 passed |
 | Synthetic tasks compiled | 3/3 |
 | Oracle strict success | 3/3 |
 | Evidence-omission mutants rejected | 3/3 |
 | Scale run: environments | 1200 |
 | Scale run: oracle passes / negative rejections | 1200 / 1200 |
 | Scale run: structural errors | 0 |
-| Scale run in a real headless browser | 100%, 0 JS/network errors |
+| Scale run in a real headless browser (all 1200) | 1200/1200 strict, 0 JS/network errors |
 | LifeAgentBench-format adapter smoke | strict success 1.0 |
 | TierFlow `tierflow_pro` planner | 3/3, 0 fallbacks, gold unchanged |
 | Real headless-browser workflow | 100%, 0 JS/network errors |
+| Cross-harness evaluation (pi / Codex / dsh) | see [paper §5](paper/healthenv.md) |
 | External dependencies in runtime | 0 |
 
-These numbers validate the prototype plumbing, not agent capability. No model leaderboard or clinical claim is made.
+These numbers validate the prototype plumbing and measurement control, not agent capability. No model leaderboard or clinical claim is made.
+
+## Cross-harness evaluation
+
+`scripts/harness_eval.py` runs the same stratified task sample through three independently released agent harnesses — `pi`, Codex CLI, and DeepSeek `dsh` — with one model, one prompt, one tool surface, and offline scoring:
+
+```bash
+python scripts/harness_eval.py --harnesses pi,codex,deepseek --limit 12
+```
+
+On 12 stratified tasks per harness, all three ran without timeouts or harness-level failures on one model (`tierflow_pro`):
+
+| Harness | Strict success | Mean score | Mean steps | Mean elapsed |
+|---|---:|---:|---:|---:|
+| `pi` | 6/12 (50%) | 0.85 | 9.2 | 23s |
+| Codex CLI | 7/12 (58%) | 0.82 | 8.9 | 79s |
+| DeepSeek `dsh` | 5/12 (42%) | 0.78 | 9.8 | 66s |
+
+Every episode submitted; no episode fell to the 0.10 safety floor, so the spread is a reasoning difference across harnesses rather than one harness failing to start. The dominant miss is evidence selection (6/12, 5/12, 7/12 respectively) — the loop completes the workflow but picks the wrong records.
+
+Every non-obvious adapter requirement is documented in `src/healthenv/harness.py` because each one was found by measurement, not by reading documentation: pi needs `shellPath` supplied when Git is not in Program Files; codex needs the prompt on stdin because multi-line argv is truncated to its first line on Windows; dsh needs a provider patch and a sandbox mode that does not fail closed on this machine; and the tool API is documented over GET because PowerShell corrupts a quoted JSON body. Section 5 of the paper records all of them with the probe that exposed each.
 
 ## Research position
 

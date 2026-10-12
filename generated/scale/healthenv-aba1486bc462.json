@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00168",
     "category": "longitudinal-comparison",
-    "question": "How many mmHg higher was the systolic blood pressure on 2023-07-29 than on 2023-07-28?"
+    "question": "How many mmHg higher was the systolic blood pressure on 2023-07-29 than on 2023-07-28?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1169's timeline and answer this operational question: How many mmHg higher was the systolic blood pressure on 2023-07-29 than on 2023-07-28? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00956",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2023-11-01 to 2023-11-06, on which day was the blood glucose lowest?"
+    "question": "Among the recorded days from 2023-11-01 to 2023-11-06, on which day was the blood glucose lowest?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1207's timeline and answer this operational question: Among the recorded days from 2023-11-01 to 2023-11-06, on which day was the blood glucose lowest? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
   "patient": {

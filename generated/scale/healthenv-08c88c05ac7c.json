@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00274",
     "category": "temporal-aggregation",
-    "question": "What was the average blood glucose across the 4 days from 2024-01-23 through 2024-01-26?"
+    "question": "What was the average blood glucose across the 4 days from 2024-01-23 through 2024-01-26?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1025's timeline and answer this operational question: What was the average blood glucose across the 4 days from 2024-01-23 through 2024-01-26? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

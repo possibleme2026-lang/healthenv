@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00995",
     "category": "temporal-aggregation",
-    "question": "What was the average stress score across the 4 days from 2023-10-15 through 2023-10-18?"
+    "question": "What was the average stress score across the 4 days from 2023-10-15 through 2023-10-18?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1246's timeline and answer this operational question: What was the average stress score across the 4 days from 2023-10-15 through 2023-10-18? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
   "patient": {

@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00837",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2023-10-05 to 2023-10-08, on which day was the blood glucose highest?"
+    "question": "Among the recorded days from 2023-10-05 to 2023-10-08, on which day was the blood glucose highest?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1088's timeline and answer this operational question: Among the recorded days from 2023-10-05 to 2023-10-08, on which day was the blood glucose highest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

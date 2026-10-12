@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00337",
     "category": "temporal-aggregation",
-    "question": "What was the average hydration intake across the 3 days from 2024-09-19 through 2024-09-21?"
+    "question": "What was the average hydration intake across the 3 days from 2024-09-19 through 2024-09-21?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1088's timeline and answer this operational question: What was the average hydration intake across the 3 days from 2024-09-19 through 2024-09-21? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

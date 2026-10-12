@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from .llm import LLMError, OpenAICompatibleClient
-from .schema import QuestionSeed, TaskSpec
+from .schema import DEFAULT_SURFACE, SURFACES, QuestionSeed, TaskSpec
 
 PLANNER_SYSTEM = (
     "You are a benchmark environment designer. Convert the supplied health QA seed into a concise "
@@ -38,6 +38,18 @@ def _required_status(seed: QuestionSeed) -> str:
     if status not in {"routine", "review", "urgent"}:
         return "review"
     return str(status)
+
+
+def _surface(seed: QuestionSeed) -> str:
+    """Resolve the GUI surface, falling back safely on an unknown value.
+
+    An unknown surface would leave the workbench unable to render the task, so
+    the compiler never propagates one.
+    """
+    surface = seed.metadata.get("surface", DEFAULT_SURFACE)
+    if surface not in SURFACES:
+        return DEFAULT_SURFACE
+    return str(surface)
 
 
 def _default_instruction(seed: QuestionSeed) -> str:
@@ -103,8 +115,8 @@ def compile_seed(
         "required_evidence_ids": seed.evidence_ids,
         "allow_extra_evidence": False,
         "note_must_include": _answer_terms(seed),
-        "required_status": seed.metadata.get("required_status", "review"),
-        "gold_source": "seed_answer_and_executable_evidence",
+            "required_status": _required_status(seed),
+            "gold_source": "seed_answer_and_executable_evidence",
     }
     return TaskSpec(
         schema_version="0.1",
@@ -114,6 +126,7 @@ def compile_seed(
             "seed_id": seed.seed_id,
             "category": seed.category,
             "question": seed.question,
+            "surface": _surface(seed),
         },
         instruction=instruction,
         patient=patient,

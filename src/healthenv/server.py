@@ -47,9 +47,15 @@ class HealthEnvHandler(BaseHTTPRequestHandler):
             self._json({"ok": True, "task_id": self.runtime.task.task_id})
         elif path == "/api/task":
             self._json(self.runtime.public_task())
+        elif path == "/api/agent/task":
+            # information-barrier view for evaluated agents
+            self._json(self.runtime.agent_task())
         elif path == "/api/state":
             self._json(self.runtime.snapshot())
+        elif path == "/api/agent/state":
+            self._json(self.runtime.snapshot())
         elif path == "/api/verify":
+            # demonstration-only diagnostic; never exposed to evaluated agents
             self._json(self.runtime.verification())
         elif path in {"/", "/index.html"}:
             self._asset("index.html")
@@ -58,9 +64,10 @@ class HealthEnvHandler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:  # noqa: N802
         path = urlparse(self.path).path
-        if path != "/api/action":
+        if path not in {"/api/action", "/api/agent/action"}:
             self.send_error(HTTPStatus.NOT_FOUND)
             return
+        agent_channel = path == "/api/agent/action"
         try:
             length = int(self.headers.get("Content-Length", "0"))
             if length <= 0 or length > 100_000:
@@ -71,7 +78,11 @@ class HealthEnvHandler(BaseHTTPRequestHandler):
             state = self.runtime.apply(action)
             payload: dict[str, Any] = {"ok": True, "state": state}
             if action.get("type") == "submit":
-                payload["verification"] = self.runtime.verification()
+                if agent_channel:
+                    # no verifier signal on the agent channel: episodes are scored offline
+                    payload = self.runtime.agent_submission() | {"state": state}
+                else:
+                    payload["verification"] = self.runtime.verification()
             self._json(payload)
         except (ActionError, UnicodeDecodeError, json.JSONDecodeError) as error:
             self._json({"ok": False, "error": str(error)}, HTTPStatus.BAD_REQUEST)

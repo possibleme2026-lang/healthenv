@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00509",
     "category": "trend-classification",
-    "question": "Across the 5 recorded days from 2023-08-12 to 2023-08-16, did the sleep duration trend upward or downward?"
+    "question": "Across the 5 recorded days from 2023-08-12 to 2023-08-16, did the sleep duration trend upward or downward?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1010's timeline and answer this operational question: Across the 5 recorded days from 2023-08-12 to 2023-08-16, did the sleep duration trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

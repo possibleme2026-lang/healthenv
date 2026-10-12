@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-01085",
     "category": "longitudinal-comparison",
-    "question": "How many points higher was the stress score on 2023-06-15 than on 2023-06-13?"
+    "question": "How many points higher was the stress score on 2023-06-15 than on 2023-06-13?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1086's timeline and answer this operational question: How many points higher was the stress score on 2023-06-15 than on 2023-06-13? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

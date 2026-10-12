@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00418",
     "category": "trend-classification",
-    "question": "Across the 6 recorded days from 2023-02-13 to 2023-02-18, did the body weight trend upward or downward?"
+    "question": "Across the 6 recorded days from 2023-02-13 to 2023-02-18, did the body weight trend upward or downward?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1169's timeline and answer this operational question: Across the 6 recorded days from 2023-02-13 to 2023-02-18, did the body weight trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

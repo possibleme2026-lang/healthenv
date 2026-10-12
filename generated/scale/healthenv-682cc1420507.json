@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00901",
     "category": "trend-classification",
-    "question": "Across the 4 recorded days from 2024-09-01 to 2024-09-04, did the systolic blood pressure trend upward or downward?"
+    "question": "Across the 4 recorded days from 2024-09-01 to 2024-09-04, did the systolic blood pressure trend upward or downward?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1152's timeline and answer this operational question: Across the 4 recorded days from 2024-09-01 to 2024-09-04, did the systolic blood pressure trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

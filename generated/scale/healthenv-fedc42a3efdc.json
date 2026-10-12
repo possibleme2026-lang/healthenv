@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00606",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2025-01-03 to 2025-01-08, on which day was the systolic blood pressure highest?"
+    "question": "Among the recorded days from 2025-01-03 to 2025-01-08, on which day was the systolic blood pressure highest?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1107's timeline and answer this operational question: Among the recorded days from 2025-01-03 to 2025-01-08, on which day was the systolic blood pressure highest? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
   "patient": {

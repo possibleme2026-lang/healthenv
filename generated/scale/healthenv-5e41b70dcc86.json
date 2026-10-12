@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00299",
     "category": "trend-classification",
-    "question": "Across the 4 recorded days from 2024-01-09 to 2024-01-12, did the blood glucose trend upward or downward?"
+    "question": "Across the 4 recorded days from 2024-01-09 to 2024-01-12, did the blood glucose trend upward or downward?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1050's timeline and answer this operational question: Across the 4 recorded days from 2024-01-09 to 2024-01-12, did the blood glucose trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
   "patient": {

@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00899",
     "category": "threshold-detection",
-    "question": "On how many of the recorded days did the body weight exceed 72.3 kg?"
+    "question": "On how many of the recorded days did the body weight exceed 72.3 kg?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1150's timeline and answer this operational question: On how many of the recorded days did the body weight exceed 72.3 kg? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

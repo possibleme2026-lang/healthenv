@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00279",
     "category": "range-computation",
-    "question": "What was the range (highest minus lowest) of the body weight across the 5 recorded days from 2023-04-15 to 2023-04-19?"
+    "question": "What was the range (highest minus lowest) of the body weight across the 5 recorded days from 2023-04-15 to 2023-04-19?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1030's timeline and answer this operational question: What was the range (highest minus lowest) of the body weight across the 5 recorded days from 2023-04-15 to 2023-04-19? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

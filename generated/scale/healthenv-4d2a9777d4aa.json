@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00261",
     "category": "cross-dimensional-reasoning",
-    "question": "Among the recorded days from 2024-09-30 to 2024-10-02, on which day did the participant have both the highest step count and the lowest systolic blood pressure?"
+    "question": "Among the recorded days from 2024-09-30 to 2024-10-02, on which day did the participant have both the highest step count and the lowest systolic blood pressure?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1012's timeline and answer this operational question: Among the recorded days from 2024-09-30 to 2024-10-02, on which day did the participant have both the highest step count and the lowest systolic blood pressure? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

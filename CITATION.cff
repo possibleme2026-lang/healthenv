@@ -4,7 +4,7 @@ title: "HealthEnv: Compiling Longitudinal Health QA into Verifiable Computer-Use
 type: software
 authors:
   - name: "HealthEnv contributors"
-version: 0.2.0
+version: 0.3.0
 date-released: 2026-10-11
 repository-code: "https://github.com/possibleme2026-lang/healthenv"
 license: Apache-2.0

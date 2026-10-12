@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00513",
     "category": "cross-dimensional-reasoning",
-    "question": "Among the recorded days from 2023-04-08 to 2023-04-11, on which day did the participant have both the highest hydration intake and the lowest resting heart rate?"
+    "question": "Among the recorded days from 2023-04-08 to 2023-04-11, on which day did the participant have both the highest hydration intake and the lowest resting heart rate?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1014's timeline and answer this operational question: Among the recorded days from 2023-04-08 to 2023-04-11, on which day did the participant have both the highest hydration intake and the lowest resting heart rate? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

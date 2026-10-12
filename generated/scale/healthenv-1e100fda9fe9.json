@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00263",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2023-11-12 to 2023-11-16, on which day was the active minutes highest?"
+    "question": "Among the recorded days from 2023-11-12 to 2023-11-16, on which day was the active minutes highest?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1014's timeline and answer this operational question: Among the recorded days from 2023-11-12 to 2023-11-16, on which day was the active minutes highest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-01032",
     "category": "threshold-detection",
-    "question": "On how many of the recorded days did the stress score exceed 32 points?"
+    "question": "On how many of the recorded days did the stress score exceed 32 points?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1033's timeline and answer this operational question: On how many of the recorded days did the stress score exceed 32 points? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
   "patient": {

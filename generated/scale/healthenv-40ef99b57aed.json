@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00737",
     "category": "cross-dimensional-reasoning",
-    "question": "Among the recorded days from 2024-08-27 to 2024-08-29, on which day did the participant have both the highest resting heart rate and the lowest body weight?"
+    "question": "Among the recorded days from 2024-08-27 to 2024-08-29, on which day did the participant have both the highest resting heart rate and the lowest body weight?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1238's timeline and answer this operational question: Among the recorded days from 2024-08-27 to 2024-08-29, on which day did the participant have both the highest resting heart rate and the lowest body weight? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

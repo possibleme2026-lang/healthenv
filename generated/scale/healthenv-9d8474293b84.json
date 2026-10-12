@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00006",
     "category": "range-computation",
-    "question": "What was the range (highest minus lowest) of the blood glucose across the 6 recorded days from 2023-07-19 to 2023-07-24?"
+    "question": "What was the range (highest minus lowest) of the blood glucose across the 6 recorded days from 2023-07-19 to 2023-07-24?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1007's timeline and answer this operational question: What was the range (highest minus lowest) of the blood glucose across the 6 recorded days from 2023-07-19 to 2023-07-24? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

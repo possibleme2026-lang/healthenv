@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-01075",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2024-06-29 to 2024-07-03, on which day was the active minutes highest?"
+    "question": "Among the recorded days from 2024-06-29 to 2024-07-03, on which day was the active minutes highest?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1076's timeline and answer this operational question: Among the recorded days from 2024-06-29 to 2024-07-03, on which day was the active minutes highest? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

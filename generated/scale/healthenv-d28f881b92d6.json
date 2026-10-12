@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00661",
     "category": "threshold-detection",
-    "question": "On how many of the recorded days did the step count exceed 11830 steps?"
+    "question": "On how many of the recorded days did the step count exceed 11830 steps?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1162's timeline and answer this operational question: On how many of the recorded days did the step count exceed 11830 steps? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

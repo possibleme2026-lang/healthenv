@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00783",
     "category": "range-computation",
-    "question": "What was the range (highest minus lowest) of the sleep duration across the 6 recorded days from 2025-01-22 to 2025-01-27?"
+    "question": "What was the range (highest minus lowest) of the sleep duration across the 6 recorded days from 2025-01-22 to 2025-01-27?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1034's timeline and answer this operational question: What was the range (highest minus lowest) of the sleep duration across the 6 recorded days from 2025-01-22 to 2025-01-27? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

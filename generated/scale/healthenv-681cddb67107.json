@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00686",
     "category": "longitudinal-comparison",
-    "question": "How many hours lower was the sleep duration on 2023-01-23 than on 2023-01-21?"
+    "question": "How many hours lower was the sleep duration on 2023-01-23 than on 2023-01-21?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1187's timeline and answer this operational question: How many hours lower was the sleep duration on 2023-01-23 than on 2023-01-21? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

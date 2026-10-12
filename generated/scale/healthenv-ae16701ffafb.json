@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00757",
     "category": "temporal-aggregation",
-    "question": "What was the average resting heart rate across the 4 days from 2023-11-19 through 2023-11-22?"
+    "question": "What was the average resting heart rate across the 4 days from 2023-11-19 through 2023-11-22?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1008's timeline and answer this operational question: What was the average resting heart rate across the 4 days from 2023-11-19 through 2023-11-22? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

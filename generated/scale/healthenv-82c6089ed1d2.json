@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-01043",
     "category": "longitudinal-comparison",
-    "question": "How many bpm lower was the resting heart rate on 2023-12-20 than on 2023-12-19?"
+    "question": "How many bpm lower was the resting heart rate on 2023-12-20 than on 2023-12-19?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1044's timeline and answer this operational question: How many bpm lower was the resting heart rate on 2023-12-20 than on 2023-12-19? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

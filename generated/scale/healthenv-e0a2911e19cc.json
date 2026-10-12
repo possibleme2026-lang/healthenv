@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00619",
     "category": "threshold-detection",
-    "question": "On how many of the recorded days did the oxygen saturation exceed 96 percentage points?"
+    "question": "On how many of the recorded days did the oxygen saturation exceed 96 percentage points?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1120's timeline and answer this operational question: On how many of the recorded days did the oxygen saturation exceed 96 percentage points? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

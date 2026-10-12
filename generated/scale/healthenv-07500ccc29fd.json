@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00777",
     "category": "longitudinal-comparison",
-    "question": "How many kg higher was the body weight on 2024-05-28 than on 2024-05-27?"
+    "question": "How many kg higher was the body weight on 2024-05-28 than on 2024-05-27?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1028's timeline and answer this operational question: How many kg higher was the body weight on 2024-05-28 than on 2024-05-27? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00868",
     "category": "longitudinal-comparison",
-    "question": "How many mmHg higher was the systolic blood pressure on 2024-10-31 than on 2024-10-28?"
+    "question": "How many mmHg higher was the systolic blood pressure on 2024-10-31 than on 2024-10-28?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1119's timeline and answer this operational question: How many mmHg higher was the systolic blood pressure on 2024-10-31 than on 2024-10-28? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

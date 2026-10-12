@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00518",
     "category": "longitudinal-comparison",
-    "question": "How many hours higher was the sleep duration on 2023-03-09 than on 2023-03-06?"
+    "question": "How many hours higher was the sleep duration on 2023-03-09 than on 2023-03-06?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1019's timeline and answer this operational question: How many hours higher was the sleep duration on 2023-03-09 than on 2023-03-06? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

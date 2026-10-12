@@ -20,30 +20,51 @@
   .grid{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:26px;align-items:start}
   .panel{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--shadow)}.panel-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:center;justify-content:space-between}.panel-head h2{font-size:18px;letter-spacing:-.02em;margin:0}
   .tools{display:flex;gap:10px}.tools input,.tools select{border:1px solid #cfcfcb;border-radius:8px;padding:9px 10px;background:#fff}.tools input{width:210px}
-  .records{padding:6px 0;max-height:700px;overflow:auto}.record{display:grid;grid-template-columns:34px 112px 110px 1fr;gap:12px;align-items:center;padding:14px 20px;border-bottom:1px solid #eee}.record:last-child{border-bottom:0}.record:hover{background:#fafaf8}.record.selected{background:#f0faf7}.record input{width:17px;height:17px;accent-color:var(--accent)}
+  .records{padding:6px 0;max-height:700px;overflow:auto}
+  .record{display:grid;grid-template-columns:34px 112px 110px 1fr;gap:12px;align-items:center;padding:14px 20px;border-bottom:1px solid #eee}.record:last-child{border-bottom:0}.record:hover{background:#fafaf8}.record.selected{background:#f0faf7}.record input{width:17px;height:17px;accent-color:var(--accent)}
   .date{font-variant-numeric:tabular-nums;color:#555}.type{font-weight:700;text-transform:capitalize}.value{display:flex;justify-content:space-between;gap:12px}.value strong{font-size:16px}.value small{color:var(--muted);max-width:55%;text-align:right}
+  .records.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:13px;padding:16px 20px}
+  .record.card{display:block;border:1px solid var(--line);border-radius:12px;padding:13px 14px;background:#fff;position:relative}
+  .record.card:hover{background:#fafaf8}.record.card.selected{border-color:var(--accent);background:#f0faf7;box-shadow:0 0 0 1px var(--accent) inset}
+  .record.card input{position:absolute;top:12px;right:12px;width:17px;height:17px}
+  .card .metric{font-size:12px;color:var(--muted);text-transform:capitalize;margin-bottom:6px;padding-right:26px}
+  .card .reading{font-size:26px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  .card .unit{font-size:12px;color:var(--muted);margin-left:3px;font-weight:600}
+  .card .when{font-size:12px;color:var(--muted);margin-top:7px;font-variant-numeric:tabular-nums}
+  .card .why{font-size:11px;color:#8a8a86;margin-top:5px}
+  .records.ledger{padding:0}
+  table.ledger{width:100%;border-collapse:collapse;font-size:14px}
+  table.ledger th{text-align:left;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);padding:11px 18px;border-bottom:1px solid var(--line);background:#fbfbfa;position:sticky;top:0}
+  table.ledger td{padding:11px 18px;border-bottom:1px solid #f0f0ee}
+  .record.row{display:table-row}.record.row.selected{background:#f0faf7}
+  .record.row input{width:17px;height:17px;accent-color:var(--accent)}
+  .record.row td.stamp{font-variant-numeric:tabular-nums;color:#555}
+  .record.row td.kind{font-weight:700;text-transform:capitalize}
+  .record.row td.reading{font-variant-numeric:tabular-nums;font-weight:700}
+  .record.row td.note{color:var(--muted);font-size:13px}
   .workspace{position:sticky;top:24px}.form{padding:20px}.field{margin-bottom:18px}.field label{display:block;font-weight:700;margin-bottom:7px}.field small{color:var(--muted);display:block;margin-top:6px}.field textarea,.field select{width:100%;border:1px solid #c9c9c5;border-radius:9px;padding:11px;background:#fff}.field textarea{min-height:155px;resize:vertical}
   .actions{display:flex;gap:9px}.primary,.secondary{border-radius:9px;padding:10px 15px;font-weight:700}.primary{border:1px solid var(--ink);background:var(--ink);color:#fff;flex:1}.primary:hover{background:#333}.secondary{border:1px solid #c9c9c5;background:#fff}.secondary:hover{background:var(--soft)}
   .result{display:none;margin:0 20px 20px;border-radius:10px;padding:14px}.result.pass{display:block;background:#e9f8f2;color:#08634e;border:1px solid #b8e4d6}.result.fail{display:block;background:#fff3f1;color:#8b2e2e;border:1px solid #f0c7c1}.score{font-size:24px;font-weight:800}.checks{margin:8px 0 0;padding-left:18px;font-size:13px}
   .empty{padding:38px;text-align:center;color:var(--muted)}
+  .surface-tag{display:inline-block;margin-left:8px;font-size:11px;font-weight:700;color:var(--accent-dark);background:#e9f8f2;border:1px solid #c8e9df;border-radius:999px;padding:2px 9px;vertical-align:middle}
   @media(max-width:1050px){.shell{grid-template-columns:1fr}aside{display:none}main{padding:24px}.grid{grid-template-columns:1fr}.workspace{position:static}.record{grid-template-columns:32px 100px 90px 1fr}}
 </style>
 <div class="shell">
   <aside>
     <div class="brand"><span class="mark">H</span>HealthEnv</div>
     <div class="eyebrow">Workspace</div>
-    <nav><button class="active">Timeline review</button><button disabled>Patient summary</button><button disabled>Audit trail</button></nav>
+    <nav><button class="active" id="navPrimary">Timeline review</button><button disabled>Patient summary</button><button disabled>Audit trail</button></nav>
     <div class="side-meta">Environment<br><b id="sideTask">Loading...</b><br><br><span id="auditCount">0 recorded actions</span></div>
   </aside>
   <main>
     <header>
-      <div><div class="eyebrow" style="margin-top:0">Longitudinal health workbench</div><h1>Evidence review</h1><p class="subtitle">Inspect source records, select evidence, and complete the care-workflow task. Source observations are read-only.</p></div>
+      <div><div class="eyebrow" style="margin-top:0" id="appKind">Longitudinal health workbench</div><h1 id="appTitle">Evidence review</h1><p class="subtitle" id="appSubtitle">Inspect source records, select evidence, and complete the care-workflow task. Source observations are read-only.</p></div>
       <div class="patient"><strong id="patientName">Loading participant...</strong><span id="patientMeta"></span></div>
     </header>
     <section class="task" aria-labelledby="taskLabel"><h2 id="taskLabel">Task instruction</h2><p id="instruction">Loading...</p></section>
     <div class="grid">
       <section class="panel">
-        <div class="panel-head"><h2>Longitudinal records</h2><div class="tools"><input id="search" data-testid="search-records" type="search" placeholder="Search records"><select id="filter" data-testid="filter-type"><option value="all">All types</option></select></div></div>
+        <div class="panel-head"><h2 id="panelTitle">Longitudinal records<span class="surface-tag" id="surfaceTag">timeline</span></h2><div class="tools"><input id="search" data-testid="search-records" type="search" placeholder="Search records"><select id="filter" data-testid="filter-type"><option value="all">All types</option></select></div></div>
         <div class="records" id="records" data-testid="record-list"><div class="empty">Loading records...</div></div>
       </section>
       <section class="panel workspace" aria-label="Care workflow">
@@ -59,16 +80,59 @@
   </main>
 </div>
 <script>
-const app={task:null,state:null,query:"",type:"all"};
+const app={task:null,state:null,query:"",type:"all",surface:"timeline"};
 const $=s=>document.querySelector(s);
+const SURFACES={
+  timeline:{kind:"Longitudinal health workbench",title:"Evidence review",subtitle:"Inspect source records, select evidence, and complete the care-workflow task. Source observations are read-only.",nav:"Timeline review",panel:"Longitudinal records"},
+  "vitals-dashboard":{kind:"Vitals monitoring console",title:"Signal review",subtitle:"Scan the vital-sign tiles, flag the readings that support the conclusion, and complete the care-workflow task. Source observations are read-only.",nav:"Vitals dashboard",panel:"Vital-sign tiles"},
+  "clinical-ledger":{kind:"Clinical records ledger",title:"Ledger reconciliation",subtitle:"Walk the ledger line by line, mark the entries that support the conclusion, and complete the care-workflow task. Source observations are read-only.",nav:"Clinical ledger",panel:"Ledger entries"}
+};
 async function api(path,options){const response=await fetch(path,options);const payload=await response.json();if(!response.ok)throw new Error(payload.error||"Request failed");return payload}
 function valueText(record){const unit=record.unit?` ${record.unit}`:"";return `${record.value}${unit}`}
-function renderRecords(){const records=app.task.records.filter(r=>{const hay=`${r.date} ${r.type} ${r.value} ${r.unit||""} ${r.detail||""}`.toLowerCase();return(app.type==="all"||r.type===app.type)&&hay.includes(app.query)});const selected=new Set(app.state.selected_record_ids||[]);$("#records").innerHTML=records.length?records.map(r=>`<label class="record ${selected.has(r.id)?"selected":""}" data-record-id="${r.id}"><input type="checkbox" data-testid="record-${r.id}" ${selected.has(r.id)?"checked":""}><span class="date">${r.date}</span><span class="type">${r.type}</span><span class="value"><strong>${valueText(r)}</strong><small>${r.detail||""}</small></span></label>`).join(""):'<div class="empty">No matching records</div>';document.querySelectorAll(".record input").forEach(input=>input.addEventListener("change",event=>{const id=event.target.closest(".record").dataset.recordId;act({type:"select_record",record_id:id,selected:event.target.checked})}));updateCounts()}
+function visibleRecords(){return app.task.records.filter(r=>{const hay=`${r.date} ${r.type} ${r.value} ${r.unit||""} ${r.detail||""}`.toLowerCase();return(app.type==="all"||r.type===app.type)&&hay.includes(app.query)})}
+function rowTemplate(record,selected){return `<label class="record ${selected?"selected":""}" data-record-id="${record.id}"><input type="checkbox" data-testid="record-${record.id}" ${selected?"checked":""}><span class="date">${record.date}</span><span class="type">${record.type}</span><span class="value"><strong>${valueText(record)}</strong><small>${record.detail||""}</small></span></label>`}
+function cardTemplate(record,selected){return `<label class="record card ${selected?"selected":""}" data-record-id="${record.id}"><input type="checkbox" data-testid="record-${record.id}" ${selected?"checked":""}><div class="metric">${record.type}</div><div class="reading">${record.value}<span class="unit">${record.unit||""}</span></div><div class="when">${record.date}</div><div class="why">${record.detail||""}</div></label>`}
+function ledgerTemplate(record,selected){return `<tr class="record row ${selected?"selected":""}" data-record-id="${record.id}"><td><input type="checkbox" data-testid="record-${record.id}" ${selected?"checked":""}></td><td class="stamp">${record.date}</td><td class="kind">${record.type}</td><td class="reading">${valueText(record)}</td><td class="note">${record.detail||""}</td></tr>`}
+function emptyTemplate(){return app.surface==="clinical-ledger"?'<div class="empty" style="padding:38px">No matching entries</div>':'<div class="empty">No matching records</div>'}
+function renderRecords(){
+  const records=visibleRecords();
+  const selected=new Set(app.state.selected_record_ids||[]);
+  const host=$("#records");
+  host.className="records"+(app.surface==="vitals-dashboard"?" cards":app.surface==="clinical-ledger"?" ledger":"");
+  if(!records.length){host.innerHTML=emptyTemplate();updateCounts();return}
+  if(app.surface==="clinical-ledger"){
+    host.innerHTML=`<table class="ledger"><thead><tr><th style="width:40px">Use</th><th>Date</th><th>Measure</th><th>Reading</th><th>Context</th></tr></thead><tbody>${records.map(r=>ledgerTemplate(r,selected.has(r.id))).join("")}</tbody></table>`;
+  }else{
+    const template=app.surface==="vitals-dashboard"?cardTemplate:rowTemplate;
+    host.innerHTML=records.map(r=>template(r,selected.has(r.id))).join("");
+  }
+  document.querySelectorAll(".record input").forEach(input=>input.addEventListener("change",event=>{const id=event.target.closest(".record").dataset.recordId;act({type:"select_record",record_id:id,selected:event.target.checked})}));
+  updateCounts();
+}
 function updateCounts(){const count=(app.state.selected_record_ids||[]).length;$("#selectedCount").textContent=`${count} evidence selected`;$("#auditCount").textContent=`${(app.state.audit_log||[]).length} recorded actions`}
 function syncForm(){$("#note").value=app.state.note||"";$("#status").value=app.state.status||"routine";updateCounts()}
-async function act(action){try{const payload=await api("/api/action",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(action)});app.state=payload.state;renderRecords();syncForm();if(payload.verification)showResult(payload.verification)}catch(error){showError(error.message)}}
+let actChain=Promise.resolve();
+function act(action){
+  // Serialize every action: apply() is atomic server-side, but two concurrent
+  // fetches can resolve out of order, and syncForm() would then restore the
+  // textarea from a stale snapshot -- silently dropping the note being typed.
+  actChain=actChain.then(async()=>{try{const payload=await api("/api/action",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(action)});app.state=payload.state;renderRecords();syncForm();if(payload.verification)showResult(payload.verification)}catch(error){showError(error.message)}});
+  return actChain;
+}
 function showResult(report){const result=$("#result");result.className=`result ${report.strict_success?"pass":"fail"}`;result.innerHTML=`<div class="score">${Math.round(report.score*100)}%</div><strong>${report.strict_success?"Strict success":"Not yet complete"}</strong><ul class="checks">${report.checks.map(c=>`<li>${c.passed?"PASS":"FAIL"} — ${c.name}</li>`).join("")}</ul>`}
 function showError(message){const result=$("#result");result.className="result fail";result.textContent=message}
-async function boot(){app.task=await api("/api/task");app.state=await api("/api/state");$("#sideTask").textContent=app.task.task_id;$("#instruction").textContent=app.task.instruction;$("#patientName").textContent=app.task.patient.display_name;$("#patientMeta").textContent=`ID ${app.task.patient.id} · ${app.task.patient.age_band}`;const types=[...new Set(app.task.records.map(r=>r.type))].sort();$("#filter").innerHTML+=""+types.map(t=>`<option value="${t}">${t[0].toUpperCase()+t.slice(1)}</option>`).join("");renderRecords();syncForm()}
+function applySurface(surface){const spec=SURFACES[surface]||SURFACES.timeline;app.surface=SURFACES[surface]?surface:"timeline";$("#appKind").textContent=spec.kind;$("#appTitle").textContent=spec.title;$("#appSubtitle").textContent=spec.subtitle;$("#navPrimary").textContent=spec.nav;$("#panelTitle").firstChild.textContent=spec.panel;$("#surfaceTag").textContent=app.surface}
+async function boot(){
+  app.task=await api("/api/task");
+  app.state=await api("/api/state");
+  applySurface(app.task.source&&app.task.source.surface||"timeline");
+  $("#sideTask").textContent=app.task.task_id;
+  $("#instruction").textContent=app.task.instruction;
+  $("#patientName").textContent=app.task.patient.display_name;
+  $("#patientMeta").textContent=`ID ${app.task.patient.id} · ${app.task.patient.age_band}`;
+  const types=[...new Set(app.task.records.map(r=>r.type))].sort();
+  $("#filter").innerHTML+=""+types.map(t=>`<option value="${t}">${t[0].toUpperCase()+t.slice(1)}</option>`).join("");
+  renderRecords();syncForm();
+}
 $("#search").addEventListener("input",event=>{app.query=event.target.value.toLowerCase();renderRecords()});$("#filter").addEventListener("change",event=>{app.type=event.target.value;renderRecords()});$("#note").addEventListener("change",event=>act({type:"set_note",note:event.target.value}));$("#status").addEventListener("change",event=>act({type:"set_status",status:event.target.value}));$("#submit").addEventListener("click",async()=>{await act({type:"set_note",note:$("#note").value});await act({type:"set_status",status:$("#status").value});await act({type:"submit"})});$("#reset").addEventListener("click",()=>{if(confirm("Reset all task progress?")){act({type:"reset"});$("#result").className="result"}});boot().catch(error=>showError(error.message));
 </script>

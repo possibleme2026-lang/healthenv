@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00116",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2025-01-02 to 2025-01-06, on which day was the resting heart rate highest?"
+    "question": "Among the recorded days from 2025-01-02 to 2025-01-06, on which day was the resting heart rate highest?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1117's timeline and answer this operational question: Among the recorded days from 2025-01-02 to 2025-01-06, on which day was the resting heart rate highest? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

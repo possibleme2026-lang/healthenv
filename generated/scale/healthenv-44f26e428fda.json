@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00126",
     "category": "longitudinal-comparison",
-    "question": "How many mg/dL lower was the blood glucose on 2024-05-28 than on 2024-05-26?"
+    "question": "How many mg/dL lower was the blood glucose on 2024-05-28 than on 2024-05-26?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1127's timeline and answer this operational question: How many mg/dL lower was the blood glucose on 2024-05-28 than on 2024-05-26? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

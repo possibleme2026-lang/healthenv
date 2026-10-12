@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00503",
     "category": "range-computation",
-    "question": "What was the range (highest minus lowest) of the systolic blood pressure across the 4 recorded days from 2023-10-29 to 2023-11-01?"
+    "question": "What was the range (highest minus lowest) of the systolic blood pressure across the 4 recorded days from 2023-10-29 to 2023-11-01?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1004's timeline and answer this operational question: What was the range (highest minus lowest) of the systolic blood pressure across the 4 recorded days from 2023-10-29 to 2023-11-01? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

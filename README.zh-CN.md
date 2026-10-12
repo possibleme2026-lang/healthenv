@@ -28,8 +28,11 @@ LLM 可以改写流程指令，但不能定义 gold answer 或 verifier。生成
 ## 已落地的垂直切片
 
 - 零运行时依赖的 Python 编译器与 HTTP runtime；
-- 支持搜索、筛选、证据选择、记录填写、流程状态和提交的健康时间线 GUI；
+- 健康工作台提供**三套展示皮肤**——时间线、体征仪表盘、临床台账——按 400/400/400 分配，且与推理技能正交；
 - 包含五项加权检查的精确状态验证器；
+- **密封的 agent 通道**：被评测的 harness 无法触达 `/api/verify`，`submit` 也不返回任何正确性信号；
+- **与 harness 无关的工具 API**（GET + query 参数，另保留 POST 别名），在 bash 与 PowerShell 下行为一致；
+- 面向 `pi`、Codex CLI、DeepSeek `dsh` 的适配器式跨 harness 评测；
 - 本地 LifeAgentBench JSONL 适配器；
 - 通过 TierFlow 接入 OpenAI-compatible 指令合成；
 - 三类隐私安全的合成任务：纵向比较、时间聚合、跨维度推理；
@@ -133,20 +136,41 @@ JSON 规格和信任边界见 [`docs/TASK_IR.md`](docs/TASK_IR.md)。
 
 | 检查 | 结果 |
 |---|---:|
-| 单元/回归测试 | 27 passed |
+| 单元/回归测试 | 55 passed |
 | 编译的合成任务 | 3/3 |
 | Oracle 严格成功 | 3/3 |
 | 漏选证据反例被拒绝 | 3/3 |
 | 规模运行：环境数 | 1200 |
 | 规模运行：oracle 通过 / 反例拒绝 | 1200 / 1200 |
 | 规模运行：结构错误 | 0 |
-| 规模环境在真实无头浏览器中 | 100%，0 个 JS/网络错误 |
+| 规模环境在真实无头浏览器中（全部 1200） | 1200/1200 严格成功，0 个 JS/网络错误 |
 | LifeAgentBench 格式适配 smoke | strict success 1.0 |
 | TierFlow `tierflow_pro` planner | 3/3，0 fallback，gold 未改变 |
 | 真实无头浏览器工作流 | 100%，0 个 JS/网络错误 |
+| 跨 harness 评测（pi / Codex / dsh） | 见 [论文 §5](paper/healthenv.md) |
 | Runtime 外部依赖 | 0 |
 
-这些数字只验证原型管线，不代表智能体能力；当前没有模型排行榜或临床结论。
+这些数字只验证原型管线与**测量可控性**，不代表智能体能力；当前没有模型排行榜或临床结论。
+
+## 跨 harness 评测
+
+`scripts/harness_eval.py` 用同一份分层抽样任务、同一个模型、同一段提示词、同一套工具接口和同一套离线评分，跑三个独立发布的 agent harness（`pi`、Codex CLI、DeepSeek `dsh`）：
+
+```bash
+python scripts/harness_eval.py --harnesses pi,codex,deepseek --limit 12
+```
+
+每个 harness 跑 12 个分层抽样任务，在同一个模型（`tierflow_pro`）上三者都无超时、无 harness 级失败：
+
+| Harness | 严格成功 | 平均分 | 平均步数 | 平均耗时 |
+|---|---:|---:|---:|---:|
+| `pi` | 6/12（50%） | 0.85 | 9.2 | 23s |
+| Codex CLI | 7/12（58%） | 0.82 | 8.9 | 79s |
+| DeepSeek `dsh` | 5/12（42%） | 0.78 | 9.8 | 66s |
+
+每个 episode 都提交了；没有 episode 落到 0.10 的安全底线，所以差距是 harness 之间的**推理差异**，而不是某个 harness 跑不起来。主要失分点是证据选择（分别为 6/12、5/12、7/12）——循环把流程走完了，但选错了记录。
+
+每个"非显然"的适配要求都写在 `src/healthenv/harness.py` 里，因为它们全部来自实测而非文档：pi 在 Git 不在 Program Files 时必须显式给 `shellPath`；codex 的提示词必须走 stdin，因为 Windows 下多行 argv 会被截断到第一行；dsh 需要 provider patch，且其 Windows ACL 沙箱在本机会 fail closed；工具 API 之所以用 GET 文档化，是因为 PowerShell 会破坏带引号的 JSON body。论文第 5 节把每一个坑连同暴露它的探针实验一起记录了下来。
 
 ## 研究定位
 

@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-01187",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2023-12-26 to 2023-12-31, on which day was the sleep duration highest?"
+    "question": "Among the recorded days from 2023-12-26 to 2023-12-31, on which day was the sleep duration highest?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1188's timeline and answer this operational question: Among the recorded days from 2023-12-26 to 2023-12-31, on which day was the sleep duration highest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00870",
     "category": "cross-dimensional-reasoning",
-    "question": "Among the recorded days from 2023-01-20 to 2023-01-23, on which day did the participant have both the highest active minutes and the lowest resting heart rate?"
+    "question": "Among the recorded days from 2023-01-20 to 2023-01-23, on which day did the participant have both the highest active minutes and the lowest resting heart rate?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1121's timeline and answer this operational question: Among the recorded days from 2023-01-20 to 2023-01-23, on which day did the participant have both the highest active minutes and the lowest resting heart rate? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

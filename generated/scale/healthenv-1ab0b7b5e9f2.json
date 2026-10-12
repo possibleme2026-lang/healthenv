@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00820",
     "category": "temporal-aggregation",
-    "question": "What was the average sleep duration across the 3 days from 2024-04-04 through 2024-04-06?"
+    "question": "What was the average sleep duration across the 3 days from 2024-04-04 through 2024-04-06?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1071's timeline and answer this operational question: What was the average sleep duration across the 3 days from 2024-04-04 through 2024-04-06? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

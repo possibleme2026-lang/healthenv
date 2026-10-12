@@ -57,6 +57,10 @@ Browser environment</a></li>
 <li><a href="#verifier" id="toc-verifier">3.4 Verifier</a></li>
 <li><a href="#trust-boundaries" id="toc-trust-boundaries">3.5 Trust
 boundaries</a></li>
+<li><a href="#interface-surfaces" id="toc-interface-surfaces">3.6
+Interface surfaces</a></li>
+<li><a href="#a-sealed-agent-channel"
+id="toc-a-sealed-agent-channel">3.7 A sealed agent channel</a></li>
 </ul></li>
 <li><a href="#prototype-evaluation" id="toc-prototype-evaluation">4.
 Prototype evaluation</a>
@@ -70,7 +74,25 @@ Synthesis at scale</a></li>
 id="toc-what-these-results-do-not-show">4.5 What these results do not
 show</a></li>
 </ul></li>
-<li><a href="#relation-to-prior-work" id="toc-relation-to-prior-work">5.
+<li><a href="#cross-harness-evaluation"
+id="toc-cross-harness-evaluation">5. Cross-harness evaluation</a>
+<ul>
+<li><a href="#why-the-harness-is-the-right-independent-variable"
+id="toc-why-the-harness-is-the-right-independent-variable">5.1 Why the
+harness is the right independent variable</a></li>
+<li><a href="#controlled-comparison" id="toc-controlled-comparison">5.2
+Controlled comparison</a></li>
+<li><a href="#interface-hazards-the-comparison-exposed"
+id="toc-interface-hazards-the-comparison-exposed">5.3 Interface hazards
+the comparison exposed</a></li>
+<li><a href="#results-1" id="toc-results-1">5.4 Results</a></li>
+<li><a href="#failure-modes" id="toc-failure-modes">5.5 Failure
+modes</a></li>
+<li><a href="#what-the-comparison-does-and-does-not-show"
+id="toc-what-the-comparison-does-and-does-not-show">5.6 What the
+comparison does and does not show</a></li>
+</ul></li>
+<li><a href="#relation-to-prior-work" id="toc-relation-to-prior-work">6.
 Relation to prior work</a>
 <ul>
 <li><a href="#health-reasoning-benchmarks"
@@ -81,14 +103,17 @@ id="toc-medical-computer-use-benchmarks">Medical computer-use
 benchmarks</a></li>
 <li><a href="#environment-synthesis"
 id="toc-environment-synthesis">Environment synthesis</a></li>
+<li><a href="#agent-harnesses-as-a-measurement-variable"
+id="toc-agent-harnesses-as-a-measurement-variable">Agent harnesses as a
+measurement variable</a></li>
 </ul></li>
-<li><a href="#research-agenda" id="toc-research-agenda">6. Research
+<li><a href="#research-agenda" id="toc-research-agenda">7. Research
 agenda</a></li>
 <li><a href="#safety-ethics-and-governance"
-id="toc-safety-ethics-and-governance">7. Safety, ethics, and
+id="toc-safety-ethics-and-governance">8. Safety, ethics, and
 governance</a></li>
-<li><a href="#limitations" id="toc-limitations">8. Limitations</a></li>
-<li><a href="#conclusion" id="toc-conclusion">9. Conclusion</a></li>
+<li><a href="#limitations" id="toc-limitations">9. Limitations</a></li>
+<li><a href="#conclusion" id="toc-conclusion">10. Conclusion</a></li>
 <li><a href="#references" id="toc-references">References</a></li>
 </ul></li>
 </ul>
@@ -111,16 +136,37 @@ a synthetic longitudinal record state, (ii) an operational instruction,
 (iii) a constrained GUI action surface, and (iv) a hidden state-based
 verifier. The key design choice is a trust boundary: language models may
 plan or rewrite task instructions, but gold answers and reward
-predicates remain executable and deterministic. A dependency-free
-reference implementation includes a LifeAgentBench-format adapter, an
-OpenAI-compatible planner integration, three privacy-safe task families,
-and a browser workbench. In the current prototype, all 11 unit and
-regression tests pass; deterministic oracle states solve 3/3 compiled
-tasks, while evidence-omission mutations are rejected on 3/3 tasks.
-These experiments establish implementation correctness, not clinical
-validity or training benefit. We conclude with the experiments required
-to test whether QA-driven environment synthesis improves computer-use
-agents while preserving reward fidelity and medical safety.</p>
+predicates remain executable and deterministic.</p>
+<p>Two properties are then measured rather than asserted. First,
+<strong>scalability with per-instance proof</strong>: 1,200 environments
+are generated deterministically, each individually shown to be solvable
+by an oracle and gated by four negative controls, across three interface
+surfaces assigned 400/400/400 and orthogonal to the reasoning skill.
+Second, <strong>robustness to who is driving</strong>: because a
+computer-use agent is a model <em>plus</em> a loop, we evaluate the same
+tasks through three independently released harnesses — <code>pi</code>,
+OpenAI Codex CLI, and DeepSeek’s <code>dsh</code> — holding the model,
+the task sample, the prompt bytes, and the tool surface identical, and
+scoring offline so no harness can observe correctness mid-episode.
+Making three CLIs run one task non-interactively proved to be where the
+measurement lives: a JSON tool-call body is silently corrupted by
+PowerShell, a multi-line argv prompt is truncated to its first line, a
+transcript marker can be matched against the prompt echo and kill a run
+on startup, and a harness sandbox can fail closed so that a low score
+reflects a blocked agent rather than a failed task. Each hazard is
+documented with the measurement that exposed it.</p>
+<p>A dependency-free reference implementation includes a
+LifeAgentBench-format adapter, an OpenAI-compatible planner integration,
+a sealed agent channel that cannot reach the verifier, and a
+three-surface browser workbench. All 55 unit and regression tests pass;
+the 1,200-environment scale run holds 1,200/1,200 oracle passes,
+1,200/1,200 rejections for each of four negative controls, and zero
+structural errors, with the whole corpus reachable through a real
+headless browser. These experiments establish implementation correctness
+and cross-harness comparability, not clinical validity or training
+benefit. We conclude with the experiments required to test whether
+QA-driven environment synthesis improves computer-use agents while
+preserving reward fidelity and medical safety.</p>
 <h2 id="introduction">1. Introduction</h2>
 <p>Longitudinal health QA and computer-use evaluation ask different
 questions. A QA benchmark asks whether a model can derive an answer from
@@ -161,13 +207,26 @@ evidence set, or verifier.</li>
 <li><strong>A verifiable task IR.</strong> The released schema separates
 public observations, mutable workflow state, hidden reward predicates,
 and generation provenance.</li>
+<li><strong>Surfaces as a controlled variable.</strong> Tasks compile
+onto three presentation surfaces that never change the evidence, the
+gold answer, or the verifier, so an interface-grounding failure can be
+distinguished from a reasoning failure.</li>
+<li><strong>A per-instance proof at scale.</strong> The corpus is not
+merely large; every one of the 1,200 environments is individually proved
+solvable and individually gated by four negative controls.</li>
+<li><strong>Cross-harness comparability, measured.</strong> Three
+independently released agent harnesses run the same tasks under one
+model, one sample, one prompt, and one tool surface, with five interface
+hazards documented that would otherwise have skewed the result while
+still producing plausible numbers.</li>
 <li><strong>An executable reference system.</strong> The repository
-includes a dependency-free Python runtime, a longitudinal-health GUI, a
-LifeAgentBench-format adapter, and deterministic tests.</li>
+includes a dependency-free Python runtime, a three-surface
+longitudinal-health GUI, a sealed agent channel, a LifeAgentBench-format
+adapter, and deterministic tests.</li>
 <li><strong>An honest experimental boundary.</strong> We report compiler
-and verifier validity checks while leaving agent-training gains,
-real-software transfer, and clinical validity as open empirical
-questions.</li>
+and verifier validity checks and cross-harness comparability while
+leaving agent-training gains, real-software transfer, and clinical
+validity as open empirical questions.</li>
 </ol>
 <h2 id="problem-formulation">2. Problem formulation</h2>
 <p>Let a QA seed be</p>
@@ -192,6 +251,14 @@ state, not on surface text alone.</li>
 data and do not expose hidden gold state to the agent.</li>
 </ul>
 <h2 id="system-design">3. System design</h2>
+<figure>
+<img src="figures/fig1-pipeline.png"
+alt="The compilation pipeline. A QA seed fixes domain truth; an optional planner may reword the instruction but never touches the answer or verifier; the compiled task is served as a browser surface and scored by a deterministic state verifier." />
+<figcaption aria-hidden="true">The compilation pipeline. A QA seed fixes
+domain truth; an optional planner may reword the instruction but never
+touches the answer or verifier; the compiled task is served as a browser
+surface and scored by a deterministic state verifier.</figcaption>
+</figure>
 <h3 id="seed-schema">3.1 Seed schema</h3>
 <p>A HealthEnv seed contains a stable id, synthetic participant id,
 question, answer, category, typed records, expected evidence ids, and
@@ -276,6 +343,13 @@ accepting arbitrary extra records would reward ungrounded collection.
 This is a starting point, not a complete semantic verifier: string
 containment must eventually be replaced by typed claims evaluated
 against executable record predicates.</p>
+<figure>
+<img src="figures/fig5-verifier.png"
+alt="Verifier weights, and the role each check plays in separating a reasoning failure (0.70) from a harness that cannot run (0.10)." />
+<figcaption aria-hidden="true">Verifier weights, and the role each check
+plays in separating a reasoning failure (0.70) from a harness that
+cannot run (0.10).</figcaption>
+</figure>
 <h3 id="trust-boundaries">3.5 Trust boundaries</h3>
 <p>HealthEnv separates three roles that environment-synthesis pipelines
 often blur:</p>
@@ -289,6 +363,117 @@ communicated;</li>
 verifier. The agent cannot mutate source records. The compiler logs
 whether an LLM was used and whether gold state remained
 deterministic.</p>
+<h3 id="interface-surfaces">3.6 Interface surfaces</h3>
+<p>A benchmark that renders every task through one layout measures that
+layout. We therefore compile each seed onto one of three surfaces:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Presentation</th>
+<th>Observation shape</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>timeline</code></td>
+<td>reverse-chronological row list</td>
+<td>one row per record</td>
+</tr>
+<tr>
+<td><code>vitals-dashboard</code></td>
+<td>signal tiles with large readings</td>
+<td>one card per record</td>
+</tr>
+<tr>
+<td><code>clinical-ledger</code></td>
+<td>dense table with checkboxes</td>
+<td>one table row per record</td>
+</tr>
+</tbody>
+</table>
+<p>The surface is assigned deterministically at seed time and travels
+with the task. It is a property of <strong>presentation only</strong>: a
+surface never changes the record set, the gold evidence, the required
+note terms, or the verifier weights. The three surfaces are assigned
+400/400/400 across the corpus and are orthogonal to the reasoning skill,
+so a difference between surfaces cannot be explained by task
+difficulty.</p>
+<p>This separation matters because it makes one specific confound
+measurable. If a harness degrades on <code>clinical-ledger</code> but
+not on <code>timeline</code>, the failure is interface grounding rather
+than reasoning. Two engineering defects found during development were
+exactly of this kind and would have been invisible under a single
+layout:</p>
+<ul>
+<li>The runtime’s public task projection whitelisted fields and silently
+dropped <code>surface</code>, so every task rendered as
+<code>timeline</code> regardless of what the compiler had assigned. The
+data was correct and only the presentation was wrong.</li>
+<li>The ledger row template omitted the <code>data-record-id</code>
+attribute, so a click selected <code>undefined</code> and the evidence
+counter never advanced. The initial working surfaces hid a control that
+did not work.</li>
+</ul>
+<p>Both are recorded here because they are the class of defect that
+surface-conditioned evaluation is meant to surface, and because neither
+was detectable from the compiler’s own tests.</p>
+<p>A third defect of the same class surfaced during the full-corpus
+browser run, and it is the reason the browser proof is run over all 1200
+tasks rather than a sample. The first full run returned 1198/1200: two
+tasks reported the evidence set correct but the submitted note empty,
+while replaying the identical action sequence against the same task
+offline reached strict success — the environment and verifier were
+correct, and the browser layer was not. The cause was in the front-end:
+two change handlers (<code>set_note</code>, <code>set_status</code>)
+issued their <code>fetch</code> calls without ordering, and when the
+responses resolved out of order the first response’s form sync restored
+the note textarea from a snapshot that predates the other write, so the
+submitted note was silently empty. Serializing the front-end action
+chain and re-running the full corpus gave 1200/1200. A dedicated A/B
+probe (120 repeated episodes per arm on the two originally failing
+tasks) showed the failure only under the unserialized front-end; the fix
+also carries a regression test asserting the served HTML keeps
+<code>act()</code> serialized. The honest caveat is statistical: at an
+observed rate of 2/1200, a 120-episode probe cannot prove the race was
+the <em>only</em> cause — what the three consistent measurements
+establish is that the serialized front-end reaches 1200/1200 where the
+unserialized one does not.</p>
+<h3 id="a-sealed-agent-channel">3.7 A sealed agent channel</h3>
+<p>An evaluated agent must not be able to read the verifier. The
+original runtime exposed a single <code>/api/verify</code> endpoint that
+returned a check-by-check report, and that report named the required
+evidence ids. An agent that could reach it would not need to reason: it
+could read the answer, satisfy the checks one at a time, and hill-climb
+against the gold oracle without ever generalizing.</p>
+<p>The released system therefore exposes two distinct channels:</p>
+<ul>
+<li>a <strong>demo channel</strong> (<code>/api/task</code>,
+<code>/api/action</code>, <code>/api/verify</code>) used by the
+interactive workbench, where verification feedback is the point;
+and</li>
+<li>a <strong>sealed agent channel</strong>
+(<code>/api/agent/task</code>, <code>/api/agent/action</code>,
+<code>/api/agent/state</code>) that the evaluated harnesses actually
+use.</li>
+</ul>
+<p>The agent channel applies an explicit projection: the response
+carries the instruction, the participant header, and the records, and
+nothing else. The reasoning <code>category</code> is stripped because it
+names the skill under test, and the <code>surface</code> is stripped
+because it correlates with it. Most importantly, <code>submit</code> on
+the agent channel returns <code>{"ok": true, "submitted": true}</code>
+and <strong>no verification payload at all</strong>. Scoring happens
+offline, after the episode ends, so a harness cannot observe correctness
+mid-episode or steer toward it. Regression tests assert that
+<code>/api/verify</code>, <code>/api/task</code>, and
+<code>/api/state</code> are all <code>404</code> on the tool server an
+agent can reach.</p>
 <h2 id="prototype-evaluation">4. Prototype evaluation</h2>
 <p>The current evaluation asks whether the released artifact is
 internally correct. It does not ask whether a trained CUA generalizes
@@ -329,7 +514,7 @@ edits;</li>
 <tbody>
 <tr>
 <td>Unit and regression tests</td>
-<td style="text-align: right;">27 / 27 pass</td>
+<td style="text-align: right;">55 / 55 pass</td>
 </tr>
 <tr>
 <td>Seeds compiled</td>
@@ -364,8 +549,9 @@ edits;</li>
 <td style="text-align: right;">0</td>
 </tr>
 <tr>
-<td>Scale run in a real headless browser</td>
-<td style="text-align: right;">100%; zero JS/network failures</td>
+<td>Scale run in a real headless browser (all 1200 tasks)</td>
+<td style="text-align: right;">1200 / 1200 strict; 0 JS/network
+failures</td>
 </tr>
 <tr>
 <td>LifeAgentBench-format adapter smoke</td>
@@ -399,6 +585,16 @@ fallback; every artifact records <code>llm_used_for_gold: false</code>.
 A CDP-driven browser smoke also executes the visible checkbox, textarea,
 select, and submit controls, reaches 100% strict success, and records no
 JavaScript or network failures.</p>
+<p>The browser proof is run over the <strong>entire corpus</strong>, not
+a sample: all 1200 compiled tasks are booted one chunk at a time, driven
+through a real headless browser (navigate, click the toolbar controls,
+select evidence, type the note, set the priority, submit), and asserted
+to reach strict success with no JavaScript or network errors. The
+committed run is 1200/1200 across all three surfaces and all seven
+reasoning skills, and it is the run that exposed the front-end ordering
+defect described in Section 3.6 — the first pass scored 1198/1200, with
+the two missing tasks traced to a silent, order-dependent loss of the
+note rather than to any task or verifier fault.</p>
 <h3 id="synthesis-at-scale">4.4 Synthesis at scale</h3>
 <p>Three hand-written seeds cannot distinguish a compiler from a
 template. We therefore add a deterministic generator,
@@ -427,6 +623,13 @@ contain 1164 distinct questions, 641 distinct answers, and 1193 distinct
 (question, answer) pairs. Distinct answers are fewer than distinct
 instances because 343 tasks ask for a date, and the date space is small
 by construction.</p>
+<figure>
+<img src="figures/fig2-diversity.png"
+alt="Instance count versus structural variety. The rightmost bar is the honest ceiling: 1200 instances occupy 86 distinct structural skeletons." />
+<figcaption aria-hidden="true">Instance count versus structural variety.
+The rightmost bar is the honest ceiling: 1200 instances occupy 86
+distinct structural skeletons.</figcaption>
+</figure>
 <table>
 <thead>
 <tr>
@@ -483,7 +686,289 @@ system, that the verifier captures clinical correctness, that a
 vision-language agent can solve the tasks, or that training on generated
 tasks transfers to HealthAdminBench, MedCUA-Bench, OpenEMR, or another
 real application. Those claims require separate experiments.</p>
-<h2 id="relation-to-prior-work">5. Relation to prior work</h2>
+<h2 id="cross-harness-evaluation">5. Cross-harness evaluation</h2>
+<p>The compiler results above establish that the environments are
+well-formed. They say nothing about whether the environments <em>behave
+the same</em> when a different agent drives them, and that is the
+question a benchmark has to answer before anyone trains on it. If a
+measured difference between two agents is really a difference between
+two interfaces, the benchmark is measuring the wrong thing.</p>
+<h3 id="why-the-harness-is-the-right-independent-variable">5.1 Why the
+harness is the right independent variable</h3>
+<p>A computer-use agent is not a model. It is a model plus a loop: a
+prompt scaffold, a tool vocabulary, a context policy, a shell, a
+sandbox, and a stop condition. Two teams can run identical weights
+behind different loops and get different scores on identical tasks.
+Environment-synthesis work therefore has to answer a question that QA
+benchmarks never face: <strong>is a task robust to who is driving
+it?</strong></p>
+<p>We hold the interface fixed and vary only the driving loop. Three
+real, independently released agent harnesses are evaluated:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Harness</th>
+<th>Vendor</th>
+<th>Loop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pi</code></td>
+<td>mariozechner/pi</td>
+<td>coding-agent CLI with an explicit tool allowlist</td>
+</tr>
+<tr>
+<td><code>codex</code></td>
+<td>OpenAI</td>
+<td>Codex CLI, <code>exec</code> non-interactive mode</td>
+</tr>
+<tr>
+<td><code>deepseek</code></td>
+<td>DeepSeek AI</td>
+<td><code>dsh</code> harness, headless profile</td>
+</tr>
+</tbody>
+</table>
+<h3 id="controlled-comparison">5.2 Controlled comparison</h3>
+<p>Four things are identical across the three harnesses, so a difference
+can only be attributed to the loop:</p>
+<p><strong>One model.</strong> Every harness calls the same weights
+(<code>tierflow_pro</code>) through the same OpenAI-compatible endpoint.
+No harness is advantaged by a stronger model.</p>
+<p><strong>One task sample.</strong> All three run the same 12 tasks,
+selected by a stratified sampler that walks the
+<code>(surface, status, skill)</code> cells rather than file order. The
+sample is balanced 4/4/4 across the three surfaces and covers all seven
+reasoning skills.</p>
+<p><strong>One prompt, byte for byte.</strong> Every harness receives
+the same instruction text, which names the tool surface and the workflow
+but never the gold evidence, the note terms, or the verifier. The prompt
+is written to disk and read whole by each harness (Section 5.3).</p>
+<p><strong>One tool surface.</strong> The harnesses do not get a bespoke
+SDK. They call a tiny HTTP API: <code>get_task</code>,
+<code>list_records</code>, <code>read_state</code>,
+<code>select_record</code>, <code>set_note</code>,
+<code>set_status</code>, <code>submit</code>. Scoring is offline and
+deterministic, computed by the same verifier after the episode ends, so
+no harness can observe correctness mid-episode.</p>
+<figure>
+<img src="figures/fig6-workflow.png"
+alt="The controlled cross-harness workflow: one stratified task sample, one prompt, one tool surface, and offline scoring, so the only remaining variable is the driving loop." />
+<figcaption aria-hidden="true">The controlled cross-harness workflow:
+one stratified task sample, one prompt, one tool surface, and offline
+scoring, so the only remaining variable is the driving
+loop.</figcaption>
+</figure>
+<h3 id="interface-hazards-the-comparison-exposed">5.3 Interface hazards
+the comparison exposed</h3>
+<p>Getting three CLIs to run the same task non-interactively turned out
+to be the empirical core of this section. Every hazard below was found
+by measurement, and each one would have silently corrupted the
+comparison while still producing plausible numbers.</p>
+<p><strong>A JSON body is not portable across shells.</strong> The
+natural way to teach a tool call is
+<code>curl -X POST &lt;url&gt; -d '{"tool":"get_task","args":{}}'</code>.
+Measured on this machine, that line works in bash but reaches the server
+through PowerShell 5.1 as <code>{tool:get_task,args:{}}</code> —
+PowerShell strips the inner double quotes before the native executable
+sees them, so the body is no longer JSON and the call fails. This
+matters because the harnesses do not share a shell: <code>pi</code>
+drives Git Bash, while <code>codex</code> and <code>dsh</code> drive
+PowerShell. A harness scored under this prompt would have been scored on
+shell quoting. The tool surface therefore accepts a GET with query
+parameters, which contains no inner quotes and is transmitted
+byte-identically by both shells; the documented call is
+<code>curl -s -G &lt;url&gt;/tool --data-urlencode tool=&lt;name&gt;</code>,
+and POST is retained as an equivalent alias. A test asserts the two
+transports return identical results.</p>
+<p><strong>A multi-line argv prompt is truncated.</strong> codex accepts
+the prompt as an argv argument, and that is how it is normally invoked.
+On Windows it is also silently broken: the agent received only the first
+line. Its transcript shows it reasoning about an instruction it never
+fully got — “The user says: … This is a very vague prompt” — and then
+spending the whole episode listing the filesystem and scanning for
+listening ports instead of calling the tool API. We diagnosed this with
+a sentinel prompt whose distinguishing tokens sat on lines 3 and 7 and
+that asked the model to echo them back: through argv it returned
+<em>zero</em> of the two markers and asked for “the follow-up lines”;
+through stdin it returned both. The fix is per-harness and is recorded
+on each spec: <code>pi</code> inlines the prompt with its own
+<code>@PROMPT.txt</code> syntax, codex reads it from stdin, and
+<code>dsh</code> — which has no prompt-on-stdin channel — is handed a
+one-line pointer and reads the file with its own filesystem tools.</p>
+<p><strong>A completion marker cannot be scraped from the
+transcript.</strong> codex and <code>dsh</code> keep a session alive
+after the last tool call, which would burn the full timeout on every
+episode. The first fix asked the agent to print a marker line and
+watched for it in the output. That fails in a way worth recording: codex
+echoes the prompt to stderr, the marker text was <em>in</em> the prompt,
+so the watcher matched the echo and killed the run roughly two seconds
+in, scoring every episode as an empty submission. The completion signal
+is now read from the episode itself — the tool server knows the instant
+<code>submit</code> lands — with a short grace period before the process
+group is terminated. This is strictly better than scraping: it is ground
+truth rather than a text heuristic.</p>
+<p><strong>A CLI’s own shell discovery can fail where the agent
+lives.</strong> <code>pi</code> grants a <code>bash</code> tool but
+searches only <code>C:\Program Files\Git</code> for the shell; this
+machine’s Git is installed elsewhere, so every command failed with “No
+bash shell found” and the agent could not act at all. A per-run
+project-level settings file supplies <code>shellPath</code>, so the fix
+does not rewrite the user’s global configuration.</p>
+<p><strong>A sandbox can fail closed.</strong> <code>dsh</code>
+provisions a Windows ACL sandbox per call and, on this machine, cannot
+grant write access to its own workspace
+(<code>SetNamedSecurityInfoW</code> fails with error 5). Under the
+default <code>workspace-write</code> mode every command is refused
+before it runs and the agent can only report being blocked — a
+<code>0.1</code> score that reflects the harness being unable to start,
+not the harness failing the task. Its policy is set to full access,
+matching what codex is given.</p>
+<p>The general lesson is that “the environment is deterministic” is not
+the same as “the measurement is controlled.” Five of these six hazards
+produce a valid-looking number attached to an invalid experiment.</p>
+<h3 id="results-1">5.4 Results</h3>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr>
+<th>Harness</th>
+<th style="text-align: right;">Episodes</th>
+<th style="text-align: right;">Strict success</th>
+<th style="text-align: right;">Mean score</th>
+<th style="text-align: right;">Submissions</th>
+<th style="text-align: right;">Timeouts</th>
+<th style="text-align: right;">Mean steps</th>
+<th style="text-align: right;">Mean elapsed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pi (<code>pi</code>)</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">6/12 (50%)</td>
+<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9.2</td>
+<td style="text-align: right;">23s</td>
+</tr>
+<tr>
+<td>Codex CLI (<code>codex</code>)</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">7/12 (58%)</td>
+<td style="text-align: right;">0.82</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8.9</td>
+<td style="text-align: right;">79s</td>
+</tr>
+<tr>
+<td>DeepSeek Harness (<code>deepseek</code>)</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">5/12 (42%)</td>
+<td style="text-align: right;">0.78</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9.8</td>
+<td style="text-align: right;">66s</td>
+</tr>
+</tbody>
+</table>
+<p>Across 3 harnesses and 12 episodes each, strict success ranges from
+42% (DeepSeek Harness) to 58% (Codex CLI) — the same model, the same
+tasks, and the same prompt bytes on every run.</p>
+<p>On pi, strict success by rendered surface is clinical-ledger 50%,
+timeline 25%, vitals-dashboard 75%.</p>
+<p>On Codex CLI, strict success by rendered surface is clinical-ledger
+75%, timeline 50%, vitals-dashboard 50%.</p>
+<p>On DeepSeek Harness, strict success by rendered surface is
+clinical-ledger 50%, timeline 25%, vitals-dashboard 50%.</p>
+<figure>
+<img src="figures/fig3-harness-success.png"
+alt="Strict success per harness, overall and split by rendered surface. Each surface carries an equal share of the sample, so the split tests whether a loop is sensitive to how records are presented." />
+<figcaption aria-hidden="true">Strict success per harness, overall and
+split by rendered surface. Each surface carries an equal share of the
+sample, so the split tests whether a loop is sensitive to how records
+are presented.</figcaption>
+</figure>
+<h3 id="failure-modes">5.5 Failure modes</h3>
+<table>
+<thead>
+<tr>
+<th>Failed check</th>
+<th>pi</th>
+<th>Codex CLI</th>
+<th>DeepSeek Harness</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>evidence selection</td>
+<td>6/12</td>
+<td>5/12</td>
+<td>7/12</td>
+</tr>
+<tr>
+<td>grounded note</td>
+<td>0/12</td>
+<td>2/12</td>
+<td>2/12</td>
+</tr>
+</tbody>
+</table>
+<p>A score of 0.70 on a failed episode means evidence selection missed
+while the note, status, submission, and safety checks still passed — the
+agent did the workflow but chose the wrong records. Episode scores
+across all 36 runs were 4 at 0.40, 14 at 0.70, 18 at 1.00 — no episode
+in this run scored the 0.10 safety floor at which only the safety check
+passes, so every harness could start, act, and submit. No harness solved
+a range-computation task, while every harness solved
+longitudinal-comparison — the residual failures concentrate in a
+reasoning skill rather than in a harness.</p>
+<figure>
+<img src="figures/fig4-failure-modes.png"
+alt="Which verifier checks each harness actually misses, as a fraction of its episodes." />
+<figcaption aria-hidden="true">Which verifier checks each harness
+actually misses, as a fraction of its episodes.</figcaption>
+</figure>
+<h3 id="what-the-comparison-does-and-does-not-show">5.6 What the
+comparison does and does not show</h3>
+<p>It shows that tasks compiled by HealthEnv are solvable by three
+independently built agent loops that were never adapted to this
+benchmark, through one narrow tool surface, with scoring done offline.
+It shows that the measured differences are attributable to the loop,
+because the model, the sample, the prompt, and the tools were held
+identical.</p>
+<p>It does not show that the harnesses differ <em>in general</em> — the
+sample is small, and a single model on a single endpoint cannot separate
+loop quality from how well that loop happens to suit one model. It does
+not compare model capability, since all three run the same weights. It
+does not measure GUI grounding, because the harnesses call an HTTP API
+rather than a rendered interface; the browser layer is proved separately
+and exhaustively over all 1200 tasks in Section 4.3, but the harness
+comparison is not conducted through it. That separation is deliberate —
+it isolates “can the loop read, select, and act on evidence” from “can
+the agent ground a rendered interface” — and it also means the two
+results must not be conflated: 1200/1200 in the browser does not imply
+the harnesses would score well under a pixel-input interface, and vice
+versa.</p>
+<h2 id="relation-to-prior-work">6. Relation to prior work</h2>
 <h3 id="health-reasoning-benchmarks">Health reasoning benchmarks</h3>
 <p>LifeAgentBench contains 22,573 questions targeting long-horizon,
 cross-dimensional, and multi-user lifestyle reasoning, with answers
@@ -514,7 +999,23 @@ environments, solvers, and complementary verifiers [9].</p>
 <p>HealthEnv adopts their shared principle—environment generation must
 be coupled to verification—but introduces a domain-specific seed:
 executable health QA.</p>
-<h2 id="research-agenda">6. Research agenda</h2>
+<h3 id="agent-harnesses-as-a-measurement-variable">Agent harnesses as a
+measurement variable</h3>
+<p>Agent harnesses—the loop around a model, comprising the scaffold,
+tool vocabulary, context policy, shell, and stop condition—have become
+first-class artifacts in their own right. Terminal-Bench and similar
+agentic benchmarks have made the harness an explicit component of the
+evaluated system, and harnesses such as <code>pi</code>, Codex CLI, and
+<code>dsh</code> are distributed and versioned independently of any
+model. This creates a measurement problem that text benchmarks do not
+have: a score is a property of the pair (model, harness), and a
+benchmark that does not control the harness cannot attribute a
+difference to either. HealthEnv’s contribution here is narrow and
+empirical — one model, one sample, one prompt, one tool surface, three
+harnesses — and its value is as much in the documented hazards (Section
+5.3) as in the numbers, since those hazards corrupt the comparison
+without changing its apparent plausibility.</p>
+<h2 id="research-agenda">7. Research agenda</h2>
 <p>A full paper should test four hypotheses.</p>
 <p><strong>H1: Expansion fidelity.</strong> Independent domain experts
 should judge whether a generated workflow preserves the original QA
@@ -534,7 +1035,7 @@ without increasing clinically consequential errors.</p>
 question template, metric family, interface skin, and workflow; compare
 deterministic-only and LLM-assisted compilation; and report both strict
 success and safety violations.</p>
-<h2 id="safety-ethics-and-governance">7. Safety, ethics, and
+<h2 id="safety-ethics-and-governance">8. Safety, ethics, and
 governance</h2>
 <p>HealthEnv can create high-stakes-looking interfaces. That makes scope
 control essential.</p>
@@ -553,27 +1054,40 @@ use.</li>
 </ul>
 <p>The project should be evaluated as research infrastructure for agent
 learning, not as a healthcare automation product.</p>
-<h2 id="limitations">8. Limitations</h2>
-<p>The prototype has one browser application, a narrow record schema,
-handcrafted action primitives, and term-based note checking. It does not
-model authentication, role permissions, cross-application document
-transfer, asynchronous workflows, or clinical ontologies. Its
-LifeAgentBench adapter currently handles dated numeric comparison items
-and synthesizes evidence states rather than reconstructing the original
-database. The demo sample is too small for performance conclusions. No
-CUA model has yet been benchmarked in the released report.</p>
+<h2 id="limitations">9. Limitations</h2>
+<p>The prototype has three browser surface skins over one application, a
+narrow record schema, handcrafted action primitives, and term-based note
+checking. It does not model authentication, role permissions,
+cross-application document transfer, asynchronous workflows, or clinical
+ontologies. Its LifeAgentBench adapter currently handles dated numeric
+comparison items and synthesizes evidence states rather than
+reconstructing the original database.</p>
+<p>The cross-harness comparison has its own bounds. It runs a single
+model on a single endpoint, so it separates loops only relative to that
+model; it cannot rank the harnesses in general. The harnesses drive the
+environment through an HTTP tool API rather than a rendered interface,
+so this section measures the loop’s ability to read, select, and act on
+evidence — not its pixel-level GUI grounding, which the browser layer
+exercises separately. The sample is 12 tasks per harness, which is
+enough to distinguish “works” from “cannot start” but not enough for
+confidence intervals on small differences. One harness needed a sandbox
+mode widened and another needed its shell path supplied; those are
+configuration changes to make the agents runnable at all, and they are
+disclosed rather than smoothed over.</p>
 <p>These limitations are not cosmetic. They define the next
 implementation milestones and the difference between a working compiler
 prototype and a publishable empirical result.</p>
-<h2 id="conclusion">9. Conclusion</h2>
+<h2 id="conclusion">10. Conclusion</h2>
 <p>HealthEnv demonstrates a concrete route from static health QA to
 executable computer-use environments. The central mechanism is not the
 UI generator alone; it is the separation of seed truth, planner
 language, runtime state, and verifier logic. The released vertical slice
 establishes that this separation can be implemented, tested, and audited
-with minimal infrastructure. The next question is empirical: whether
-scaling this compilation process yields environments that are diverse
-enough to train agents and faithful enough to trust.</p>
+with minimal infrastructure, and that the resulting tasks are robust
+enough to compare three independently built agent harnesses under
+controlled conditions. The next question is empirical: whether scaling
+this compilation process yields environments that are diverse enough to
+train agents and faithful enough to trust.</p>
 <h2 id="references">References</h2>
 <ol type="1">
 <li>Ye Tian, Zihao Wang, Onat Gungor, Xiaoran Fan, and Tajana Rosing.

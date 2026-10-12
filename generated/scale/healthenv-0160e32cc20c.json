@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00314",
     "category": "range-computation",
-    "question": "What was the range (highest minus lowest) of the resting heart rate across the 5 recorded days from 2023-05-21 to 2023-05-25?"
+    "question": "What was the range (highest minus lowest) of the resting heart rate across the 5 recorded days from 2023-05-21 to 2023-05-25?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1065's timeline and answer this operational question: What was the range (highest minus lowest) of the resting heart rate across the 5 recorded days from 2023-05-21 to 2023-05-25? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

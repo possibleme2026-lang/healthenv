@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00404",
     "category": "trend-classification",
-    "question": "Across the 5 recorded days from 2023-01-16 to 2023-01-20, did the hydration intake trend upward or downward?"
+    "question": "Across the 5 recorded days from 2023-01-16 to 2023-01-20, did the hydration intake trend upward or downward?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1155's timeline and answer this operational question: Across the 5 recorded days from 2023-01-16 to 2023-01-20, did the hydration intake trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00862",
     "category": "temporal-aggregation",
-    "question": "What was the average stress score across the 3 days from 2024-04-12 through 2024-04-14?"
+    "question": "What was the average stress score across the 3 days from 2024-04-12 through 2024-04-14?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1113's timeline and answer this operational question: What was the average stress score across the 3 days from 2024-04-12 through 2024-04-14? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

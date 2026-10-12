@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00172",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2023-11-30 to 2023-12-05, on which day was the body weight lowest?"
+    "question": "Among the recorded days from 2023-11-30 to 2023-12-05, on which day was the body weight lowest?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1173's timeline and answer this operational question: Among the recorded days from 2023-11-30 to 2023-12-05, on which day was the body weight lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

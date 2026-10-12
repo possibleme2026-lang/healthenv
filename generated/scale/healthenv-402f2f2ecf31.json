@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00282",
     "category": "cross-dimensional-reasoning",
-    "question": "Among the recorded days from 2023-09-27 to 2023-09-29, on which day did the participant have both the highest active minutes and the lowest systolic blood pressure?"
+    "question": "Among the recorded days from 2023-09-27 to 2023-09-29, on which day did the participant have both the highest active minutes and the lowest systolic blood pressure?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1033's timeline and answer this operational question: Among the recorded days from 2023-09-27 to 2023-09-29, on which day did the participant have both the highest active minutes and the lowest systolic blood pressure? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

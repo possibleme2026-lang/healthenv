@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00131",
     "category": "trend-classification",
-    "question": "Across the 4 recorded days from 2024-04-01 to 2024-04-04, did the stress score trend upward or downward?"
+    "question": "Across the 4 recorded days from 2024-04-01 to 2024-04-04, did the stress score trend upward or downward?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1132's timeline and answer this operational question: Across the 4 recorded days from 2024-04-01 to 2024-04-04, did the stress score trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

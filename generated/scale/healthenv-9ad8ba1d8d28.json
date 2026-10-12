@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00353",
     "category": "threshold-detection",
-    "question": "On how many of the recorded days did the hydration intake exceed 1841 ml?"
+    "question": "On how many of the recorded days did the hydration intake exceed 1841 ml?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1104's timeline and answer this operational question: On how many of the recorded days did the hydration intake exceed 1841 ml? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

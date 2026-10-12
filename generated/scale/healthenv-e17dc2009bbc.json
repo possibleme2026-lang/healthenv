@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00567",
     "category": "longitudinal-comparison",
-    "question": "How many steps higher was the step count on 2023-07-29 than on 2023-07-28?"
+    "question": "How many steps higher was the step count on 2023-07-29 than on 2023-07-28?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1068's timeline and answer this operational question: How many steps higher was the step count on 2023-07-29 than on 2023-07-28? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

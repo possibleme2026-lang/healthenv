@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00091",
     "category": "longitudinal-comparison",
-    "question": "How many steps lower was the step count on 2023-10-21 than on 2023-10-18?"
+    "question": "How many steps lower was the step count on 2023-10-21 than on 2023-10-18?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1092's timeline and answer this operational question: How many steps lower was the step count on 2023-10-21 than on 2023-10-18? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

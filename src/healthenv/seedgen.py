@@ -18,7 +18,7 @@ from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
 
-from .schema import QuestionSeed
+from .schema import SURFACES, QuestionSeed
 
 SEEDGEN_VERSION = "healthenv.seedgen/0.1"
 
@@ -607,6 +607,16 @@ _GENERATORS: dict[str, Callable[[random.Random, date], SynthesizedSeed]] = {
 _AGE_BANDS: tuple[str, ...] = ("young-adult", "adult", "older-adult")
 
 
+def _surface_for(index: int) -> str:
+    """Assign a GUI surface deterministically, spread across reasoning skills.
+
+    The surface only changes how the environment is rendered. It never changes
+    the evidence set, the gold answer, or the verifier, so switching surfaces is
+    a pure presentation change rather than a new task.
+    """
+    return SURFACES[(index + index // len(SKILLS)) % len(SURFACES)]
+
+
 def generate_seeds(count: int, *, master_seed: int = 20261012) -> list[QuestionSeed]:
     """Generate ``count`` distinct QA seeds deterministically from ``master_seed``."""
     if count < 1:
@@ -631,6 +641,7 @@ def generate_seeds(count: int, *, master_seed: int = 20261012) -> list[QuestionS
                     "display_name": f"Synthetic Participant {participant_number}",
                     "age_band": _AGE_BANDS[index % len(_AGE_BANDS)],
                     "required_status": synth.status,
+                    "surface": _surface_for(index),
                     "note_must_include": synth.note_must_include,
                     "skill": skill,
                     "metric": synth.metric_key,

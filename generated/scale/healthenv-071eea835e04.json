@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-01058",
     "category": "temporal-aggregation",
-    "question": "What was the average hydration intake across the 5 days from 2024-06-03 through 2024-06-07?"
+    "question": "What was the average hydration intake across the 5 days from 2024-06-03 through 2024-06-07?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1059's timeline and answer this operational question: What was the average hydration intake across the 5 days from 2024-06-03 through 2024-06-07? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-01123",
     "category": "threshold-detection",
-    "question": "On how many of the recorded days did the stress score exceed 72 points?"
+    "question": "On how many of the recorded days did the stress score exceed 72 points?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1124's timeline and answer this operational question: On how many of the recorded days did the stress score exceed 72 points? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
   "patient": {

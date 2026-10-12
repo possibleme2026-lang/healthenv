@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00884",
     "category": "cross-dimensional-reasoning",
-    "question": "Among the recorded days from 2024-11-07 to 2024-11-10, on which day did the participant have both the highest step count and the lowest sleep duration?"
+    "question": "Among the recorded days from 2024-11-07 to 2024-11-10, on which day did the participant have both the highest step count and the lowest sleep duration?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1135's timeline and answer this operational question: Among the recorded days from 2024-11-07 to 2024-11-10, on which day did the participant have both the highest step count and the lowest sleep duration? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

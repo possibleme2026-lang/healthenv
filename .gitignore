@@ -19,3 +19,10 @@ paper/*.out
 paper/*.toc
 paper/*.pdf
 artifacts/local-*.json
+generated/harness_runs/
+generated/pi_home_test/
+generated/prompt_probe.py
+generated/prompt_probe/
+artifacts/smoke_*.json
+stdin.txt
+.scratch/

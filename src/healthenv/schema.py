@@ -10,6 +10,16 @@ class SchemaError(ValueError):
     """Raised when a seed or task violates the public HealthEnv schema."""
 
 
+# The rendered health-software layout. A surface changes presentation only: it
+# never touches evidence, the gold answer, or the verifier.
+DEFAULT_SURFACE = "timeline"
+SURFACES: tuple[str, ...] = (
+    "timeline",
+    "vitals-dashboard",
+    "clinical-ledger",
+)
+
+
 def _require(mapping: dict[str, Any], key: str, expected: type) -> Any:
     value = mapping.get(key)
     if not isinstance(value, expected):

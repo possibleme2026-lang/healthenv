@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00189",
     "category": "longitudinal-comparison",
-    "question": "How many minutes lower was the active minutes on 2023-09-05 than on 2023-09-04?"
+    "question": "How many minutes lower was the active minutes on 2023-09-05 than on 2023-09-04?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1190's timeline and answer this operational question: How many minutes lower was the active minutes on 2023-09-05 than on 2023-09-04? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

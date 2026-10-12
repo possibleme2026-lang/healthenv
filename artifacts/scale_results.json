@@ -16,7 +16,7 @@
     "wrong_status": 1200
   },
   "structural_errors": [],
-  "elapsed_seconds": 1.599,
+  "elapsed_seconds": 6.044,
   "diversity": {
     "unique_questions": 1164,
     "unique_answers": 641,
@@ -134,6 +134,12 @@
       "routine": 238,
       "urgent": 107
     },
+    "surfaces": {
+      "clinical-ledger": 400,
+      "timeline": 400,
+      "vitals-dashboard": 400
+    },
+    "surface_note": "surface selects the rendered health-software layout (timeline / vitals dashboard / clinical ledger); it never changes evidence, gold answer, or verifier",
     "records_per_task": {
       "3": 40,
       "4": 122,

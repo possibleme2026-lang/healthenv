@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-01068",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2023-09-04 to 2023-09-07, on which day was the systolic blood pressure lowest?"
+    "question": "Among the recorded days from 2023-09-04 to 2023-09-07, on which day was the systolic blood pressure lowest?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1069's timeline and answer this operational question: Among the recorded days from 2023-09-04 to 2023-09-07, on which day was the systolic blood pressure lowest? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
   "patient": {

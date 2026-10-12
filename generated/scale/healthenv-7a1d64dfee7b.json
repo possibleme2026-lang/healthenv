@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00708",
     "category": "temporal-aggregation",
-    "question": "What was the average stress score across the 5 days from 2023-06-19 through 2023-06-23?"
+    "question": "What was the average stress score across the 5 days from 2023-06-19 through 2023-06-23?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1209's timeline and answer this operational question: What was the average stress score across the 5 days from 2023-06-19 through 2023-06-23? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

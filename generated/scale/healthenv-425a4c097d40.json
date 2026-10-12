@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00705",
     "category": "trend-classification",
-    "question": "Across the 6 recorded days from 2023-09-12 to 2023-09-17, did the resting heart rate trend upward or downward?"
+    "question": "Across the 6 recorded days from 2023-09-12 to 2023-09-17, did the resting heart rate trend upward or downward?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1206's timeline and answer this operational question: Across the 6 recorded days from 2023-09-12 to 2023-09-17, did the resting heart rate trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
   "patient": {

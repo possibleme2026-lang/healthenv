@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00000",
     "category": "longitudinal-comparison",
-    "question": "How many percentage point higher was the oxygen saturation on 2024-02-23 than on 2024-02-22?"
+    "question": "How many percentage point higher was the oxygen saturation on 2024-02-23 than on 2024-02-22?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1001's timeline and answer this operational question: How many percentage point higher was the oxygen saturation on 2024-02-23 than on 2024-02-22? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

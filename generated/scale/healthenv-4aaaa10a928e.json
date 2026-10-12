@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00242",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2024-05-28 to 2024-06-02, on which day was the stress score highest?"
+    "question": "Among the recorded days from 2024-05-28 to 2024-06-02, on which day was the stress score highest?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1243's timeline and answer this operational question: Among the recorded days from 2024-05-28 to 2024-06-02, on which day was the stress score highest? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

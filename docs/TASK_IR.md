@@ -8,13 +8,17 @@ A task is a JSON object that separates agent-visible state from hidden verificat
 |---|---|---|
 | `schema_version` | public | Contract version; currently `0.1`. |
 | `task_id` | public | Stable hash of benchmark and source seed id. |
-| `source` | partial | Benchmark/category are public; question and seed provenance remain in the task artifact. |
+| `source` | partial | Benchmark/category are public; question and seed provenance remain in the task artifact. `source.surface` names the presentation skin. |
 | `instruction` | public | Operational workflow shown to the agent. |
 | `patient` | public | Synthetic participant metadata. |
 | `records` | public | Read-only longitudinal observations. |
 | `initial_state` | runtime | Empty evidence selection, note, status, audit log, and submission flag. |
 | `verifier` | hidden | Required evidence, grounded note terms, expected workflow status, and gold provenance. |
 | `generation` | audit | Compiler mode, optional planner model, fallback reason, and gold-generation boundary. |
+
+## Interface surfaces
+
+`source.surface` is one of `timeline`, `vitals-dashboard`, or `clinical-ledger`. It is assigned at seed time (400/400/400 across the corpus, orthogonal to the reasoning skill) and controls **presentation only**: the record set, the gold evidence, the note terms, and the verifier weights are identical across surfaces. The demo browser renders each surface with a distinct layout; the sealed agent channel strips the field entirely so an evaluated agent cannot condition on it.
 
 ## State transition surface
 
@@ -49,5 +53,19 @@ The weighted score provides progress signal; `strict_success` remains all-or-not
 ## Trust boundary
 
 The optional LLM planner sees only participant id, question, category, record types, and record count. It does not see the answer, evidence ids, or verifier. Its output is rejected if it leaks the answer or omits selection, note, or submission operations. A deterministic instruction is used on any planner failure.
+
+## Agent channel
+
+The evaluated agent never sees the demo channel. `healthenv.agentenv` serves a tool API instead:
+
+| Endpoint | Method | Purpose |
+|---|---|---|
+| `/manifest` | GET | Tool list with argument schemas and the step budget. |
+| `/tool` | GET | Execute one tool call from query parameters. |
+| `/tool` | POST | Equivalent alias with a JSON body. |
+
+Tools: `get_task`, `list_records`, `read_state`, `select_record`, `set_note`, `set_status`, `submit`. The task projection strips `source` (including `category` and `surface`) and every verifier field. `submit` returns `{"ok": true, "submitted": true}` and no verification payload; scoring happens offline after the episode. `/api/verify`, `/api/task`, and `/api/state` are 404 on this server.
+
+The GET transport is the documented one because a quoted JSON body is corrupted by PowerShell 5.1 (`{tool:get_task,...}`), which two of the three evaluated harnesses drive as their shell; the query form is byte-identical under bash and PowerShell. A regression test asserts the two transports return identical results.
 
 The current schema is intentionally narrow. A production research release should add typed temporal predicates, cross-application state, document artifacts, role-based permissions, and executable clinical safety invariants.

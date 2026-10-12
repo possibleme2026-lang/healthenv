@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00464",
     "category": "cross-dimensional-reasoning",
-    "question": "Among the recorded days from 2023-12-15 to 2023-12-18, on which day did the participant have both the highest oxygen saturation and the lowest systolic blood pressure?"
+    "question": "Among the recorded days from 2023-12-15 to 2023-12-18, on which day did the participant have both the highest oxygen saturation and the lowest systolic blood pressure?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1215's timeline and answer this operational question: Among the recorded days from 2023-12-15 to 2023-12-18, on which day did the participant have both the highest oxygen saturation and the lowest systolic blood pressure? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

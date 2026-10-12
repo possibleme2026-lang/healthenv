@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00669",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2024-09-24 to 2024-09-29, on which day was the resting heart rate lowest?"
+    "question": "Among the recorded days from 2024-09-24 to 2024-09-29, on which day was the resting heart rate lowest?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1170's timeline and answer this operational question: Among the recorded days from 2024-09-24 to 2024-09-29, on which day was the resting heart rate lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

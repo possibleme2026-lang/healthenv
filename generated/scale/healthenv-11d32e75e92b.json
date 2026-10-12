@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00296",
     "category": "cross-dimensional-reasoning",
-    "question": "Among the recorded days from 2023-04-23 to 2023-04-25, on which day did the participant have both the highest resting heart rate and the lowest oxygen saturation?"
+    "question": "Among the recorded days from 2023-04-23 to 2023-04-25, on which day did the participant have both the highest resting heart rate and the lowest oxygen saturation?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1047's timeline and answer this operational question: Among the recorded days from 2023-04-23 to 2023-04-25, on which day did the participant have both the highest resting heart rate and the lowest oxygen saturation? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

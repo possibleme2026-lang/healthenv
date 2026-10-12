@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00662",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2023-11-29 to 2023-12-02, on which day was the resting heart rate lowest?"
+    "question": "Among the recorded days from 2023-11-29 to 2023-12-02, on which day was the resting heart rate lowest?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1163's timeline and answer this operational question: Among the recorded days from 2023-11-29 to 2023-12-02, on which day was the resting heart rate lowest? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

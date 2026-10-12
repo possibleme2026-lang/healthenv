@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00816",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2024-12-27 to 2024-12-30, on which day was the stress score lowest?"
+    "question": "Among the recorded days from 2024-12-27 to 2024-12-30, on which day was the stress score lowest?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1067's timeline and answer this operational question: Among the recorded days from 2024-12-27 to 2024-12-30, on which day was the stress score lowest? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

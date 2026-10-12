@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00560",
     "category": "longitudinal-comparison",
-    "question": "How many kg lower was the body weight on 2024-06-19 than on 2024-06-16?"
+    "question": "How many kg lower was the body weight on 2024-06-19 than on 2024-06-16?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1061's timeline and answer this operational question: How many kg lower was the body weight on 2024-06-19 than on 2024-06-16? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

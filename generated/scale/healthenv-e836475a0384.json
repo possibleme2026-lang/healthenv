@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-01015",
     "category": "longitudinal-comparison",
-    "question": "How many ml lower was the hydration intake on 2023-04-08 than on 2023-04-07?"
+    "question": "How many ml lower was the hydration intake on 2023-04-08 than on 2023-04-07?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1016's timeline and answer this operational question: How many ml lower was the hydration intake on 2023-04-08 than on 2023-04-07? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

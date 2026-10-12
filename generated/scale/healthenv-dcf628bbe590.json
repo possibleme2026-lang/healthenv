@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00289",
     "category": "cross-dimensional-reasoning",
-    "question": "Among the recorded days from 2023-01-28 to 2023-01-31, on which day did the participant have both the highest oxygen saturation and the lowest blood glucose?"
+    "question": "Among the recorded days from 2023-01-28 to 2023-01-31, on which day did the participant have both the highest oxygen saturation and the lowest blood glucose?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1040's timeline and answer this operational question: Among the recorded days from 2023-01-28 to 2023-01-31, on which day did the participant have both the highest oxygen saturation and the lowest blood glucose? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

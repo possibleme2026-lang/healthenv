@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-01167",
     "category": "trend-classification",
-    "question": "Across the 5 recorded days from 2024-03-20 to 2024-03-24, did the active minutes trend upward or downward?"
+    "question": "Across the 5 recorded days from 2024-03-20 to 2024-03-24, did the active minutes trend upward or downward?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1168's timeline and answer this operational question: Across the 5 recorded days from 2024-03-20 to 2024-03-24, did the active minutes trend upward or downward? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

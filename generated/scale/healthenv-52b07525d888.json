@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-01101",
     "category": "cross-dimensional-reasoning",
-    "question": "Among the recorded days from 2024-02-25 to 2024-02-28, on which day did the participant have both the highest body weight and the lowest active minutes?"
+    "question": "Among the recorded days from 2024-02-25 to 2024-02-28, on which day did the participant have both the highest body weight and the lowest active minutes?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1102's timeline and answer this operational question: Among the recorded days from 2024-02-25 to 2024-02-28, on which day did the participant have both the highest body weight and the lowest active minutes? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

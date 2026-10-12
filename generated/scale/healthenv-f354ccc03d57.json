@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00224",
     "category": "longitudinal-comparison",
-    "question": "How many ml higher was the hydration intake on 2023-05-30 than on 2023-05-27?"
+    "question": "How many ml higher was the hydration intake on 2023-05-30 than on 2023-05-27?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1225's timeline and answer this operational question: How many ml higher was the hydration intake on 2023-05-30 than on 2023-05-27? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

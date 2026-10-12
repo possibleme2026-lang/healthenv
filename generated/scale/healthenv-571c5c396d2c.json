@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-01135",
     "category": "temporal-aggregation",
-    "question": "What was the average active minutes across the 3 days from 2024-07-17 through 2024-07-19?"
+    "question": "What was the average active minutes across the 3 days from 2024-07-17 through 2024-07-19?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1136's timeline and answer this operational question: What was the average active minutes across the 3 days from 2024-07-17 through 2024-07-19? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

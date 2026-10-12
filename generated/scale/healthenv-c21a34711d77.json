@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-01011",
     "category": "threshold-detection",
-    "question": "On how many of the recorded days did the resting heart rate exceed 82 bpm?"
+    "question": "On how many of the recorded days did the resting heart rate exceed 82 bpm?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1012's timeline and answer this operational question: On how many of the recorded days did the resting heart rate exceed 82 bpm? Select every supporting record, document the conclusion in the care note, set the case to Urgent, and submit. Do not modify source records.",
   "patient": {

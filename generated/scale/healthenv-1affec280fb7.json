@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-01038",
     "category": "cross-dimensional-reasoning",
-    "question": "Among the recorded days from 2025-01-09 to 2025-01-12, on which day did the participant have both the highest systolic blood pressure and the lowest hydration intake?"
+    "question": "Among the recorded days from 2025-01-09 to 2025-01-12, on which day did the participant have both the highest systolic blood pressure and the lowest hydration intake?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1039's timeline and answer this operational question: Among the recorded days from 2025-01-09 to 2025-01-12, on which day did the participant have both the highest systolic blood pressure and the lowest hydration intake? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

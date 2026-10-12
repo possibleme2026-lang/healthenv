@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00249",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2024-12-10 to 2024-12-13, on which day was the hydration intake lowest?"
+    "question": "Among the recorded days from 2024-12-10 to 2024-12-13, on which day was the hydration intake lowest?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1250's timeline and answer this operational question: Among the recorded days from 2024-12-10 to 2024-12-13, on which day was the hydration intake lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

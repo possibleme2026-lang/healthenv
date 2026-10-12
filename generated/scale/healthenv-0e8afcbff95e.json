@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00699",
     "category": "range-computation",
-    "question": "What was the range (highest minus lowest) of the stress score across the 5 recorded days from 2024-01-21 to 2024-01-25?"
+    "question": "What was the range (highest minus lowest) of the stress score across the 5 recorded days from 2024-01-21 to 2024-01-25?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1200's timeline and answer this operational question: What was the range (highest minus lowest) of the stress score across the 5 recorded days from 2024-01-21 to 2024-01-25? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00396",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2024-02-14 to 2024-02-17, on which day was the sleep duration lowest?"
+    "question": "Among the recorded days from 2024-02-14 to 2024-02-17, on which day was the sleep duration lowest?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1147's timeline and answer this operational question: Among the recorded days from 2024-02-14 to 2024-02-17, on which day was the sleep duration lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00596",
     "category": "temporal-aggregation",
-    "question": "What was the average systolic blood pressure across the 3 days from 2023-11-17 through 2023-11-19?"
+    "question": "What was the average systolic blood pressure across the 3 days from 2023-11-17 through 2023-11-19?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1097's timeline and answer this operational question: What was the average systolic blood pressure across the 3 days from 2023-11-17 through 2023-11-19? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

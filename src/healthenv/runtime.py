@@ -7,7 +7,7 @@ from datetime import UTC, datetime
 from threading import RLock
 from typing import Any
 
-from .schema import TaskSpec
+from .schema import DEFAULT_SURFACE, TaskSpec
 from .verifier import verify_state
 
 
@@ -43,8 +43,38 @@ class TaskRuntime:
             "source": {
                 "benchmark": self.task.source.get("benchmark"),
                 "category": self.task.source.get("category"),
+                # rendering metadata only: safe to expose, unlike question/gold
+                "surface": self.task.source.get("surface") or DEFAULT_SURFACE,
             },
         }
+
+    def agent_task(self) -> dict[str, Any]:
+        """Strictly agent-visible view, behind an explicit information barrier.
+
+        ``public_task`` is what the demonstration UI renders, so it still carries
+        the benchmark category and the surface. An evaluated agent must not even
+        see those, because the category names the reasoning skill and the surface
+        correlates with it. This view therefore drops ``source`` entirely and
+        exposes only what a real operator would have: the instruction, the
+        participant header, and the raw records.
+        """
+        return {
+            "schema_version": self.task.schema_version,
+            "task_id": self.task.task_id,
+            "instruction": self.task.instruction,
+            "patient": self.task.patient,
+            "records": self.task.records,
+        }
+
+    def agent_submission(self) -> dict[str, Any]:
+        """Submit acknowledgement with no verifier signal at all.
+
+        Episodes are scored offline. Returning check-level detail here would hand
+        the agent a gold oracle it could hill-climb against (``detail`` on the
+        evidence check spells out the required record ids), so the agent-facing
+        path deliberately returns none of it.
+        """
+        return {"ok": True, "submitted": self._state.get("submitted") is True}
 
     def reset(self) -> dict[str, Any]:
         with self._lock:

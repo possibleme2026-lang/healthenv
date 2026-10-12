@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00715",
     "category": "temporal-aggregation",
-    "question": "What was the average body weight across the 4 days from 2023-02-01 through 2023-02-04?"
+    "question": "What was the average body weight across the 4 days from 2023-02-01 through 2023-02-04?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1216's timeline and answer this operational question: What was the average body weight across the 4 days from 2023-02-01 through 2023-02-04? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

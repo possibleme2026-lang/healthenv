@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-01022",
     "category": "longitudinal-comparison",
-    "question": "How many percentage points higher was the oxygen saturation on 2024-11-11 than on 2024-11-08?"
+    "question": "How many percentage points higher was the oxygen saturation on 2024-11-11 than on 2024-11-08?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1023's timeline and answer this operational question: How many percentage points higher was the oxygen saturation on 2024-11-11 than on 2024-11-08? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

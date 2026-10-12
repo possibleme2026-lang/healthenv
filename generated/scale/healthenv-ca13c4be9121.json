@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00533",
     "category": "temporal-aggregation",
-    "question": "What was the average step count across the 4 days from 2023-08-30 through 2023-09-02?"
+    "question": "What was the average step count across the 4 days from 2023-08-30 through 2023-09-02?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1034's timeline and answer this operational question: What was the average step count across the 4 days from 2023-08-30 through 2023-09-02? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

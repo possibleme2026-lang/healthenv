@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00883",
     "category": "temporal-aggregation",
-    "question": "What was the average body weight across the 5 days from 2023-06-23 through 2023-06-27?"
+    "question": "What was the average body weight across the 5 days from 2023-06-23 through 2023-06-27?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1134's timeline and answer this operational question: What was the average body weight across the 5 days from 2023-06-23 through 2023-06-27? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00721",
     "category": "longitudinal-comparison",
-    "question": "How many percentage points lower was the oxygen saturation on 2023-03-09 than on 2023-03-08?"
+    "question": "How many percentage points lower was the oxygen saturation on 2023-03-09 than on 2023-03-08?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1222's timeline and answer this operational question: How many percentage points lower was the oxygen saturation on 2023-03-09 than on 2023-03-08? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

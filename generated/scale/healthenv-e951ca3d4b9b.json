@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00529",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2024-08-22 to 2024-08-27, on which day was the active minutes lowest?"
+    "question": "Among the recorded days from 2024-08-22 to 2024-08-27, on which day was the active minutes lowest?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1030's timeline and answer this operational question: Among the recorded days from 2024-08-22 to 2024-08-27, on which day was the active minutes lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

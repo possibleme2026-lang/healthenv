@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00687",
     "category": "temporal-aggregation",
-    "question": "What was the average sleep duration across the 4 days from 2023-08-11 through 2023-08-14?"
+    "question": "What was the average sleep duration across the 4 days from 2023-08-11 through 2023-08-14?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1188's timeline and answer this operational question: What was the average sleep duration across the 4 days from 2023-08-11 through 2023-08-14? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

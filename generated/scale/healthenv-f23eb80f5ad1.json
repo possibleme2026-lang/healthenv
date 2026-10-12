@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-01033",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2024-12-11 to 2024-12-14, on which day was the step count lowest?"
+    "question": "Among the recorded days from 2024-12-11 to 2024-12-14, on which day was the step count lowest?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1034's timeline and answer this operational question: Among the recorded days from 2024-12-11 to 2024-12-14, on which day was the step count lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

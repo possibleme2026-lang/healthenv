@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00207",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2024-03-02 to 2024-03-07, on which day was the oxygen saturation highest?"
+    "question": "Among the recorded days from 2024-03-02 to 2024-03-07, on which day was the oxygen saturation highest?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1208's timeline and answer this operational question: Among the recorded days from 2024-03-02 to 2024-03-07, on which day was the oxygen saturation highest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

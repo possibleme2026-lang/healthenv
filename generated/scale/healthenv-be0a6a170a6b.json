@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00071",
     "category": "temporal-aggregation",
-    "question": "What was the total hydration intake across the 3 days from 2023-12-04 through 2023-12-06?"
+    "question": "What was the total hydration intake across the 3 days from 2023-12-04 through 2023-12-06?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1072's timeline and answer this operational question: What was the total hydration intake across the 3 days from 2023-12-04 through 2023-12-06? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

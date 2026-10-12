@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00030",
     "category": "cross-dimensional-reasoning",
-    "question": "Among the recorded days from 2023-03-29 to 2023-03-31, on which day did the participant have both the highest sleep duration and the lowest hydration intake?"
+    "question": "Among the recorded days from 2023-03-29 to 2023-03-31, on which day did the participant have both the highest sleep duration and the lowest hydration intake?",
+    "surface": "vitals-dashboard"
   },
   "instruction": "Review participant HENV-1031's timeline and answer this operational question: Among the recorded days from 2023-03-29 to 2023-03-31, on which day did the participant have both the highest sleep duration and the lowest hydration intake? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

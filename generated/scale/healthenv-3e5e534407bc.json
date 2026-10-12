@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00826",
     "category": "longitudinal-comparison",
-    "question": "How many minutes higher was the active minutes on 2024-04-10 than on 2024-04-07?"
+    "question": "How many minutes higher was the active minutes on 2024-04-10 than on 2024-04-07?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1077's timeline and answer this operational question: How many minutes higher was the active minutes on 2024-04-10 than on 2024-04-07? Select every supporting record, document the conclusion in the care note, set the case to Routine, and submit. Do not modify source records.",
   "patient": {

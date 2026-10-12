@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00872",
     "category": "extremum-identification",
-    "question": "Among the recorded days from 2023-09-27 to 2023-09-30, on which day was the step count lowest?"
+    "question": "Among the recorded days from 2023-09-27 to 2023-09-30, on which day was the step count lowest?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1123's timeline and answer this operational question: Among the recorded days from 2023-09-27 to 2023-09-30, on which day was the step count lowest? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

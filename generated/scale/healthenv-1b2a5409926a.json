@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00196",
     "category": "longitudinal-comparison",
-    "question": "How many hours lower was the sleep duration on 2024-12-07 than on 2024-12-04?"
+    "question": "How many hours lower was the sleep duration on 2024-12-07 than on 2024-12-04?",
+    "surface": "clinical-ledger"
   },
   "instruction": "Review participant HENV-1197's timeline and answer this operational question: How many hours lower was the sleep duration on 2024-12-07 than on 2024-12-04? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

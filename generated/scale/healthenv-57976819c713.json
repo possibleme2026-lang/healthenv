@@ -5,7 +5,8 @@
     "benchmark": "HealthEnv-Scale",
     "seed_id": "synth-00743",
     "category": "temporal-aggregation",
-    "question": "What was the average systolic blood pressure across the 4 days from 2024-11-07 through 2024-11-10?"
+    "question": "What was the average systolic blood pressure across the 4 days from 2024-11-07 through 2024-11-10?",
+    "surface": "timeline"
   },
   "instruction": "Review participant HENV-1244's timeline and answer this operational question: What was the average systolic blood pressure across the 4 days from 2024-11-07 through 2024-11-10? Select every supporting record, document the conclusion in the care note, set the case to Review, and submit. Do not modify source records.",
   "patient": {

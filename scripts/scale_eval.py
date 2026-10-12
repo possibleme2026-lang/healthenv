@@ -95,6 +95,7 @@ def run(
     metrics: Counter[str] = Counter()
     answer_types: Counter[str] = Counter()
     statuses: Counter[str] = Counter()
+    surfaces: Counter[str] = Counter()
     record_counts: Counter[int] = Counter()
     task_ids: set[str] = set()
     structural_errors: list[str] = []
@@ -106,6 +107,7 @@ def run(
         metrics[str(seed.metadata.get("metric", "unknown"))] += 1
         answer_types[str(seed.metadata.get("answer_type", "unknown"))] += 1
         statuses[str(task.verifier["required_status"])] += 1
+        surfaces[str(task.source.get("surface", "timeline"))] += 1
         record_counts[len(task.records)] += 1
         answers[seed.answer] += 1
         questions[seed.question] += 1
@@ -168,6 +170,11 @@ def run(
             "metrics": dict(sorted(metrics.items())),
             "answer_types": dict(sorted(answer_types.items())),
             "required_status": dict(sorted(statuses.items())),
+            "surfaces": dict(sorted(surfaces.items())),
+            "surface_note": (
+                "surface selects the rendered health-software layout (timeline / vitals "
+                "dashboard / clinical ledger); it never changes evidence, gold answer, or verifier"
+            ),
             # keys are stringified so the report compares equal after a JSON round-trip
             "records_per_task": {str(key): value for key, value in sorted(record_counts.items())},
         },
